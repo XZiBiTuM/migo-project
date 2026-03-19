@@ -12,11 +12,12 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Create directory structure
+RUN mkdir -p static media
+
 # Copy project files
 COPY core/ ./core/
 COPY migo/ ./migo/
-COPY static/ ./static/
-COPY media/ ./media/
 COPY tg_bot/ ./tg_bot/
 COPY manage.py .
 
