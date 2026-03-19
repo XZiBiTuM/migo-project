@@ -1,0 +1,26 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/documents',
+        destination: '/services',
+      },
+      {
+        source: '/documents/:slug',
+        destination: '/services/:slug',
+      },
+      // Top-level service aliases
+      { source: '/passport', destination: '/services/passport' },
+      { source: '/sim', destination: '/services/sim' },
+      { source: '/dms', destination: '/services/dms' },
+      { source: '/loans', destination: '/services/loans' },
+      { source: '/transfers', destination: '/services/transfers' },
+      { source: '/biometrics', destination: '/services/biometrics' },
+      { source: '/bank_card', destination: '/services/bank_card' },
+    ];
+  },
+};
+
+export default nextConfig;

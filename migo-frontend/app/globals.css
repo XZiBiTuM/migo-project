@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-migo-blue: #2196D3;
+  --color-migo-blueDark: #1976B0;
+  --color-migo-cyan: #00BCD4;
+  --color-migo-accent: #B8D430;
+  --color-migo-accentDark: #9AB828;
+  --color-migo-navy: #163A5C;
+  --color-migo-light: #F0F7FC;
+  --color-migo-gray: #E3EDF5;
+  --color-migo-green: #27A154;
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --font-display: var(--font-montserrat), 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .font-display {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+  }
+}

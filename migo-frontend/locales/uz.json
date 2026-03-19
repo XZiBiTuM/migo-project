@@ -1,0 +1,485 @@
+{
+  "lang_intro": {
+    "title": "Tilni tanlang",
+    "continue_ru": "Rus tilida davom etish",
+    "lang_label": "Til:"
+  },
+  "nav": {
+    "work": "Ish",
+    "housing": "Uy-joy",
+    "services": "Xizmatlar",
+    "news": "Yangiliklar",
+    "about": "Loyiha haqida",
+    "contacts": "Kontaktlar",
+    "support": "Qo'llab-quvvatlash"
+  },
+  "footer": {
+    "desc_1": "Rossiyadagi MDH fuqarolariga yordam xizmati.",
+    "desc_2": "Qonuniy, xavfsiz va qo'llab-quvvatlash bilan.",
+    "docs_title": "Hujjatlar",
+    "privacy": "Maxfiylik siyosati",
+    "terms": "Foydalanuvchi shartnomasi",
+    "admin": "Admin-panel",
+    "contacts_title": "Kontaktlar",
+    "company_name": "MChJ «PRM»",
+    "address_msk": "Moskva, Armyanskiy tor ko'ch., 9-uy, 1-bino, 4-qavat, 402-2 ofis",
+    "address_kld": "Kaliningrad, Kalinin prospekti 2, 4-ofis",
+    "copyright": "© 2026 MIGO ekotizimi. Barcha huquqlar himoyalangan. | Ishlab chiquvchi:"
+  },
+  "cookie": {
+    "text": "Sayt ishlashini yaxshilash uchun biz cookie-fayllardan foydalanamiz. Saytdan foydalanishni davom ettirib, siz quyidagilarga rozilik bildirasiz:",
+    "policy_link": "Maxfiylik siyosati",
+    "agree": "Roziman"
+  },
+  "mobile_nav": {
+    "work": "Ish",
+    "services": "Xizmatlar",
+    "telegram": "Telegram",
+    "menu": "Menyu",
+    "home": "Bosh sahifa",
+    "housing": "Uy-joy",
+    "services_long": "Hujjatlar va Xizmatlar",
+    "news_long": "Jurnal va Yangiliklar",
+    "about": "Loyiha haqida",
+    "contacts": "Kontaktlar",
+    "support": "Qo'llab-quvvatlash xizmatiga yozish"
+  },
+  "consultation": {
+    "btn_text": "Konsultatsiya olish"
+  },
+  "home": {
+    "hero": {
+      "badge": "Rossiyada sizning yo'lboshchingiz",
+      "title_1": "Rossiyada ishlash",
+      "title_2": "va yashash",
+      "title_highlight": "ortiqcha tashvishlarsiz",
+      "subtitle": "MDH fuqarolariga qonuniy ishga joylashish, uy-joy va hujjatlar bilan yordam beramiz. Rasmiy, tez va 24/7 qo'llab-quvvatlash bilan.",
+      "btn_work": "Ish topish",
+      "btn_services": "Xizmatlar"
+    },
+    "about_section": {
+      "badge": "MIGO loyihasi haqida",
+      "title": "Oddiy xizmatdan",
+      "title_highlight": "ko'proq",
+      "desc_1": "— Rossiyada chet el fuqarolarini qo'llab-quvvatlash ekotizimi. Biz qulay hayot va qonuniy ish uchun barcha zarur xizmatlarni bir joyda birlashtiruvchi platforma yaratdik.",
+      "desc_2": "Bizning maqsadimiz — sizni byurokratiya, navbatlar va firibgarlar xavfidan xalos qilish. Biz murakkab jarayonlarni tushunarli tilga o'tkazdik va ularni qulay Telegram-bot orqali avtomatlashtirildi.",
+      "stat_support": "Qo'llab-quvvatlash",
+      "stat_legal": "Qonuniy",
+      "stat_click": "1 bosish",
+      "stat_telegram": "Telegramda",
+      "reliable_title": "Biz bilan ishonchli",
+      "reliable_desc": "Biz faqat rasmiy idoralar, tekshirilgan ish beruvchilar va ishonchli uy egalari bilan ishlaymiz. Ertangi kuningizga ishonch bilan qarashingiz mumkin."
+    },
+    "services_section": {
+      "title": "Bizning xizmatlar",
+      "subtitle": "Yangi mamlakatda hayot va ishingizning har bir bosqichida har tomonlama qo'llab-quvvatlash.",
+      "all_services": "Barcha xizmatlar",
+      "find_work": "Ish topish",
+      "housing": "Uy-joy",
+      "more": "Batafsil"
+    },
+    "steps": {
+      "title": "MIGO bilan muvaffaqiyatga 4 qadam",
+      "subtitle": "Biz jarayonni iloji boricha oddiy va shaffof qildik, shunda siz eng muhim narsaga e'tibor qarata olasiz.",
+      "step1_title": "Ariza",
+      "step1_desc": "Telegramda 1 daqiqada so'rov qoldiring",
+      "step2_title": "Tanlash",
+      "step2_desc": "Mezonlaringizga eng yaxshi variantlarni topamiz",
+      "step3_title": "Rasmiylashtirish",
+      "step3_desc": "Barcha hujjatlar bilan rasmiy yordam beramiz",
+      "step4_title": "Boshlash",
+      "step4_desc": "Ishlash va tinch yashashni boshlang"
+    },
+    "trust": {
+      "badge": "Nega bizga ishonishadi",
+      "title": "MIGO — Rossiyadagi ishonchli hamkoringiz",
+      "feature1_title": "Hammasi ona tilida",
+      "feature1_desc": "Qonunchilik nozikliklarini iloji boricha sodda va tushunarli tushuntiramiz.",
+      "feature2_title": "Yuridik himoya",
+      "feature2_desc": "Faqat tekshirilgan ish beruvchilar va rasmiy hujjatlar bilan ishlaymiz.",
+      "feature3_title": "Doimo aloqada",
+      "feature3_desc": "Telegramdagi shaxsiy menejeringiz istalgan vaqtda istalgan savolga javob berishga tayyor."
+    },
+    "testimonials": {
+      "t1_text": "«Toshkentdan kelganman, hech narsani bilmasdim. MIGO yigitlari patent bilan yordam berishdi, yaxshi yotoqxona topishdi va yirik marketpleys omboriga ishga joylashishga ko'maklashishdi. Hammasi halol, to'lovlar o'z vaqtida. Rahmat!»",
+      "t1_author": "Aziz Xodjayev",
+      "t1_info": "Moskvada 1,5 yildan beri ishlaydi",
+      "t2_text": "«Qo'llab-quvvatlashdan juda mamnunman. Hujjatlarni tarjima qilish va sug'urta rasmiylashtirishda yordam berishdi. Telegramda doimo aloqada, tez va aniq javob berishadi. Barcha vatandoshlarga tavsiya qilaman.»",
+      "t2_author": "Sardor Mirzoyev",
+      "t2_info": "Quruvchi, Sankt-Peterburg",
+      "t3_text": "«MIGO — bu birinchi navbatda xavfsizlik. Menga uyimga yaqin joydan ish topib berishdi, ro'yxatdan o'tishda yordam berishdi. Endi men kelajagimdan xotirjamman va oilamga yordam bera olaman.»",
+      "t3_author": "Farxod Nazarov",
+      "t3_info": "Kuryer, Yekaterinburg",
+      "t4_text": "«Ilgari aldanib qolishdan qo'rqardim, lekin MIGO bilan hammasi rasmiy. Shartnoma tuzdik, ish haqi o'z vaqtida keladi. Agar qonunlar bo'yicha savollar bo'lsa — yurist doim bepul yordam beradi.»",
+      "t4_author": "Nurdin Osmonov",
+      "t4_info": "Yig'uvchi, Qozon",
+      "t5_text": "«Ajoyib servis. O'zim idoralarga yugurishga majbur bo'lmadim, hammasini aytib turishdi. Oilamni ham olib keldim, ishlashda davom etmoqchimiz.»",
+      "t5_author": "Bekzod Aliyev",
+      "t5_info": "Avtobus haydovchisi, Moskva"
+    },
+    "legal_aid": {
+      "badge": "Bepul",
+      "title": "Huquqiy yordam",
+      "title_highlight": "hammaga",
+      "desc": "Biz MDH fuqarolari uchun bepul yuridik konsultatsiya taqdim etamiz. Hujjatlar, patentlar bilan yordam beramiz va ishga joylashishda huquqlaringizni himoya qilamiz.",
+      "btn": "Yuristga savol berish"
+    },
+    "news_section": {
+      "title": "Muhim va foydali",
+      "all_articles": "Barcha maqolalar",
+      "no_news": "Hozircha yangiliklar yo'q, lekin tez orada bu yerda ko'p foydali narsa bo'ladi!",
+      "read_full": "To'liq o'qish"
+    },
+    "cta": {
+      "title": "Rossiyada yangi hayotni boshlashga tayyormisiz?",
+      "subtitle": "Ertaga qo'ymang. Telegramda bepul konsultatsiya sizni kutmoqda.",
+      "btn_write": "Bizga yozing",
+      "btn_services": "Xizmatlarni tanlash"
+    }
+  },
+  "work": {
+    "hero": {
+      "badge": "Tekshirilgan vakansiyalar",
+      "title_1": "Rossiyada ish toping",
+      "title_highlight": "Telegram orqali 2 daqiqada",
+      "subtitle": "Murakkab saytlar va ro'yxatdan o'tishsiz. Shunchaki botni oching va shaxsiy menejer rahbarligida mezonlaringizga mos vakansiyalarni oling.",
+      "btn": "Telegramda ish topish"
+    },
+    "steps": {
+      "title": "Bu qanday ishlaydi",
+      "subtitle": "Biz ish qidirish jarayonini iloji boricha shaffof va xavfsiz qildik.",
+      "step1_title": "Tugmani bosing",
+      "step1_desc": "Ushbu saytdan «Ish topish»",
+      "step2_title": "Bot ochiladi",
+      "step2_desc": "Telegramdagi yordamchi",
+      "step3_title": "Shaharni tanlang",
+      "step3_desc": "Va kerakli kasbni",
+      "step4_title": "Vakansiyalar oling",
+      "step4_desc": "Va menejerga to'g'ridan-to'g'ri yozing"
+    },
+    "advantages": {
+      "title": "MIGO afzalliklari",
+      "subtitle": "Biz faqat ish qidirmaymiz, biz ishga joylashish xavfsizligini ta'minlaymiz.",
+      "adv1_title": "Ish beruvchilarni tekshirish",
+      "adv1_desc": "Faqat tekshirilgan kompaniyalar bilan ishlaymiz",
+      "adv2_title": "Uy-joy bilan yordam",
+      "adv2_desc": "Ish yaqinida yotoqxona topamiz",
+      "adv3_title": "Hujjatlar bo'yicha konsultatsiya",
+      "adv3_desc": "Patent/ro'yxatga olish uchun ro'yxat bilan yordam beramiz",
+      "adv4_title": "24/7 qo'llab-quvvatlash",
+      "adv4_desc": "Menejer doimo Telegramda aloqada",
+      "adv5_title": "Aldovsiz to'lov",
+      "adv5_desc": "To'lovlar shaffofligini nazorat qilamiz"
+    },
+    "vacancies": {
+      "title": "Mashhur vakansiyalar",
+      "subtitle": "Dolzarb takliflar namunalari. To'liq ro'yxatni olish va individual ish tanlash uchun Telegramga yozing.",
+      "all_in_tg": "Barcha vakansiyalar Telegramda",
+      "no_vacancies": "Hozircha mavjud vakansiyalar yo'q. Keyinroq tashrif buyuring yoki individual tanlash uchun Telegramga yozing.",
+      "other_options": "Boshqa variantlarni tanlash",
+      "apply": "Ariza berish",
+      "housing_free": "Bepul yashash joyi",
+      "meals": "Ovqatlanish",
+      "docs": "Hujjatlar"
+    },
+    "safety": {
+      "title": "Xavfsizlik — birinchi navbatda",
+      "risks_label": "Xavflar",
+      "risks_title": "Tasodifiy chatlar",
+      "risk1": "Ish beruvchi va mehnat sharoitlarini hech qanday tekshirish yo'q",
+      "risk2": "Maosh va jadval bilan aldash xavfi yuqori",
+      "risk3": "Sizning xavfsizligingiz uchun hech kim javobgar emas",
+      "migo1": "Faqat rasmiy rasmiylashtirilgan tekshirilgan vakansiyalar",
+      "migo2": "Maishiy masalalar va uy-joy bilan yordam",
+      "migo3": "Ishga chiqishgacha menejer to'liq hamrohlik qiladi"
+    },
+    "countries": {
+      "title": "Quyidagi fuqarolar uchun ishlaymiz",
+      "kg": "Qirgʻiziston",
+      "uz": "Oʻzbekiston",
+      "tj": "Tojikiston",
+      "kz": "Qozogʻiston"
+    },
+    "cta": {
+      "title": "Ishlashga tayyormisiz?",
+      "subtitle": "Hech narsa qidirish shart emas. Telegramga yozing va bugun eng yaxshi vakansiyalarni taklif qilamiz.",
+      "btn_tg": "Telegramga yozish",
+      "btn_legal": "Yuridik yordam"
+    }
+  },
+  "housing": {
+    "hero": {
+      "badge": "Rossiyadagi yangi uyingiz",
+      "title_1": "Qulay uy-joy",
+      "title_highlight": "ishingiz yaqinida",
+      "subtitle": "MDH fuqarolari uchun yotoqxona, kvartira va xostellarni tanlashda yordam. Tez, rasmiy va qulay rayonda.",
+      "btn": "Telegramda uy-joy tanlash"
+    },
+    "dev_notice": {
+      "badge": "Ishlab chiqilmoqda",
+      "title": "«Uy-joy» bo'limi tez orada tayyor bo'ladi",
+      "desc": "Biz Rossiyada MDH fuqarolari uchun qulay yashash joyini tanlash xizmatini tayyorlamoqdamiz. Hozircha — Telegramga yozing, biz uy-joyni qo'lda tanlashda yordam beramiz.",
+      "btn_tg": "Telegram orqali uy-joy tanlash",
+      "btn_help": "Hozir yordam kerakmi?"
+    },
+    "types": {
+      "title": "Yashash variantlari",
+      "subtitle": "Aynan sizga mos variantni topamiz — arzonidan qulaygacha.",
+      "dorm_title": "Yotoqxonalar",
+      "dorm_desc": "Ish yaqinida arzon va tekshirilgan variantlar. Barcha yashovchilar uchun qonuniy ro'yxatga olish.",
+      "hostel_title": "Xostellar",
+      "hostel_desc": "Birinchi vaqt uchun ideal. Moskva va Moskva viloyatida qulay joylashuv.",
+      "apartment_title": "Kvartiralar",
+      "apartment_desc": "Oila bilan qulay yashash uchun. Aldash xavfisiz variant topishda yordam beramiz.",
+      "more": "Batafsil"
+    },
+    "trust": {
+      "badge": "Sizning xavfsizligingiz",
+      "title": "Nega MIGO'ga ishonish kerak",
+      "feature1_title": "Firibgarlar yo'q",
+      "feature1_desc": "Biz faqat tekshirilgan mulk egalari va yotoqxona boshqaruvchilari bilan ishlaymiz.",
+      "feature2_title": "Qonuniy ro'yxatga olish",
+      "feature2_desc": "Biz orqali joylashsangiz, RF da qonuniy ishlash uchun kerakli rasmiy ro'yxatga olish olasiz.",
+      "safe_title": "Xavfsiz ko'chib o'tish",
+      "safe_desc": "RF ga kelishdan oldin Telegramga yozing, biz sizga oldindan yashash joyini topamiz.",
+      "btn": "Hozir yozish"
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "Professional yordam",
+      "title_1": "Bizning xizmatlar",
+      "title_highlight": "Rossiyada hayotingiz uchun",
+      "subtitle": "Yuridik yordamdan maishiy masalalargacha. Adaptatsiya va ishingizning har bir bosqichida sizni qo'llab-quvvatlaymiz."
+    },
+    "docs_section": {
+      "label": "Hujjatlar",
+      "title": "Hujjatlarni rasmiylashtirish",
+      "subtitle": "Rossiyada qonuniy ishlash va yashash uchun to'liq hujjatlar to'plami.",
+      "more": "Batafsil",
+      "order_tg": "Telegramda rasmiylashtirish",
+      "order_site": "Saytda ariza qoldirish"
+    },
+    "extra_section": {
+      "label": "Xizmatlar",
+      "title": "Qo'shimcha xizmatlar",
+      "subtitle": "Maishiy va moliyaviy masalalarni hal qilishda yordam beramiz, o'zingizni uyda his qiling.",
+      "more": "Batafsil",
+      "learn_tg": "Telegramda bilish",
+      "order_site": "Ariza qoldirish",
+      "partner_note": "Xizmat hamkorlar tomonidan taqdim etiladi. MIGO moliyaviy tashkilot emas."
+    },
+    "steps": {
+      "title": "MIGO qanday ishlaydi",
+      "subtitle": "Savolingizni hal qilish uchun to'rtta oddiy qadam.",
+      "step1_title": "Bizga murojaat qiling",
+      "step1_desc": "Telegram botda yoki telefon orqali",
+      "step2_title": "Hisob-kitob oling",
+      "step2_desc": "Bepul konsultatsiya va narx",
+      "step3_title": "Mutaxassis bilan ishlash",
+      "step3_desc": "Menejeringiz doimo aloqada",
+      "step4_title": "Natija",
+      "step4_desc": "Tayyor hujjatlar yoki xizmat"
+    },
+    "faq": {
+      "title": "Ko'p beriladigan savollar",
+      "q1": "Javobni qanchalik tez olaman?",
+      "a1": "Menejerlarimiz har kuni ishlaydi. Telegram botda ish vaqtida 10-15 daqiqada birinchi javob olasiz.",
+      "q2": "Oldindan to'lash kerakmi?",
+      "a2": "Ko'pchilik konsultatsiyalar bepul. Xizmatlar narxi ish boshida belgilanadi va fakt bo'yicha yoki bosqichma-bosqich to'lanadi.",
+      "q3": "Patent rasmiylashtirish bilan yordam berasizmi?",
+      "a3": "Ha, biz to'liq hujjatlar ro'yxatini taqdim etamiz va migratsiya markaziga yozilishda yordam beramiz.",
+      "q4": "Pasport tarjimasi uchun qanday hujjatlar kerak?",
+      "a4": "Pasportning asl nusxasi yetarli. Biz notarial tarjima va tasdiqlashni 1 ish kuni ichida bajaramiz."
+    },
+    "cta": {
+      "title": "Kerakli xizmatni topmadingizmi?",
+      "subtitle": "Telegramga yozing — Rossiyada ishlash va yashash bilan bog'liq deyarli har qanday masalani hal qilishda yordam beramiz.",
+      "btn": "Menejerga yozish"
+    }
+  },
+  "about": {
+    "hero": {
+      "title_1": "Biz barcha uchun",
+      "title_highlight": "xavfsiz yo'l",
+      "title_2": "qurayapmiz",
+      "mission_title": "Bizning missiya",
+      "mission_desc": "MIGO — MDH fuqarolari uchun Rossiyada hayot va ishni shaffof, xavfsiz va qulay qilish uchun yaratilgan ijtimoiy loyiha.",
+      "mission_extra": "Biz har bir inson halol munosabat, munosib ish haqi va sifatli uy-joyga loyiq deb ishonamiz. Savollaringizni «bitta oynada» hal qilish uchun texnologiya va inson yordamini birlashtiramiz."
+    },
+    "why": {
+      "title": "Nega biz buni qilyapmiz",
+      "reason1_title": "Ishonchli ma'lumot yo'qligi",
+      "reason1_desc": "Ko'pchilik o'z huquqlarini bilmagani yoki tekshirilgan ish beruvchilarga kirish imkoniga ega bo'lmagani uchun aldovga duch keladi.",
+      "reason1_label": "SABAB №1",
+      "safety_title": "Xavfsizlik",
+      "safety_desc": "Ertangi kuningizga ishonch bilan qarashingiz uchun har bir hamkorni tekshiramiz.",
+      "support_title": "Qo'llab-quvvatlash",
+      "support_desc": "Bizning bot va menejerlar — 24/7 ishonchli yordamchilaringiz.",
+      "tech_title": "Odamlar uchun texnologiyalar",
+      "tech_desc": "Biz sizga qulay bo'lgan joyda — Telegramdan foydalanamiz. Murakkab interfeyslar yo'q, faqat foyda."
+    },
+    "partners": {
+      "title": "Bizning hamkorlar"
+    },
+    "faq": {
+      "title": "Tez-tez beriladigan savollar",
+      "subtitle": "MIGO platformasi bilan ishlash haqida bilishingiz kerak bo'lgan hamma narsa.",
+      "q1": "MIGO boshqa xizmatlardan nima farqi bor?",
+      "a1": "Biz yagona kirish nuqtasi sifatida ishlaymiz. Alohida ish, alohida uy-joy qidirish va hujjatlar bilan shug'ullanish shart emas. Barcha bosqichlarda «kalit yechim» bilan yordam beramiz.",
+      "q2": "Xizmatlaringiz bepulmi?",
+      "a2": "Telegram-bot, vakansiyalar katalogi va asosiy konsultatsiyalar bepul. Qo'shimcha xizmatlar (masalan, hujjat tarjimasi yoki rasmiylashtirish) ochiq tariflar bo'yicha to'lanadi.",
+      "q3": "Qayerda joylashgansiz?",
+      "a3": "Asosiy xizmat ko'rsatish ofislarimiz Moskva va Kaliningradda joylashgan, ammo qo'llab-quvvatlash xizmatimiz butun Rossiya bo'ylab masofaviy ishlaydi."
+    },
+    "cta": {
+      "title": "Keling, bu dunyoni birga yaxshiroq qilaylik",
+      "subtitle": "Hamkorimiz bo'lishni yoki loyihani rivojlantirishda yordam berishni xohlaysizmi? Biz doimo takliflarga ochiqmiz.",
+      "btn": "Biz bilan bog'lanish"
+    }
+  },
+  "contacts": {
+    "hero": {
+      "title_1": "Biz doimo",
+      "title_highlight": "siz bilan aloqadamiz",
+      "subtitle": "Qulay aloqa usulini tanlang. Menejerlarimiz Telegram yoki telefon orqali har qanday savolga javob berishga tayyor."
+    },
+    "cards": {
+      "tg_title": "Telegram",
+      "tg_desc": "Menejerdan javob olishning eng tez usuli.",
+      "phone_title": "Telefon",
+      "phone_desc": "Har kuni soat 9:00 dan 20:00 gacha (Moskva vaqti bo'yicha) qo'ng'iroq qiling.",
+      "email_title": "Email",
+      "email_desc": "Rasmiy so'rovlar va hamkorlik takliflari uchun.",
+      "connect": "Bog'lanish"
+    },
+    "offices": {
+      "title": "Xizmat ko'rsatish ofislari",
+      "office1": "Lesoparkovaya metro",
+      "office2": "Salaryevo metro",
+      "office3": "Domodedovskaya metro",
+      "hours": "Ish vaqtini Telegramdan aniqlang"
+    },
+    "legal": {
+      "title": "Yuridik ma'lumot",
+      "name_label": "Nomi",
+      "address_label": "Haqiqiy manzil",
+      "address_value": "Moskva sh., Armyanskiy ko'ch., 9-uy, 1-bino, 204-ofis",
+      "phone_label": "Telefon"
+    },
+    "social": {
+      "title": "Bizga obuna bo'ling",
+      "subtitle": "Loyiha yangiliklari, yangi vakansiyalar va foydali maslahatlarni ijtimoiy tarmoqlarimizda kuzatib boring."
+    }
+  },
+  "service_modal": {
+    "success_title": "Rahmat!",
+    "success_desc": "Sizning so'rovingiz muvaffaqiyatli yuborildi. Mutaxassisimiz tez orada siz bilan bog'lanadi.",
+    "form_desc": "Ma'lumotlaringizni qoldiring va mutaxassisimiz xizmatni rasmiylashtirish uchun siz bilan bog'lanadi.",
+    "label_name": "Ism",
+    "placeholder_name": "Sizga qanday murojaat qilish kerak?",
+    "label_phone": "Telefon",
+    "label_citizenship": "Fuqarolik",
+    "placeholder_citizenship": "Masalan, RF",
+    "label_city": "Sizning shahringiz",
+    "placeholder_city": "Qayerdasiz?",
+    "consent_1": "Men ",
+    "consent_link": "shaxsiy ma'lumotlarni qayta ishlashga",
+    "consent_2": " rozilik beraman va shartlarni qabul qilaman.",
+    "submit_btn": "So'rov qoldirish",
+    "alert_error": "Yuborishda xatolik.",
+    "alert_server_error": "Server bilan bog'lanishning iloji bo'lmadi.",
+    "comment_prefix": "Xizmat uchun so'rov: "
+  },
+  "bottom_nav": {
+    "work": "Ish",
+    "docs": "Hujjatlar",
+    "tg": "Telegram",
+    "menu": "Menyu"
+  },
+  "news": {
+    "categories": {
+      "all": "Barcha yangiliklar",
+      "documents": "Hujjatlar",
+      "work": "Ish",
+      "housing": "Uy-joy",
+      "laws": "Qonunlar",
+      "important": "Muhim",
+      "stories": "Hikoyalar"
+    },
+    "hero": {
+      "title_1": "Yangiliklar",
+      "title_highlight": "va foydali maqolalar",
+      "subtitle": "Rossiyadagi qonunlardagi o'zgarishlar, yangi vakansiyalar va hayot uchun foydali maslahatlardan birinchi bo'lib xabardor bo'ling."
+    },
+    "empty_title": "Hech narsa topilmadi",
+    "empty_desc": "Boshqa kategoriyani tanlab ko'ring",
+    "cta": {
+      "title": "Muhim narsani o'tkazib yubormang",
+      "subtitle": "Biz har kuni migratsiya huquqi bo'yicha dolzarb yangiliklar va maslahatlarni e'lon qiladigan Telegram kanalimizga obuna bo'ling.",
+      "btn": "Telegramga obuna bo'lish"
+    },
+    "card": {
+      "read_more": "Maqolani o'qish",
+      "no_date": "Sana ko'rsatilmagan"
+    }
+  },
+  "news_detail": {
+    "back_btn": "Orqaga qaytish",
+    "edit_btn": "Tahrirlash",
+    "author": "MIGO jamoasi",
+    "reading_time": " daqiqa o'qish",
+    "share_text": "Maqola foydali bo'ldimi? Uni ulashing:",
+    "related_title": "Shuningdek o'qing",
+    "all_articles": "Barcha maqolalar",
+    "cta_title": "Savollar paydo bo'ldimi?",
+    "cta_subtitle": "Biz doimo aloqadamiz. Bizning yuristlarimiz va ekspertlarimiz migratsiya hisobi yoki ishga joylashishning har qanday nozik tomonlarini tushunishga yordam berishga tayyor.",
+    "cta_law_btn": "Yuristdan so'rash",
+    "cta_work_btn": "Ish topish",
+    "related_card": {
+      "read": "O'qish"
+    }
+  },
+  "privacy": {
+    "title": "Maxfiylik siyosati",
+    "meta_title": "Maxfiylik siyosati | MIGO",
+    "meta_desc": "MIGO servisining shaxsiy ma'lumotlarni qayta ishlash siyosati.",
+    "back_home": "Asosiyga",
+    "subtitle": "Ushbu Maxfiylik siyosati MIGO (MChJ «PRM») servisi foydalanuvchilarining shaxsiy ma'lumotlarini qayta ishlash va himoya qilish tartibini belgilaydi.",
+    "s1_title": "1. Shaxsiy ma'lumotlarni yig'ish",
+    "s1_content": "Biz xizmatlarimizni taqdim etish uchun minimal zarur bo'lgan ma'lumotlarni yig'amiz. Saytda so'rov qoldirganda biz quyidagilarni so'rashimiz mumkin:",
+    "s1_list_1": "Ism;",
+    "s1_list_2": "Telefon raqami;",
+    "s1_list_3": "Telegramdagi nikneym (botga o'tganda).",
+    "s2_title": "2. Ma'lumotlardan foydalanish",
+    "s2_content": "Sizning shaxsiy ma'lumotlaringiz faqat quyidagilar uchun foydalaniladi:",
+    "s2_list_1": "Konsultatsiya xizmatlarini ko'rsatish uchun siz bilan bog'lanish;",
+    "s2_list_2": "Mos vakansiyalar, uy-joy yoki xizmatlarni tanlash;",
+    "s2_list_3": "Servisimiz ish sifatini yaxshilash.",
+    "s3_title": "3. Ma'lumotlarni himoya qilish va uzatish",
+    "s3_content": "Biz sizning ma'lumotlaringizni ruxsatsiz kirishdan himoya qilish uchun barcha zarur texnik choralarni ko'ramiz. Biz sizning aloqa ma'lumotlaringizni uchinchi shaxslarga sizning aniq roziligingizsiz bermaymiz, RF qonunchiligida nazarda tutilgan holatlar yoki xizmat ko'rsatish uchun zarur bo'lgan hollar bundan mustasno.",
+    "s4_title": "4. Aloqa ma'lumotlari",
+    "s4_content_1": "Agar ma'lumotlaringizni qayta ishlash bo'yicha savollaringiz bo'lsa, biz bilan quyidagi telefon orqali bog'lanishingiz mumkin: ",
+    "s4_content_2": " yoki Telegram-botimizga yozishingiz mumkin.",
+    "updated": "2026 yilda yangilangan",
+    "terms_link": "Foydalanuvchi shartnomasi"
+  },
+  "terms": {
+    "title": "Foydalanuvchi shartnomasi",
+    "meta_title": "Foydalanuvchi shartnomasi | MIGO",
+    "meta_desc": "MIGO servisidan foydalanish shartlari.",
+    "back_home": "Asosiyga",
+    "subtitle": "Ushbu Foydalanuvchi shartnomasi foydalanuvchi va MIGO (MChJ «PRM») servisi o'rtasidagi sayt va unga bog'liq Telegram-botlardan foydalanish bo'yicha munosabatlarni tartibga soladi.",
+    "s1_title": "1. Shartnomaning predmeti",
+    "s1_content": "MIGO RF hududida moslashish, ish qidirish, uy-joy va hujjatlarni rasmiylashtirish bilan bog'liq axborot va konsultatsiya xizmatlarini ko'rsatadi. Servis davlat organi hisoblanmaydi. Barcha hujjatlarning yakuniy rasmiylashtirilishi tegishli vakolatli tashkilotlarda (MMTs, IIV, banklar va h.k.) amalga oshiriladi.",
+    "s2_title": "2. Tomonlarning majburiyatlari",
+    "s2_list_1": "Foydalanuvchi so'rovlarni tuzishda o'zi haqida ishonchli ma'lumotlarni taqdim etish majburiyatini oladi.",
+    "s2_list_2": "MIGO dolzarb ma'lumotlarni taqdim etish va foydalanuvchiga sifatli konsultatsiya berish uchun maksimal harakat qilish majburiyatini oladi.",
+    "s3_title": "3. Mas'uliyatni cheklash",
+    "s3_content": "Sayt va undagi ma'lumotlar tanishish uchun mo'ljallangan va ommaviy oferta hisoblanmaydi. Servis ma'muriyati davlat organlari tomonidan foydalanuvchiga nisbatan qabul qilingan qarorlar (masalan, patent berish yoki ro'yxatga olishni rad etish) uchun, agar ular servis harakatlariga bog'liq bo'lmasa, javobgar emas.",
+    "s4_title": "4. Shartlarning o'zgarishi",
+    "s4_content": "Ma'muriyat istalgan vaqtda ushбу shartnomaga o'zgartirishlar kiritish huquqini o'zida saqlab qoladi. O'zgartirishlar kiritilgandan keyin saytdan foydalanishni davom ettirish sizning yangi shartlarga rozi ekanligingizni anglatadi.",
+    "terms_link": "Maxfiylik siyosati",
+    "updated": "2026 yil tahriri"
+  }
+}

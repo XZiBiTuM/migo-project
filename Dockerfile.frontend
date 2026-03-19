@@ -1,0 +1,35 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files and install dependencies
+COPY migo-frontend/package.json migo-frontend/package-lock.json ./
+RUN npm install
+
+# Copy source and build
+COPY migo-frontend/ ./
+# Public URL for the API in production (example, can be build arg)
+# But it's better to use environment variables during build if needed
+# Actually, NEXT_PUBLIC_API_URL is needed at build time for client-side fetches
+ARG NEXT_PUBLIC_API_URL=https://api.migo.ru
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+RUN npm run build
+
+# Runner stage
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+# We only need the public and .next folders to run
+COPY --from=builder /app/next.config.ts ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+EXPOSE 3000
+
+ENV NODE_ENV=production
+ENV PORT=3000
+
+CMD ["npm", "start"]
