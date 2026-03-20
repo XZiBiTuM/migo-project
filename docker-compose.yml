@@ -24,7 +24,7 @@ services:
             - DATABASE_URL=postgres://migo_user:migo_password@db:5432/migo_db
             - SECRET_KEY=django-insecure-u8+gs=f*@ftn8nuer2hfua%b445@g8(ilih@yraz_y0m+93r7+
             - DEBUG=False
-            - ALLOWED_HOSTS=api.migo-help.com,migo-help.com,backend
+            - ALLOWED_HOSTS=api.migohelp.com,migohelp.com,backend
             - BOT_TOKEN=8681056695:AAE9DsSiCKAZEaIo-yjtQVu_dKMTUEZLa8I
         volumes:
             - ./media:/app/media
@@ -49,7 +49,7 @@ services:
             context: .
             dockerfile: Dockerfile.frontend
             args:
-                - NEXT_PUBLIC_API_URL=https://api.migo-help.com
+                - NEXT_PUBLIC_API_URL=https://api.migohelp.com
         environment:
             - NEXT_PUBLIC_BOT_URL=https://t.me/migo_work
 
