@@ -12,6 +12,7 @@ export function middleware(request: NextRequest) {
     pathname.includes('.') || 
     pathname.startsWith('/api') || 
     pathname.startsWith('/admin') ||
+    pathname.startsWith('/django-admin') ||
     pathname.startsWith('/_next')
   ) {
     return;
@@ -32,6 +33,6 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     // Пропускаем все пути, кроме тех, что должны быть локализованы
-    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|admin).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|admin|django-admin).*)',
   ],
 };
