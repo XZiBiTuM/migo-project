@@ -5,9 +5,9 @@ import Script from 'next/script';
 import { GlobalHeader, GlobalFooter, GlobalMobileNav, GlobalCookieBanner, ConsultationButton } from '@/components/GlobalElements';
 import { LanguageProvider } from '@/context/LanguageContext';
 
-const manrope = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-manrope" });
-const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--font-montserrat", weight: ["400", "500", "600", "700", "800"] });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: ["700"] });
+const manrope = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-manrope", display: 'swap' });
+const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--font-montserrat", weight: ["400", "500", "600", "700", "800"], display: 'swap' });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: ["700"], display: 'swap' });
 
 export const metadata: Metadata = {
   title: "MIGO — Работа, жильё и документы в РФ",
