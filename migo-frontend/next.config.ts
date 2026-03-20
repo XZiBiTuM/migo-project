@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
         source: '/documents/:slug',
         destination: '/services/:slug',
       },
-      // Top-level service aliases
       { source: '/passport', destination: '/services/passport' },
       { source: '/sim', destination: '/services/sim' },
       { source: '/dms', destination: '/services/dms' },
