@@ -12,7 +12,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="MIGO API",
         default_version='v1',
-        description="API для интеграции Telegram-бота и фронтенда MIGO",
+        description="API для интеграции фронтенда MIGO",
     ),
     public=True,
     permission_classes=[permissions.AllowAny],
