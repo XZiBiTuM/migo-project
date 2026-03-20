@@ -38,6 +38,7 @@ export default async function LanguageLayout({
   return (
     <html lang={currentLang} suppressHydrationWarning>
       <head>
+        <link rel="canonical" href={`https://migohelp.com/${currentLang}`} />
         <link rel="alternate" hrefLang="ru" href="https://migohelp.com/ru" />
         <link rel="alternate" hrefLang="kz" href="https://migohelp.com/kz" />
         <link rel="alternate" hrefLang="kg" href="https://migohelp.com/kg" />

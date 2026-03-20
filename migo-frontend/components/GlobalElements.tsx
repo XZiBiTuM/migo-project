@@ -61,12 +61,12 @@ export function GlobalHeader() {
       {showLangIntro && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white p-6 animate-in fade-in duration-300">
           <Image src="/logo.webp" alt="MIGO" width={144} height={144} className="w-28 h-auto md:w-36 mb-8 object-contain drop-shadow-sm" priority />
-          <h1 className="text-2xl md:text-3xl font-bold text-[#163A5C] mb-6 tracking-tight"><T path="lang_intro.title">Выберите язык</T></h1>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#163A5C] mb-6 tracking-tight"><T path="lang_intro.title">Выберите язык</T></h2>
           <div className="w-full max-w-sm space-y-2.5">
             {LANGUAGES.map((lang) => (
               <button key={lang.code} onClick={() => handleLangSelect(lang.code)} className="w-full py-3.5 px-5 bg-white border border-gray-200 rounded-xl text-base font-medium text-[#163A5C] hover:border-[#2196D3] hover:bg-[#2196D3]/5 active:bg-gray-50 flex items-center justify-between transition-all">
                 <span className="flex items-center gap-3">
-                  <img src={lang.flagUrl} alt={lang.code} className="w-5 h-auto rounded-sm" />
+                  <img src={lang.flagUrl} alt={lang.code} width="20" height="15" className="w-5 h-auto rounded-sm" />
                   {lang.label}
                 </span>
                 <ChevronRight className="text-gray-300 w-4 h-4" />
@@ -100,7 +100,7 @@ export function GlobalHeader() {
               <span className="hidden sm:inline text-xs"><T path="lang_intro.lang_label">Язык:</T></span>
               {(() => {
                 const lang = LANGUAGES.find(l => l.code === selectedLang.toUpperCase());
-                return lang ? <img src={lang.flagUrl} alt={lang.code} className="w-4 h-auto rounded-sm" /> : selectedLang;
+                return lang ? <img src={lang.flagUrl} alt={lang.code} width="16" height="12" className="w-4 h-auto rounded-sm" /> : selectedLang;
               })()}
             </button>
             <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="bg-[#2196D3] hover:bg-[#1976B0] p-2 md:px-4 md:py-2 md:rounded-lg rounded-full text-white transition-colors flex items-center gap-2 text-sm font-semibold cursor-pointer">
@@ -124,7 +124,7 @@ export function GlobalFooter() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div className="col-span-1 md:col-span-2">
             <Link href={`/${lang}/`}><Image src="/logo.webp" alt="MIGO" width={40} height={40} className="w-10 h-auto mb-3 object-contain" /></Link>
-            <p className="text-gray-400 text-sm max-w-sm mb-5 leading-relaxed"><T path="footer.desc_1">Сервис помощи гражданам СНГ в России.</T><br /><T path="footer.desc_2">Легально, безопасно, с поддержкой.</T></p>
+            <p className="text-gray-500 text-sm max-w-sm mb-5 leading-relaxed"><T path="footer.desc_1">Сервис помощи гражданам СНГ в России.</T><br /><T path="footer.desc_2">Легально, безопасно, с поддержкой.</T></p>
             <div className="flex gap-3">
               <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><Send size={15} color="#163A5C" /></Link>
               <Link href={`/${lang}/contacts`} className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><MapPin size={15} color="#163A5C" /></Link>
@@ -132,10 +132,10 @@ export function GlobalFooter() {
           </div>
           <div>
             <h4 className="font-semibold text-sm mb-4 text-[#163A5C]"><T path="footer.docs_title">Документы</T></h4>
-            <ul className="space-y-2.5 text-sm text-gray-400">
-              <li><Link href={`/${lang}/privacy`} className="hover:text-[#2196D3] transition-colors cursor-pointer"><T path="footer.privacy">Политика конфиденциальности</T></Link></li>
-              <li><Link href={`/${lang}/terms`} className="hover:text-[#2196D3] transition-colors cursor-pointer"><T path="footer.terms">Пользовательское соглашение</T></Link></li>
-              <li><Link href="/admin" className="text-gray-300 hover:text-[#2196D3] transition-colors cursor-pointer text-[10px] mt-2 block opacity-50"><T path="footer.admin">Админ-панель</T></Link></li>
+            <ul className="space-y-2.5 text-sm text-gray-500 font-medium">
+              <li><Link href={`/${lang}/privacy`} className="hover:text-[#2196D3] underline decoration-transparent hover:decoration-[#2196D3] transition-all cursor-pointer"><T path="footer.privacy">Политика конфиденциальности</T></Link></li>
+              <li><Link href={`/${lang}/terms`} className="hover:text-[#2196D3] underline decoration-transparent hover:decoration-[#2196D3] transition-all cursor-pointer"><T path="footer.terms">Пользовательское соглашение</T></Link></li>
+              <li><Link href="/admin" className="text-gray-400 hover:text-[#2196D3] transition-colors cursor-pointer text-[10px] mt-2 block opacity-60"><T path="footer.admin">Админ-панель</T></Link></li>
             </ul>
           </div>
           <div>

@@ -70,7 +70,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
               <T path="news.hero.title_1">Новости</T> <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="news.hero.title_highlight">и полезные статьи</T></span>
             </h1>
-            <p className="text-lg md:text-2xl text-gray-500/80 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-2xl text-gray-600 max-w-2xl leading-relaxed">
               <T path="news.hero.subtitle">Узнавайте первыми об изменениях в законах, новых вакансиях и лайфхаках для жизни в России.</T>
             </p>
           </div>
@@ -148,8 +148,8 @@ function NewsCard({ news }: { news: NewsItem }) {
 
   return (
     <Link
-      href={`/news/${news.slug}`}
-      className="group bg-white rounded-[40px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col h-full transform hover:-translate-y-2"
+      href={`/${language.toLowerCase()}/news/${news.slug}`}
+      className="group bg-white rounded-[40px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col h-full transform hover:-translate-y-2 outline-offset-4 focus:ring-4 focus:ring-[#2196D3]/30"
     >
       <div className="relative h-64 bg-gray-50 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#2196D3]/20 to-[#163A5C]/20 group-hover:scale-110 transition-transform duration-1000"></div>
@@ -166,7 +166,7 @@ function NewsCard({ news }: { news: NewsItem }) {
       </div>
 
       <div className="p-10 flex flex-col flex-grow">
-        <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">
+        <div className="flex items-center gap-2 text-gray-500 text-xs font-bold uppercase tracking-widest mb-6">
           <Calendar size={14} className="text-[#B8D430]" />
           {dateStr}
         </div>
@@ -175,7 +175,7 @@ function NewsCard({ news }: { news: NewsItem }) {
           {news.title}
         </h3>
 
-        <div className="text-gray-500 font-medium leading-relaxed mb-8 line-clamp-3">
+        <div className="text-gray-600 font-medium leading-relaxed mb-8 line-clamp-3">
           {news.content.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ').substring(0, 150)}...
         </div>
 

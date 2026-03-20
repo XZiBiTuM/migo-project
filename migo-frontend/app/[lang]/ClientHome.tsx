@@ -130,7 +130,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="home.hero.title_highlight">без лишних хлопот</T></span>
               </h1>
 
-              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed">
                 <T path="home.hero.subtitle">Помогаем гражданам СНГ с легальным трудоустройством, жильем и документами. Официально, быстро и с поддержкой 24/7.</T>
               </p>
 
@@ -480,7 +480,7 @@ function TrustFeature({ title, desc }: any) {
       </div>
       <div>
         <h4 className="text-xl font-bold text-white mb-2 group-hover:text-[#B8D430] transition-colors">{title}</h4>
-        <p className="text-white/60 leading-relaxed text-sm md:text-base">{desc}</p>
+        <p className="text-white/80 leading-relaxed text-sm md:text-base">{desc}</p>
       </div>
     </div>
   );
@@ -495,7 +495,7 @@ function NewsCard({ tag, title, slug, date, delay, langPath }: any) {
     >
       <div className="flex justify-between items-center mb-6">
         <span className="px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-[#2196D3] bg-[#2196D3]/10">{tag}</span>
-        <span className="text-xs font-bold text-gray-300">{date}</span>
+        <span className="text-xs font-bold text-gray-500">{date}</span>
       </div>
       <h3 className="font-extrabold text-[#163A5C] text-xl leading-tight group-hover:text-[#2196D3] transition-colors mb-8 line-clamp-3">
         {title}
