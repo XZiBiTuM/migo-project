@@ -252,6 +252,45 @@
       "title_highlight": "Rossiyada hayotingiz uchun",
       "subtitle": "Yuridik yordamdan maishiy masalalargacha. Adaptatsiya va ishingizning har bir bosqichida sizni qo'llab-quvvatlaymiz."
     },
+    "free": {
+      "badge": "Bepul",
+      "title": "Bepul xizmatlar",
+      "subtitle": "Hammasini bosqichma-bosqich batafsil aytib beramiz: qanday ro'yxatdan o'tish, qanday olish — bu yo'lni birga bosib o'tamiz, shunda sizda savollar qolmaydi.",
+      "sim": "SIM-karta — ulanish va sozlashda yordam beramiz",
+      "bio": "Biometriya — qayerda va qanday topshirishni aytamiz",
+      "gosuslugi": "Gosuslugi — ro'yxatdan o'tish va akkauntni sozlash",
+      "bank": "Bank kartasi — qanday rasmiylashtirishni o'rgatamiz",
+      "docs_help": "Hujjatlaringiz bilan yordam beramiz — barcha savollarga javob beramiz",
+      "cta_btn": "Savol berish"
+    },
+    "docs": {
+      "badge": "Hujjatlar",
+      "title": "Hujjatlarni tayyorlash",
+      "subtitle": "To'g'ri hujjatlar to'plamini shakllantiramiz, barcha kabinetlardan tez o'tishga yordam beramiz. Biz bilan vaqt yo'qotmaysiz, demak, tezroq va ko'proq pul ishlashingiz mumkin.",
+      "snils": "SNILS — rasmiylashtirish va olish",
+      "inn": "INN — hisobga qo'yish",
+      "dactyl": "Daktiloskopiya — yozilish va o'tish",
+      "amma": "Tibbiy ko'rik (Amina) — to'liq o'tish",
+      "green_card": "Yashil karta — hujjatlarni tayyorlash",
+      "patent": "Patent — rasmiylashtirish uchun to'liq paket",
+      "passport_translation": "Pasport tarjimasi — notarial tarjima",
+      "cta_btn": "Savol berish",
+      "cta_tg": "Telegramda rasmiylashtirish"
+    },
+    "help": {
+      "badge": "Qo'llab-quvvatlash",
+      "title": "Yordam beramiz",
+      "subtitle": "Biz har bir bosqichda yoningizdamiz. O'zingizni ishonchli his qilishingiz uchun o'rgatamiz, tekshiramiz, yordam beramiz.",
+      "housing": "Uy-joy topish — yotoqxonalar, kvartiralar, xostellar",
+      "work": "Rasmiy qonuniy ish topish",
+      "tickets": "Aviachiptalar sotib olish — eng yaxshi variantlarni tanlaymiz",
+      "check_docs": "Hujjatlaringizni xatolar borligiga tekshiramiz",
+      "check_registry": "Nazorat qilinadigan shaxslar reyestridan tekshirish",
+      "check_restrictions": "Kirish yoki chiqishga cheklovlarni tekshirish",
+      "complex": "Murakkab muammo bilan qayerga murojaat qilishni aytamiz",
+      "warning": "Hujjatlarni qachon yangilashingiz kerakligini va har bir qadamingizdagi xavflarni aytib turamiz. Ko'pchilik yo'l qo'yadigan xatolardan sizni asraymiz, aks holda cheklov va deportatsiya olishingiz mumkin.",
+      "cta_btn": "Savol berish"
+    },
     "docs_section": {
       "label": "Hujjatlar",
       "title": "Hujjatlarni rasmiylashtirish",
@@ -290,7 +329,11 @@
       "q3": "Patent rasmiylashtirish bilan yordam berasizmi?",
       "a3": "Ha, biz to'liq hujjatlar ro'yxatini taqdim etamiz va migratsiya markaziga yozilishda yordam beramiz.",
       "q4": "Pasport tarjimasi uchun qanday hujjatlar kerak?",
-      "a4": "Pasportning asl nusxasi yetarli. Biz notarial tarjima va tasdiqlashni 1 ish kuni ichida bajaramiz."
+      "a4": "Pasportning asl nusxasi yetarli. Biz notarial tarjima va tasdiqlashni 1 ish kuni ichida bajaramiz.",
+      "q5": "Qaysi xizmatlar bepul?",
+      "a5": "Biz SIM-karta ulanishi, Gosuslugi ro'yxatidan o'tish, bank kartasi va biometriya rasmiylashtirishda bepul yordam beramiz. Shuningdek, hujjatlaringiz bo'yicha har qanday savollarga bepul konsultatsiya beramiz.",
+      "q6": "Hujjatlarimni tekshirib bera olasizmi?",
+      "a6": "Ha, biz hujjatlaringizni xatolar borligiga tekshiramiz, nazorat qilinadigan shaxslar reyestridagi holatini va kirish yoki chiqishga cheklovlar bor-yo'qligini aniqlaymiz."
     },
     "cta": {
       "title": "Kerakli xizmatni topmadingizmi?",

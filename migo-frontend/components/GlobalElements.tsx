@@ -37,19 +37,16 @@ export function GlobalHeader() {
   const handleLangSelect = (code: any) => {
     setSelectedLang(code);
     setShowLangIntro(false);
-    
-    // Перенаправляем на ту же страницу, но с новой локалью
+
     const pathname = window.location.pathname;
     const segments = pathname.split('/');
     const langCode = code.toLowerCase();
-    
-    // Если первый сегмент - существующая локаль, заменяем её
+
     const locales = ['ru', 'kz', 'kg', 'uz', 'tj'];
     if (segments.length > 1 && locales.includes(segments[1])) {
       segments[1] = langCode;
       window.location.href = segments.join('/');
     } else {
-      // Иначе добавляем её
       window.location.href = `/${langCode}${pathname === '/' ? '' : pathname}`;
     }
   };

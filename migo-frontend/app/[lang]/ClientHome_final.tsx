@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -85,32 +85,7 @@ const TESTIMONIALS = [
   {
     id: 5,
     text: "«Отличный сервис. Не пришлось самому бегать по инстанциям, всё подсказали. Уже перевез семью, планируем дальше работать.»",
-    author: "Бекзод Алиев",
-    info: "Водитель автобуса, Москва",
-    avatar: "👨🏻‍🦰"
-  },
-];
-
-export default function ClientHome({ initialServices, initialNews }: any) {
-  const { t, language } = useLanguage();
-  const langPath = language?.toLowerCase() || 'ru';
-  const [isVisible, setIsVisible] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [selectedService, setSelectedService] = useState<{ title: string; icon: React.ReactNode; color: string } | null>(null);
-
-  useEffect(() => {
-    setIsVisible(true);
-    const interval = setInterval(() => {
-      setActiveTestimonial(prev => (prev + 1) % TESTIMONIALS.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <>
-      <main className="bg-[#F8FAFC] selection:bg-[#B8D430]/30">
-
-        <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
+    author: "Бекз�        <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
           <div className="absolute inset-0 z-0">
             <div className="absolute bottom-0 right-0 w-full h-full md:w-3/4 md:h-3/4 opacity-20 md:opacity-40">
                <img src="/illustrations/hero.png" alt="" className="w-full h-full object-contain object-right-bottom" />
@@ -183,6 +158,21 @@ export default function ClientHome({ initialServices, initialNews }: any) {
                   <div className="flex flex-col">
                     <span className="text-3xl md:text-4xl font-black text-[#163A5C]">1 клик</span>
                     <span className="text-xs font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_click">В Telegram</T></span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-full min-h-[400px] w-full rounded-[48px] overflow-hidden shadow-2xl group flex items-center justify-center bg-gray-50">
+                <img src="/illustrations/ecosystem.png" alt="MIGO Ecosystem" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#163A5C]/80 to-transparent flex flex-col justify-end p-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <h3 className="text-white text-2xl font-black mb-2"><T path="home.about_section.reliable_title">С нами надежнее</T></h3>
+                   <p className="text-white/80 text-sm"><T path="home.about_section.reliable_desc">Мы работаем только с официальными ведомствами и проверенными работодателями.</T></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+/T></span>
                   </div>
                 </div>
               </div>
@@ -437,13 +427,13 @@ export default function ClientHome({ initialServices, initialNews }: any) {
           </div>
         </section>
 
-      </main >
+      </main>
 
-  <ServiceModal
-    isOpen={!!selectedService}
-    onClose={() => setSelectedService(null)}
-    service={selectedService}
-  />
+      <ServiceModal
+        isOpen={!!selectedService}
+        onClose={() => setSelectedService(null)}
+        service={selectedService}
+      />
     </>
   );
 }
