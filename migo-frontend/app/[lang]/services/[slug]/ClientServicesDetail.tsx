@@ -10,7 +10,8 @@ import {
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   cyan: '#00BCD4',
@@ -85,7 +86,7 @@ export default function ClientServicesDetail({ service }: { service: any }) {
               </section>
             )}
 
-            <section className="bg-[#163A5C] text-white rounded-[2rem] p-10 relative overflow-hidden">
+            <section className="bg-[#1E58B1] text-white rounded-[2rem] p-10 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#2196D3] rounded-full opacity-10 -mr-10 -mt-10 blur-2xl"></div>
               <h3 className="text-2xl font-bold mb-4 relative z-10"><T path="service_detail.cta_questions_title">Остались вопросы?</T></h3>
               <p className="text-white/70 mb-8 relative z-10"><T path="service_detail.cta_questions_desc">Наши специалисты помогут собрать правильный пакет документов и ответят на все юридические вопросы.</T></p>

@@ -48,12 +48,12 @@ export default function AdminSidebar({ userRole }: { userRole: Role }) {
         {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
-      <aside className={`fixed left-0 top-0 h-full bg-[#163A5C] text-white transition-all duration-300 z-40 ${isOpen ? 'w-72' : 'w-0 -translate-x-full md:w-20 md:translate-x-0'}`}>
+      <aside className={`fixed left-0 top-0 h-full bg-[#1E58B1] text-white transition-all duration-300 z-40 ${isOpen ? 'w-72' : 'w-0 -translate-x-full md:w-20 md:translate-x-0'}`}>
         <div className="flex flex-col h-full overflow-hidden">
           {/* Logo Section */}
           <div className="p-8 border-b border-white/5 flex items-center gap-4">
              <div className="w-10 h-10 bg-[#B8D430] rounded-xl flex items-center justify-center shrink-0">
-               <ShieldCheck size={24} className="text-[#163A5C]" />
+               <ShieldCheck size={24} className="text-[#1E58B1]" />
              </div>
              {isOpen && (
                <div className="flex flex-col">

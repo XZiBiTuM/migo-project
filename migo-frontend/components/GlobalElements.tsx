@@ -126,8 +126,8 @@ export function GlobalFooter() {
             <Link href={`/${lang}/`}><Image src="/logo.webp" alt="MIGO" width={40} height={40} className="w-10 h-auto mb-3 object-contain" /></Link>
             <p className="text-gray-500 text-sm max-w-sm mb-5 leading-relaxed"><T path="footer.desc_1">Сервис помощи гражданам СНГ в России.</T><br /><T path="footer.desc_2">Легально, безопасно, с поддержкой.</T></p>
             <div className="flex gap-3">
-              <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><Send size={15} color="#163A5C" /></Link>
-              <Link href={`/${lang}/contacts`} className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><MapPin size={15} color="#163A5C" /></Link>
+              <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><Send size={15} color="#1E58B1" /></Link>
+              <Link href={`/${lang}/contacts`} className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><MapPin size={15} color="#1E58B1" /></Link>
             </div>
           </div>
           <div>
@@ -300,7 +300,7 @@ export function GlobalCookieBanner() {
         <p className="text-sm text-gray-500 text-center md:text-left leading-relaxed">
           <T path="cookie.text">Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с нашей</T> <Link href={`/${lang}/privacy`} className="text-[#2196D3] cursor-pointer"><T path="cookie.policy_link">Политикой конфиденциальности</T></Link>.
         </p>
-        <button onClick={() => { localStorage.setItem('migo_cookie_consent', 'true'); setShow(false); }} className="bg-[#163A5C] text-white px-6 py-2.5 rounded-lg font-semibold text-sm w-full md:w-auto shrink-0 hover:bg-opacity-90 transition-colors">
+        <button onClick={() => { localStorage.setItem('migo_cookie_consent', 'true'); setShow(false); }} className="bg-[#1E58B1] text-white px-6 py-2.5 rounded-lg font-semibold text-sm w-full md:w-auto shrink-0 hover:bg-opacity-90 transition-colors">
           <T path="cookie.agree">Я согласен</T>
         </button>
       </div>

@@ -21,12 +21,22 @@ import {
   ShieldCheck,
   Zap,
   Users,
-  Scale
+  Scale,
+  XCircle,
+  Pin,
+  TrendingDown,
+  TrendingUp,
+  AlertCircle,
+  Info,
+  Lock,
+  Check,
+  MessageSquare
 } from 'lucide-react';
 import ServiceModal from '@/components/ServiceModal';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   bg: '#F8FAFC',
@@ -59,35 +69,35 @@ const TESTIMONIALS = [
     text: "«Приехал из Ташкента, ничего не знал. Ребята из MIGO помогли с патентом, нашли приличное общежитие и устроили на склад крупного маркетплейса. Всё честно, выплаты вовремя. Спасибо!»",
     author: "Азиз Ходжаев",
     info: "Работает 1.5 года в Москве",
-    avatar: "👨🏻"
+    avatar: "/images/avatar_1.png"
   },
   {
     id: 2,
     text: "«Очень доволен поддержкой. Помогли с переводом документов и оформлением страховки. Всегда на связи в Telegram, отвечают быстро и по делу. Рекомендую всем соотечественникам.»",
     author: "Сардор Мирзоев",
     info: "Строитель, Санкт-Петербург",
-    avatar: "🧔🏻"
+    avatar: "/images/avatar_2.png"
   },
   {
     id: 3,
     text: "«MIGO — это прежде всего безопасность. Мне нашли работу рядом с домом, помогли с регистрацией. Теперь я спокоен за свое будущее и могу помогать семье.»",
     author: "Фарход Назаров",
     info: "Курьер, Екатеринбург",
-    avatar: "👨🏽"
+    avatar: "/images/avatar_3.png"
   },
   {
     id: 4,
     text: "«Раньше боялся обмана, но с MIGO все официально. Заключили договор, зарплата приходит вовремя. Если есть вопросы по законам — юрист всегда помогает бесплатно.»",
     author: "Нурдин Осмонов",
     info: "Сборщик, Казань",
-    avatar: "👨🏽‍🦱"
+    avatar: "/images/avatar_4.png"
   },
   {
     id: 5,
     text: "«Отличный сервис. Не пришлось самому бегать по инстанциям, всё подсказали. Уже перевез семью, планируем дальше работать.»",
     author: "Бекзод Алиев",
     info: "Водитель автобуса, Москва",
-    avatar: "👨🏻‍🦱"
+    avatar: "/images/avatar_5.png"
   }
 ];
 
@@ -111,40 +121,65 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
     <>
       <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30">
 
-        <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
+        <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
           <div className="absolute inset-0 z-0">
-            <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#2196D3]/10 rounded-full blur-[120px]"></div>
-            <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#B8D430]/10 rounded-full blur-[100px]"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(248,250,252,1)_100%)]"></div>
+            <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#2196D3]/15 rounded-full blur-[140px]"></div>
+            <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px]"></div>
+            <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-white rounded-full blur-[100px] opacity-40"></div>
+            <div className="absolute inset-0 bg-white/30"></div>
           </div>
 
-          <div className="max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform">
-            <div className="mt-0 md:mt-16 flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
-                <span className="w-2 h-2 rounded-full bg-[#B8D430]"></span>
-                <p className="text-xs md:text-sm font-bold text-[#163A5C] uppercase tracking-[0.2em]"><T path="home.hero.badge">Ваш проводник в России</T></p>
+          <div className="max-w-7xl mx-auto relative z-10 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:col-span-6">
+                <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow max-w-full">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#B8D430] shadow-[0_0_10px_#B8D430] shrink-0"></span>
+                  <p className="text-[10px] md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.15em] truncate"><T path="home.hero.badge">Ваш проводник в России</T></p>
+                </div>
+
+                <div className="mb-6 overflow-hidden">
+                  <p className="text-[#2196D3] font-black text-sm md:text-xl uppercase tracking-wider md:tracking-[0.4em] mb-4 opacity-80 whitespace-nowrap md:whitespace-normal">
+                    <T path="home.hero.tagline">Надежно • Понятно • Полезно</T>
+                  </p>
+                </div>
+
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
+                  <T path="home.hero.title_1">Работа и жизнь</T><br />
+                  <span className="text-transparent w-full inline-block bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="home.hero.title_2">в России</T></span>
+                </h1>
+
+                <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-2xl leading-relaxed font-medium">
+                  <T path="home.hero.subtitle">Помогаем гражданам СНГ с легальным трудоустройством, жильем и документами. Официально, надежно и всегда на связи.</T>
+                </p>
+
+                <div className="grid grid-cols-1 sm:flex gap-4 w-full sm:w-auto">
+                  <Link href={`/${langPath}/work`} className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-lg flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95">
+                    <Briefcase className="w-6 h-6" /> <T path="home.hero.btn_work">Найти работу</T>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                  </Link>
+                  <Link href={getBotUrl({ start: 'help' })} target="_blank" className="bg-white hover:bg-gray-50 text-[#1E58B1] py-5 px-10 rounded-[32px] font-black text-lg flex items-center justify-center gap-3 shadow-xl transition-all hover:-translate-y-1.5 border border-gray-100 active:scale-95">
+                    <MessageCircle className="w-6 h-6" /> <T path="mobile_nav.telegram">Telegram Поддержка</T>
+                  </Link>
+                </div>
               </div>
 
-              <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
-                <T path="home.hero.title_1">Работа и жизнь</T><br /><T path="home.hero.title_2">в РФ</T><br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="home.hero.title_highlight">без лишних хлопот</T></span>
-              </h1>
+              <div className="relative group perspective-[2000px] lg:col-span-6 mt-0 lg:mt-8 md:mt-4">
+                <div className="relative z-10 animate-float">
+                  <img
+                    src="/images/hero.png"
+                    alt="MIGO Главное изображение"
+                    className="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
+                  />
 
-              <p className="text-lg md:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed">
-                <T path="home.hero.subtitle">Помогаем гражданам СНГ с легальным трудоустройством, жильем и документами. Официально, быстро и с поддержкой 24/7.</T>
-              </p>
+                  <div className="hidden absolute top-10 -left-10 w-24 h-24 bg-white rounded-3xl shadow-2xl lg:flex items-center justify-center text-[#B8D430] animate-bounce-slow border border-gray-100/50 backdrop-blur-sm bg-white/80">
+                    <ShieldCheck size={48} />
+                  </div>
+                  <div className="hidden absolute bottom-20 -right-5 w-20 h-20 bg-[#2196D3] rounded-2xl shadow-2xl lg:flex items-center justify-center text-white animate-float-delayed">
+                    <CheckCircle2 size={40} />
+                  </div>
+                </div>
 
-              <div className="grid grid-cols-1 sm:flex gap-4 w-full sm:w-auto">
-                <Link href={`/${langPath}/work`} className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-4 px-10 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-[0_10px_20px_-5px_rgba(184,212,48,0.4)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_25px_-5px_rgba(184,212,48,0.5)] active:scale-95">
-                  <Briefcase className="w-6 h-6" /> <T path="home.hero.btn_work">Найти работу</T>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link href={`/${langPath}/services`} className="bg-white hover:bg-gray-50 text-[#163A5C] py-4 px-10 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-xl transition-all hover:-translate-y-1 border border-gray-100 active:scale-95">
-                  <FileText className="w-6 h-6" /> <T path="home.hero.btn_services">Услуги</T>
-                </Link>
-                <Link href={getBotUrl({ start: 'help' })} target="_blank" className="bg-[#163A5C] hover:bg-[#0F2942] text-white py-4 px-10 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-xl transition-all hover:-translate-y-1 active:scale-95">
-                  <MessageCircle className="w-6 h-6" /> <T path="mobile_nav.telegram">Telegram</T>
-                </Link>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-[#2196D3]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
             </div>
           </div>
@@ -154,15 +189,15 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
           <div className="absolute top-0 right-0 w-1/4 h-full bg-[#F8FAFC] rounded-l-[100px] -mr-20 z-0"></div>
           <div className="max-w-7xl mx-auto px-5 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2196D3]/10 text-[#2196D3] font-bold uppercase tracking-widest text-xs mb-6">
+              <div className="pt-0">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2196D3]/10 text-[#2196D3] font-bold uppercase tracking-widest text-[10px] mb-6">
                   <span className="w-2 h-2 rounded-full bg-[#2196D3] animate-pulse"></span>
                   <T path="home.about_section.badge">О проекте MIGO</T>
                 </div>
-                <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-8 leading-tight">
+                <h2 className="text-2xl md:text-4xl font-black text-[#163A5C] mb-8 leading-tight">
                   <T path="home.about_section.title">Больше, чем просто</T> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#B8D430]"><T path="home.about_section.title_highlight">сервис</T></span>
                 </h2>
-                <div className="space-y-6 text-lg text-gray-500 leading-relaxed">
+                <div className="space-y-6 text-base text-gray-500 leading-relaxed max-w-lg">
                   <p>
                     <strong>MIGO</strong> <T path="home.about_section.desc_1">— это экосистема поддержки иностранных граждан в России. Мы создали платформу, которая объединяет все необходимые услуги для комфортной жизни и легальной работы в одном месте.</T>
                   </p>
@@ -170,101 +205,319 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                     <T path="home.about_section.desc_2">Наша миссия — избавить вас от бюрократии, очередей и рисков нарваться на мошенников. Мы перевели сложные процессы на понятный язык и автоматизировали их через удобный Telegram-бот.</T>
                   </p>
                 </div>
-                <div className="mt-10 grid grid-cols-3 gap-6">
+                <div className="mt-16 grid grid-cols-3 gap-6">
                   <div className="flex flex-col">
-                    <span className="text-3xl md:text-4xl font-black text-[#B8D430]">24/7</span>
-                    <span className="text-xs font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_support">Поддержка</T></span>
+                    <span className="text-2xl md:text-3xl font-black text-[#B8D430]">24/7</span>
+                    <span className="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_support">Поддержка</T></span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-3xl md:text-4xl font-black text-[#2196D3]">100%</span>
-                    <span className="text-xs font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_legal">Легально</T></span>
+                    <span className="text-2xl md:text-3xl font-black text-[#2196D3]">100%</span>
+                    <span className="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_legal">Легально</T></span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-3xl md:text-4xl font-black text-[#163A5C]">1 клик</span>
-                    <span className="text-xs font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_click">В Telegram</T></span>
+                    <span className="text-2xl md:text-3xl font-black text-[#163A5C]"><T path="home.about_section.stat_click">1 клик</T></span>
+                    <span className="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_telegram">В Telegram</T></span>
                   </div>
                 </div>
               </div>
 
-              <div className="relative h-full min-h-[400px] w-full bg-gradient-to-br from-[#163A5C] to-[#0F2942] rounded-[48px] p-10 text-white flex flex-col justify-center overflow-hidden shadow-2xl group">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#2196D3] rounded-full blur-[100px] opacity-30 transition-opacity group-hover:opacity-50"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#B8D430] rounded-full blur-[100px] opacity-20 transition-opacity group-hover:opacity-40"></div>
-
-                <div className="relative z-10 flex flex-col items-center">
-                  <ShieldCheck className="text-[#B8D430] w-16 h-16 mb-8" />
-                  <h3 className="text-3xl font-black mb-6 text-center"><T path="home.about_section.reliable_title">С нами надежнее</T></h3>
-                  <p className="text-lg text-white/70 leading-relaxed text-center">
-                    <T path="home.about_section.reliable_desc">Мы работаем только с официальными ведомствами, проверенными работодателями и надежными арендодателями. Вы можете быть уверены в завтрашнем дне.</T>
-                  </p>
+              <div className="relative h-full min-h-[450px] w-full rounded-[48px] overflow-hidden shadow-2xl group">
+                <img
+                  src="/images/about.png"
+                  alt={t('home.about_section.alt_image', 'MIGO Ecosystem')}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E58B1]/40 to-transparent"></div>
+                <div className="absolute bottom-10 left-10 z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl">
+                    <ShieldCheck size={32} />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 max-w-7xl mx-auto px-5">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div className="max-w-xl">
-              <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="home.services_section.title">Наши сервисы</T></h2>
-              <p className="text-gray-500 text-lg"><T path="home.services_section.subtitle">Комплексная поддержка на каждом этапе вашей жизни и работы в новой стране.</T></p>
+        <section className="py-24 max-w-7xl mx-auto px-5 relative">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-br from-[#2196D3]/5 to-[#B8D430]/5 rounded-full blur-[120px] -z-10"></div>
+
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E58B1]/5 text-[#1E58B1] font-bold uppercase tracking-widest text-[10px] mb-6 border border-[#1E58B1]/10">
+              <Zap size={14} className="animate-pulse" /> <T path="home.services_section.title">Наши сервисы</T>
             </div>
-            <Link href={`/${langPath}/services`} className="px-6 py-3 rounded-xl bg-white border border-gray-200 font-bold text-[#163A5C] hover:border-[#2196D3] hover:text-[#2196D3] transition-all flex items-center gap-2 shadow-sm">
-              <T path="home.services_section.all_services">Все услуги</T> <ChevronRight size={20} />
-            </Link>
+            <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-6 tracking-tight">
+              <T path="home.services_section.subtitle">Всё, что нужно для жизни в России</T>
+            </h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
-            <ServiceCard title={<T path="home.services_section.find_work">Найти работу</T>} icon={<Briefcase />} color={COLORS.accent} href={`/${langPath}/work`} delay={0} />
-            <ServiceCard title={<T path="home.services_section.housing">Жильё</T>} icon={<Home />} color={COLORS.blue} href={`/${langPath}/housing`} delay={80} />
+          <div className="bg-white/40 backdrop-blur-xl border border-white/80 rounded-[56px] p-8 md:p-16 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.08)] relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#2196D3]/10 to-transparent rounded-full -mr-32 -mt-32"></div>
 
-            {initialServices && initialServices.slice(0, 2).map((service, idx) => (
-              <ServiceCard
-                key={service.id}
-                title={service.title}
-                icon={getServiceIcon(service.service_type)}
-                color={getServiceColor(service.service_type)}
-                delay={(idx + 2) * 80}
-                href={`/${langPath}/services/${service.slug}`}
-              />
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4 mb-16">
+              {[
+                { title: <T path="home.services_section.find_work">Найти работу</T>, icon: <Briefcase />, href: `/${langPath}/work` },
+                { title: <T path="home.services_section.housing">Жильё</T>, icon: <Home />, href: `/${langPath}/housing` },
+                ...(initialServices || []).map(s => ({
+                  title: s.title,
+                  icon: getServiceIcon(s.service_type),
+                  href: `/${langPath}/services/${s.slug}`
+                }))
+              ].map((service, idx) => (
+                <Link
+                  key={idx}
+                  href={service.href}
+                  className="flex items-center gap-5 p-2 rounded-2xl hover:translate-x-2 transition-all group/item"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-[#2196D3] group-hover/item:bg-[#2196D3] group-hover/item:text-white group-hover/item:shadow-[0_10px_20px_-5px_rgba(33,150,211,0.4)] transition-all duration-300">
+                    {React.cloneElement(service.icon as React.ReactElement<any>, { size: 22 })}
+                  </div>
+                  <span className="font-bold text-[#163A5C] text-lg md:text-xl tracking-tight group-hover/item:text-[#2196D3] transition-colors">{service.title}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10 border-t border-gray-100/50">
+              <Link
+                href={getBotUrl({ source: 'home_services', start: 'services' })}
+                target="_blank"
+                className="w-full sm:w-auto px-10 py-5 rounded-[24px] bg-[#2196D3] text-white font-black text-lg flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(33,150,211,0.4)] hover:-translate-y-1 transition-all active:scale-95"
+              >
+                <MessageCircle size={24} /> <T path="home.services_section.tg_btn">Узнать подробнее в Телеграм</T>
+              </Link>
+              <Link
+                href={`/${langPath}/services`}
+                className="w-full sm:w-auto px-10 py-5 rounded-[24px] bg-white border border-gray-200 text-[#163A5C] font-black text-lg flex items-center justify-center gap-2 hover:border-[#2196D3] hover:text-[#2196D3] transition-all shadow-sm"
+              >
+                <T path="home.services_section.all_services">Все услуги</T> <ChevronRight size={20} />
+              </Link>
+            </div>
           </div>
         </section>
 
-        <section className="py-24 bg-white border-y border-gray-100 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(33,150,211,0.06)_0%,transparent_60%)]"></div>
+        <section className="py-24 bg-white border-y border-gray-50 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-[800px] bg-gradient-to-b from-[#F8FAFC] to-transparent pointer-events-none"></div>
+          <div className="absolute top-[10%] right-[5%] w-[600px] h-[600px] bg-[#1E58B1]/5 rounded-full blur-[120px] opacity-40"></div>
+          <div className="absolute bottom-[20%] left-[5%] w-[700px] h-[700px] bg-[#B8D430]/5 rounded-full blur-[140px] opacity-30"></div>
 
           <div className="max-w-7xl mx-auto px-5 relative z-10">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-6"><T path="home.steps.title">4 шага к успеху с MIGO</T></h2>
-              <p className="text-gray-500 text-lg max-w-2xl mx-auto"><T path="home.steps.subtitle">Мы сделали процесс максимально простым и прозрачным, чтобы вы могли сосредоточиться на главном.</T></p>
+            <div className="text-center mb-20 max-w-5xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-red-50 text-red-500 font-black uppercase tracking-[0.25em] text-[10px] mb-8 shadow-sm border border-red-100/50">
+                <AlertCircle size={14} className="animate-pulse" /> <T path="home.path_section.problem_badge">Проблема мигранта</T>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-10 leading-[0.85] tracking-tighter">
+                <T path="home.path_section.title">Путь мигранта: <br className="hidden md:block" />как это бывает на самом деле</T>
+              </h2>
+              <p className="text-gray-500/80 text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto mb-16 leading-relaxed font-medium">
+                <T path="home.path_section.subtitle">Каждый человек, который приезжает в Россию на заработки, проходит через один и тот же путь. И почти всегда этот путь — хаотичный, дорогой и опасный.</T>
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-4">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="px-8 py-5 rounded-[32px] bg-white/80 backdrop-blur-xl border border-gray-100 flex items-center gap-5 text-sm md:text-xl font-black text-[#163A5C] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.08)] hover:shadow-[0_25px_50px_-10px_rgba(0,0,0,0.12)] transition-all cursor-default group hover:-translate-y-1">
+                    <div className="w-12 h-12 rounded-2xl bg-[#2196D3]/10 flex items-center justify-center text-[#2196D3] group-hover:scale-110 group-hover:bg-[#2196D3] group-hover:text-white transition-all duration-500 shadow-sm">
+                      <Pin size={24} className="group-hover:rotate-45 transition-transform" />
+                    </div>
+                    <T path={`home.path_section.problem_${i}`} />
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-              <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-100 to-transparent"></div>
-              {[
-                { step: '01', title: <T path="home.steps.step1_title">Заявка</T>, desc: <T path="home.steps.step1_desc">Оставьте запрос в Telegram за 1 минуту</T>, icon: <MessageCircle /> },
-                { step: '02', title: <T path="home.steps.step2_title">Подбор</T>, desc: <T path="home.steps.step2_desc">Найдем лучшие варианты под ваши критерии</T>, icon: <Search /> },
-                { step: '03', title: <T path="home.steps.step3_title">Оформление</T>, desc: <T path="home.steps.step3_desc">Поможем со всеми документами официально</T>, icon: <ShieldCheck /> },
-                { step: '04', title: <T path="home.steps.step4_title">Старт</T>, desc: <T path="home.steps.step4_desc">Начинайте работать и жить спокойно</T>, icon: <Zap /> },
-              ].map((item, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center group relative pt-4">
-                  <div className="w-20 h-20 rounded-3xl bg-white border border-gray-100 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#2196D3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div className="text-[#2196D3] group-hover:scale-110 transition-transform">
-                      {React.cloneElement(item.icon, { size: 32 })}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 mb-32 items-stretch">
+
+              <div className="relative group flex h-full">
+                <div className="absolute -inset-4 bg-gradient-to-br from-red-50/50 to-transparent rounded-[72px] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
+
+                <div className="relative w-full bg-[#FCFBFB] rounded-[64px] p-8 md:p-14 border border-gray-100 shadow-[30px_50px_100px_-40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-1000 hover:shadow-[40px_60px_120px_-30px_rgba(0,0,0,0.15)] flex flex-col items-stretch">
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle_at_center,#ef444408_0%,transparent_70%)] -mr-48 -mt-48 pointer-events-none"></div>
+                  <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+
+                  <div className="flex items-start gap-6 mb-16 relative z-10">
+                    <div className="w-20 h-20 rounded-[28px] bg-red-50 flex items-center justify-center text-red-500 shadow-sm border border-red-100/50 group-hover:rotate-6 transition-transform duration-700">
+                      <TrendingDown size={40} />
+                    </div>
+                    <div>
+                      <h3 className="text-3xl md:text-4xl font-black text-[#163A5C] tracking-tighter leading-[0.9] uppercase max-w-[200px]">
+                        <T path="home.path_section.without_migo.title">ПУТЬ БЕЗ MIGO</T>
+                      </h3>
+                      <p className="text-red-400 font-bold text-xs uppercase tracking-[0.3em] mt-3 flex items-center gap-2">
+                        <AlertCircle size={14} className="animate-pulse" /> Хаос и риски
+                      </p>
                     </div>
                   </div>
-                  <div className="absolute -top-4 text-6xl font-black text-gray-200 select-none -z-10 group-hover:text-[#2196D3]/50 transition-colors">{item.step}</div>
-                  <h3 className="text-xl font-bold text-[#163A5C] mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+
+                  <div className="relative flex-1">
+                    <div className="absolute left-[13px] top-8 bottom-8 w-[2px] border-l-2 border-dashed border-red-200/50 z-0"></div>
+
+                    <div className="space-y-12 relative z-10">
+                      {[1, 2, 3, 4, 5, 6].map(idx => (
+                        <div key={idx} className="flex gap-8 group/item translate-x-0 hover:translate-x-3 transition-all duration-500">
+                          <div className="w-7 h-7 rounded-full bg-white border-4 border-red-100 shadow-md flex items-center justify-center shrink-0 mt-1.5 group-hover/item:bg-red-500 group-hover/item:border-red-200 transition-all duration-500">
+                            <div className="w-1.5 h-1.5 rounded-full bg-red-300 group-hover/item:bg-white scale-100 group-hover/item:scale-0 transition-transform"></div>
+                          </div>
+                          <div>
+                            <h4 className="font-black text-[#163A5C] mb-3 text-2xl tracking-tight leading-tight group-hover/item:text-red-600 transition-colors"><T path={`home.path_section.without_migo.step${idx}_title`} /></h4>
+                            <p className="text-gray-500/80 leading-relaxed font-medium text-lg max-w-sm"><T path={`home.path_section.without_migo.step${idx}_desc`} /></p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-20 bg-red-50/50 backdrop-blur-xl rounded-[40px] p-10 border border-red-100 shadow-sm relative overflow-hidden group/result">
+                    <div className="absolute top-0 right-0 p-6 opacity-5 translate-x-4 -translate-y-4 group-hover/result:translate-x-0 group-hover/result:translate-y-0 transition-transform duration-700">
+                      <XCircle size={120} />
+                    </div>
+                    <div className="flex items-center gap-3 text-red-600 font-black mb-5 uppercase tracking-[0.3em] text-[11px] relative z-10">
+                      <XCircle size={22} /> <T path="home.path_section.without_migo.step_result_title">Итог</T>
+                    </div>
+                    <p className="font-black text-[#163A5C] text-2xl md:text-3xl leading-tight relative z-10 tracking-tight">
+                      <T path="home.path_section.without_migo.step_result_desc" />
+                    </p>
+                  </div>
+
+                  <div className="mt-14 rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 group-hover:scale-[1.02]">
+                    <img src="/images/path_without_migo.png" alt="Путь без MIGO" className="w-full h-auto object-cover" />
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="relative group flex h-full">
+                <div className="absolute -inset-6 bg-gradient-to-br from-[#2196D3]/20 to-[#B8D430]/20 rounded-[80px] blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+
+                <div className="relative w-full bg-white rounded-[64px] p-8 md:p-14 border border-[#2196D3]/10 shadow-[40px_70px_120px_-40px_rgba(33,150,211,0.2)] overflow-hidden transition-all duration-1000 hover:shadow-[50px_80px_140px_-30px_rgba(33,150,211,0.25)] flex flex-col items-stretch">
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle_at_center,#B8D43020_0%,transparent_70%)] -mr-48 -mt-48 pointer-events-none"></div>
+                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#1E58B1 1px, transparent 1px)', backgroundSize: '48px 48px' }}></div>
+
+                  <div className="flex items-start gap-6 mb-16 relative z-10">
+                    <div className="w-20 h-20 rounded-[28px] bg-gradient-to-br from-[#2196D3] to-[#1E58B1] flex items-center justify-center text-white shadow-[0_20px_50px_-10px_rgba(33,150,211,0.5)] animate-float-slow">
+                      <TrendingUp size={40} />
+                    </div>
+                    <div>
+                      <h3 className="text-3xl md:text-4xl font-black text-[#1E58B1] tracking-tighter leading-[0.9] uppercase max-w-[200px]">
+                        <T path="home.path_section.with_migo.title">ПУТЬ С MIGO</T>
+                      </h3>
+                      <p className="text-[#B8D430] font-black text-xs uppercase tracking-[0.3em] mt-3 flex items-center gap-2">
+                        <CheckCircle2 size={14} className="animate-bounce-slow" /> Полный контроль
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="relative flex-1">
+                    <div className="absolute left-[15px] top-10 bottom-10 w-[4px] bg-gradient-to-b from-[#2196D3] via-[#B8D430] to-[#2196D3] z-0 shadow-[0_0_20px_rgba(33,150,211,0.4)] rounded-full"></div>
+
+                    <div className="space-y-12 relative z-10">
+                      {[1, 2, 3, 4, 5, 6].map(idx => (
+                        <div key={idx} className="flex gap-8 group/item translate-x-0 hover:translate-x-4 transition-all duration-500">
+                          <div className="w-8 h-8 rounded-full bg-white border-[6px] border-[#2196D3] shadow-lg flex items-center justify-center shrink-0 mt-1 transition-all duration-500 group-hover/item:scale-125 group-hover/item:shadow-[0_0_20px_rgba(33,150,211,0.4)] ring-4 ring-white">
+                            <div className="w-2 h-2 rounded-full bg-[#B8D430] animate-pulse"></div>
+                          </div>
+                          <div>
+                            <h4 className="font-black text-[#163A5C] mb-3 text-2xl tracking-tight leading-tight group-hover/item:text-[#2196D3] transition-colors"><T path={`home.path_section.with_migo.step${idx}_title`} /></h4>
+                            <p className="text-gray-500/80 leading-relaxed font-medium text-lg max-w-sm"><T path={`home.path_section.with_migo.step${idx}_desc`} /></p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-20 bg-gradient-to-br from-[#1E58B1] to-[#2196D3] rounded-[48px] p-10 border border-white/20 shadow-2xl relative overflow-hidden group/success">
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 p-8 opacity-10 translate-x-4 -translate-y-4 group-hover/success:translate-x-0 group-hover/success:translate-y-0 transition-transform duration-1000">
+                      <CheckCircle2 size={140} />
+                    </div>
+                    <div className="flex items-center gap-3 text-[#B8D430] font-black mb-5 uppercase tracking-[0.3em] text-[11px] relative z-10">
+                      <div className="w-2 h-1 md:h-2 lg:h-2 rounded-full bg-[#B8D430] animate-ping"></div> <T path="home.path_section.with_migo.result">Результат</T>
+                    </div>
+                    <p className="font-black text-white text-2xl md:text-3xl leading-tight relative z-10 tracking-tight">
+                      <T path="home.path_section.with_migo.desc" />
+                    </p>
+                  </div>
+
+                  <div className="mt-14 rounded-[48px] overflow-hidden border border-[#B8D430]/30 shadow-[0_40px_80px_-20px_rgba(184,212,48,0.3)] transition-all duration-1000 hover:scale-[1.03] group-hover:rotate-1">
+                    <img src="/images/path_with_migo.png" alt="Путь с MIGO" className="w-full h-auto object-cover" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative mt-32">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1E58B1]/10 via-[#2196D3]/10 to-[#B8D430]/10 rounded-[80px] blur-[100px] -z-10"></div>
+              <div className="bg-white/40 backdrop-blur-3xl border border-white/60 p-6 md:p-24 rounded-[40px] md:rounded-[80px] shadow-[0_60px_120px_-40px_rgba(0,0,0,0.1)] relative overflow-hidden group/blueprint">
+
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#1E58B1 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
+                <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,#B8D43015_0%,transparent_40%)] pointer-events-none"></div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                  <div>
+                    <div className="inline-flex items-center gap-3 mb-10 px-4 md:px-6 py-2.5 md:py-3 rounded-full bg-white border border-gray-100 shadow-[0_10px_25px_-10px_rgba(0,0,0,0.05)] text-[#1E58B1] font-black uppercase tracking-wide md:tracking-[0.3em] text-[8px] md:text-[10px] max-w-full">
+                      <div className="w-7 h-7 md:w-8 md:h-8 rounded-[10px] md:rounded-xl bg-[#B8D430] flex items-center justify-center text-white shadow-[0_5px_15px_-3px_rgba(184,212,48,0.4)] flex-none">
+                        <ShieldCheck size={14} className="md:size-4" />
+                      </div>
+                      <span className="truncate md:whitespace-normal"><T path="home.path_section.reliability.title">С MIGO вы под надежной защитой</T></span>
+                    </div>
+
+                    <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-8 leading-tight tracking-tight">
+                      <T path="home.path_section.reliability.priority_title">Ваша безопасность — наш главный приоритет</T>
+                    </h2>
+
+                    <p className="text-gray-500/80 text-lg md:text-xl mb-12 font-medium leading-relaxed max-w-xl">
+                      <T path="home.path_section.reliability.subtitle">Мы убрали все риски, чтобы ваш путь был максимально комфортным и безопасным.</T>
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8">
+                      {[1, 2, 3, 4, 5, 6].map(i => (
+                        <div key={i} className="flex items-center gap-4 group/feat">
+                          <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center text-[#B8D430] shadow-sm border border-gray-100 shrink-0 group-hover/feat:bg-[#B8D430] group-hover/feat:text-white transition-all flex-none aspect-square">
+                            <Check size={22} strokeWidth={3} />
+                          </div>
+                          <span className="font-bold text-[#163A5C] text-sm md:text-base tracking-tight leading-snug"><T path={`home.path_section.reliability.feat${i}`} /></span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="relative group/card-3d perspective-[2000px]">
+                    <div className="absolute -inset-20 bg-gradient-to-br from-[#1E58B1]/10 via-transparent to-[#B8D430]/10 rounded-full blur-[100px] opacity-60"></div>
+
+                    <div className="relative bg-[#1E58B1] p-8 md:p-12 rounded-[56px] shadow-[0_40px_100px_-20px_rgba(30,88,177,0.3)]">
+                      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/20"></div>
+                      <div className="absolute top-0 right-0 p-8 opacity-5">
+                        <Lock size={120} className="text-white transform rotate-12" />
+                      </div>
+
+                      <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/20 flex items-center justify-center text-[#B8D430] mb-10 shadow-inner">
+                        <Zap size={32} className="animate-float" />
+                      </div>
+
+                      <div className="space-y-10 relative z-10">
+                        <div className="flex items-start gap-6 group/bad-idea">
+                          <div className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center text-white/50 shrink-0 mt-1">
+                            <XCircle size={22} />
+                          </div>
+                          <p className="font-bold text-lg md:text-2xl text-white/60 italic leading-tight group-hover/bad-idea:text-white/95 transition-colors">
+                            <T path="home.path_section.main_idea.without" />
+                          </p>
+                        </div>
+
+                        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+                        <div className="flex items-start gap-6 group/good-idea">
+                          <p className="font-black text-2xl md:text-4xl text-white text-center leading-tight tracking-tight">
+                            <T path="home.path_section.main_idea.with" />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         <section className="py-24 max-w-7xl mx-auto px-5">
-          <div className="bg-[#163A5C] rounded-[40px] p-8 md:p-20 relative overflow-hidden group shadow-2xl">
+          <div className="bg-[#1E58B1] rounded-[40px] p-8 md:p-20 relative overflow-hidden group shadow-2xl">
             <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,#2196D380_0%,transparent_50%)] opacity-30"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#B8D430] rounded-full blur-[100px] opacity-10"></div>
 
@@ -325,8 +578,12 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                           </div>
 
                           <div className="flex items-center gap-4 mt-auto border-t border-white/10 pt-6">
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2196D3] to-[#163A5C] flex items-center justify-center text-xl border-2 border-white/20 shadow-lg shrink-0">
-                              {t_item.avatar}
+                            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 shadow-lg shrink-0">
+                              <img
+                                src={t_item.avatar}
+                                alt={t(`home.testimonials.t${t_item.id}_author`, t_item.author)}
+                                className="w-full h-full object-cover scale-125"
+                              />
                             </div>
                             <div className="flex-1 min-w-0">
                               <h4 className="text-white font-black text-base truncate">{t(`home.testimonials.t${t_item.id}_author`, t_item.author)}</h4>
@@ -371,7 +628,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   <T path="home.legal_aid.desc">Мы предоставляем бесплатные юридические консультации для граждан СНГ. Поможем разобраться с документами, патентами и защитим ваши права при трудоустройстве.</T>
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href={getBotUrl({ start: 'law', source: 'home_aid' })} target="_blank" className="bg-[#163A5C] hover:bg-[#0F2942] text-white py-4 px-8 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all hover:shadow-lg active:scale-95">
+                  <Link href={getBotUrl({ start: 'law', source: 'home_aid' })} target="_blank" className="bg-[#1E58B1] hover:bg-[#16489a] text-white py-4 px-8 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all hover:shadow-lg active:scale-95">
                     <MessageCircle size={20} /> <T path="home.legal_aid.btn">Задать вопрос юристу</T>
                   </Link>
                 </div>
@@ -417,7 +674,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
         </section>
 
         <section className="py-20 max-w-7xl mx-auto px-5">
-          <div className="bg-gradient-to-br from-[#163A5C] via-[#1A4B75] to-[#2196D3] rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-br from-[#1E58B1] via-[#1A4B75] to-[#2196D3] rounded-[64px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-6xl font-black text-white mb-8"><T path="home.cta.title">Готовы начать новую жизнь в России?</T></h2>
@@ -425,10 +682,10 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 <T path="home.cta.subtitle">Не откладывайте на завтра. Бесплатная консультация в Telegram уже ждет вас.</T>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href={getBotUrl({ source: 'home_cta' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-12 rounded-[24px] font-black text-xl flex items-center justify-center gap-3 transition-all hover:scale-105 shadow-2xl">
+                <Link href={getBotUrl({ source: 'home_cta' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#1E58B1] py-6 px-12 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 transition-all hover:scale-105 shadow-2xl">
                   <MessageCircle size={28} /> <T path="home.cta.btn_write">Написать нам</T>
                 </Link>
-                <Link href={`/${langPath}/services`} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white py-5 px-12 rounded-[24px] font-black text-xl flex items-center justify-center gap-3 transition-all hover:scale-105">
+                <Link href={`/${langPath}/services`} className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white py-6 px-12 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 transition-all hover:scale-105">
                   <T path="home.cta.btn_services">Выбрать услуги</T>
                 </Link>
               </div>
@@ -447,40 +704,17 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
   );
 }
 
-function ServiceCard({ title, icon, color, large, href, onClick, delay }: any) {
-  const content = (
-    <div
-      onClick={onClick}
-      style={{ '--delay': `${delay}ms` } as React.CSSProperties}
-      className={`group h-full bg-white rounded-[24px] p-6 border border-gray-100 hover:border-[#2196D3] hover:shadow-[0_20px_40px_-15px_rgba(33,150,211,0.2)] transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2 animate-fade-in-up`}
-    >
-      <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all group-hover:scale-110 group-hover:rotate-6 shadow-sm"
-        style={{ backgroundColor: `${color}15`, color: color }}
-      >
-        {React.cloneElement(icon, { size: 24 })}
-      </div>
-      <h3 className="font-black text-[#163A5C] group-hover:text-[#2196D3] transition-colors text-base mb-2">
-        {title}
-      </h3>
-      <div className="mt-auto flex items-center gap-2 text-sm font-bold text-gray-300 group-hover:text-[#2196D3] transition-all">
-        <T path="home.services_section.more">Подробнее</T> <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-      </div>
-    </div>
-  );
 
-  return href ? <Link href={href}>{content}</Link> : content;
-}
 
 function TrustFeature({ title, desc }: any) {
   return (
-    <div className="flex gap-5 group">
-      <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-1 shadow-lg group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-300">
-        <CheckCircle2 size={24} />
+    <div className="flex gap-6 group">
+      <div className="w-14 h-14 rounded-[20px] bg-white flex items-center justify-center shrink-0 mt-1 shadow-2xl text-[#1E58B1] group-hover:bg-[#B8D430] group-hover:scale-110 transition-all duration-500">
+        <CheckCircle2 size={28} />
       </div>
       <div>
-        <h4 className="text-xl font-bold text-white mb-2 group-hover:text-[#B8D430] transition-colors">{title}</h4>
-        <p className="text-white/80 leading-relaxed text-sm md:text-base">{desc}</p>
+        <h4 className="text-xl md:text-2xl font-black text-white mb-2 group-hover:text-[#B8D430] transition-colors">{title}</h4>
+        <p className="text-white/70 leading-relaxed text-sm md:text-lg font-medium">{desc}</p>
       </div>
     </div>
   );
@@ -491,17 +725,17 @@ function NewsCard({ tag, title, slug, date, delay, langPath }: any) {
     <Link
       href={`/${langPath}/news/${slug}`}
       style={{ '--delay': `${delay}ms` } as React.CSSProperties}
-      className="bg-white rounded-[32px] p-8 border border-gray-100 hover:shadow-2xl transition-all duration-500 group flex flex-col hover:-translate-y-2 animate-fade-in-up"
+      className="bg-white rounded-[40px] p-8 md:p-10 border border-gray-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 group flex flex-col hover:-translate-y-3 animate-fade-in-up shadow-sm h-full"
     >
-      <div className="flex justify-between items-center mb-6">
-        <span className="px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-[#2196D3] bg-[#2196D3]/10">{tag}</span>
-        <span className="text-xs font-bold text-gray-500">{date}</span>
+      <div className="flex justify-between items-center mb-8">
+        <span className="px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-[#1E58B1] bg-[#1E58B1]/5 border border-[#1E58B1]/10">{tag}</span>
+        <span className="text-xs font-bold text-gray-400">{date}</span>
       </div>
-      <h3 className="font-extrabold text-[#163A5C] text-xl leading-tight group-hover:text-[#2196D3] transition-colors mb-8 line-clamp-3">
+      <h3 className="font-black text-[#163A5C] text-xl md:text-2xl leading-tight group-hover:text-[#1E58B1] transition-colors mb-8 line-clamp-3 tracking-tight">
         {title}
       </h3>
-      <div className="mt-auto flex items-center text-[#2196D3] font-black gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-        <T path="home.news_section.read_full">Читать полностью</T> <ArrowRight size={18} />
+      <div className="mt-auto flex items-center text-[#1E58B1] font-black gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 uppercase tracking-widest text-xs">
+        <T path="home.news_section.read_full">Читать статью</T> <ArrowRight size={18} />
       </div>
     </Link>
   );

@@ -19,14 +19,14 @@ export default function ClientTerms() {
 
         <div className="max-w-4xl mx-auto relative z-10">
           <Link href={`/${lang}/`} className="group flex items-center gap-3 text-[#163A5C] font-black uppercase tracking-widest text-xs hover:text-[#2196D3] transition-colors mb-12">
-            <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#163A5C] group-hover:text-white transition-all">
+            <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#1E58B1] group-hover:text-white transition-all">
               <ArrowLeft size={18} />
             </div>
             <T path="terms.back_home">На главную</T>
           </Link>
 
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-[#163A5C]/5 flex items-center justify-center text-[#163A5C]">
+            <div className="w-16 h-16 rounded-2xl bg-[#1E58B1]/5 flex items-center justify-center text-[#1E58B1]">
               <FileText size={32} />
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-[#163A5C] tracking-tight">

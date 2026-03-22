@@ -6,7 +6,8 @@ import { X, ShieldCheck, Loader2 } from 'lucide-react';
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
 };
 
@@ -90,7 +91,7 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
   if (!isOpen || !service) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-[#163A5C]/30 backdrop-blur-sm p-4 animate-in fade-in duration-200" onClick={onClose}>
+    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-[#1E58B1]/30 backdrop-blur-sm p-4 animate-in fade-in duration-200" onClick={onClose}>
       <div
         className="w-full max-w-md bg-white rounded-3xl overflow-hidden flex flex-col max-h-[90vh] shadow-xl animate-in slide-in-from-bottom-8 sm:zoom-in-95 duration-300"
         onClick={(e) => e.stopPropagation()}

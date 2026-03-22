@@ -10,7 +10,8 @@ import {
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   green: '#27A15E',
@@ -28,22 +29,42 @@ export default function ClientContacts() {
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
-      <section className="relative min-h-[50vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
         <div className="absolute inset-0 z-0 text-center">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#2196D3]/10 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#B8D430]/10 rounded-full blur-[100px]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(248,250,252,1)_100%)]"></div>
+          <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#2196D3]/15 rounded-full blur-[140px]"></div>
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-white rounded-full blur-[100px] opacity-40"></div>
+          <div className="absolute inset-0 bg-white/30"></div>
         </div>
 
-        <div className={`max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="mt-12 flex flex-col items-center text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
-              <T path="contacts.hero.title_1">Мы всегда</T> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="contacts.hero.title_highlight">на связи с вами</T></span>
-            </h1>
-            <p className="text-lg md:text-2xl text-gray-500/80 max-w-2xl leading-relaxed">
-              <T path="contacts.hero.subtitle">Выберите удобный для вас способ связи. Наши менеджеры готовы ответить на любые вопросы в Telegram или по телефону.</T>
-            </p>
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1E58B1] shadow-[0_0_10px_#1E58B1]"></span>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="contacts.hero.badge">Контакт-центр MIGO</T></p>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
+                <T path="contacts.hero.title_1">Мы всегда</T><br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="contacts.hero.title_highlight">на связи с вами</T></span>
+              </h1>
+
+              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+                <T path="contacts.hero.subtitle">Выберите удобный для вас способ связи. Наши менеджеры готовы ответить на любые вопросы в Telegram или по телефону.</T>
+              </p>
+            </div>
+
+            <div className="relative group perspective-[2000px] hidden lg:block">
+              <div className="relative z-10 animate-float">
+                <img
+                  src="/migo_contacts_friendly_3d_1774105465254.png"
+                  alt="MIGO Contacts 3D Style"
+                  className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -142,7 +163,7 @@ export default function ClientContacts() {
         </div>
       </section>
 
-      <section className="py-24 bg-[#163A5C] rounded-[64px] mx-5 overflow-hidden relative shadow-2xl">
+      <section className="py-24 bg-[#1E58B1] mx-auto rounded-[64px] mx-5 overflow-hidden max-w-7xl relative shadow-2xl">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#B8D430]/10 rounded-full blur-[100px]"></div>
         <div className="max-w-7xl mx-auto px-10 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="text-white max-w-xl">
@@ -163,21 +184,21 @@ function ContactCard({ title, value, link, icon, color, desc }: { title: React.R
     <a
       href={link}
       target="_blank"
-      className="group bg-white rounded-[40px] p-10 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+      className="group bg-white rounded-[48px] p-8 md:p-12 border border-gray-100 shadow-sm hover:shadow-[0_45px_75px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-3 flex flex-col h-full"
     >
       <div
-        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm"
+        className="w-20 h-20 rounded-3xl flex items-center justify-center mb-10 transform group-hover:scale-110 group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500 shadow-sm"
         style={{ backgroundColor: `${color}15`, color: color }}
       >
-        {icon}
+        {React.cloneElement(icon as React.ReactElement<any>, { size: 36 })}
       </div>
-      <h3 className="text-xs font-black text-gray-400 mb-2 uppercase tracking-[0.2em]">{title}</h3>
-      <div className="text-2xl font-black text-[#163A5C] mb-4 break-words group-hover:text-[#2196D3] transition-colors">{value}</div>
-      <p className="text-gray-500 font-medium leading-relaxed mt-auto relative z-10">
+      <h3 className="text-xs font-black text-gray-400 mb-4 uppercase tracking-[0.25em]">{title}</h3>
+      <div className="text-xl md:text-3xl font-black text-[#163A5C] mb-6 break-words group-hover:text-[#1E58B1] transition-colors leading-tight tracking-tighter">{value}</div>
+      <p className="text-gray-500 font-medium leading-relaxed mt-auto text-sm md:text-base mb-8">
         {desc}
       </p>
-      <div className="mt-8 flex items-center gap-2 text-sm font-black text-[#2196D3] opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0 tracking-widest uppercase">
-        <T path="contacts.cards.connect">Связаться</T> <ArrowUpRight size={18} />
+      <div className="flex items-center gap-3 text-xs font-black text-[#1E58B1] opacity-60 group-hover:opacity-100 transition-all uppercase tracking-[0.2em]">
+        <T path="contacts.cards.connect">Связаться</T> <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
       </div>
     </a>
   );

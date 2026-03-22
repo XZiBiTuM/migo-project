@@ -12,7 +12,8 @@ import {
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   green: '#27A15E',
@@ -61,29 +62,53 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
   }, []);
 
   return (
-    <main className="pt-20 md:pt-32 pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
-      <section className="relative min-h-[60vh] flex flex-col justify-center overflow-hidden px-5 pt-10 pb-10 md:pt-0 md:pb-0">
+    <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
         <div className="absolute inset-0 z-0 text-center">
-          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#2196D3]/10 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#B8D430]/10 rounded-full blur-[100px]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(248,250,252,1)_100%)]"></div>
+          <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#2196D3]/15 rounded-full blur-[140px]"></div>
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-white rounded-full blur-[100px] opacity-40"></div>
+          <div className="absolute inset-0 bg-white/30"></div>
         </div>
 
-        <div className={`max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/80 shadow-sm mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#B8D430]"></span>
-              <p className="text-xs md:text-sm font-bold text-[#163A5C] uppercase tracking-[0.2em]"><T path="services.hero.badge">Профессиональная помощь</T></p>
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#B8D430] shadow-[0_0_10px_#B8D430]"></span>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="services.hero.badge">Сервисы и Документы</T></p>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
+                <T path="services.hero.title_1">Все услуги для жизни</T><br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="services.hero.title_highlight">в одном касании</T></span>
+              </h1>
+
+              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+                <T path="services.hero.subtitle">От перевода документов до получения патента. Официально, быстро и без очередей через Telegram-бот.</T>
+              </p>
+
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
+                <Link
+                  href={getBotUrl({ start: 'services', source: 'site_services' })}
+                  target="_blank"
+                  className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95"
+                >
+                  <MessageCircle className="w-7 h-7" /> <T path="services.hero.btn">Заказать в Telegram</T>
+                </Link>
+              </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
-              <T path="services.hero.title_1">Наши услуги</T> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="services.hero.title_highlight">для вашей жизни в России</T></span>
-            </h1>
-
-            <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-2xl leading-relaxed">
-              <T path="services.hero.subtitle">От юридической помощи до бытовых вопросов. Мы поддерживаем вас на каждом этапе вашей адаптации и работы.</T>
-            </p>
+            <div className="relative group perspective-[2000px] hidden lg:block">
+              <div className="relative z-10 animate-float">
+                <img
+                  src="/migo_services_friendly_3d_1774105365345.png"
+                  alt="MIGO Services 3D Style"
+                  className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -102,42 +127,34 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
             const icon = getServiceIcon(doc.service_type);
             const color = getServiceColor(doc.service_type);
             return (
-              <div key={doc.id} className="group bg-white rounded-[40px] p-10 border border-gray-100 hover:border-[#2196D3] hover:shadow-2xl transition-all duration-500 flex flex-col transform hover:-translate-y-2 h-full">
+              <div key={doc.id} className="group bg-white rounded-[48px] p-8 md:p-10 border border-gray-100 hover:border-[#1E58B1] hover:shadow-[0_45px_75px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col transform hover:-translate-y-2 h-full shadow-sm">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
-                  style={{ backgroundColor: `${color}15`, color: color }}
+                  className="w-20 h-20 rounded-3xl flex items-center justify-center mb-10 text-[#1E58B1] bg-[#1E58B1]/5 border border-gray-50 transform group-hover:scale-110 group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500 shadow-sm"
                 >
-                  {React.cloneElement(icon as React.ReactElement, { size: 28 })}
+                  {React.cloneElement(icon as React.ReactElement, { size: 36 } as any)}
                 </div>
 
-                <h3 className="text-2xl font-black text-[#163A5C] mb-4 group-hover:text-[#2196D3] transition-colors leading-tight">
+                <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] mb-6 group-hover:text-[#1E58B1] transition-colors leading-tight tracking-tighter">
                   {doc.title}
                 </h3>
 
-                <p className="text-gray-500 leading-relaxed mb-6 font-medium">
+                <p className="text-gray-500 leading-relaxed mb-8 font-medium">
                   {doc.short_description}
                 </p>
 
-                <Link
-                  href={`/services/${doc.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-[#2196D3] transition-colors mb-8 group/link cursor-pointer"
-                >
-                  <T path="services.docs_section.more">Подробнее</T> <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                </Link>
-
-                <div className="mt-auto flex flex-col gap-3">
+                <div className="mt-auto flex flex-col gap-4">
                   <Link
                     href={getBotUrl({ start: doc.slug })}
                     target="_blank"
-                    className="inline-flex items-center justify-center gap-2 bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-3 px-6 rounded-2xl font-bold text-sm transition-all hover:shadow-lg cursor-pointer"
+                    className="inline-flex items-center justify-center gap-3 bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-8 rounded-[24px] font-black text-lg transition-all hover:scale-105 shadow-[0_10px_20px_-5px_rgba(184,212,48,0.3)] cursor-pointer"
                   >
-                    <Send size={16} /> <T path="services.docs_section.order_tg">Оформить в Telegram</T>
+                    <Send size={20} /> <T path="services.docs_section.order_tg">Оформить в Telegram</T>
                   </Link>
                   <button
                     onClick={() => setModalService({ title: doc.title, icon: icon, color: color })}
-                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#163A5C] py-3 px-6 rounded-2xl font-bold text-sm border border-gray-200 transition-all hover:shadow-md cursor-pointer"
+                    className="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-[#1E58B1] py-5 px-8 rounded-[24px] font-black text-lg border border-gray-100 transition-all hover:shadow-lg cursor-pointer"
                   >
-                    <FileText size={16} /> <T path="services.docs_section.order_site">Оставить заявку на сайте</T>
+                    <FileText size={20} /> <T path="services.docs_section.order_site">Оставить заявку</T>
                   </button>
                 </div>
               </div>
@@ -166,7 +183,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
                     style={{ backgroundColor: `${color}15`, color: color }}
                   >
-                    {React.cloneElement(icon as React.ReactElement, { size: 28 })}
+                    {React.cloneElement(icon as React.ReactElement, { size: 28 } as any)}
                   </div>
 
                   <h3 className="text-2xl font-black text-[#163A5C] mb-4 group-hover:text-[#2196D3] transition-colors leading-tight">
@@ -194,13 +211,13 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
                     <Link
                       href={getBotUrl({ start: svc.slug })}
                       target="_blank"
-                      className="inline-flex items-center justify-center gap-2 bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-3 px-6 rounded-2xl font-bold text-sm transition-all hover:shadow-lg cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 bg-[#B8D430] hover:bg-[#A7C220] text-[#1E58B1] py-3 px-6 rounded-2xl font-bold text-sm transition-all hover:shadow-lg cursor-pointer"
                     >
                       <Send size={16} /> <T path="services.extra_section.learn_tg">Узнать в Telegram</T>
                     </Link>
                     <button
                       onClick={() => setModalService({ title: svc.title, icon: icon, color: color })}
-                      className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#163A5C] py-3 px-6 rounded-2xl font-bold text-sm border border-gray-200 transition-all hover:shadow-md cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#1E58B1] py-3 px-6 rounded-2xl font-bold text-sm border border-gray-200 transition-all hover:shadow-md cursor-pointer"
                     >
                       <FileText size={16} /> <T path="services.extra_section.order_site">Оставить заявку</T>
                     </button>
@@ -264,7 +281,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
       </section>
 
       <section className="py-24 max-w-7xl mx-auto px-5">
-        <div className="bg-gradient-to-br from-[#2196D3] to-[#163A5C] rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
+        <div className="bg-gradient-to-br from-[#2196D3] to-[#1E58B1] rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8"><T path="services.cta.title">Не нашли нужную услугу?</T></h2>
@@ -275,7 +292,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
               <Link
                 href={getBotUrl({ start: 'support' })}
                 target="_blank"
-                className="bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-12 rounded-[24px] font-black text-xl flex items-center justify-center gap-3 transition-all hover:scale-105"
+                className="bg-[#B8D430] hover:bg-[#A7C220] text-[#1E58B1] py-5 px-12 rounded-[24px] font-black text-xl flex items-center justify-center gap-3 transition-all hover:scale-105"
               >
                 <MessageCircle size={28} /> <T path="services.cta.btn">Написать менеджеру</T>
               </Link>

@@ -55,7 +55,8 @@
       "title_highlight": "ortiqcha tashvishlarsiz",
       "subtitle": "MDH fuqarolariga qonuniy ishga joylashish, uy-joy va hujjatlar bilan yordam beramiz. Rasmiy, tez va 24/7 qo'llab-quvvatlash bilan.",
       "btn_work": "Ish topish",
-      "btn_services": "Xizmatlar"
+      "btn_services": "Xizmatlar",
+      "tagline": "Ishonchli. Tushunarli. Foydali."
     },
     "about_section": {
       "badge": "MIGO loyihasi haqida",
@@ -68,7 +69,8 @@
       "stat_click": "1 bosish",
       "stat_telegram": "Telegramda",
       "reliable_title": "Biz bilan ishonchli",
-      "reliable_desc": "Biz faqat rasmiy idoralar, tekshirilgan ish beruvchilar va ishonchli uy egalari bilan ishlaymiz. Ertangi kuningizga ishonch bilan qarashingiz mumkin."
+      "reliable_desc": "Biz faqat rasmiy idoralar, tekshirilgan ish beruvchilar va ishonchli uy egalari bilan ishlaymiz. Ertangi kuningizga ishonch bilan qarashingiz mumkin.",
+      "alt_image": "MIGO ekotizimi — qo'llab-quvvatlash va imkoniyatlar"
     },
     "services_section": {
       "title": "Bizning xizmatlar",
@@ -76,7 +78,8 @@
       "all_services": "Barcha xizmatlar",
       "find_work": "Ish topish",
       "housing": "Uy-joy",
-      "more": "Batafsil"
+      "more": "Batafsil",
+      "tg_btn": "Telegramda batafsil bilish"
     },
     "steps": {
       "title": "MIGO bilan muvaffaqiyatga 4 qadam",
@@ -84,11 +87,69 @@
       "step1_title": "Ariza",
       "step1_desc": "Telegramda 1 daqiqada so'rov qoldiring",
       "step2_title": "Tanlash",
-      "step2_desc": "Mezonlaringizga eng yaxshi variantlarni topamiz",
+      "step2_desc": "Mezonlaringizga eng yaxshi variantlarni findamiz",
       "step3_title": "Rasmiylashtirish",
       "step3_desc": "Barcha hujjatlar bilan rasmiy yordam beramiz",
       "step4_title": "Boshlash",
       "step4_desc": "Ishlash va tinch yashashni boshlang"
+    },
+    "path_section": {
+      "problem_badge": "Muammo",
+      "title": "Migrant yo'li: aslidagi kabi",
+      "subtitle": "Rossiyaga kelgan har bir kishi bu yo'ldan o'tadi. MIGO bilan bu yo'l bashorat qilinadigan va xavfsiz bo'ladi.",
+      "problem_1": "Tushunarli ma'lumot yo'q",
+      "problem_2": "Ishonchli odamlar yo'q",
+      "problem_3": "Tizim yo'q — faqat «kimdandir so'rang»",
+      "without_migo": {
+        "title": "MIGO'SIZ YO'L QANDAY KECHADI",
+        "step1_title": "1. Kelish",
+        "step1_desc": "Odam keladi va nimadan boshlashni bilmaydi → vokzalda kimdir «maslahat beradi» → ko'pincha bular vositachilar",
+        "step2_title": "2. Hujjatlar",
+        "step2_desc": "Tartibsizlik boshlanadi: «duch kelgan joyda» ro'yxatdan o'tish, hujjatlardagi xatolar",
+        "step3_title": "3. Ish",
+        "step3_desc": "Tanishlar yoki Telegram orqali topishadi: to'lov kafolati yo'q, smenadan keyin «tashlab ketishlari» mumkin, sharoitlar ko'pincha va'da qilinganidan yomon",
+        "step4_title": "4. Turmush va aloqa",
+        "step4_desc": "Bank va sim-kartani rasmiylashtirishdagi qiyinchiliklar, ortiqcha xizmatlarni yuklashadi, qanday to'g'ri qilish kerakligini tushunish yo'q",
+        "step5_title": "5. Qo'shimcha xarajatlar",
+        "step5_desc": "Jarimalar uchun kutilmagan xarajatlar, qoidabuzarliklar tufayli qo‘shimcha sarf-xarajatlar, shuningdek daromad va vaqt yo‘qotish xavfi",
+        "step6_title": "6. Deportatsiya xavfi",
+        "step6_desc": "Patent yoki ro'yxatdan o'tishdagi xatolar tufayli doimiy tekshiruvlardan qo'rqish, RFga kirish huquqini yo'qotish xavfi",
+        "step_result_title": "Yakun",
+        "step_result_desc": "Yo'qotilgan pul, vaqt, doimiy stress va hujjatlarsiz hamda ishsiz qolish xavfi"
+      },
+      "with_migo": {
+        "title": "MIGO BILAN BU QANDAY BO'LADI",
+        "desc": "MIGO — bu butun yo'lni o'z zimmasiga oladigan va uni tushunarli, xavfsiz va tezkor qiladigan tizim.",
+        "step1_title": "1. Kelishdan oldin",
+        "step1_desc": "Odam nima qilishni allaqachon biladi, ko'rsatmalar oladi va butun yo'nalishni oldindan tushunadi",
+        "step2_title": "2. Birinchi kunda",
+        "step2_desc": "MIGO ofisiga keladi, barcha asosiy hujjatlarni darhol, vositachilar va ortiqcha to'lovlarsiz rasmiylashtiradi",
+        "step3_title": "3. Hujjatlar",
+        "step3_desc": "Hamma narsa to'g'ri, xatolarsiz va ekspertning to'liq hamrohligida rasmiylashtiriladi",
+        "step4_title": "4. Ish",
+        "step4_desc": "Faqat tekshirilgan ish beruvchilar, tushunarli sharoitlar va aldovdan to'liq himoya",
+        "step5_title": "5. Moliya va aloqa",
+        "step5_desc": "Bank va sim-kartani ulash: tez, rasmiy, ortiqcha xizmatlarsiz",
+        "step6_title": "6. Qo'llab-quvvatlash",
+        "step6_desc": "Har doim har qanday savolga javob beradigan odam yoki bot bor. Siz yolg'iz qolmaysiz",
+        "result": "Tushunarli yo'l, xavfsizlik va natija"
+      },
+      "reliability": {
+        "title": "MIGO bilan siz ishonchli himoyadasiz",
+        "priority_title": "Sizning xavfsizligingiz — bizning asosiy ustuvorligimiz",
+        "subtitle": "Yo'lingiz iloji boricha qulay va xavfsiz bo'lishi uchun biz barcha xavflarni bartaraf etdik.",
+        "feat1": "Yashirin vositachilar yo'q",
+        "feat2": "Tekshirilgan ish beruvchilar",
+        "feat3": "Yuridik aniqlik",
+        "feat4": "Shaffof narxlar va shartlar",
+        "feat5": "Hammasi bitta ilovada",
+        "feat6": "24/7 qo'llab-quvvatlash"
+      },
+      "main_idea": {
+        "title": "Asosiy xulosa",
+        "without": "Tizimsiz — siz vaqt va pulni xavf ostiga qo'yib, ko'r-ko'rona ketyapsiz.",
+        "with": "MIGO bilan — siz kafolatlangan natijaga erishish uchun tekshirilgan yo'nalish bo'ylab ketyapsiz."
+      }
     },
     "trust": {
       "badge": "Nega bizga ishonishadi",

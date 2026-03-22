@@ -11,7 +11,8 @@ import {
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   green: '#27A15E',
@@ -29,34 +30,50 @@ export default function ClientAbout() {
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
-      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-[#B8D430]/10 rounded-full blur-[150px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#2196D3]/10 rounded-full blur-[120px]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(248,250,252,1)_100%)]"></div>
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
+        <div className="absolute inset-0 z-0 text-center">
+          <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#2196D3]/15 rounded-full blur-[140px]"></div>
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-white rounded-full blur-[100px] opacity-40"></div>
+          <div className="absolute inset-0 bg-white/30"></div>
         </div>
 
-        <div className={`max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-[#163A5C] leading-[0.95] mb-12 max-w-5xl tracking-tighter">
-              <T path="about.hero.title_1">Мы строим</T> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="about.hero.title_highlight">безопасный путь</T></span> <br />
-              <T path="about.hero.title_2">для каждого</T>
-            </h1>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left max-w-5xl mt-12 bg-white/30 backdrop-blur-xl p-10 md:p-16 rounded-[48px] border border-white/50 shadow-2xl">
-              <div>
-                <h3 className="text-2xl font-black text-[#163A5C] mb-6 flex items-center gap-3">
-                  <ShieldCheck className="text-[#B8D430]" size={32} /> <T path="about.mission.title">Наша миссия</T>
-                </h3>
-                <p className="text-lg md:text-xl text-gray-500 leading-relaxed font-medium">
-                  <T path="about.mission.p1">MIGO — это социальный проект, созданный для того, чтобы сделать жизнь и работу в России для граждан СНГ прозрачной, безопасной и комфортной.</T>
-                </p>
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#B8D430] shadow-[0_0_10px_#B8D430]"></span>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="about.hero.badge">Мы строим будущее</T></p>
               </div>
-              <div className="flex flex-col justify-center">
-                <p className="text-gray-400 leading-relaxed">
-                  <T path="about.mission.p2">Мы верим, что каждый человек заслуживает честного отношения, достойной оплаты труда и качественного жилья. Мы объединяем технологии и человеческую поддержку, чтобы решить ваши вопросы «в одно окно».</T>
-                </p>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
+                <T path="about.hero.title_1">Безопасный путь</T><br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="about.hero.title_highlight">для каждого</T></span>
+              </h1>
+
+              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+                <T path="about.mission.p1">MIGO — это экосистема поддержки, созданная чтобы сделать жизнь и работу в России прозрачной и комфортной.</T>
+              </p>
+
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
+                <Link
+                  href={getBotUrl({ start: 'about' })}
+                  target="_blank"
+                  className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95"
+                >
+                  <MessageCircle size={28} /> <T path="about.cta.btn">Узнать больше</T>
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative group perspective-[2000px] hidden lg:block">
+              <div className="relative z-10 animate-float">
+                <img
+                  src="/migo_about_friendly_3d_1774105431288.png"
+                  alt="MIGO About 3D Style"
+                  className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
             </div>
           </div>
@@ -88,7 +105,7 @@ export default function ClientAbout() {
             </div>
           </div>
 
-          <div className="md:col-span-4 bg-[#163A5C] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl">
+          <div className="md:col-span-4 bg-[#1E58B1] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl">
             <MessageCircle size={48} className="mb-8 text-[#B8D430]" />
             <div>
               <h3 className="text-2xl font-black mb-4"><T path="about.reasons.r3_title">Поддержка</T></h3>
@@ -153,7 +170,7 @@ export default function ClientAbout() {
           <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-10 leading-tight"><T path="about.cta.title">Давайте делать этот мир лучше вместе</T></h2>
           <p className="text-xl text-gray-500 mb-12 font-medium"><T path="about.cta.subtitle">Хотите стать нашим партнером или помочь в развитии проекта? Мы всегда открыты к предложениям.</T></p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href={getBotUrl({ start: 'about' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-12 rounded-[24px] font-black text-xl shadow-2xl transition-all hover:scale-105">
+            <Link href={getBotUrl({ start: 'about' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#1E58B1] py-5 px-12 rounded-[24px] font-black text-xl shadow-2xl transition-all hover:scale-105">
               <T path="about.cta.btn">Связаться с нами</T>
             </Link>
           </div>
@@ -167,16 +184,16 @@ function FAQItem({ question, answer }: { question: React.ReactNode, answer: Reac
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden transition-all duration-300 hover:shadow-xl">
+    <div className="bg-white border border-gray-100 rounded-[48px] overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] shadow-sm">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left p-8 flex justify-between items-center group cursor-pointer"
+        className="w-full text-left p-10 flex justify-between items-center group cursor-pointer"
       >
-        <span className="text-xl font-black text-[#163A5C] group-hover:text-[#2196D3] transition-colors">{question}</span>
-        <ChevronRight className={`text-[#2196D3] transition-transform duration-500 ${isOpen ? 'rotate-90' : ''}`} size={24} />
+        <span className="text-2xl font-black text-[#163A5C] group-hover:text-[#1E58B1] transition-colors leading-tight">{question}</span>
+        <ChevronRight className={`text-[#1E58B1] transition-transform duration-500 ${isOpen ? 'rotate-90' : ''}`} size={32} />
       </button>
-      <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="p-8 pt-0 text-gray-500 leading-relaxed font-medium border-t border-gray-50">
+      <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <div className="p-10 pt-0 text-gray-500 text-lg leading-relaxed font-medium border-t border-gray-50">
           {answer}
         </div>
       </div>

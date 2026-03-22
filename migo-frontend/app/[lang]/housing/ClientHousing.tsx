@@ -10,7 +10,8 @@ import {
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   green: '#27A15E',
@@ -28,37 +29,51 @@ export default function ClientHousing() {
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
-      <section className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#2196D3]/10 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#B8D430]/10 rounded-full blur-[100px]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(248,250,252,1)_100%)]"></div>
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
+        <div className="absolute inset-0 z-0 text-center">
+          <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#2196D3]/15 rounded-full blur-[140px]"></div>
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-white rounded-full blur-[100px] opacity-40"></div>
+          <div className="absolute inset-0 bg-white/30"></div>
         </div>
 
-        <div className={`max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
-              <span className="w-2 h-2 rounded-full bg-[#2196D3]"></span>
-              <p className="text-xs md:text-sm font-bold text-[#163A5C] uppercase tracking-[0.2em]"><T path="housing.hero.badge">Ваш новый дом в России</T></p>
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#2196D3] shadow-[0_0_10px_#2196D3]"></span>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="housing.hero.badge">Ваш новый дом в России</T></p>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
+                <T path="housing.hero.title_1">Комфортное жильё</T><br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="housing.hero.title_highlight">рядом с работой</T></span>
+              </h1>
+
+              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+                <T path="housing.hero.subtitle">Помощь в подборе общежитий, квартир и хостелов. Быстро, официально и в удобном для вас районе.</T>
+              </p>
+
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
+                <Link
+                  href={getBotUrl({ start: 'housing', source: 'site_housing', medium: 'housing' })}
+                  target="_blank"
+                  className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-12 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95"
+                >
+                  <Home className="w-7 h-7" /> <T path="housing.hero.btn">Подобрать в Telegram</T>
+                </Link>
+              </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
-              <T path="housing.hero.title_1">Комфортное жильё</T> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="housing.hero.title_highlight">рядом с вашей работой</T></span>
-            </h1>
-
-            <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-2xl leading-relaxed">
-              <T path="housing.hero.subtitle">Помощь в подборе общежитий, квартир и хостелов для граждан СНГ. Быстро, официально и в удобном районе.</T>
-            </p>
-
-            <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
-              <Link
-                href={getBotUrl({ start: 'housing', source: 'site_housing', medium: 'housing' })}
-                target="_blank"
-                className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-12 rounded-[24px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_10px_20px_-5px_rgba(184,212,48,0.4)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_25px_-5px_rgba(184,212,48,0.5)] active:scale-95"
-              >
-                <Home className="w-7 h-7" /> <T path="housing.hero.btn">Подобрать жильё в Telegram</T>
-              </Link>
+            <div className="relative group perspective-[2000px] hidden lg:block">
+              <div className="relative z-10 animate-float">
+                <img
+                  src="/migo_housing_friendly_3d_1774105323824.png"
+                  alt="MIGO Housing 3D Style"
+                  className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#2196D3]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -124,7 +139,7 @@ export default function ClientHousing() {
       </section>
 
       <section className="py-24 max-w-7xl mx-auto px-5">
-        <div className="bg-[#163A5C] rounded-[48px] p-8 md:p-20 relative overflow-hidden group shadow-2xl">
+        <div className="bg-[#1E58B1] rounded-[48px] p-8 md:p-20 relative overflow-hidden group shadow-2xl">
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,#2196D380_0%,transparent_50%)] opacity-20"></div>
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-16">
@@ -136,7 +151,7 @@ export default function ClientHousing() {
 
               <div className="space-y-10">
                 <div className="flex gap-6 group">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-lg group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-lg group-hover:bg-[#B8D430] group-hover:text-[#1E58B1] transition-all duration-500">
                     <CheckCircle2 size={28} />
                   </div>
                   <div>
@@ -145,7 +160,7 @@ export default function ClientHousing() {
                   </div>
                 </div>
                 <div className="flex gap-6 group">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-lg group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 shadow-lg group-hover:bg-[#B8D430] group-hover:text-[#1E58B1] transition-all duration-500">
                     <CheckCircle2 size={28} />
                   </div>
                   <div>
@@ -179,20 +194,19 @@ export default function ClientHousing() {
 
 function HousingTypeCard({ title, icon, color, desc }: { title: React.ReactNode, icon: React.ReactNode, color: string, desc: React.ReactNode }) {
   return (
-    <div className="group bg-white rounded-[40px] p-10 border border-gray-100 hover:border-[#2196D3] hover:shadow-2xl transition-all duration-500 flex flex-col h-full transform hover:-translate-y-2">
+    <div className="group bg-white rounded-[48px] p-8 md:p-12 border border-gray-100 hover:border-[#1E58B1] hover:shadow-[0_45px_75px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col h-full transform hover:-translate-y-2 shadow-sm">
       <div
-        className="w-20 h-20 rounded-[28px] flex items-center justify-center mb-10 transition-all group-hover:scale-110 group-hover:rotate-6 shadow-sm"
-        style={{ backgroundColor: `${color}15`, color: color }}
+        className="w-20 h-20 rounded-[28px] flex items-center justify-center mb-10 text-[#1E58B1] bg-[#1E58B1]/5 border border-gray-50 transform group-hover:scale-110 group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500 shadow-sm"
       >
-        {icon}
+        {React.cloneElement(icon as React.ReactElement<any>, { size: 36 })}
       </div>
-      <h3 className="text-2xl font-black text-[#163A5C] mb-4 group-hover:text-[#2196D3] transition-colors uppercase tracking-tight">
+      <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] mb-6 group-hover:text-[#1E58B1] transition-colors tracking-tighter leading-tight">
         {title}
       </h3>
-      <p className="text-gray-500 leading-relaxed mb-10 font-medium">
+      <p className="text-gray-500 leading-relaxed mb-10 font-medium text-sm md:text-base">
         {desc}
       </p>
-      <div className="mt-auto flex items-center gap-3 text-sm font-black text-gray-300 group-hover:text-[#2196D3] transition-all uppercase tracking-widest cursor-pointer">
+      <div className="mt-auto flex items-center gap-3 text-xs font-black text-gray-300 group-hover:text-[#2196D3] transition-all uppercase tracking-[0.2em] cursor-pointer">
         <T path="housing.types.more">Подробнее</T> <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
       </div>
     </div>

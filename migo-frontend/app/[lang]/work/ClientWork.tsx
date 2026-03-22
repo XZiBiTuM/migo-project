@@ -24,10 +24,11 @@ export interface VacancyItem {
   conditions: string;
   is_active: boolean;
 }
-import ServiceModal from '../../components/ServiceModal';
+import ServiceModal from '@/components/ServiceModal';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   green: '#27A15E',
@@ -46,37 +47,51 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
-      <section className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
-        <div className="absolute inset-0 z-0 text-center">
-          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#2196D3]/10 rounded-full blur-[100px]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(248,250,252,1)_100%)]"></div>
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#2196D3]/15 rounded-full blur-[140px]"></div>
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px]"></div>
+          <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-white rounded-full blur-[100px] opacity-40"></div>
+          <div className="absolute inset-0 bg-white/30"></div>
         </div>
 
-        <div className={`max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/80 shadow-sm mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#B8D430]"></span>
-              <p className="text-xs md:text-sm font-bold text-[#163A5C] uppercase tracking-[0.2em]"><T path="work.hero.badge">Проверенные вакансии</T></p>
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#B8D430] shadow-[0_0_10px_#B8D430]"></span>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="work.hero.badge">Проверенные вакансии</T></p>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
+                <T path="work.hero.title_1">Работа в России</T><br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="work.hero.title_2">через Telegram</T></span>
+              </h1>
+
+              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+                <T path="work.hero.subtitle">Без анкет и регистраций. Найдите работу за 2 минуты через удобного бота под контролем менеджера.</T>
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Link
+                  href={getBotUrl({ start: 'work', source: 'site_work_page', medium: 'work' })}
+                  target="_blank"
+                  className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95"
+                >
+                  <Briefcase size={28} /> <T path="work.hero.btn">Найти работу в Telegram</T>
+                </Link>
+              </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
-              <T path="work.hero.title_1">Найдите работу в России </T><br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="work.hero.title_highlight">через Telegram за 2 минуты</T></span>
-            </h1>
-
-            <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-2xl leading-relaxed">
-              <T path="work.hero.subtitle">Без сложных сайтов и регистрации. Просто откройте бота и получите вакансии под ваши критерии под руководством личного менеджера.</T>
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Link
-                href={getBotUrl({ start: 'work', source: 'site_work_page', medium: 'work' })}
-                target="_blank"
-                className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-12 rounded-[24px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_10px_20px_-5px_rgba(184,212,48,0.4)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_25px_-5px_rgba(184,212,48,0.5)] active:scale-95"
-              >
-                <Briefcase className="w-7 h-7" /> <T path="work.hero.btn">Найти работу в Telegram</T>
-              </Link>
+            <div className="relative group perspective-[2000px] hidden lg:block">
+              <div className="relative z-10 animate-float">
+                <img
+                  src="/migo_job_friendly_3d_1774105277911.png"
+                  alt="MIGO Job 3D Style"
+                  className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -203,15 +218,15 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
             </h3>
             <ul className="space-y-6">
               <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-[#B8D430]/20 flex items-center justify-center shrink-0 mt-1"><CheckCircle2 size={14} className="text-[#163A5C]" /></div>
+                <div className="w-6 h-6 rounded-full bg-[#B8D430]/20 flex items-center justify-center shrink-0 mt-1"><CheckCircle2 size={14} className="text-[#1E58B1]" /></div>
                 <p className="text-[#163A5C] font-bold leading-relaxed"><T path="work.safety.migo1">Только проверенные вакансии с официальным оформлением</T></p>
               </li>
               <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-[#B8D430]/20 flex items-center justify-center shrink-0 mt-1"><CheckCircle2 size={14} className="text-[#163A5C]" /></div>
+                <div className="w-6 h-6 rounded-full bg-[#B8D430]/20 flex items-center justify-center shrink-0 mt-1"><CheckCircle2 size={14} className="text-[#1E58B1]" /></div>
                 <p className="text-[#163A5C] font-bold leading-relaxed"><T path="work.safety.migo2">Помощь в решении бытовых вопросов и жилья</T></p>
               </li>
               <li className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-[#B8D430]/20 flex items-center justify-center shrink-0 mt-1"><CheckCircle2 size={14} className="text-[#163A5C]" /></div>
+                <div className="w-6 h-6 rounded-full bg-[#B8D430]/20 flex items-center justify-center shrink-0 mt-1"><CheckCircle2 size={14} className="text-[#1E58B1]" /></div>
                 <p className="text-[#163A5C] font-bold leading-relaxed"><T path="work.safety.migo3">Полное сопровождение менеджером до выхода на работу</T></p>
               </li>
             </ul>
@@ -237,7 +252,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
       </section>
 
       <section className="py-24 max-w-7xl mx-auto px-5">
-        <div className="bg-gradient-to-br from-[#163A5C] via-[#1A4B75] to-[#2196D3] rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
+        <div className="bg-gradient-to-br from-[#1E58B1] via-[#1A4B75] to-[#2196D3] rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 blur-[80px]"></div>
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8"><T path="work.cta.title">Готовы начать работать?</T></h2>
@@ -261,12 +276,12 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
 
 function AdvantageCard({ icon, title, desc }: { icon: React.ReactNode, title: React.ReactNode, desc: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-[32px] p-8 border border-gray-100 hover:border-[#2196D3] hover:shadow-2xl transition-all duration-500 group flex flex-col items-center text-center">
-      <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-[#2196D3] bg-[#2196D3]/10 transform group-hover:scale-110 transition-transform">
-        {React.cloneElement(icon as React.ReactElement<any>, { size: 28 })}
+    <div className="bg-white rounded-[40px] p-8 border border-gray-100 hover:border-[#1E58B1] hover:shadow-[0_45px_75px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 group flex flex-col items-center text-center h-full shadow-sm">
+      <div className="w-20 h-20 rounded-3xl flex items-center justify-center mb-6 text-[#1E58B1] bg-[#1E58B1]/5 border border-gray-50 transform group-hover:scale-110 group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500 shadow-sm">
+        {React.cloneElement(icon as React.ReactElement<any>, { size: 36 })}
       </div>
-      <h3 className="font-black text-[#163A5C] mb-3 leading-snug">{title}</h3>
-      <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+      <h3 className="text-xl font-black text-[#163A5C] mb-4 leading-tight tracking-tight">{title}</h3>
+      <p className="text-gray-400 text-sm md:text-base leading-relaxed font-medium">{desc}</p>
     </div>
   );
 }
@@ -274,33 +289,33 @@ function AdvantageCard({ icon, title, desc }: { icon: React.ReactNode, title: Re
 function JobCard({ job }: { job: VacancyItem }) {
   const { t } = useLanguage();
   const tags = [];
-  if (job.housing_provided) tags.push({ key: 'work.vacancies.housing_free', default: 'Проживание бесплатно' });
+  if (job.housing_provided) tags.push({ key: 'work.vacancies.housing_free', default: 'Дом включен' });
   if (job.meals_provided) tags.push({ key: 'work.vacancies.meals', default: 'Питание' });
   if (job.docs_included) tags.push({ key: 'work.vacancies.docs', default: 'Документы' });
 
   return (
-    <div className="bg-white rounded-3xl p-8 border border-gray-100 hover:border-[#B8D430] hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+    <div className="bg-white rounded-[48px] p-8 md:p-10 border border-gray-100 hover:border-[#B8D430] hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 group flex flex-col justify-between h-full shadow-sm">
       <div>
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-          <h3 className="text-2xl font-black text-[#163A5C]">{job.title}</h3>
-          <div className="bg-[#B8D430]/10 text-[#27A15E] font-black px-4 py-2 rounded-xl whitespace-nowrap">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8">
+          <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] tracking-tight">{job.title}</h3>
+          <div className="bg-[#B8D430] text-[#163A5C] font-black px-6 py-3 rounded-[20px] whitespace-nowrap text-lg shadow-[0_10px_20px_-5px_rgba(184,212,48,0.3)]">
             {job.salary}
           </div>
         </div>
         
-        <div className="flex flex-wrap gap-4 text-sm font-medium text-gray-500 mb-6">
-          <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100">
-            <MapPin size={16} className="text-[#2196D3]" /> {job.city}
+        <div className="flex flex-wrap gap-4 text-xs md:text-sm font-black text-gray-400 mb-8 uppercase tracking-widest">
+          <div className="flex items-center gap-2.5 bg-gray-50 px-4 py-2.5 rounded-full border border-gray-100">
+            <MapPin size={18} className="text-[#1E58B1]" /> {job.city}
           </div>
-          <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100">
-            <Clock size={16} className="text-[#2196D3]" /> {job.schedule}
+          <div className="flex items-center gap-2.5 bg-gray-50 px-4 py-2.5 rounded-full border border-gray-100">
+            <Clock size={18} className="text-[#1E58B1]" /> {job.schedule}
           </div>
         </div>
 
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-3 mb-10">
             {tags.map((tag, idx) => (
-              <span key={idx} className="bg-[#163A5C]/5 text-[#163A5C] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+              <span key={idx} className="bg-[#1E58B1]/5 text-[#1E58B1] text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] border border-[#1E58B1]/10">
                 <T path={tag.key}>{tag.default}</T>
               </span>
             ))}
@@ -308,13 +323,13 @@ function JobCard({ job }: { job: VacancyItem }) {
         )}
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-50 mt-4">
+      <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-gray-50 mt-4">
         <Link
           href={getBotUrl({ start: 'work' })}
           target="_blank"
-          className="flex-1 bg-[#163A5C] hover:bg-[#0F2942] text-white py-3.5 px-6 rounded-xl font-bold text-center transition-colors flex justify-center items-center gap-2"
+          className="flex-1 bg-[#1E58B1] hover:bg-[#16489a] text-white py-5 px-8 rounded-[24px] font-black text-lg text-center transition-all flex justify-center items-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95"
         >
-          <Send size={18} /> Откликнуться
+          <Send size={20} /> Откликнуться в Telegram
         </Link>
       </div>
     </div>

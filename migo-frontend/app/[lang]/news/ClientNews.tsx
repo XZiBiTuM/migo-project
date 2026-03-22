@@ -10,7 +10,8 @@ import { getCategoryLabel } from '@/utils/news';
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   green: '#27A15E',
@@ -68,7 +69,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
           <div className="mt-12 flex flex-col items-center text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
               <T path="news.hero.title_1">Новости</T> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#163A5C]"><T path="news.hero.title_highlight">и полезные статьи</T></span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#1E58B1]"><T path="news.hero.title_highlight">и полезные статьи</T></span>
             </h1>
             <p className="text-lg md:text-2xl text-gray-600 max-w-2xl leading-relaxed">
               <T path="news.hero.subtitle">Узнавайте первыми об изменениях в законах, новых вакансиях и лайфхаках для жизни в России.</T>
@@ -84,7 +85,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-8 py-3 rounded-full font-black text-sm uppercase tracking-widest transition-all duration-500 border shadow-sm ${selectedCategory === cat.id
-                ? 'bg-[#163A5C] text-white border-[#163A5C] scale-105'
+                ? 'bg-[#1E58B1] text-white border-[#1E58B1] scale-105'
                 : 'bg-white/50 backdrop-blur-md text-[#163A5C] border-white/80 hover:bg-white hover:border-[#2196D3]'
                 }`}
             >
@@ -111,7 +112,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
       </section>
 
       <section className="py-24 max-w-7xl mx-auto px-5">
-        <div className="bg-[#163A5C] rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
+        <div className="bg-[#1E58B1] rounded-[48px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(184,212,48,0.1)_0%,transparent_50%)]"></div>
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-8"><T path="news.cta.title">Не пропускайте важное</T></h2>
@@ -152,14 +153,14 @@ function NewsCard({ news }: { news: NewsItem }) {
       className="group bg-white rounded-[40px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col h-full transform hover:-translate-y-2 outline-offset-4 focus:ring-4 focus:ring-[#2196D3]/30"
     >
       <div className="relative h-64 bg-gray-50 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#2196D3]/20 to-[#163A5C]/20 group-hover:scale-110 transition-transform duration-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2196D3]/20 to-[#1E58B1]/20 group-hover:scale-110 transition-transform duration-1000"></div>
         <div className="absolute top-6 left-6">
           <span className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-[#163A5C] text-xs font-black uppercase tracking-widest shadow-sm">
             <T path={`news.categories.${news.category}`}>{getCategoryLabel(news.category)}</T>
           </span>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#163A5C]/20 backdrop-blur-[2px]">
-          <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#163A5C] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 shadow-xl">
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E58B1]/20 backdrop-blur-[2px]">
+          <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-[#1E58B1] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 shadow-xl">
             <ArrowRight size={28} />
           </div>
         </div>

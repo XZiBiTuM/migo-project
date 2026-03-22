@@ -11,7 +11,8 @@ import { getCategoryLabel } from '@/utils/news';
 import { T, useLanguage } from '@/context/LanguageContext';
 
 const COLORS = {
-  navy: '#163A5C',
+  navy: '#1E58B1',
+  textNavy: '#163A5C',
   blue: '#2196D3',
   accent: '#B8D430',
   green: '#27A15E',
@@ -57,7 +58,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
         <div className={`max-w-4xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-12">
             <Link href={`/${lang}/news`} className="group flex items-center gap-3 text-[#163A5C] font-black uppercase tracking-widest text-xs hover:text-[#2196D3] transition-colors">
-              <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#163A5C] group-hover:text-white transition-all">
+              <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#1E58B1] group-hover:text-white transition-all">
                 <ArrowLeft size={18} />
               </div>
               <T path="news_detail.back_btn">Вернуться назад</T>
@@ -74,7 +75,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
           </div>
 
           <div className="inline-flex items-center gap-4 mb-8">
-            <span className="px-4 py-2 rounded-full bg-[#163A5C] text-white text-[10px] font-black uppercase tracking-[0.2em]">
+            <span className="px-4 py-2 rounded-full bg-[#1E58B1] text-white text-[10px] font-black uppercase tracking-[0.2em]">
               <T path={`news.categories.${article.category}`}>{getCategoryLabel(article.category)}</T>
             </span>
             <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest">
@@ -89,7 +90,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
 
           <div className="flex items-center justify-between py-8 pb-4 border-t border-gray-100">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#163A5C] flex items-center justify-center text-white font-black text-xl">
+              <div className="w-12 h-12 rounded-full bg-[#1E58B1] flex items-center justify-center text-white font-black text-xl">
                 M
               </div>
               <div>
@@ -152,7 +153,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
       )}
 
       <section className="max-w-5xl mx-auto px-5">
-        <div className="bg-[#163A5C] rounded-[64px] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
+        <div className="bg-[#1E58B1] rounded-[64px] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#B8D430]/5 rounded-full blur-[100px]"></div>
 
           <div className="relative z-10 max-w-2xl mx-auto">
@@ -165,7 +166,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
               <Link
                 href={getBotUrl({ start: 'law', source: 'news_detail' })}
                 target="_blank"
-                className="group flex items-center justify-between bg-white text-[#163A5C] p-6 rounded-[32px] font-black transition-all hover:scale-105 shadow-xl hover:bg-[#B8D430]"
+                className="group flex items-center justify-between bg-white text-[#1E58B1] p-6 rounded-[32px] font-black transition-all hover:scale-105 shadow-xl hover:bg-[#B8D430]"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-[#2196D3]">
