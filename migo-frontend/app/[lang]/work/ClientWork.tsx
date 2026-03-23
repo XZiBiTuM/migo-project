@@ -93,6 +93,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
                   height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -287,7 +288,7 @@ function AdvantageCard({ icon, title, desc }: { icon: React.ReactNode, title: Re
         {React.cloneElement(icon as React.ReactElement<any>, { size: 36 })}
       </div>
       <h3 className="text-xl font-black text-[#163A5C] mb-4 leading-tight tracking-tight">{title}</h3>
-      <p className="text-gray-400 text-sm md:text-base leading-relaxed font-medium">{desc}</p>
+      <p className="text-gray-700 text-sm md:text-base leading-relaxed font-medium">{desc}</p>
     </div>
   );
 }
@@ -309,7 +310,7 @@ function JobCard({ job }: { job: VacancyItem }) {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-4 text-xs md:text-sm font-black text-gray-400 mb-8 uppercase tracking-widest">
+        <div className="flex flex-wrap gap-4 text-xs md:text-sm font-black text-gray-700 mb-8 uppercase tracking-widest">
           <div className="flex items-center gap-2.5 bg-gray-50 px-4 py-2.5 rounded-full border border-gray-100">
             <MapPin size={18} className="text-[#1E58B1]" /> {job.city}
           </div>

@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Создаем все статические пути для всех локалей
   const staticRoutes: MetadataRoute.Sitemap = locales.flatMap((lang) => 
     staticSegments.map((segment) => ({
-      url: `${baseUrl}/${lang}${segment}`,
+      url: `${baseUrl}/${lang}${segment}/`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: segment === '' ? 1 : 0.8,

@@ -65,6 +65,7 @@ export default function ClientContacts() {
                   height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -114,7 +115,7 @@ export default function ClientContacts() {
                   </div>
                   <div>
                     <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter"><T path="contacts.offices.office1">Метро Лесопарковая</T></h4>
-                    <p className="text-gray-600 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
+                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
                   </div>
                 </div>
                 <div className="flex gap-6 group">
@@ -123,7 +124,7 @@ export default function ClientContacts() {
                   </div>
                   <div>
                     <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter"><T path="contacts.offices.office2">Метро Саларьево</T></h4>
-                    <p className="text-gray-600 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
+                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
                   </div>
                 </div>
                 <div className="flex gap-6 group">
@@ -132,7 +133,7 @@ export default function ClientContacts() {
                   </div>
                   <div>
                     <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter"><T path="contacts.offices.office3">Метро Домодедовская</T></h4>
-                    <p className="text-gray-600 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
+                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
                   </div>
                 </div>
               </div>
@@ -172,7 +173,7 @@ export default function ClientContacts() {
         <div className="max-w-7xl mx-auto px-10 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="text-white max-w-xl">
             <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight uppercase tracking-tight"><T path="contacts.social.title">Подписывайтесь на нас</T></h2>
-            <p className="text-white/80 text-lg font-medium"><T path="contacts.social.subtitle">Следите за новостями проекта, новыми вакансиями и полезными советами в наших социальных сетях.</T></p>
+            <p className="text-white/90 text-lg font-medium"><T path="contacts.social.subtitle">Следите за новостями проекта, новыми вакансиями и полезными советами в наших социальных сетях.</T></p>
           </div>
           <div className="flex gap-10 flex-wrap justify-center">
             <SocialLink href="https://t.me/migo_work" platform="Telegram" color="#229ED9" />
@@ -196,7 +197,7 @@ function ContactCard({ title, value, link, icon, color, desc }: { title: React.R
       >
         {React.cloneElement(icon as React.ReactElement<any>, { size: 36 })}
       </div>
-      <h3 className="text-xs font-black text-gray-600 mb-4 uppercase tracking-[0.25em]">{title}</h3>
+      <h3 className="text-xs font-black text-gray-700 mb-4 uppercase tracking-[0.25em]">{title}</h3>
       <div className="text-xl md:text-3xl font-black text-[#163A5C] mb-6 break-words group-hover:text-[#1E58B1] transition-colors leading-tight tracking-tighter">{value}</div>
       <p className="text-gray-700 font-medium leading-relaxed mt-auto text-sm md:text-base mb-8">
         {desc}

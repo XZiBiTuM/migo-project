@@ -138,7 +138,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   <p className="text-[10px] md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.15em] truncate"><T path="home.hero.badge">Ваш проводник в России</T></p>
                 </div>
 
-                <div className="mb-6 overflow-hidden">
+                <div className="mb-6 overflow-hidden min-h-[32px]">
                   <p className="text-[#2196D3] font-black text-sm md:text-xl uppercase tracking-wider md:tracking-[0.4em] mb-4 opacity-80 whitespace-nowrap md:whitespace-normal">
                     <T path="home.hero.tagline">Надежно • Понятно • Полезно</T>
                   </p>
@@ -173,6 +173,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                     height={800}
                     className="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
                     priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                   />
 
                   <div className="hidden absolute top-10 -left-10 w-24 h-24 bg-white rounded-3xl shadow-2xl lg:flex items-center justify-center text-[#B8D430] animate-bounce-slow border border-gray-100/50 backdrop-blur-sm bg-white/80">
@@ -212,15 +213,15 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 <div className="mt-16 grid grid-cols-3 gap-6">
                   <div className="flex flex-col">
                     <span className="text-2xl md:text-3xl font-black text-[#B8D430]">24/7</span>
-                    <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_support">Поддержка</T></span>
+                    <span className="text-[10px] font-bold text-gray-700 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_support">Поддержка</T></span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-2xl md:text-3xl font-black text-[#2196D3]">100%</span>
-                    <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_legal">Легально</T></span>
+                    <span className="text-[10px] font-bold text-gray-700 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_legal">Легально</T></span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-2xl md:text-3xl font-black text-[#163A5C]"><T path="home.about_section.stat_click">1 клик</T></span>
-                    <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_telegram">В Telegram</T></span>
+                    <span className="text-[10px] font-bold text-gray-700 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_telegram">В Telegram</T></span>
                   </div>
                 </div>
               </div>
@@ -382,8 +383,8 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                     </p>
                   </div>
 
-                  <div className="mt-14 rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 group-hover:scale-[1.02]">
-                    <Image src="/images/path_without_migo.webp" alt="Путь без MIGO" width={600} height={400} className="w-full h-auto object-cover" />
+                  <div className="mt-14 rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 group-hover:scale-[1.02] aspect-[3/2] relative">
+                    <Image src="/images/path_without_migo.webp" alt="Путь без MIGO" fill className="object-cover" />
                   </div>
                 </div>
               </div>
@@ -440,8 +441,8 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                     </p>
                   </div>
 
-                  <div className="mt-14 rounded-[48px] overflow-hidden border border-[#B8D430]/30 shadow-[0_40px_80px_-20px_rgba(184,212,48,0.3)] transition-all duration-1000 hover:scale-[1.03] group-hover:rotate-1">
-                    <Image src="/images/path_with_migo.webp" alt="Путь с MIGO" width={600} height={400} className="w-full h-auto object-cover" />
+                  <div className="mt-14 rounded-[48px] overflow-hidden border border-[#B8D430]/30 shadow-[0_40px_80px_-20px_rgba(184,212,48,0.3)] transition-all duration-1000 hover:scale-[1.03] group-hover:rotate-1 aspect-[3/2] relative">
+                    <Image src="/images/path_with_migo.webp" alt="Путь с MIGO" fill className="object-cover" />
                   </div>
                 </div>
               </div>
@@ -674,7 +675,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 />
               ))
             ) : (
-              <div className="col-span-3 bg-white p-20 rounded-[32px] text-center border border-gray-100 italic text-gray-400">
+              <div className="col-span-3 bg-white p-20 rounded-[32px] text-center border border-gray-100 italic text-gray-700">
                 <T path="home.news_section.no_news">Новостей пока нет, но скоро здесь будет много полезного!</T>
               </div>
             )}
@@ -686,7 +687,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-6xl font-black text-white mb-8"><T path="home.cta.title">Готовы начать новую жизнь в России?</T></h2>
-              <p className="text-white/80 text-xl md:text-2xl mb-12 leading-relaxed">
+              <p className="text-white/90 text-xl md:text-2xl mb-12 leading-relaxed">
                 <T path="home.cta.subtitle">Не откладывайте на завтра. Бесплатная консультация в Telegram уже ждет вас.</T>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -759,7 +760,7 @@ function NewsCard({ tag, title, slug, image, date, delay, langPath }: any) {
 
       <div className="px-6 pb-8 flex flex-col flex-1">
         <div className="flex justify-between items-center mb-6">
-          <span className="text-xs font-bold text-gray-500">{date}</span>
+          <span className="text-xs font-bold text-gray-700">{date}</span>
         </div>
         <h3
           className="font-black text-[#163A5C] text-xl md:text-2xl leading-tight group-hover:text-[#1E58B1] transition-colors mb-8 line-clamp-3 tracking-tight text-pretty"

@@ -212,6 +212,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
                   height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -272,7 +273,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
       <section className="py-24 max-w-7xl mx-auto px-5">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-6"><T path="services.steps.title">Как работает MIGO</T></h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto"><T path="services.steps.subtitle">Четыре простых шага к решению вашего вопроса.</T></p>
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto"><T path="services.steps.subtitle">Четыре простых шага к решению вашего вопроса.</T></p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

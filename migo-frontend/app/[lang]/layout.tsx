@@ -60,13 +60,17 @@ export default async function LanguageLayout({
   return (
     <html lang={currentLang} suppressHydrationWarning>
       <head>
-        <link rel="canonical" href={`https://migohelp.com/${currentLang}`} />
-        <link rel="alternate" hrefLang="ru" href="https://migohelp.com/ru" />
-        <link rel="alternate" hrefLang="kz" href="https://migohelp.com/kz" />
-        <link rel="alternate" hrefLang="kg" href="https://migohelp.com/kg" />
-        <link rel="alternate" hrefLang="uz" href="https://migohelp.com/uz" />
-        <link rel="alternate" hrefLang="tj" href="https://migohelp.com/tj" />
-        <link rel="alternate" hrefLang="x-default" href="https://migohelp.com/ru" />
+        <link rel="canonical" href={`https://migohelp.com/${currentLang}/`} />
+        <link rel="alternate" hrefLang="ru" href="https://migohelp.com/ru/" />
+        <link rel="alternate" hrefLang="kz" href="https://migohelp.com/kz/" />
+        <link rel="alternate" hrefLang="kg" href="https://migohelp.com/kg/" />
+        <link rel="alternate" hrefLang="uz" href="https://migohelp.com/uz/" />
+        <link rel="alternate" hrefLang="tj" href="https://migohelp.com/tj/" />
+        <link rel="alternate" hrefLang="x-default" href="https://migohelp.com/ru/" />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://flagcdn.com" />
         
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>

@@ -75,6 +75,7 @@ export default function ClientHousing() {
                   height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#2196D3]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -210,7 +211,7 @@ function HousingTypeCard({ title, icon, color, desc }: { title: React.ReactNode,
       <p className="text-gray-700 leading-relaxed mb-10 font-medium text-sm md:text-base">
         {desc}
       </p>
-      <div className="mt-auto flex items-center gap-3 text-xs font-black text-gray-500 group-hover:text-[#2196D3] transition-all uppercase tracking-[0.2em] cursor-pointer">
+      <div className="mt-auto flex items-center gap-3 text-xs font-black text-gray-700 group-hover:text-[#2196D3] transition-all uppercase tracking-[0.2em] cursor-pointer">
         <T path="housing.types.more">Подробнее</T> <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
       </div>
     </div>

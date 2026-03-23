@@ -75,6 +75,7 @@ export default function ClientAbout() {
                   height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -112,7 +113,7 @@ export default function ClientAbout() {
             <MessageCircle size={48} className="mb-8 text-[#B8D430]" />
             <div>
               <h3 className="text-2xl font-black mb-4"><T path="about.reasons.r3_title">Поддержка</T></h3>
-              <p className="text-white/80 font-medium"><T path="about.reasons.r3_desc">Наш бот и менеджеры — ваши верные помощники 24/7.</T></p>
+              <p className="text-white/90 font-medium"><T path="about.reasons.r3_desc">Наш бот и менеджеры — ваши верные помощники 24/7.</T></p>
             </div>
           </div>
 
@@ -139,7 +140,7 @@ export default function ClientAbout() {
             <Image src="/partners/outsource_optimized.webp" alt="Ассоциация Аутсорсеров" width={140} height={60} className="object-contain h-full" />
           </a>
           <a href='https://xn--b1aew.xn--p1ai/' target='_blank' className="bg-[#C0C0C0] rounded-2xl p-6 border border-gray-300 shadow-sm hover:shadow-lg hover:scale-105 transition-all w-full flex items-center justify-center h-24">
-            <Image src="/partners/mvd.webp" alt="Ассоциация ветеранов МВД г. Москва" width={140} height={60} className="object-contain h-full" />
+            <Image src="/partners/mvd.webp" alt="Ассоциация ветеранов МВД г. Москва" width={140} height={60} className="object-contain h-full" sizes="140px" />
           </a>
         </div>
       </section>

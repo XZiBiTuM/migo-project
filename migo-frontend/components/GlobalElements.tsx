@@ -83,8 +83,15 @@ export function GlobalHeader() {
 
       <header className={`fixed top-0 w-full z-40 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="max-w-7xl mx-auto px-5 flex justify-between items-center">
-          <Link href={`/${l}/`} className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
-            <Image src="/logo.webp" alt="MIGO" width={40} height={40} className="w-9 h-auto md:w-10 object-contain drop-shadow-sm" priority />
+          <Link href={`/${l}/`} className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group" aria-label="MIGO Home">
+            <Image 
+              src="/logo.webp" 
+              alt="MIGO" 
+              width={40} 
+              height={40} 
+              className="w-10 h-10 object-contain drop-shadow-sm" 
+              priority 
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-700">
@@ -97,7 +104,11 @@ export function GlobalHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button onClick={() => setShowLangIntro(true)} className="cursor-pointer flex items-center gap-1.5 text-sm font-medium text-gray-500 bg-gray-50 hover:bg-gray-100 border border-gray-100 px-3 py-1.5 rounded-lg transition-colors">
+            <button 
+              onClick={() => setShowLangIntro(true)} 
+              className="cursor-pointer flex items-center gap-1.5 text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 border border-gray-100 px-3 py-1.5 rounded-lg transition-colors"
+              aria-label={selectedLang === 'RU' ? 'Выбрать язык' : 'Select language'}
+            >
               <Globe className="w-3.5 h-3.5" />
               <span className="hidden sm:inline text-xs"><T path="lang_intro.lang_label">Язык:</T></span>
               {(() => {
@@ -129,11 +140,11 @@ export function GlobalFooter() {
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div className="col-span-1 md:col-span-2">
-            <Link href={`/${lang}/`}><Image src="/logo.webp" alt="MIGO" width={40} height={40} className="w-10 h-auto mb-3 object-contain" /></Link>
-            <p className="text-gray-500 text-sm max-w-sm mb-5 leading-relaxed"><T path="footer.desc_1">Сервис помощи гражданам СНГ в России.</T><br /><T path="footer.desc_2">Легально, безопасно, с поддержкой.</T></p>
+            <Link href={`/${lang}/`} aria-label="MIGO Home"><Image src="/logo.webp" alt="MIGO" width={40} height={40} className="w-10 h-10 mb-3 object-contain" /></Link>
+            <p className="text-gray-700 text-sm max-w-sm mb-5 leading-relaxed"><T path="footer.desc_1">Сервис помощи гражданам СНГ в России.</T><br /><T path="footer.desc_2">Легально, безопасно, с поддержкой.</T></p>
             <div className="flex gap-3">
-              <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><Send size={15} color="#1E58B1" /></Link>
-              <Link href={`/${lang}/contacts`} className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors"><MapPin size={15} color="#1E58B1" /></Link>
+              <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors" aria-label="Telegram"><Send size={15} color="#1E58B1" /></Link>
+              <Link href={`/${lang}/contacts`} className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors" aria-label="Contacts"><MapPin size={15} color="#1E58B1" /></Link>
             </div>
           </div>
           <div>
@@ -201,6 +212,7 @@ export function ConsultationButton() {
           href={getBotUrl({ source: 'site', medium: 'global' })}
           target="_blank"
           className="flex items-center justify-center bg-gradient-to-r from-[#2196D3] to-[#00BCD4] text-white rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-500 ease-out font-semibold text-sm h-13 px-4 cursor-pointer"
+          aria-label="Get consultation"
         >
           <div className="relative flex items-center justify-center w-5 h-5 flex-shrink-0">
             <MessageCircle
@@ -260,7 +272,7 @@ export function GlobalMobileNav() {
               <Image src="/logo.webp" alt="MIGO" width={28} height={28} className="w-7 h-auto object-contain drop-shadow-sm" />
               <span className="text-lg font-bold text-[#163A5C]" style={{ fontFamily: 'var(--font-outfit), sans-serif', letterSpacing: '-0.03em' }}>MIGO</span>
             </div>
-            <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-400 hover:bg-gray-50 rounded-full transition-colors">
+            <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-400 hover:bg-gray-50 rounded-full transition-colors" aria-label="Close menu">
               <X className="w-5 h-5" />
             </button>
           </div>
