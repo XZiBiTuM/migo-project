@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
+from django.core.files.images import get_image_dimensions
 
 class User(AbstractUser):
     class Role(models.TextChoices):
@@ -55,7 +57,26 @@ class News(models.Model):
     content = models.TextField(verbose_name=_('Текст новости'))
     category = models.CharField(max_length=20, choices=Category.choices, verbose_name=_('Тег/Категория'))
     language = models.CharField(max_length=5, choices=Language.choices, default=Language.RU, verbose_name=_('Язык'))
-    cover_image = models.ImageField(upload_to='news_covers/%Y/%m/', blank=True, null=True, verbose_name=_('Обложка'))
+    
+    def validate_aspect_ratio(image):
+        width, height = get_image_dimensions(image)
+        if width and height:
+            ratio = width / height
+            min_ratio = 16 / 9
+            max_ratio = 21 / 9
+            if ratio < min_ratio - 0.05 or ratio > max_ratio + 0.05:
+                raise ValidationError(
+                    f"Недопустимое соотношение сторон: {ratio:.2f}. "
+                    "Пожалуйста, используйте изображение от 16:9 до 21:9."
+                )
+
+    cover_image = models.ImageField(
+        upload_to='news_covers/%Y/%m/', 
+        blank=True, 
+        null=True, 
+        verbose_name=_('Обложка'),
+        validators=[validate_aspect_ratio]
+    )
 
     show_question_btn = models.BooleanField(default=False, verbose_name=_('Кнопка "Задать вопрос в Telegram"'))
     show_consult_btn = models.BooleanField(default=False, verbose_name=_('Кнопка "Получить консультацию"'))
@@ -116,15 +137,46 @@ class ServiceItem(models.Model):
         FINANCE = 'finance', _('Финансы и Сервисы')
         HOUSING = 'housing', _('Жильё')
 
-    title = models.CharField(max_length=255, verbose_name=_('Название услуги'))
+    title = models.CharField(max_length=255, verbose_name=_('Название услуги (RU)'))
+    title_uz = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (UZ)'))
+    title_tg = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (TG)'))
+    title_kg = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (KG)'))
+    title_kz = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (KZ)'))
+    
     slug = models.SlugField(max_length=255, unique=True, verbose_name=_('URL (ЧПУ)'))
     service_type = models.CharField(max_length=20, choices=ServiceType.choices, verbose_name=_('Тип услуги'))
 
-    short_description = models.CharField(max_length=255, verbose_name=_('Краткое описание (для карточки)'))
-    full_description = models.TextField(verbose_name=_('Кому это нужно и что это'))
-    documents_required = models.TextField(blank=True, verbose_name=_('Какие документы нужны'))
-    processing_time = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки'))
-    price_conditions = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия'))
+    short_description = models.CharField(max_length=255, verbose_name=_('Краткое описание (RU)'))
+    short_description_uz = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (UZ)'))
+    short_description_tg = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (TG)'))
+    short_description_kg = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (KG)'))
+    short_description_kz = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (KZ)'))
+    
+    full_description = models.TextField(verbose_name=_('Кому это нужно и что это (RU)'))
+    full_description_uz = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (UZ)'))
+    full_description_tg = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (TG)'))
+    full_description_kg = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (KG)'))
+    full_description_kz = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (KZ)'))
+    
+    documents_required = models.TextField(blank=True, verbose_name=_('Какие документы нужны (RU)'))
+    documents_required_uz = models.TextField(blank=True, verbose_name=_('Какие документы нужны (UZ)'))
+    documents_required_tg = models.TextField(blank=True, verbose_name=_('Какие документы нужны (TG)'))
+    documents_required_kg = models.TextField(blank=True, verbose_name=_('Какие документы нужны (KG)'))
+    documents_required_kz = models.TextField(blank=True, verbose_name=_('Какие документы нужны (KZ)'))
+    
+    processing_time = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (RU)'))
+    processing_time_uz = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (UZ)'))
+    processing_time_tg = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (TG)'))
+    processing_time_kg = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (KG)'))
+    processing_time_kz = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (KZ)'))
+    
+    price_conditions = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (RU)'))
+    price_conditions_uz = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (UZ)'))
+    price_conditions_tg = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (TG)'))
+    price_conditions_kg = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (KG)'))
+    price_conditions_kz = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (KZ)'))
+    
+    image = models.ImageField(upload_to='services/', blank=True, null=True, verbose_name=_('Изображение услуги'))
 
     is_partner_service = models.BooleanField(default=False, verbose_name=_('Партнёрский сервис (дисклеймер)'))
     is_active = models.BooleanField(default=True, verbose_name=_('Активна'))

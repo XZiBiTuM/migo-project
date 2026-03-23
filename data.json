@@ -1,5 +1,322 @@
 [
 {
+    "model": "core.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$nx6Vc72muci62AFTl5dzzH$E1t9x8av7DQRTlFCRIk+zeFOFdPfTYl4l551H5gzPU0=",
+        "last_login": "2026-03-11T14:38:49.386Z",
+        "is_superuser": true,
+        "username": "admin323",
+        "first_name": "",
+        "last_name": "",
+        "email": "balayi323161@mail.ru",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-03-07T17:11:09Z",
+        "role": "admin",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.news",
+    "pk": 3,
+    "fields": {
+        "title": "5 схем, из-за которых мигранты теряют деньги.",
+        "slug": "5-shem-iz-za-kotoryh-migranty-teryayut-den-gi",
+        "lead": "История из практики.\r\nПарень из Оша нашёл вакансию в Telegram.",
+        "content": "<p>Реальный&nbsp;случай&nbsp;из&nbsp;практики.&nbsp;</p><p>Молодой&nbsp;человек&nbsp;из&nbsp;Оша&nbsp;нашёл&nbsp;вакансию&nbsp;через&nbsp;Telegram.&nbsp;Работодатель&nbsp;обещал&nbsp;4&nbsp;500₽&nbsp;за&nbsp;смену,&nbsp;предоставление&nbsp;жилья&nbsp;и&nbsp;быстрое&nbsp;оформление.</p><p></p><p>Соискателю&nbsp;сообщили,&nbsp;что&nbsp;необходимо&nbsp;перевести&nbsp;7&nbsp;000₽&nbsp;за&nbsp;«бронь&nbsp;места»&nbsp;и&nbsp;выезжать&nbsp;на&nbsp;следующий&nbsp;день.&nbsp;Деньги&nbsp;были&nbsp;переведены.</p><p></p><p>По&nbsp;прибытии&nbsp;выяснилось:</p><p>—&nbsp;вакансии&nbsp;не&nbsp;существует</p><p>—&nbsp;контактный&nbsp;телефон&nbsp;недоступен</p><p>—&nbsp;средства&nbsp;вернуть&nbsp;невозможно</p><p></p><p>Через&nbsp;два&nbsp;месяца&nbsp;последовал&nbsp;запрет&nbsp;на&nbsp;въезд.</p><p></p><p>Подобные&nbsp;случаи&nbsp;фиксируются&nbsp;регулярно&nbsp;—&nbsp;десятки&nbsp;эпизодов&nbsp;еженедельно.</p><p></p><p>Наиболее&nbsp;распространённые&nbsp;схемы&nbsp;обмана</p><p></p><p>1.&nbsp;Предоплата&nbsp;за&nbsp;«бронирование»</p><p>Легальные&nbsp;работодатели&nbsp;не&nbsp;требуют&nbsp;оплату&nbsp;за&nbsp;трудоустройство.</p><p></p><p>2.&nbsp;Давление&nbsp;срочностью</p><p>Фразы&nbsp;вроде&nbsp;«только&nbsp;сегодня»&nbsp;используются,&nbsp;чтобы&nbsp;исключить&nbsp;возможность&nbsp;проверки&nbsp;информации.</p><p></p><p>3.&nbsp;Отсутствие&nbsp;договора</p><p>Обещания&nbsp;оформить&nbsp;документы&nbsp;позже&nbsp;в&nbsp;большинстве&nbsp;случаев&nbsp;не&nbsp;выполняются.</p><p></p><p>4.&nbsp;Изъятие&nbsp;паспорта</p><p>Передача&nbsp;документов&nbsp;«для&nbsp;оформления»&nbsp;незаконна&nbsp;и&nbsp;может&nbsp;привести&nbsp;к&nbsp;штрафам&nbsp;и&nbsp;аннулированию&nbsp;статуса.</p><p></p><p>5.&nbsp;Обещания&nbsp;«решить&nbsp;вопросы»</p><p>Неформальные&nbsp;гарантии&nbsp;не&nbsp;имеют&nbsp;юридической&nbsp;силы&nbsp;и&nbsp;создают&nbsp;дополнительные&nbsp;риски.</p><p></p><p>Ключевые&nbsp;признаки&nbsp;риска</p><p>—&nbsp;требование&nbsp;предоплаты</p><p>—&nbsp;давление&nbsp;по&nbsp;срокам</p><p>—&nbsp;отсутствие&nbsp;письменного&nbsp;договора</p><p>—&nbsp;неофициальные&nbsp;обещания&nbsp;урегулировать&nbsp;вопросы</p><p></p><p>Рекомендации</p><p>Перед&nbsp;выездом&nbsp;необходимо:</p><p>—&nbsp;проверить&nbsp;работодателя</p><p>—&nbsp;убедиться&nbsp;в&nbsp;наличии&nbsp;корректных&nbsp;документов</p><p>—&nbsp;оценить&nbsp;юридические&nbsp;риски</p><p></p><p>Избежание&nbsp;подобных&nbsp;ситуаций&nbsp;требует&nbsp;предварительной&nbsp;проверки&nbsp;и&nbsp;отказа&nbsp;от&nbsp;сомнительных&nbsp;предложений.</p>",
+        "category": "stories",
+        "language": "ru",
+        "cover_image": "news_covers/2026/03/8bfe7196-f4bb-443f-98d1-aa6b2d226c7d.png",
+        "show_question_btn": false,
+        "show_consult_btn": false,
+        "status": "published",
+        "published_at": "2026-03-18T12:42:00Z",
+        "author": 1,
+        "source": "",
+        "external_id": "",
+        "meta_title": "История из практики MIGO о мигранте",
+        "meta_description": "История из практики.\r\nПарень из Оша нашёл вакансию в Telegram. Все сложилось очень печально для него.",
+        "created_at": "2026-03-18T12:42:30.968Z",
+        "updated_at": "2026-03-22T20:37:10.856Z"
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 9,
+    "fields": {
+        "title": "Перевод паспорта",
+        "slug": "passport",
+        "service_type": "docs",
+        "short_description": "Нотариальный перевод паспорта, необходимый для оформления патента на работу в РФ.",
+        "full_description": "Нотариальный перевод паспорта, необходимый для генерации СНИЛС и создания учетной записи на Госуслугах. Является первичным документом для старта процесса легализации и сдачи биометрии.",
+        "documents_required": "Оригинал паспорта\nМиграционная карта",
+        "processing_time": "1 рабочий день",
+        "price_conditions": "от 1 000 до 2 000 ₽",
+        "image": "services/перевод паспорта.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 10,
+    "fields": {
+        "title": "SIM-карта",
+        "slug": "sim",
+        "service_type": "docs",
+        "short_description": "Оформление российской SIM-карты с полным пакетом документов для иностранных граждан.",
+        "full_description": "Оформление российской SIM-карты с привязкой к аппаратному IMEI телефона абонента и обязательной верификацией через ЕБС. Учитывается строгий государственный лимит — не более 10 активных номеров на одного иностранного гражданина.",
+        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nСНИЛС (или электронная почта)\r\nЗарегистрированная в ЕБС биометрия\r\nТелефон (для фиксации IMEI)",
+        "processing_time": "10-15 минут (при наличии готовой биометрии)",
+        "price_conditions": "Бесплатно",
+        "image": "services/симкарта.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 11,
+    "fields": {
+        "title": "Биометрия (фото + отпечатки)",
+        "slug": "biometrics",
+        "service_type": "docs",
+        "short_description": "Прохождение процедуры дактилоскопии и фотографирования для миграционного учёта.",
+        "full_description": "Помощь в получении «подтвержденной» биометрии через отделения уполномоченных банков для интеграции в Единую биометрическую систему (ЕБС). Данный статус действует 5 лет и критически важен для доступа к связи и финансам.",
+        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nСНИЛС\r\nПодтвержденная учетная запись на Госуслугах",
+        "processing_time": "В момент обращения в банк",
+        "price_conditions": "Бесплатно",
+        "image": "services/биометрия.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 12,
+    "fields": {
+        "title": "Банковская карта",
+        "slug": "bank_card",
+        "service_type": "docs",
+        "short_description": "Помощь в открытии банковского счёта и оформлении карты в российском банке.",
+        "full_description": "Открытие банковских счетов с обязательной сдачей биометрии. Подключение к Системе быстрых платежей (СБП) для легальных переводов домой с прохождением банковского антифрод-контроля.",
+        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nСНИЛС\r\nМиграционная карта\r\nПодтвержденная биометрия",
+        "processing_time": "От 1 до 3 дней",
+        "price_conditions": "Бесплатно",
+        "image": "services/банковская карта.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 13,
+    "fields": {
+        "title": "Полис ДМС",
+        "slug": "dms",
+        "service_type": "docs",
+        "short_description": "Оформление полиса добровольного медицинского страхования для иностранных граждан.",
+        "full_description": "Оформление обязательного полиса ДМС со строгим соблюдением требований: минимальная сумма страхового покрытия должна составлять ровно 100 000 рублей. Полис строго необходим для оформления патента на работу в РФ.",
+        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nМиграционная карта\r\nРегистрация",
+        "processing_time": "15-20 минут",
+        "price_conditions": "от 1 850 до 4 000 ₽ / год",
+        "image": "services/дмс.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 14,
+    "fields": {
+        "title": "Быстрые займы",
+        "slug": "loans",
+        "service_type": "finance",
+        "short_description": "Микрозаймы для иностранных граждан с патентом на работу.",
+        "full_description": "Предоставление краткосрочных микрозаймов через микрофинансовые организации (МФО). В 2026 году этот рынок стал строго регулируемым для защиты заемщиков от долговой спирали и борьбы с кибермошенничеством.",
+        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nБиометрия\r\nСправка о доходах (при сумме выше 50000 рублей)",
+        "processing_time": "1-3 дня",
+        "price_conditions": "Индивидуально",
+        "image": "services/быстрые займы.webp",
+        "is_partner_service": true,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 15,
+    "fields": {
+        "title": "Переводы домой",
+        "slug": "transfers",
+        "service_type": "finance",
+        "short_description": "Денежные переводы в страны СНГ по выгодным курсам через проверенных партнёров.",
+        "full_description": "Сервис легальных трансграничных переводов в страны СНГ, который сейчас базируется на двух основных каналах: Системе быстрых платежей (СБП) и классических системах денежных переводов, таких как «Золотая Корона». Переводы по СБП позволяют отправлять деньги по номеру телефона напрямую на карты национальных платежных систем — например, «Белкарт» (Беларусь), «Korti Milli» (Таджикистан) или «ArCa» (Армения).",
+        "documents_required": "Оригинал паспорта\r\nПеревод паспорта",
+        "processing_time": "Индивидуально",
+        "price_conditions": "Индивидуально",
+        "image": "services/переводы домой.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 16,
+    "fields": {
+        "title": "Помощь в съёме жилья",
+        "slug": "housing",
+        "service_type": "housing",
+        "short_description": "Подбор общежитий, хостелов и квартир рядом с вашей работой. Легальная регистрация.",
+        "full_description": "Включает в себя подбор легальных общежитий, хостелов и квартир, где собственники готовы пройти муниципальный фильтр и гарантируют постановку работника на официальный миграционный учет.",
+        "documents_required": "Предварительное специальное разрешение от органов местного самоуправления (муниципалитета)\r\nОригинал паспорта\r\nПеревод паспорта\r\nМиграционная карта\r\nСНИЛС",
+        "processing_time": "Индивидуально",
+        "price_conditions": "Индивидуально",
+        "image": "services/помощь в жилье.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 17,
+    "fields": {
+        "title": "СНИЛС",
+        "slug": "snils",
+        "service_type": "docs",
+        "short_description": "Страховой номер индивидуального лицевого счёта для работы и соцвыплат.",
+        "full_description": "Поможем быстро получить СНИЛС для официального трудоустройства, получения пособий и доступа к государственным услугам.",
+        "documents_required": "Паспорт, Нотариальный перевод паспорта",
+        "processing_time": "1-3 рабочих дня",
+        "price_conditions": "От 500 ₽",
+        "image": "services/снилс.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 18,
+    "fields": {
+        "title": "ИНН",
+        "slug": "inn",
+        "service_type": "docs",
+        "short_description": "Индивидуальный номер налогоплательщика для легальной работы.",
+        "full_description": "Оформление ИНН в налоговой инспекции для уплаты налогов и официального оформления патента или трудового договора.",
+        "documents_required": "Паспорт, Регистрация (миграционный учет)",
+        "processing_time": "До 5 рабочих дней",
+        "price_conditions": "От 500 ₽",
+        "image": "services/инн.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 19,
+    "fields": {
+        "title": "Патент на работу",
+        "slug": "patent",
+        "service_type": "docs",
+        "short_description": "Главный документ для легальной работы в РФ для граждан безвизовых стран СНГ.",
+        "full_description": "Полное сопровождение в получении патента: подготовка документов, запись в ММЦ, помощь в прохождении медкомиссии.",
+        "documents_required": "Паспорт, Миграционная карта (цель: работа), Регистрация",
+        "processing_time": "10-20 дней",
+        "price_conditions": "Индивидуально",
+        "image": "services/патент на работу.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 20,
+    "fields": {
+        "title": "Зеленая Карта",
+        "slug": "green-card",
+        "service_type": "docs",
+        "short_description": "Документ о прохождении дактилоскопии и фотографирования.",
+        "full_description": "Поможем получить карту обязательной дактилоскопической регистрации (Зеленую карту), необходимую каждому мигранту.",
+        "documents_required": "Паспорт, Миграционная карта",
+        "processing_time": "1 рабочий день",
+        "price_conditions": "От 1000 ₽",
+        "image": "services/зеленая карта.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 21,
+    "fields": {
+        "title": "Госуслуги",
+        "slug": "gosuslugi",
+        "service_type": "docs",
+        "short_description": "Регистрация и подтверждение личности в системе Госуслуг.",
+        "full_description": "Создадим учетную запись и подтвердим личность, чтобы вы могли пользоваться всеми госзаказами онлайн: от штрафов до записи к врачу.",
+        "documents_required": "Паспорт, СНИЛС, Российский номер телефона",
+        "processing_time": "15 минут",
+        "price_conditions": "Бесплатно",
+        "image": "services/госуслуги.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 22,
+    "fields": {
+        "title": "Проверка документов",
+        "slug": "docs-audit",
+        "service_type": "docs",
+        "short_description": "Проверим ваши документы на подлинность и ошибки.",
+        "full_description": "Аудит вашего миграционного статуса: проверим патент, регистрацию и чеки в официальных реестрах, чтобы избежать депортации.",
+        "documents_required": "Все имеющиеся документы",
+        "processing_time": "10-30 минут",
+        "price_conditions": "Консультация",
+        "image": "services/проверка документов.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.serviceitem",
+    "pk": 23,
+    "fields": {
+        "title": "Авиабилеты",
+        "slug": "flights",
+        "service_type": "finance",
+        "short_description": "Поиск и покупка билетов по выгодным тарифам для граждан СНГ.",
+        "full_description": "Поможем подобрать и купить билеты домой или по России. Без наценок, с проверкой всех данных.",
+        "documents_required": "Паспорт",
+        "processing_time": "Мгновенно",
+        "price_conditions": "По цене авиакомпаний",
+        "image": "services/авиабилеты.webp",
+        "is_partner_service": false,
+        "is_active": true
+    }
+},
+{
+    "model": "core.lead",
+    "pk": 3,
+    "fields": {
+        "lead_type": "service",
+        "name": "Дмитрий",
+        "phone": "89185346333",
+        "citizenship": "РФ",
+        "city": "Таганрог",
+        "comment": "",
+        "telegram_id": null,
+        "consent_given": true,
+        "is_processed": true,
+        "created_at": "2026-03-11T14:38:16.602Z",
+        "utm_source": "telegram_bot_menu",
+        "utm_medium": "",
+        "utm_campaign": ""
+    }
+},
+{
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
@@ -364,6 +681,45 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2026-03-22T08:53:44.045Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "[Русский] 5 схем, из-за которых мигранты теряют деньги. - Опубликовано",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0431\\u043b\\u043e\\u0436\\u043a\\u0430\", \"\\u041a\\u043e\\u0440\\u043e\\u0442\\u043a\\u043e\\u0435 \\u043e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 (\\u0410\\u043d\\u043e\\u043d\\u0441)\", \"SEO \\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a (Title)\", \"SEO \\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 (Description)\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2026-03-22T19:46:12.059Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "23",
+        "object_repr": "Авиабилеты",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0443\\u0441\\u043b\\u0443\\u0433\\u0438\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2026-03-22T20:37:10.861Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "[Русский] 5 схем, из-за которых мигранты теряют деньги. - Опубликовано",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0431\\u043b\\u043e\\u0436\\u043a\\u0430\"]}}]"
+    }
+},
+{
     "model": "sessions.session",
     "pk": "2gx06zxwrwyscbhn78215got7yc7ykts",
     "fields": {
@@ -377,196 +733,6 @@
     "fields": {
         "session_data": ".eJxVjDsOwyAQBe9CHSF-giVl-pwBLSwEJxFIxq6s3D1CcpG0b2bewQLuWw37yGtYiF2ZZJffLWJ65TYBPbE9Ok-9besS-VT4SQe_d8rv2-n-HVQcddbemuJMBE2ghPFgtXMOnCJNRSllAJMR2lDWGLGgSBJkBGuTJRU9ss8XwV03ew:1vyvBe:QXPy5WaW4L8WvML7qgw0A8wW6T3n4QLNMTO2eudCZRQ",
         "expire_date": "2026-03-21T17:11:34.369Z"
-    }
-},
-{
-    "model": "core.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$1200000$nx6Vc72muci62AFTl5dzzH$E1t9x8av7DQRTlFCRIk+zeFOFdPfTYl4l551H5gzPU0=",
-        "last_login": "2026-03-11T14:38:49.386Z",
-        "is_superuser": true,
-        "username": "admin323",
-        "first_name": "",
-        "last_name": "",
-        "email": "balayi323161@mail.ru",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2026-03-07T17:11:09Z",
-        "role": "admin",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "core.news",
-    "pk": 3,
-    "fields": {
-        "title": "5 схем, из-за которых мигранты теряют деньги.",
-        "slug": "5-shem-iz-za-kotoryh-migranty-teryayut-den-gi",
-        "lead": "История из практики.\r\nПарень из Оша  нашёл вакансию в Telegram.",
-        "content": "<p>Реальный&nbsp;случай&nbsp;из&nbsp;практики.&nbsp;</p><p>Молодой&nbsp;человек&nbsp;из&nbsp;Оша&nbsp;нашёл&nbsp;вакансию&nbsp;через&nbsp;Telegram.&nbsp;Работодатель&nbsp;обещал&nbsp;4&nbsp;500&nbsp;₽&nbsp;за&nbsp;смену,&nbsp;предоставление&nbsp;жилья&nbsp;и&nbsp;быстрое&nbsp;оформление.</p><p></p><p>Соискателю&nbsp;сообщили,&nbsp;что&nbsp;необходимо&nbsp;перевести&nbsp;7&nbsp;000&nbsp;₽&nbsp;за&nbsp;«бронь&nbsp;места»&nbsp;и&nbsp;выезжать&nbsp;на&nbsp;следующий&nbsp;день.&nbsp;Деньги&nbsp;были&nbsp;переведены.</p><p></p><p>По&nbsp;прибытии&nbsp;выяснилось:</p><p>—&nbsp;вакансии&nbsp;не&nbsp;существует</p><p>—&nbsp;контактный&nbsp;телефон&nbsp;недоступен</p><p>—&nbsp;средства&nbsp;вернуть&nbsp;невозможно</p><p></p><p>Через&nbsp;два&nbsp;месяца&nbsp;последовал&nbsp;запрет&nbsp;на&nbsp;въезд.</p><p></p><p>Подобные&nbsp;случаи&nbsp;фиксируются&nbsp;регулярно&nbsp;—&nbsp;десятки&nbsp;эпизодов&nbsp;еженедельно.</p><p></p><p>Наиболее&nbsp;распространённые&nbsp;схемы&nbsp;обмана</p><p></p><p>1.&nbsp;Предоплата&nbsp;за&nbsp;«бронирование»</p><p>Легальные&nbsp;работодатели&nbsp;не&nbsp;требуют&nbsp;оплату&nbsp;за&nbsp;трудоустройство.</p><p></p><p>2.&nbsp;Давление&nbsp;срочностью</p><p>Фразы&nbsp;вроде&nbsp;«только&nbsp;сегодня»&nbsp;используются,&nbsp;чтобы&nbsp;исключить&nbsp;возможность&nbsp;проверки&nbsp;информации.</p><p></p><p>3.&nbsp;Отсутствие&nbsp;договора</p><p>Обещания&nbsp;оформить&nbsp;документы&nbsp;позже&nbsp;в&nbsp;большинстве&nbsp;случаев&nbsp;не&nbsp;выполняются.</p><p></p><p>4.&nbsp;Изъятие&nbsp;паспорта</p><p>Передача&nbsp;документов&nbsp;«для&nbsp;оформления»&nbsp;незаконна&nbsp;и&nbsp;может&nbsp;привести&nbsp;к&nbsp;штрафам&nbsp;и&nbsp;аннулированию&nbsp;статуса.</p><p></p><p>5.&nbsp;Обещания&nbsp;«решить&nbsp;вопросы»</p><p>Неформальные&nbsp;гарантии&nbsp;не&nbsp;имеют&nbsp;юридической&nbsp;силы&nbsp;и&nbsp;создают&nbsp;дополнительные&nbsp;риски.</p><p></p><p>Ключевые&nbsp;признаки&nbsp;риска</p><p>—&nbsp;требование&nbsp;предоплаты</p><p>—&nbsp;давление&nbsp;по&nbsp;срокам</p><p>—&nbsp;отсутствие&nbsp;письменного&nbsp;договора</p><p>—&nbsp;неофициальные&nbsp;обещания&nbsp;урегулировать&nbsp;вопросы</p><p></p><p>Рекомендации</p><p>Перед&nbsp;выездом&nbsp;необходимо:</p><p>—&nbsp;проверить&nbsp;работодателя</p><p>—&nbsp;убедиться&nbsp;в&nbsp;наличии&nbsp;корректных&nbsp;документов</p><p>—&nbsp;оценить&nbsp;юридические&nbsp;риски</p><p></p><p>Избежание&nbsp;подобных&nbsp;ситуаций&nbsp;требует&nbsp;предварительной&nbsp;проверки&nbsp;и&nbsp;отказа&nbsp;от&nbsp;сомнительных&nbsp;предложений.</p>",
-        "category": "stories",
-        "language": "ru",
-        "cover_image": "default_covers/stories.jpg",
-        "show_question_btn": false,
-        "show_consult_btn": false,
-        "status": "published",
-        "published_at": "2026-03-18T12:42:30Z",
-        "author": 1,
-        "source": "",
-        "external_id": "",
-        "meta_title": "",
-        "meta_description": "",
-        "created_at": "2026-03-18T12:42:30.968Z",
-        "updated_at": "2026-03-18T22:13:53.837Z"
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 9,
-    "fields": {
-        "title": "Перевод паспорта",
-        "slug": "passport",
-        "service_type": "docs",
-        "short_description": "Нотариальный перевод паспорта, необходимый для оформления патента на работу в РФ.",
-        "full_description": "Нотариальный перевод паспорта, необходимый для генерации СНИЛС и создания учетной записи на Госуслугах. Является первичным документом для старта процесса легализации и сдачи биометрии.",
-        "documents_required": "Оригинал паспорта\nМиграционная карта",
-        "processing_time": "1 рабочий день",
-        "price_conditions": "от 1 000 до 2 000 ₽",
-        "is_partner_service": false,
-        "is_active": true
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 10,
-    "fields": {
-        "title": "SIM-карта",
-        "slug": "sim",
-        "service_type": "docs",
-        "short_description": "Оформление российской SIM-карты с полным пакетом документов для иностранных граждан.",
-        "full_description": "Оформление российской SIM-карты с привязкой к аппаратному IMEI телефона абонента и обязательной верификацией через ЕБС. Учитывается строгий государственный лимит — не более 10 активных номеров на одного иностранного гражданина.",
-        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nСНИЛС (или электронная почта)\r\nЗарегистрированная в ЕБС биометрия\r\nТелефон (для фиксации IMEI)",
-        "processing_time": "10-15 минут (при наличии готовой биометрии)",
-        "price_conditions": "По тарифам сотовых операторов",
-        "is_partner_service": false,
-        "is_active": true
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 11,
-    "fields": {
-        "title": "Биометрия (фото + отпечатки)",
-        "slug": "biometrics",
-        "service_type": "docs",
-        "short_description": "Прохождение процедуры дактилоскопии и фотографирования для миграционного учёта.",
-        "full_description": "Помощь в получении «подтвержденной» биометрии через отделения уполномоченных банков для интеграции в Единую биометрическую систему (ЕБС). Данный статус действует 5 лет и критически важен для доступа к связи и финансам.",
-        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nСНИЛС\r\nПодтвержденная учетная запись на Госуслугах",
-        "processing_time": "В момент обращения в банк",
-        "price_conditions": "Индивидуально",
-        "is_partner_service": false,
-        "is_active": true
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 12,
-    "fields": {
-        "title": "Банковская карта",
-        "slug": "bank_card",
-        "service_type": "docs",
-        "short_description": "Помощь в открытии банковского счёта и оформлении карты в российском банке.",
-        "full_description": "Открытие банковских счетов с обязательной сдачей биометрии. Подключение к Системе быстрых платежей (СБП) для легальных переводов домой с прохождением банковского антифрод-контроля.",
-        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nСНИЛС\r\nМиграционная карта\r\nПодтвержденная биометрия",
-        "processing_time": "От 1 до 3 дней",
-        "price_conditions": "Бесплатно (обслуживание по тарифу банка)",
-        "is_partner_service": false,
-        "is_active": true
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 13,
-    "fields": {
-        "title": "Полис ДМС",
-        "slug": "dms",
-        "service_type": "docs",
-        "short_description": "Оформление полиса добровольного медицинского страхования для иностранных граждан.",
-        "full_description": "Оформление обязательного полиса ДМС со строгим соблюдением требований: минимальная сумма страхового покрытия должна составлять ровно 100 000 рублей. Полис строго необходим для оформления патента на работу в РФ.",
-        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nМиграционная карта\r\nРегистрация",
-        "processing_time": "15-20 минут",
-        "price_conditions": "от 1 850 до 4 000 ₽ / год",
-        "is_partner_service": false,
-        "is_active": true
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 14,
-    "fields": {
-        "title": "Быстрые займы",
-        "slug": "loans",
-        "service_type": "finance",
-        "short_description": "Микрозаймы для иностранных граждан с патентом на работу.",
-        "full_description": "Предоставление краткосрочных микрозаймов через микрофинансовые организации (МФО). В 2026 году этот рынок стал строго регулируемым для защиты заемщиков от долговой спирали и борьбы с кибермошенничеством.",
-        "documents_required": "Оригинал паспорта\r\nПеревод паспорта\r\nБиометрия\r\nСправка о доходах (при сумме выше 50000 рублей)",
-        "processing_time": "1-3 дня",
-        "price_conditions": "Индивидуально",
-        "is_partner_service": true,
-        "is_active": true
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 15,
-    "fields": {
-        "title": "Переводы домой",
-        "slug": "transfers",
-        "service_type": "finance",
-        "short_description": "Денежные переводы в страны СНГ по выгодным курсам через проверенных партнёров.",
-        "full_description": "Сервис легальных трансграничных переводов в страны СНГ, который сейчас базируется на двух основных каналах: Системе быстрых платежей (СБП) и классических системах денежных переводов, таких как «Золотая Корона». Переводы по СБП позволяют отправлять деньги по номеру телефона напрямую на карты национальных платежных систем — например, «Белкарт» (Беларусь), «Korti Milli» (Таджикистан) или «ArCa» (Армения).",
-        "documents_required": "Оригинал паспорта\r\nПеревод паспорта",
-        "processing_time": "Индивидуально",
-        "price_conditions": "Индивидуально",
-        "is_partner_service": false,
-        "is_active": true
-    }
-},
-{
-    "model": "core.serviceitem",
-    "pk": 16,
-    "fields": {
-        "title": "Помощь в съёме жилья",
-        "slug": "housing",
-        "service_type": "housing",
-        "short_description": "Подбор общежитий, хостелов и квартир рядом с вашей работой. Легальная регистрация.",
-        "full_description": "Включает в себя подбор легальных общежитий, хостелов и квартир, где собственники готовы пройти муниципальный фильтр и гарантируют постановку работника на официальный миграционный учет.",
-        "documents_required": "Предварительное специальное разрешение от органов местного самоуправления (муниципалитета)\r\nОригинал паспорта\r\nПеревод паспорта\r\nМиграционная карта\r\nСНИЛС",
-        "processing_time": "Индивидуально",
-        "price_conditions": "Индивидуально",
-        "is_partner_service": false,
-        "is_active": true
-    }
-},
-{
-    "model": "core.lead",
-    "pk": 3,
-    "fields": {
-        "lead_type": "service",
-        "name": "Дмитрий",
-        "phone": "89185346333",
-        "citizenship": "РФ",
-        "city": "Таганрог",
-        "comment": "",
-        "telegram_id": null,
-        "consent_given": true,
-        "is_processed": true,
-        "created_at": "2026-03-11T14:38:16.602Z",
-        "utm_source": "telegram_bot_menu",
-        "utm_medium": "",
-        "utm_campaign": ""
     }
 }
 ]

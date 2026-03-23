@@ -12,6 +12,28 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: [
 export const metadata: Metadata = {
   title: "MIGO — Работа, жильё и документы в РФ",
   description: "Помогаем гражданам СНГ легально работать и жить в России. Поддержка в Telegram 24/7.",
+  openGraph: {
+    title: "MIGO — Работа, жильё и документы в РФ",
+    description: "Сервисная экосистема для мигрантов. Работа, жилье, документы.",
+    url: "https://migohelp.com",
+    siteName: "MIGO",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "MIGO — Сервисы для мигрантов",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MIGO — Работа, жильё и документы в РФ",
+    description: "Сервисная экосистема для мигрантов. Работа, жилье, документы.",
+    images: ["/og-image.webp"],
+  },
 };
 
 // Список доступных языков для генерации статических путей

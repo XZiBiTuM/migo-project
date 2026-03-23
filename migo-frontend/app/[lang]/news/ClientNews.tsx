@@ -37,6 +37,7 @@ interface NewsItem {
   created_at: string;
   published_at?: string;
   slug: string;
+  cover_image?: string;
 }
 
 interface ClientNewsProps {
@@ -120,7 +121,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
               <T path="news.cta.subtitle">Подпишитесь на наш Telegram-канал, где мы ежедневно публикуем актуальные новости и советы по миграционному праву.</T>
             </p>
             <Link
-              href="https://t.me/migo_news"
+              href="https://t.me/migo_work"
               target="_blank"
               className="inline-flex items-center gap-4 bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-12 rounded-[24px] font-black text-xl transition-all hover:scale-105 shadow-xl"
             >
@@ -153,7 +154,15 @@ function NewsCard({ news }: { news: NewsItem }) {
       className="group bg-white rounded-[40px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col h-full transform hover:-translate-y-2 outline-offset-4 focus:ring-4 focus:ring-[#2196D3]/30"
     >
       <div className="relative h-64 bg-gray-50 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#2196D3]/20 to-[#1E58B1]/20 group-hover:scale-110 transition-transform duration-1000"></div>
+        {news.cover_image ? (
+          <img
+            src={news.cover_image.startsWith('http') ? news.cover_image : `${process.env.NEXT_PUBLIC_API_URL}${news.cover_image}`}
+            alt={news.title}
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2196D3]/20 to-[#1E58B1]/20 group-hover:scale-110 transition-transform duration-1000"></div>
+        )}
         <div className="absolute top-6 left-6">
           <span className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-[#163A5C] text-xs font-black uppercase tracking-widest shadow-sm">
             <T path={`news.categories.${news.category}`}>{getCategoryLabel(news.category)}</T>
@@ -172,12 +181,21 @@ function NewsCard({ news }: { news: NewsItem }) {
           {dateStr}
         </div>
 
-        <h3 className="text-2xl font-black text-[#163A5C] mb-6 leading-tight group-hover:text-[#2196D3] transition-colors line-clamp-2">
-          {news.title}
+        <h3
+          className="text-2xl font-black text-[#163A5C] mb-6 leading-tight group-hover:text-[#2196D3] transition-colors line-clamp-2 text-pretty"
+          style={{ textWrap: 'balance' } as any}
+        >
+          {news.title.replace(/\s+(?=[,.:;!?])/g, '').replace(/,(&nbsp;|\s)+/g, ', ')}
         </h3>
 
-        <div className="text-gray-600 font-medium leading-relaxed mb-8 line-clamp-3">
-          {news.content.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ').substring(0, 150)}...
+        <div className="text-gray-600 font-medium leading-relaxed mb-8 line-clamp-3 text-pretty">
+          {news.content
+            .replace(/<[^>]*>?/gm, '')
+            .replace(/&nbsp;/g, ' ')
+            .replace(/\s+/g, ' ')
+            .replace(/\s+(?=[,.:;!?])/g, '')
+            .replace(/,(\s)+/g, ', ')
+            .substring(0, 150).trim()}...
         </div>
 
         <div className="mt-auto pt-8 border-t border-gray-50 flex items-center justify-between">

@@ -30,10 +30,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let dynamicRoutes: MetadataRoute.Sitemap = [];
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`);
-    if (res.ok) {
-      const news = await res.json();
-      dynamicRoutes = locales.flatMap((lang) => 
+    const [newsRes, servicesRes] = await Promise.all([
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`),
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services/`)
+    ]);
+
+    if (newsRes.ok) {
+      const news = await newsRes.json();
+      const newsRoutes = locales.flatMap((lang) => 
         news.map((item: any) => ({
           url: `${baseUrl}/${lang}/news/${item.slug}`,
           lastModified: new Date(item.updated_at || item.published_at || item.created_at || new Date()),
@@ -41,6 +45,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           priority: 0.6,
         }))
       );
+      dynamicRoutes = [...dynamicRoutes, ...newsRoutes];
+    }
+
+    if (servicesRes.ok) {
+      const services = await servicesRes.json();
+      const servicesRoutes = locales.flatMap((lang) => 
+        services.map((item: any) => ({
+          url: `${baseUrl}/${lang}/services/${item.slug}`,
+          lastModified: new Date(item.updated_at || item.created_at || new Date()),
+          changeFrequency: 'monthly' as const,
+          priority: 0.9,
+        }))
+      );
+      dynamicRoutes = [...dynamicRoutes, ...servicesRoutes];
     }
   } catch (error) { }
 

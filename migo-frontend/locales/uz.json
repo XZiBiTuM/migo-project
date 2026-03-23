@@ -311,7 +311,14 @@
       "badge": "Professional yordam",
       "title_1": "Bizning xizmatlar",
       "title_highlight": "Rossiyada hayotingiz uchun",
-      "subtitle": "Yuridik yordamdan maishiy masalalargacha. Adaptatsiya va ishingizning har bir bosqichida sizni qo'llab-quvvatlaymiz."
+      "subtitle": "Yuridik yordamdan maishiy masalalargacha. Adaptatsiya va ishingizning har bir bosqichida sizni qo'llab-quvvatlaymiz.",
+      "btn": "Telegram orqali buyurtma berish"
+    },
+    "free_tag": "Bepul",
+    "free_section": {
+      "label": "Bepul yordam",
+      "title": "Boshida qo'llab-quvvatlash",
+      "subtitle": "Biz sizga moslashishga va asosiy xizmatlarni mutlaqo bepul rasmiylashtirishga yordam beramiz."
     },
     "docs_section": {
       "label": "Hujjatlar",
@@ -499,7 +506,8 @@
     "cta_work_btn": "Ish topish",
     "related_card": {
       "read": "O'qish"
-    }
+    },
+    "go_to_article": "Maqolaga o'tish"
   },
   "privacy": {
     "title": "Maxfiylik siyosati",

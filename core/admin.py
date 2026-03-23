@@ -71,16 +71,26 @@ class ServiceItemAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug', 'service_type', 'is_active')
+            'fields': ('title', 'slug', 'service_type', 'is_active', 'is_partner_service')
         }),
-        ('Описания', {
-            'fields': ('short_description', 'full_description')
+        ('Русский (RU)', {
+            'fields': ('short_description', 'full_description', 'documents_required', 'processing_time', 'price_conditions', 'image')
         }),
-        ('Условия и сроки', {
-            'fields': ('documents_required', 'processing_time', 'price_conditions')
+        ('O‘zbekcha (UZ)', {
+            'classes': ('collapse',),
+            'fields': ('title_uz', 'short_description_uz', 'full_description_uz', 'documents_required_uz', 'processing_time_uz', 'price_conditions_uz')
         }),
-        ('Юридические настройки', {
-            'fields': ('is_partner_service',)
+        ('Тоҷикӣ (TG)', {
+            'classes': ('collapse',),
+            'fields': ('title_tg', 'short_description_tg', 'full_description_tg', 'documents_required_tg', 'processing_time_tg', 'price_conditions_tg')
+        }),
+        ('Кыргызча (KG)', {
+            'classes': ('collapse',),
+            'fields': ('title_kg', 'short_description_kg', 'full_description_kg', 'documents_required_kg', 'processing_time_kg', 'price_conditions_kg')
+        }),
+        ('Қазақша (KZ)', {
+            'classes': ('collapse',),
+            'fields': ('title_kz', 'short_description_kz', 'full_description_kz', 'documents_required_kz', 'processing_time_kz', 'price_conditions_kz')
         }),
     )
 

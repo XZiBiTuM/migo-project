@@ -83,11 +83,11 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
               </div>
             </div>
 
-            <div className="relative group perspective-[2000px] hidden lg:block">
+            <div className="relative group perspective-[2000px] mt-0 lg:mt-8 md:mt-4">
               <div className="relative z-10 animate-float">
                 <img
-                  src="/migo_job_friendly_3d_1774105277911.png"
-                  alt="MIGO Job 3D Style"
+                  src="/images/migo_job_friendly.webp"
+                  alt="MIGO Работники-мигранты разных профессий"
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
@@ -147,15 +147,15 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
 
       <section className="py-24 bg-[#F8FAFC] border-y border-gray-100 relative">
         <div className="max-w-7xl mx-auto px-5">
-           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="work.vacancies.title">Популярные вакансии</T></h2>
               <p className="text-gray-500 text-lg"><T path="work.vacancies.subtitle">Примеры актуальных предложений. Напишите в Telegram, чтобы получить полный список и подобрать работу индивидуально.</T></p>
             </div>
             <Link
-                href={getBotUrl({ start: 'work' })}
-                target="_blank"
-                className="text-[#2196D3] font-bold hover:underline flex items-center gap-1 cursor-pointer"
+              href={getBotUrl({ start: 'work' })}
+              target="_blank"
+              className="text-[#2196D3] font-bold hover:underline flex items-center gap-1 cursor-pointer"
             >
               <T path="work.vacancies.all_in_tg">Все вакансии в Telegram</T> <ArrowRight size={18} />
             </Link>
@@ -302,7 +302,7 @@ function JobCard({ job }: { job: VacancyItem }) {
             {job.salary}
           </div>
         </div>
-        
+
         <div className="flex flex-wrap gap-4 text-xs md:text-sm font-black text-gray-400 mb-8 uppercase tracking-widest">
           <div className="flex items-center gap-2.5 bg-gray-50 px-4 py-2.5 rounded-full border border-gray-100">
             <MapPin size={18} className="text-[#1E58B1]" /> {job.city}

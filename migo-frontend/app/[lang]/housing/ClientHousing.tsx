@@ -65,11 +65,11 @@ export default function ClientHousing() {
               </div>
             </div>
 
-            <div className="relative group perspective-[2000px] hidden lg:block">
+            <div className="relative group perspective-[2000px] mt-0 lg:mt-8 md:mt-4">
               <div className="relative z-10 animate-float">
                 <img
-                  src="/migo_housing_friendly_3d_1774105323824.png"
-                  alt="MIGO Housing 3D Style"
+                  src="/images/migo_housing.webp"
+                  alt="MIGO Изображение с жильем и счастливыми жильцами"
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#2196D3]/10 to-transparent rounded-full -z-10 blur-3xl"></div>

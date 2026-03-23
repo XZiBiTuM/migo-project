@@ -8,8 +8,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (res.ok) {
       const article = await res.json();
       return {
-        title: `${article.title} | MIGO`,
-        description: article.short_description || article.lead || 'Полезная статья от сервиса MIGO',
+        title: article.meta_title || `${article.title} | MIGO`,
+        description: article.meta_description || article.short_description || article.lead || 'Полезная статья от сервиса MIGO',
+        openGraph: {
+          title: article.meta_title || article.title,
+          description: article.meta_description || article.short_description || article.lead,
+          images: article.cover_image ? [article.cover_image] : [],
+        }
       };
     }
   } catch (error) {}

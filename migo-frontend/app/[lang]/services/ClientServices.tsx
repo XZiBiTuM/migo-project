@@ -43,23 +43,124 @@ interface Service {
   id: number;
   slug: string;
   title: string;
+  title_uz?: string;
+  title_tg?: string;
+  title_kg?: string;
+  title_kz?: string;
   service_type: string;
   short_description: string;
+  short_description_uz?: string;
+  short_description_tg?: string;
+  short_description_kg?: string;
+  short_description_kz?: string;
   is_partner_service: boolean;
+  price_conditions?: string;
+  price_conditions_uz?: string;
+  price_conditions_tg?: string;
+  price_conditions_kg?: string;
+  price_conditions_kz?: string;
+  image?: string;
 }
 
 interface ClientServicesProps {
   initialServices: Service[];
 }
 
+function ServiceCard({ svc, t, language, setModalService }: {
+  svc: Service;
+  t: any;
+  language: string;
+  setModalService: (data: any) => void
+}) {
+  const icon = getServiceIcon(svc.service_type);
+  const color = getServiceColor(svc.service_type);
+
+  const lang = language.toLowerCase();
+  const title = (lang !== 'ru' && svc[`title_${lang}` as keyof Service]) || svc.title;
+  const description = (lang !== 'ru' && svc[`short_description_${lang}` as keyof Service]) || svc.short_description;
+  const priceConditions = (lang !== 'ru' && svc[`price_conditions_${lang}` as keyof Service]) || svc.price_conditions;
+
+  const isFree = priceConditions?.toString().toLowerCase().includes('бесплатно') ||
+    priceConditions?.toString().toLowerCase().includes('bepul') ||
+    priceConditions?.toString().toLowerCase().includes('tegin');
+
+  return (
+    <div key={svc.id} className="group bg-white rounded-[48px] p-8 md:p-10 border border-gray-100 hover:border-[#1E58B1] hover:shadow-[0_45px_75px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col transform hover:-translate-y-2 h-full shadow-sm">
+      <div className="flex justify-between items-start mb-10">
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center text-[#1E58B1] bg-[#1E58B1]/5 transform group-hover:scale-110 group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500 shadow-sm overflow-hidden"
+        >
+          {svc.image ? (
+            <img
+              src={svc.image.startsWith('http') ? svc.image : `${process.env.NEXT_PUBLIC_API_URL}${svc.image}`}
+              alt={title as string}
+              className="w-full h-full object-cover"
+              style={{ scale: "1.1" }}
+            />
+          ) : (
+            React.cloneElement(icon as React.ReactElement, { size: 32 } as any)
+          )}
+        </div>
+        {isFree && (
+          <span className="px-4 py-1.5 rounded-full bg-[#27A15E]/10 text-[#27A15E] text-xs font-black uppercase tracking-widest border border-[#27A15E]/20">
+            <T path="services.free_tag">Бесплатно</T>
+          </span>
+        )}
+      </div>
+
+      <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] mb-6 group-hover:text-[#1E58B1] transition-colors leading-tight tracking-tighter">
+        {title}
+      </h3>
+
+      <p className="text-gray-500 leading-relaxed mb-8 font-medium">
+        {description}
+      </p>
+
+      {svc.is_partner_service && (
+        <p className="text-xs text-gray-400 italic mb-6 leading-relaxed">
+          <T path="services.extra_section.partner_note">Услуга предоставляется партнёрами.</T>
+        </p>
+      )}
+
+      <div className="mt-auto flex flex-col gap-4">
+        <Link
+          href={getBotUrl({ start: svc.slug })}
+          target="_blank"
+          className="inline-flex items-center justify-center gap-3 bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-8 rounded-[24px] font-black text-lg transition-all hover:scale-105 shadow-[0_10px_20px_-5px_rgba(184,212,48,0.3)] cursor-pointer"
+        >
+          <Send size={20} /> <T path="services.docs_section.order_tg">Узнать в Telegram</T>
+        </Link>
+        <div className="flex gap-2 flex-col">
+          <Link
+            href={`/services/${svc.slug}`}
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-500 py-4 px-4 rounded-[20px] font-bold text-sm border border-gray-100 transition-all hover:shadow-md cursor-pointer"
+          >
+            <T path="services.extra_section.more">Подробнее</T> <ArrowRight size={16} />
+          </Link>
+          <button
+            onClick={() => setModalService({ title: title as string, icon: icon, color: color, image: svc.image })}
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#1E58B1] py-4 px-4 rounded-[20px] font-bold text-sm border border-gray-100 transition-all hover:shadow-md cursor-pointer"
+          >
+            <FileText size={18} /> <T path="services.docs_section.order_site">Заявка</T>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ClientServices({ initialServices }: ClientServicesProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [modalService, setModalService] = useState<{ title: string; icon: React.ReactNode; color: string } | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const freeServices = initialServices.filter(s => s.price_conditions?.toLowerCase().includes('бесплатно'));
+  const docServices = initialServices.filter(s => s.service_type === 'docs' && !s.price_conditions?.toLowerCase().includes('бесплатно'));
+  const extraServices = initialServices.filter(s => s.service_type !== 'docs' && !s.price_conditions?.toLowerCase().includes('бесплатно'));
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
@@ -99,11 +200,11 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
               </div>
             </div>
 
-            <div className="relative group perspective-[2000px] hidden lg:block">
+            <div className="relative group perspective-[2000px] mt-0 lg:mt-8 md:mt-4">
               <div className="relative z-10 animate-float">
                 <img
-                  src="/migo_services_friendly_3d_1774105365345.png"
-                  alt="MIGO Services 3D Style"
+                  src="/images/migo_services_friendly.webp"
+                  alt="MIGO Изображение с счастливыми мигрантами и документами"
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
@@ -113,7 +214,24 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
         </div>
       </section>
 
-      <section className="py-24 max-w-7xl mx-auto px-5">
+      {freeServices.length > 0 && (
+        <section className="py-24 max-w-7xl mx-auto px-5 scroll-mt-20" id="free">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <p className="text-[#27A15E] font-black uppercase tracking-[0.3em] text-sm mb-4"><T path="services.free_section.label">Бесплатная помощь</T></p>
+              <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="services.free_section.title">Сервисы по 0 рублей</T></h2>
+              <p className="text-gray-500 text-lg"><T path="services.free_section.subtitle">Помогаем адаптироваться и оформить базовые услуги абсолютно бесплатно.</T></p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {freeServices.map(svc => (
+              <ServiceCard key={svc.id} svc={svc} t={t} language={language} setModalService={setModalService} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="py-24 max-w-7xl mx-auto px-5 scroll-mt-20" id="documents">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
             <p className="text-[#B8D430] font-black uppercase tracking-[0.3em] text-sm mb-4"><T path="services.docs_section.label">Документы</T></p>
@@ -121,49 +239,14 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
             <p className="text-gray-500 text-lg"><T path="services.docs_section.subtitle">Полный пакет документов для легальной работы и проживания в России.</T></p>
           </div>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {initialServices.filter(s => s.service_type === 'docs').map((doc) => {
-            const icon = getServiceIcon(doc.service_type);
-            const color = getServiceColor(doc.service_type);
-            return (
-              <div key={doc.id} className="group bg-white rounded-[48px] p-8 md:p-10 border border-gray-100 hover:border-[#1E58B1] hover:shadow-[0_45px_75px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col transform hover:-translate-y-2 h-full shadow-sm">
-                <div
-                  className="w-20 h-20 rounded-3xl flex items-center justify-center mb-10 text-[#1E58B1] bg-[#1E58B1]/5 border border-gray-50 transform group-hover:scale-110 group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500 shadow-sm"
-                >
-                  {React.cloneElement(icon as React.ReactElement, { size: 36 } as any)}
-                </div>
-
-                <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] mb-6 group-hover:text-[#1E58B1] transition-colors leading-tight tracking-tighter">
-                  {doc.title}
-                </h3>
-
-                <p className="text-gray-500 leading-relaxed mb-8 font-medium">
-                  {doc.short_description}
-                </p>
-
-                <div className="mt-auto flex flex-col gap-4">
-                  <Link
-                    href={getBotUrl({ start: doc.slug })}
-                    target="_blank"
-                    className="inline-flex items-center justify-center gap-3 bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-8 rounded-[24px] font-black text-lg transition-all hover:scale-105 shadow-[0_10px_20px_-5px_rgba(184,212,48,0.3)] cursor-pointer"
-                  >
-                    <Send size={20} /> <T path="services.docs_section.order_tg">Оформить в Telegram</T>
-                  </Link>
-                  <button
-                    onClick={() => setModalService({ title: doc.title, icon: icon, color: color })}
-                    className="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-[#1E58B1] py-5 px-8 rounded-[24px] font-black text-lg border border-gray-100 transition-all hover:shadow-lg cursor-pointer"
-                  >
-                    <FileText size={20} /> <T path="services.docs_section.order_site">Оставить заявку</T>
-                  </button>
-                </div>
-              </div>
-            );
-          })}
+          {docServices.map(svc => (
+            <ServiceCard key={svc.id} svc={svc} t={t} language={language} setModalService={setModalService} />
+          ))}
         </div>
       </section>
 
-      <section className="py-24 bg-white border-y border-gray-100">
+      <section className="py-24 bg-white border-y border-gray-100 scroll-mt-20" id="services">
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
@@ -172,59 +255,10 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
               <p className="text-gray-500 text-lg"><T path="services.extra_section.subtitle">Мы помогаем решить бытовые и финансовые вопросы, чтобы вы чувствовали себя как дома.</T></p>
             </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {initialServices.filter(s => s.service_type === 'finance' || s.service_type === 'housing').map((svc) => {
-              const icon = getServiceIcon(svc.service_type);
-              const color = getServiceColor(svc.service_type);
-              return (
-                <div key={svc.id} className="group bg-[#F8FAFC] rounded-[40px] p-10 border border-gray-100 hover:border-[#2196D3] hover:shadow-2xl transition-all duration-500 flex flex-col transform hover:-translate-y-2 h-full">
-                  <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
-                    style={{ backgroundColor: `${color}15`, color: color }}
-                  >
-                    {React.cloneElement(icon as React.ReactElement, { size: 28 } as any)}
-                  </div>
-
-                  <h3 className="text-2xl font-black text-[#163A5C] mb-4 group-hover:text-[#2196D3] transition-colors leading-tight">
-                    {svc.title}
-                  </h3>
-
-                  <p className="text-gray-500 leading-relaxed mb-4 font-medium">
-                    {svc.short_description}
-                  </p>
-
-                  <Link
-                    href={`/services/${svc.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-[#2196D3] transition-colors mb-6 group/link cursor-pointer"
-                  >
-                    <T path="services.extra_section.more">Подробнее</T> <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-
-                  {svc.is_partner_service && (
-                    <p className="text-xs text-gray-400 italic mb-6 leading-relaxed">
-                      <T path="services.extra_section.partner_note">Услуга предоставляется партнёрами. MIGO не является финансовой организацией.</T>
-                    </p>
-                  )}
-
-                  <div className="mt-auto flex flex-col gap-3">
-                    <Link
-                      href={getBotUrl({ start: svc.slug })}
-                      target="_blank"
-                      className="inline-flex items-center justify-center gap-2 bg-[#B8D430] hover:bg-[#A7C220] text-[#1E58B1] py-3 px-6 rounded-2xl font-bold text-sm transition-all hover:shadow-lg cursor-pointer"
-                    >
-                      <Send size={16} /> <T path="services.extra_section.learn_tg">Узнать в Telegram</T>
-                    </Link>
-                    <button
-                      onClick={() => setModalService({ title: svc.title, icon: icon, color: color })}
-                      className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#1E58B1] py-3 px-6 rounded-2xl font-bold text-sm border border-gray-200 transition-all hover:shadow-md cursor-pointer"
-                    >
-                      <FileText size={16} /> <T path="services.extra_section.order_site">Оставить заявку</T>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+            {extraServices.map(svc => (
+              <ServiceCard key={svc.id} svc={svc} t={t} language={language} setModalService={setModalService} />
+            ))}
           </div>
         </div>
       </section>

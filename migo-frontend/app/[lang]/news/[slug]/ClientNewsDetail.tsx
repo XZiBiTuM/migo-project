@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { getBotUrl } from '@/utils/bot';
 import {
   ArrowLeft, Calendar, Share2, MessageCircle,
-  Briefcase, Edit3, Clock, ChevronRight, Send, ArrowRight
+  Briefcase, Edit3, Clock, ChevronRight, Send, ArrowRight, ChevronDown
 } from 'lucide-react';
 import { getCategoryLabel } from '@/utils/news';
 import { T, useLanguage } from '@/context/LanguageContext';
@@ -84,11 +84,14 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-black text-[#163A5C] leading-[1.1] mb-4 tracking-tight">
-            {article.title}
+          <h1
+            className="text-4xl md:text-6xl font-black text-[#163A5C] leading-[1.1] mb-4 tracking-tight text-pretty"
+            style={{ textWrap: 'balance' } as any}
+          >
+            {article.title.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').replace(/\s+(?=[,.:;!?])/g, '').replace(/,(\s)+/g, ', ').trim()}
           </h1>
 
-          <div className="flex items-center justify-between py-8 pb-4 border-t border-gray-100">
+          <div className="flex flex-col sm:flex-row items-center justify-between py-8 pb-4 border-t border-gray-100 gap-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-[#1E58B1] flex items-center justify-center text-white font-black text-xl">
                 M
@@ -100,20 +103,46 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
                 </div>
               </div>
             </div>
-            <button
-              onClick={handleShare}
-              className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-[#2196D3] hover:text-white hover:border-[#2196D3] transition-all"
-            >
-              <Share2 size={20} />
-            </button>
+            
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => document.getElementById('article-content')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#F0F7FF] text-[#1E58B1] font-black text-xs uppercase tracking-widest hover:bg-[#1E58B1] hover:text-white transition-all shadow-sm active:scale-95"
+              >
+                <T path="news_detail.go_to_article">Перейти к статье</T>
+                <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
+              </button>
+
+              <button
+                onClick={handleShare}
+                className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-[#2196D3] hover:text-white hover:border-[#2196D3] transition-all"
+              >
+                <Share2 size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="px-5 mb-24">
+      {article.cover_image && (
+        <section className="px-5 mb-12">
+          <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="relative aspect-[21/9] rounded-[48px] overflow-hidden shadow-2xl border border-white/50 bg-gray-50">
+              <img
+                src={article.cover_image.startsWith('http') ? article.cover_image : `${process.env.NEXT_PUBLIC_API_URL}${article.cover_image}`}
+                alt={article.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#163A5C]/40 to-transparent"></div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section id="article-content" className="px-5 mb-24 scroll-mt-24">
         <div className="max-w-4xl mx-auto bg-white rounded-[48px] p-8 md:p-20 shadow-xl border border-gray-50">
           <article
-            className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none text-gray-600 break-words overflow-hidden
+            className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none text-gray-600 break-words overflow-hidden text-pretty
               prose-headings:text-[#163A5C] prose-headings:font-black prose-headings:tracking-tight
               prose-p:leading-relaxed prose-p:font-medium
               prose-a:text-[#2196D3] prose-a:font-black prose-a:no-underline hover:prose-a:underline
@@ -122,7 +151,12 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
               prose-blockquote:border-l-4 prose-blockquote:border-[#B8D430] prose-blockquote:bg-gray-50 prose-blockquote:p-6 prose-blockquote:rounded-r-2xl prose-blockquote:italic
               prose-img:rounded-3xl prose-img:shadow-lg
             "
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{
+              __html: article.content
+                .replace(/&nbsp;/g, ' ')
+                .replace(/\s+(?=[,.:;!?])/g, '')
+                .replace(/,(\s)+/g, ', ')
+            }}
           />
 
           <div className="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -208,17 +242,35 @@ function RelatedNewsCard({ news }: { news: any }) {
   return (
     <Link
       href={`/${language.toLowerCase()}/news/${news.slug}`}
-      className="group bg-white rounded-[32px] p-8 border border-gray-100 hover:border-[#2196D3] hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+      className="group bg-white rounded-[32px] overflow-hidden border border-gray-100 hover:border-[#2196D3] hover:shadow-xl transition-all duration-300 flex flex-col h-full"
     >
-      <div className="flex items-center gap-2 text-gray-400 text-[10px] font-black uppercase tracking-widest mb-4">
-        <Calendar size={12} className="text-[#B8D430]" />
-        {dateStr}
+      <div className="relative h-48 overflow-hidden bg-gray-50">
+        {news.cover_image ? (
+          <img
+            src={news.cover_image.startsWith('http') ? news.cover_image : `${process.env.NEXT_PUBLIC_API_URL}${news.cover_image}`}
+            alt={news.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[#2196D3]/10 to-[#1E58B1]/10 flex items-center justify-center text-[#2196D3]/20">
+            <Edit3 size={32} />
+          </div>
+        )}
       </div>
-      <h3 className="text-xl font-black text-[#163A5C] group-hover:text-[#2196D3] transition-colors mb-4 line-clamp-3 leading-tight">
-        {news.title}
-      </h3>
-      <div className="mt-auto flex items-center text-sm font-black text-[#2196D3] uppercase tracking-widest gap-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-        <T path="news_detail.related_card.read">Читать</T> <ArrowRight size={16} />
+      <div className="p-8">
+        <div className="flex items-center gap-2 text-gray-400 text-[10px] font-black uppercase tracking-widest mb-4">
+          <Calendar size={12} className="text-[#B8D430]" />
+          {dateStr}
+        </div>
+        <h3
+          className="text-xl font-black text-[#163A5C] group-hover:text-[#2196D3] transition-colors mb-4 line-clamp-3 leading-tight text-pretty"
+          style={{ textWrap: 'balance' } as any}
+        >
+          {news.title.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').replace(/\s+(?=[,.:;!?])/g, '').replace(/,(\s)+/g, ', ').trim()}
+        </h3>
+        <div className="mt-auto flex items-center text-sm font-black text-[#2196D3] uppercase tracking-widest gap-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+          <T path="news_detail.related_card.read">Читать</T> <ArrowRight size={16} />
+        </div>
       </div>
     </Link>
   );

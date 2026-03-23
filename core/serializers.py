@@ -27,11 +27,7 @@ class VacancySerializer(serializers.ModelSerializer):
 class ServiceItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceItem
-        fields = [
-            'id', 'title', 'slug', 'service_type', 'short_description',
-            'full_description', 'documents_required', 'processing_time',
-            'price_conditions', 'is_partner_service', 'is_active'
-        ]
+        fields = '__all__'
 
 
 class LeadSerializer(serializers.ModelSerializer):

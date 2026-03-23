@@ -20,7 +20,7 @@ const COLORS = {
 };
 
 export default function ClientContacts() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -55,11 +55,11 @@ export default function ClientContacts() {
               </p>
             </div>
 
-            <div className="relative group perspective-[2000px] hidden lg:block">
+            <div className="relative group perspective-[2000px] hidden mt-0 lg:mt-8 md:mt-4 lg:block">
               <div className="relative z-10 animate-float">
                 <img
-                  src="/migo_contacts_friendly_3d_1774105465254.png"
-                  alt="MIGO Contacts 3D Style"
+                  src="/images/migo_contacts_friendly.webp"
+                  alt="MIGO Контактный центр"
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
@@ -154,7 +154,7 @@ export default function ClientContacts() {
             <MapPin size={48} className="text-gray-300" />
           </div>
           <iframe
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3Af793e1577903cf44540898555e718276f7f32617781b0f92b704c7c8441113ed&amp;source=constructor"
+            src={`https://yandex.ru/map-widget/v1/?ll=37.589140,55.658250&z=10&pt=37.637046,55.760100,pm2rdm1~37.576944,55.582222,pm2blm2~37.425514,55.621453,pm2blm3~37.717906,55.611681,pm2blm4&lang=${(language || 'RU') === 'RU' ? 'ru_RU' : 'en_US'}`}
             width="100%"
             height="500"
             frameBorder="0"

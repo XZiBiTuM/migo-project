@@ -18,6 +18,7 @@ interface ServiceModalProps {
     title: string;
     icon: React.ReactNode;
     color: string;
+    image?: string;
   } | null;
 }
 
@@ -98,8 +99,16 @@ export default function ServiceModal({ isOpen, onClose, service }: ServiceModalP
       >
         <div className="flex justify-between items-center p-5 border-b border-gray-50 bg-gray-50/50">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${service.color}15`, color: service.color }}>
-              {service.icon}
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden shadow-sm" style={{ backgroundColor: `${service.color}15`, color: service.color }}>
+              {service.image ? (
+                <img 
+                  src={service.image.startsWith('http') ? service.image : `${process.env.NEXT_PUBLIC_API_URL}${service.image}`} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                service.icon
+              )}
             </div>
             <h2 className="text-lg font-semibold" style={{ color: COLORS.navy }}>{service.title}</h2>
           </div>

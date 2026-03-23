@@ -69,35 +69,35 @@ const TESTIMONIALS = [
     text: "«Приехал из Ташкента, ничего не знал. Ребята из MIGO помогли с патентом, нашли приличное общежитие и устроили на склад крупного маркетплейса. Всё честно, выплаты вовремя. Спасибо!»",
     author: "Азиз Ходжаев",
     info: "Работает 1.5 года в Москве",
-    avatar: "/images/avatar_1.png"
+    avatar: "/images/avatar_1.webp"
   },
   {
     id: 2,
     text: "«Очень доволен поддержкой. Помогли с переводом документов и оформлением страховки. Всегда на связи в Telegram, отвечают быстро и по делу. Рекомендую всем соотечественникам.»",
     author: "Сардор Мирзоев",
     info: "Строитель, Санкт-Петербург",
-    avatar: "/images/avatar_2.png"
+    avatar: "/images/avatar_2.webp"
   },
   {
     id: 3,
     text: "«MIGO — это прежде всего безопасность. Мне нашли работу рядом с домом, помогли с регистрацией. Теперь я спокоен за свое будущее и могу помогать семье.»",
     author: "Фарход Назаров",
     info: "Курьер, Екатеринбург",
-    avatar: "/images/avatar_3.png"
+    avatar: "/images/avatar_3.webp"
   },
   {
     id: 4,
     text: "«Раньше боялся обмана, но с MIGO все официально. Заключили договор, зарплата приходит вовремя. Если есть вопросы по законам — юрист всегда помогает бесплатно.»",
     author: "Нурдин Осмонов",
     info: "Сборщик, Казань",
-    avatar: "/images/avatar_4.png"
+    avatar: "/images/avatar_4.webp"
   },
   {
     id: 5,
     text: "«Отличный сервис. Не пришлось самому бегать по инстанциям, всё подсказали. Уже перевез семью, планируем дальше работать.»",
     author: "Бекзод Алиев",
     info: "Водитель автобуса, Москва",
-    avatar: "/images/avatar_5.png"
+    avatar: "/images/avatar_5.webp"
   }
 ];
 
@@ -166,7 +166,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
               <div className="relative group perspective-[2000px] lg:col-span-6 mt-0 lg:mt-8 md:mt-4">
                 <div className="relative z-10 animate-float">
                   <img
-                    src="/images/hero.png"
+                    src="/images/hero.webp"
                     alt="MIGO Главное изображение"
                     className="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
                   />
@@ -223,7 +223,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
 
               <div className="relative h-full min-h-[450px] w-full rounded-[48px] overflow-hidden shadow-2xl group">
                 <img
-                  src="/images/about.png"
+                  src="/images/about.webp"
                   alt={t('home.about_section.alt_image', 'MIGO Ecosystem')}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -377,7 +377,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   </div>
 
                   <div className="mt-14 rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 group-hover:scale-[1.02]">
-                    <img src="/images/path_without_migo.png" alt="Путь без MIGO" className="w-full h-auto object-cover" />
+                    <img src="/images/path_without_migo.webp" alt="Путь без MIGO" className="w-full h-auto object-cover" />
                   </div>
                 </div>
               </div>
@@ -435,7 +435,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   </div>
 
                   <div className="mt-14 rounded-[48px] overflow-hidden border border-[#B8D430]/30 shadow-[0_40px_80px_-20px_rgba(184,212,48,0.3)] transition-all duration-1000 hover:scale-[1.03] group-hover:rotate-1">
-                    <img src="/images/path_with_migo.png" alt="Путь с MIGO" className="w-full h-auto object-cover" />
+                    <img src="/images/path_with_migo.webp" alt="Путь с MIGO" className="w-full h-auto object-cover" />
                   </div>
                 </div>
               </div>
@@ -660,6 +660,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   tag={getCategoryLabel(item.category)}
                   title={item.title}
                   slug={item.slug}
+                  image={item.cover_image}
                   date={new Date(item.published_at || item.created_at).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })}
                   delay={idx * 150}
                   langPath={langPath}
@@ -720,22 +721,47 @@ function TrustFeature({ title, desc }: any) {
   );
 }
 
-function NewsCard({ tag, title, slug, date, delay, langPath }: any) {
+function NewsCard({ tag, title, slug, image, date, delay, langPath }: any) {
+  const imageUrl = image
+    ? (image.startsWith('http') ? image : `${process.env.NEXT_PUBLIC_API_URL}${image}`)
+    : null;
+
   return (
     <Link
       href={`/${langPath}/news/${slug}`}
       style={{ '--delay': `${delay}ms` } as React.CSSProperties}
-      className="bg-white rounded-[40px] p-8 md:p-10 border border-gray-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 group flex flex-col hover:-translate-y-3 animate-fade-in-up shadow-sm h-full"
+      className="bg-white rounded-[40px] p-2 border border-gray-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 group flex flex-col hover:-translate-y-3 animate-fade-in-up shadow-sm h-full overflow-hidden"
     >
-      <div className="flex justify-between items-center mb-8">
-        <span className="px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-[#1E58B1] bg-[#1E58B1]/5 border border-[#1E58B1]/10">{tag}</span>
-        <span className="text-xs font-bold text-gray-400">{date}</span>
+      <div className="relative aspect-[16/10] overflow-hidden rounded-[32px] mb-6">
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[#1E58B1]/5 to-[#2196D3]/5 flex items-center justify-center text-[#1E58B1]/20">
+            <FileText size={48} />
+          </div>
+        )}
+        <div className="absolute top-4 left-4 z-10">
+          <span className="px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-[#1E58B1] bg-white/90 backdrop-blur-md shadow-sm border border-white/50">{tag}</span>
+        </div>
       </div>
-      <h3 className="font-black text-[#163A5C] text-xl md:text-2xl leading-tight group-hover:text-[#1E58B1] transition-colors mb-8 line-clamp-3 tracking-tight">
-        {title}
-      </h3>
-      <div className="mt-auto flex items-center text-[#1E58B1] font-black gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 uppercase tracking-widest text-xs">
-        <T path="home.news_section.read_full">Читать статью</T> <ArrowRight size={18} />
+
+      <div className="px-6 pb-8 flex flex-col flex-1">
+        <div className="flex justify-between items-center mb-6">
+          <span className="text-xs font-bold text-gray-400">{date}</span>
+        </div>
+        <h3
+          className="font-black text-[#163A5C] text-xl md:text-2xl leading-tight group-hover:text-[#1E58B1] transition-colors mb-8 line-clamp-3 tracking-tight text-pretty"
+          style={{ textWrap: 'balance' } as any}
+        >
+          {title.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').replace(/\s+(?=[,.:;!?])/g, '').replace(/,(\s)+/g, ', ').trim()}
+        </h3>
+        <div className="mt-auto flex items-center text-[#1E58B1] font-black gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 uppercase tracking-widest text-xs">
+          <T path="home.news_section.read_full">Читать статью</T> <ArrowRight size={18} />
+        </div>
       </div>
     </Link>
   );

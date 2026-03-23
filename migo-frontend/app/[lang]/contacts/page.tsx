@@ -5,6 +5,7 @@ export const metadata = {
   description: 'Свяжитесь с нами: адреса офисов в Москве, телефон, социальные сети и юридическая информация ООО «ПРМ».',
 };
 
-export default function ContactsPage() {
+export default async function ContactsPage({ params }: { params: Promise<{ lang: string }> }) {
+  await params;
   return <ClientContacts />;
 }

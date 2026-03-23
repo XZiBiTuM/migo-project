@@ -337,11 +337,28 @@ export default function AdminNewsEditor({ slug: initialSlug }: AdminNewsEditorPr
                            onChange={(e) => {
                              const file = e.target.files?.[0];
                              if (file) {
-                               setCoverImage(file);
-                               setCoverPreview(URL.createObjectURL(file));
+                               const img = new Image();
+                               img.src = URL.createObjectURL(file);
+                               img.onload = () => {
+                                 const ratio = img.width / img.height;
+                                 const minRatio = 16 / 9;
+                                 const maxRatio = 21 / 9;
+                                 
+                                 if (ratio < minRatio - 0.05 || ratio > maxRatio + 0.05) {
+                                   setError(`Недопустимое соотношение сторон: ${ratio.toFixed(2)}. Пожалуйста, используйте изображение от 16:9 до 21:9.`);
+                                   setCoverImage(null);
+                                   setCoverPreview(null);
+                                   e.target.value = '';
+                                 } else {
+                                   setError('');
+                                   setCoverImage(file);
+                                   setCoverPreview(img.src);
+                                 }
+                               };
                              }
                            }}
                          />
+                         <p className="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-wider">Формат: 16:9 — 21:9</p>
                       </label>
                    )}
                 </div>
