@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Calendar, ArrowRight, Tag, Search,
   MessageCircle, Globe, ChevronRight
@@ -72,7 +73,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
               <T path="news.hero.title_1">Новости</T> <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#1E58B1]"><T path="news.hero.title_highlight">и полезные статьи</T></span>
             </h1>
-            <p className="text-lg md:text-2xl text-gray-600 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-2xl text-gray-700 max-w-2xl leading-relaxed">
               <T path="news.hero.subtitle">Узнавайте первыми об изменениях в законах, новых вакансиях и лайфхаках для жизни в России.</T>
             </p>
           </div>
@@ -107,7 +108,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
           <div className="text-center py-24 bg-white rounded-[48px] border border-dashed border-gray-200">
             <Search size={48} className="mx-auto text-gray-300 mb-6" />
             <h3 className="text-2xl font-black text-[#163A5C] mb-2"><T path="news.empty_title">Ничего не найдено</T></h3>
-            <p className="text-gray-400 font-medium"><T path="news.empty_desc">Попробуйте выбрать другую категорию</T></p>
+            <p className="text-gray-700 font-medium"><T path="news.empty_desc">Попробуйте выбрать другую категорию</T></p>
           </div>
         )}
       </section>
@@ -117,7 +118,7 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(184,212,48,0.1)_0%,transparent_50%)]"></div>
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-8"><T path="news.cta.title">Не пропускайте важное</T></h2>
-            <p className="text-white/60 text-xl font-medium mb-12">
+            <p className="text-white/80 text-xl font-medium mb-12">
               <T path="news.cta.subtitle">Подпишитесь на наш Telegram-канал, где мы ежедневно публикуем актуальные новости и советы по миграционному праву.</T>
             </p>
             <Link
@@ -155,10 +156,11 @@ function NewsCard({ news }: { news: NewsItem }) {
     >
       <div className="relative h-64 bg-gray-50 overflow-hidden">
         {news.cover_image ? (
-          <img
+          <Image
             src={news.cover_image.startsWith('http') ? news.cover_image : `${process.env.NEXT_PUBLIC_API_URL}${news.cover_image}`}
             alt={news.title}
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-1000"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-[#2196D3]/20 to-[#1E58B1]/20 group-hover:scale-110 transition-transform duration-1000"></div>
@@ -176,7 +178,7 @@ function NewsCard({ news }: { news: NewsItem }) {
       </div>
 
       <div className="p-10 flex flex-col flex-grow">
-        <div className="flex items-center gap-2 text-gray-500 text-xs font-bold uppercase tracking-widest mb-6">
+        <div className="flex items-center gap-2 text-gray-700 text-xs font-bold uppercase tracking-widest mb-6">
           <Calendar size={14} className="text-[#B8D430]" />
           {dateStr}
         </div>
@@ -188,7 +190,7 @@ function NewsCard({ news }: { news: NewsItem }) {
           {news.title.replace(/\s+(?=[,.:;!?])/g, '').replace(/,(&nbsp;|\s)+/g, ', ')}
         </h3>
 
-        <div className="text-gray-600 font-medium leading-relaxed mb-8 line-clamp-3 text-pretty">
+        <div className="text-gray-700 font-medium leading-relaxed mb-8 line-clamp-3 text-pretty">
           {news.content
             .replace(/<[^>]*>?/gm, '')
             .replace(/&nbsp;/g, ' ')

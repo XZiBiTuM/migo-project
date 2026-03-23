@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import {
   ArrowLeft, Briefcase, PlayCircle, MessageCircle, Search,
@@ -68,7 +69,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="work.hero.title_2">через Telegram</T></span>
               </h1>
 
-              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+              <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-xl leading-relaxed font-medium">
                 <T path="work.hero.subtitle">Без анкет и регистраций. Найдите работу за 2 минуты через удобного бота под контролем менеджера.</T>
               </p>
 
@@ -85,10 +86,13 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
 
             <div className="relative group perspective-[2000px] mt-0 lg:mt-8 md:mt-4">
               <div className="relative z-10 animate-float">
-                <img
+                <Image
                   src="/images/migo_job_friendly.webp"
                   alt="MIGO Работники-мигранты разных профессий"
+                  width={800}
+                  height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                  priority
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -100,7 +104,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
       <section className="py-24 max-w-7xl mx-auto px-5">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-6"><T path="work.steps.title">Как это работает</T></h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto"><T path="work.steps.subtitle">Мы сделали процесс поиска работы максимально прозрачным и безопасным.</T></p>
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto"><T path="work.steps.subtitle">Мы сделали процесс поиска работы максимально прозрачным и безопасным.</T></p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
@@ -120,7 +124,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
               </div>
               <div className="absolute top-0 text-7xl font-black text-gray-50 select-none -z-10 group-hover:text-[#2196D3]/10 transition-colors uppercase">{step.num}</div>
               <h3 className="text-xl font-bold text-[#163A5C] mb-2">{step.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+              <p className="text-gray-700 text-sm leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -131,7 +135,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="work.advantages.title">Преимущества MIGO</T></h2>
-              <p className="text-gray-500 text-lg"><T path="work.advantages.subtitle">Мы не просто ищем работу, мы обеспечиваем безопасность вашего трудоустройства.</T></p>
+              <p className="text-gray-700 text-lg"><T path="work.advantages.subtitle">Мы не просто ищем работу, мы обеспечиваем безопасность вашего трудоустройства.</T></p>
             </div>
           </div>
 
@@ -150,7 +154,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="work.vacancies.title">Популярные вакансии</T></h2>
-              <p className="text-gray-500 text-lg"><T path="work.vacancies.subtitle">Примеры актуальных предложений. Напишите в Telegram, чтобы получить полный список и подобрать работу индивидуально.</T></p>
+              <p className="text-gray-700 text-lg"><T path="work.vacancies.subtitle">Примеры актуальных предложений. Напишите в Telegram, чтобы получить полный список и подобрать работу индивидуально.</T></p>
             </div>
             <Link
               href={getBotUrl({ start: 'work' })}
@@ -169,7 +173,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
             </div>
           ) : (
             <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-gray-200">
-              <p className="text-gray-500 font-medium"><T path="work.vacancies.no_vacancies">Пока нет доступных вакансий. Загляните позже или напишите нам в Telegram для индивидуального подбора.</T></p>
+              <p className="text-gray-700 font-medium"><T path="work.vacancies.no_vacancies">Пока нет доступных вакансий. Загляните позже или напишите нам в Telegram для индивидуального подбора.</T></p>
             </div>
           )}
 
@@ -198,15 +202,15 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
             <ul className="space-y-6">
               <li className="flex gap-4 items-start">
                 <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-1"><XCircle size={14} className="text-red-500" /></div>
-                <p className="text-gray-500 font-medium leading-relaxed"><T path="work.safety.risk1">Нет никакой проверки работодателя и условий труда</T></p>
+                <p className="text-gray-700 font-medium leading-relaxed"><T path="work.safety.risk1">Нет никакой проверки работодателя и условий труда</T></p>
               </li>
               <li className="flex gap-4 items-start">
                 <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-1"><XCircle size={14} className="text-red-500" /></div>
-                <p className="text-gray-500 font-medium leading-relaxed"><T path="work.safety.risk2">Высокий риск обмана с зарплатой и графиком</T></p>
+                <p className="text-gray-700 font-medium leading-relaxed"><T path="work.safety.risk2">Высокий риск обмана с зарплатой и графиком</T></p>
               </li>
               <li className="flex gap-4 items-start">
                 <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-1"><XCircle size={14} className="text-red-500" /></div>
-                <p className="text-gray-500 font-medium leading-relaxed"><T path="work.safety.risk3">Никто не несет ответственности за вашу безопасность</T></p>
+                <p className="text-gray-700 font-medium leading-relaxed"><T path="work.safety.risk3">Никто не несет ответственности за вашу безопасность</T></p>
               </li>
             </ul>
           </div>
@@ -244,7 +248,9 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
             { name: 'Казахстан', code: 'kz' }
           ].map(country => (
             <div key={country.code} className="px-8 py-4 bg-white border border-gray-100 rounded-3xl font-black text-lg text-[#163A5C] shadow-sm transform hover:scale-105 transition-all flex items-center gap-3">
-              <img src={`https://flagcdn.com/w40/${country.code}.png`} alt={t(`work.countries.${country.code}`, country.name)} className="w-6 h-auto rounded-sm" />
+              <div className="relative w-6 h-[18px] rounded-sm overflow-hidden border border-gray-100">
+                <Image src={`https://flagcdn.com/w40/${country.code}.png`} alt={t(`work.countries.${country.code}`, country.name)} fill className="object-cover" />
+              </div>
               <T path={`work.countries.${country.code}`}>{country.name}</T>
             </div>
           ))}

@@ -51,7 +51,7 @@ export default function ClientAbout() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="about.hero.title_highlight">для каждого</T></span>
               </h1>
 
-              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+              <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-xl leading-relaxed font-medium">
                 <T path="about.mission.p1">MIGO — это экосистема поддержки, созданная чтобы сделать жизнь и работу в России прозрачной и комфортной.</T>
               </p>
 
@@ -68,10 +68,13 @@ export default function ClientAbout() {
 
             <div className="relative group perspective-[2000px] hidden lg:block mt-0 lg:mt-8 md:mt-4">
               <div className="relative z-10 animate-float">
-                <img
+                <Image
                   src="/images/migo_about_friendly.webp"
                   alt="MIGO Команда с работниками-мигрантами"
+                  width={800}
+                  height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                  priority
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -90,7 +93,7 @@ export default function ClientAbout() {
             </div>
             <div className="relative z-10">
               <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.reasons.r1_title">Отсутствие достоверной информации</T></h3>
-              <p className="text-xl text-gray-500 max-w-xl leading-relaxed"><T path="about.reasons.r1_desc">Многие сталкиваются с обманом, потому что не знают своих прав или не имеют доступа к проверенным работодателям.</T></p>
+              <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.reasons.r1_desc">Многие сталкиваются с обманом, потому что не знают своих прав или не имеют доступа к проверенным работодателям.</T></p>
             </div>
             <div className="mt-8 flex items-center gap-3 text-sm font-black text-[#B8D430]">
               <span className="w-12 h-0.5 bg-[#B8D430]"></span> <T path="about.reasons.r1_label">ПРИЧИНА №1</T>
@@ -101,7 +104,7 @@ export default function ClientAbout() {
             <ShieldCheck size={48} className="mb-8" />
             <div>
               <h3 className="text-2xl font-black mb-4"><T path="about.reasons.r2_title">Безопасность</T></h3>
-              <p className="text-white/80 font-medium"><T path="about.reasons.r2_desc">Мы проверяем каждого партнера, чтобы вы были уверены в завтрашнем дне.</T></p>
+              <p className="text-white/95 font-medium"><T path="about.reasons.r2_desc">Мы проверяем каждого партнера, чтобы вы были уверены в завтрашнем дне.</T></p>
             </div>
           </div>
 
@@ -109,13 +112,13 @@ export default function ClientAbout() {
             <MessageCircle size={48} className="mb-8 text-[#B8D430]" />
             <div>
               <h3 className="text-2xl font-black mb-4"><T path="about.reasons.r3_title">Поддержка</T></h3>
-              <p className="text-white/60 font-medium"><T path="about.reasons.r3_desc">Наш бот и менеджеры — ваши верные помощники 24/7.</T></p>
+              <p className="text-white/80 font-medium"><T path="about.reasons.r3_desc">Наш бот и менеджеры — ваши верные помощники 24/7.</T></p>
             </div>
           </div>
 
           <div className="md:col-span-8 bg-white rounded-[48px] p-12 border border-gray-100 shadow-xl flex flex-col justify-center group">
             <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.reasons.r4_title">Технологии для людей</T></h3>
-            <p className="text-xl text-gray-500 max-w-xl leading-relaxed"><T path="about.reasons.r4_desc">Мы используем Telegram, чтобы быть там, где вам удобно. Никаких сложных интерфейсов, только польза.</T></p>
+            <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.reasons.r4_desc">Мы используем Telegram, чтобы быть там, где вам удобно. Никаких сложных интерфейсов, только польза.</T></p>
           </div>
         </div>
       </section>
@@ -145,7 +148,7 @@ export default function ClientAbout() {
         <div className="max-w-4xl mx-auto px-5">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-6"><T path="about.faq.title">Частые вопросы</T></h2>
-            <p className="text-gray-500 text-lg"><T path="about.faq.subtitle">Всё, что вам нужно знать о работе с платформой MIGO.</T></p>
+            <p className="text-gray-700 text-lg"><T path="about.faq.subtitle">Всё, что вам нужно знать о работе с платформой MIGO.</T></p>
           </div>
 
           <div className="space-y-6">
@@ -168,7 +171,7 @@ export default function ClientAbout() {
       <section className="py-24 max-w-7xl mx-auto px-5 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-10 leading-tight"><T path="about.cta.title">Давайте делать этот мир лучше вместе</T></h2>
-          <p className="text-xl text-gray-500 mb-12 font-medium"><T path="about.cta.subtitle">Хотите стать нашим партнером или помочь в развитии проекта? Мы всегда открыты к предложениям.</T></p>
+          <p className="text-xl text-gray-700 mb-12 font-medium"><T path="about.cta.subtitle">Хотите стать нашим партнером или помочь в развитии проекта? Мы всегда открыты к предложениям.</T></p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href={getBotUrl({ start: 'about' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#1E58B1] py-5 px-12 rounded-[24px] font-black text-xl shadow-2xl transition-all hover:scale-105">
               <T path="about.cta.btn">Связаться с нами</T>
@@ -193,7 +196,7 @@ function FAQItem({ question, answer }: { question: React.ReactNode, answer: Reac
         <ChevronRight className={`text-[#1E58B1] transition-transform duration-500 ${isOpen ? 'rotate-90' : ''}`} size={32} />
       </button>
       <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="p-10 pt-0 text-gray-500 text-lg leading-relaxed font-medium border-t border-gray-50">
+        <div className="p-10 pt-0 text-gray-700 text-lg leading-relaxed font-medium border-t border-gray-50">
           {answer}
         </div>
       </div>

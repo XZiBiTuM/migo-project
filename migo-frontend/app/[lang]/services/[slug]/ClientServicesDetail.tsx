@@ -26,7 +26,7 @@ export default function ClientServicesDetail({ service }: { service: any }) {
     <main className="pt-28 md:pt-32 pb-20 min-h-screen bg-white">
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-        <Link href={`/${lang}/services`} className="inline-flex items-center gap-2 text-gray-500 hover:text-[#2196D3] font-medium transition-colors mb-8 cursor-pointer">
+        <Link href={`/${lang}/services`} className="inline-flex items-center gap-2 text-gray-700 hover:text-[#2196D3] font-medium transition-colors mb-8 cursor-pointer">
            <ArrowLeft size={20} /> <T path="service_detail.back_btn">Ко всем услугам</T>
         </Link>
 
@@ -38,7 +38,7 @@ export default function ClientServicesDetail({ service }: { service: any }) {
             <h1 className="text-3xl md:text-5xl font-black text-[#163A5C] leading-tight mb-6">
               {service.title}
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl">
               {service.short_description}
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function ClientServicesDetail({ service }: { service: any }) {
               <h2 className="text-2xl font-bold text-[#163A5C] mb-6 flex items-center gap-3">
                 <ShieldCheck className="text-[#2196D3]" /> <T path="service_detail.desc_title">Описание услуги</T>
               </h2>
-              <div className="prose prose-lg text-gray-600">
+              <div className="prose prose-lg text-gray-700">
                 {service.full_description}
               </div>
             </section>
@@ -89,7 +89,7 @@ export default function ClientServicesDetail({ service }: { service: any }) {
             <section className="bg-[#1E58B1] text-white rounded-[2rem] p-10 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#2196D3] rounded-full opacity-10 -mr-10 -mt-10 blur-2xl"></div>
               <h3 className="text-2xl font-bold mb-4 relative z-10"><T path="service_detail.cta_questions_title">Остались вопросы?</T></h3>
-              <p className="text-white/70 mb-8 relative z-10"><T path="service_detail.cta_questions_desc">Наши специалисты помогут собрать правильный пакет документов и ответят на все юридические вопросы.</T></p>
+              <p className="text-white/90 mb-8 relative z-10"><T path="service_detail.cta_questions_desc">Наши специалисты помогут собрать правильный пакет документов и ответят на все юридические вопросы.</T></p>
               <Link href={getBotUrl({ start: 'consult', source: 'service_detail', medium: 'web' })} target="_blank" className="inline-flex items-center gap-2 bg-[#00BCD4] text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform cursor-pointer">
                 <MessageCircle size={20} /> <T path="service_detail.cta_consult_btn">Написать консультанту</T>
               </Link>

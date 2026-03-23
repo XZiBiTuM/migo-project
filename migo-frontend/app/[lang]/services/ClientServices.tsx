@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import ServiceModal from '@/components/ServiceModal';
 import {
@@ -91,12 +92,14 @@ function ServiceCard({ svc, t, language, setModalService }: {
           className="w-16 h-16 rounded-2xl flex items-center justify-center text-[#1E58B1] bg-[#1E58B1]/5 transform group-hover:scale-110 group-hover:bg-[#B8D430] group-hover:text-[#163A5C] transition-all duration-500 shadow-sm overflow-hidden"
         >
           {svc.image ? (
-            <img
-              src={svc.image.startsWith('http') ? svc.image : `${process.env.NEXT_PUBLIC_API_URL}${svc.image}`}
-              alt={title as string}
-              className="w-full h-full object-cover"
-              style={{ scale: "1.1" }}
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={svc.image.startsWith('http') ? svc.image : `${process.env.NEXT_PUBLIC_API_URL}${svc.image}`}
+                alt={title as string}
+                fill
+                className="object-cover scale-110"
+              />
+            </div>
           ) : (
             React.cloneElement(icon as React.ReactElement, { size: 32 } as any)
           )}
@@ -112,12 +115,12 @@ function ServiceCard({ svc, t, language, setModalService }: {
         {title}
       </h3>
 
-      <p className="text-gray-500 leading-relaxed mb-8 font-medium">
+      <p className="text-gray-700 leading-relaxed mb-8 font-medium">
         {description}
       </p>
 
       {svc.is_partner_service && (
-        <p className="text-xs text-gray-400 italic mb-6 leading-relaxed">
+        <p className="text-xs text-gray-600 italic mb-6 leading-relaxed">
           <T path="services.extra_section.partner_note">Услуга предоставляется партнёрами.</T>
         </p>
       )}
@@ -133,7 +136,7 @@ function ServiceCard({ svc, t, language, setModalService }: {
         <div className="flex gap-2 flex-col">
           <Link
             href={`/services/${svc.slug}`}
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-500 py-4 px-4 rounded-[20px] font-bold text-sm border border-gray-100 transition-all hover:shadow-md cursor-pointer"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 py-4 px-4 rounded-[20px] font-bold text-sm border border-gray-100 transition-all hover:shadow-md cursor-pointer"
           >
             <T path="services.extra_section.more">Подробнее</T> <ArrowRight size={16} />
           </Link>
@@ -185,7 +188,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="services.hero.title_highlight">в одном касании</T></span>
               </h1>
 
-              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+              <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-xl leading-relaxed font-medium">
                 <T path="services.hero.subtitle">От перевода документов до получения патента. Официально, быстро и без очередей через Telegram-бот.</T>
               </p>
 
@@ -202,10 +205,13 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
 
             <div className="relative group perspective-[2000px] mt-0 lg:mt-8 md:mt-4">
               <div className="relative z-10 animate-float">
-                <img
+                <Image
                   src="/images/migo_services_friendly.webp"
                   alt="MIGO Изображение с счастливыми мигрантами и документами"
+                  width={800}
+                  height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                  priority
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#1E58B1]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -220,7 +226,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
             <div className="max-w-2xl">
               <p className="text-[#27A15E] font-black uppercase tracking-[0.3em] text-sm mb-4"><T path="services.free_section.label">Бесплатная помощь</T></p>
               <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="services.free_section.title">Сервисы по 0 рублей</T></h2>
-              <p className="text-gray-500 text-lg"><T path="services.free_section.subtitle">Помогаем адаптироваться и оформить базовые услуги абсолютно бесплатно.</T></p>
+              <p className="text-gray-700 text-lg"><T path="services.free_section.subtitle">Помогаем адаптироваться и оформить базовые услуги абсолютно бесплатно.</T></p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -236,7 +242,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
           <div className="max-w-2xl">
             <p className="text-[#B8D430] font-black uppercase tracking-[0.3em] text-sm mb-4"><T path="services.docs_section.label">Документы</T></p>
             <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="services.docs_section.title">Оформление документов</T></h2>
-            <p className="text-gray-500 text-lg"><T path="services.docs_section.subtitle">Полный пакет документов для легальной работы и проживания в России.</T></p>
+            <p className="text-gray-700 text-lg"><T path="services.docs_section.subtitle">Полный пакет документов для легальной работы и проживания в России.</T></p>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -252,7 +258,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
             <div className="max-w-2xl">
               <p className="text-[#2196D3] font-black uppercase tracking-[0.3em] text-sm mb-4"><T path="services.extra_section.label">Сервисы</T></p>
               <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="services.extra_section.title">Дополнительные услуги</T></h2>
-              <p className="text-gray-500 text-lg"><T path="services.extra_section.subtitle">Мы помогаем решить бытовые и финансовые вопросы, чтобы вы чувствовали себя как дома.</T></p>
+              <p className="text-gray-700 text-lg"><T path="services.extra_section.subtitle">Мы помогаем решить бытовые и финансовые вопросы, чтобы вы чувствовали себя как дома.</T></p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -281,7 +287,7 @@ export default function ClientServices({ initialServices }: ClientServicesProps)
                 {step.num}
               </div>
               <h3 className="text-xl font-bold text-[#163A5C] mb-3">{step.title}</h3>
-              <p className="text-gray-500 leading-relaxed">{step.desc}</p>
+              <p className="text-gray-700 leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -357,7 +363,7 @@ function FAQItem({ question, answer }: { question: React.ReactNode, answer: Reac
         <ChevronRight className={`text-[#2196D3] transition-transform duration-500 ${isOpen ? 'rotate-90' : ''}`} size={24} />
       </button>
       <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="p-8 pt-0 text-gray-500 leading-relaxed font-medium border-t border-gray-50">
+        <div className="p-8 pt-0 text-gray-700 leading-relaxed font-medium border-t border-gray-50">
           {answer}
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import {
   ArrowLeft, Home, MessageCircle, MapPin,
@@ -50,7 +51,7 @@ export default function ClientHousing() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="housing.hero.title_highlight">рядом с работой</T></span>
               </h1>
 
-              <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-xl leading-relaxed font-medium">
+              <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-xl leading-relaxed font-medium">
                 <T path="housing.hero.subtitle">Помощь в подборе общежитий, квартир и хостелов. Быстро, официально и в удобном для вас районе.</T>
               </p>
 
@@ -67,10 +68,13 @@ export default function ClientHousing() {
 
             <div className="relative group perspective-[2000px] mt-0 lg:mt-8 md:mt-4">
               <div className="relative z-10 animate-float">
-                <img
+                <Image
                   src="/images/migo_housing.webp"
                   alt="MIGO Изображение с жильем и счастливыми жильцами"
+                  width={800}
+                  height={600}
                   className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                  priority
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-br from-[#2196D3]/10 to-transparent rounded-full -z-10 blur-3xl"></div>
               </div>
@@ -86,7 +90,7 @@ export default function ClientHousing() {
             <T path="housing.dev_notice.badge">В разработке</T>
           </div>
           <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] mb-4"><T path="housing.dev_notice.title">Раздел «Жильё» скоро будет доступен</T></h3>
-          <p className="text-gray-500 font-medium max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="text-gray-700 font-medium max-w-xl mx-auto mb-8 leading-relaxed">
             <T path="housing.dev_notice.desc">Мы готовим удобный сервис подбора проживания для граждан СНГ в России. А пока — напишите нам в Telegram, и мы поможем подобрать жильё вручную.</T>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -112,7 +116,7 @@ export default function ClientHousing() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-4"><T path="housing.types.title">Варианты проживания</T></h2>
-            <p className="text-gray-500 text-lg"><T path="housing.types.subtitle">Мы подберем вариант, который подходит именно вам — от бюджетного до комфортного.</T></p>
+            <p className="text-gray-700 text-lg"><T path="housing.types.subtitle">Мы подберем вариант, который подходит именно вам — от бюджетного до комфортного.</T></p>
           </div>
         </div>
 
@@ -156,7 +160,7 @@ export default function ClientHousing() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2 group-hover:text-[#B8D430] transition-colors uppercase tracking-tight"><T path="housing.trust.feature1_title">Никаких мошенников</T></h4>
-                    <p className="text-white/60 leading-relaxed"><T path="housing.trust.feature1_desc">Мы работаем только с проверенными собственниками и администраторами общежитий.</T></p>
+                    <p className="text-white/80 leading-relaxed"><T path="housing.trust.feature1_desc">Мы работаем только с проверенными собственниками и администраторами общежитий.</T></p>
                   </div>
                 </div>
                 <div className="flex gap-6 group">
@@ -165,7 +169,7 @@ export default function ClientHousing() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2 group-hover:text-[#B8D430] transition-colors uppercase tracking-tight"><T path="housing.trust.feature2_title">Легальная регистрация</T></h4>
-                    <p className="text-white/60 leading-relaxed"><T path="housing.trust.feature2_desc">Заселяясь через нас, вы получаете официальную регистрацию, необходимую для легальной работы в РФ.</T></p>
+                    <p className="text-white/80 leading-relaxed"><T path="housing.trust.feature2_desc">Заселяясь через нас, вы получаете официальную регистрацию, необходимую для легальной работы в РФ.</T></p>
                   </div>
                 </div>
               </div>
@@ -175,7 +179,7 @@ export default function ClientHousing() {
               <div className="bg-white/10 backdrop-blur-3xl border border-white/20 p-10 rounded-[40px] shadow-2xl relative text-center">
                 <ShieldCheck size={64} className="mx-auto text-[#B8D430] mb-8 animate-pulse" />
                 <h3 className="text-3xl font-black text-white mb-4"><T path="housing.trust.safe_title">Безопасный переезд</T></h3>
-                <p className="text-white/70 text-lg leading-relaxed mb-10"><T path="housing.trust.safe_desc">Напишите нам в Telegram до приезда в РФ, и мы заранее подберем вам место для проживания.</T></p>
+                <p className="text-white/90 text-lg leading-relaxed mb-10"><T path="housing.trust.safe_desc">Напишите нам в Telegram до приезда в РФ, и мы заранее подберем вам место для проживания.</T></p>
                 <Link
                   href={getBotUrl({ start: 'housing' })}
                   target="_blank"
@@ -203,10 +207,10 @@ function HousingTypeCard({ title, icon, color, desc }: { title: React.ReactNode,
       <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] mb-6 group-hover:text-[#1E58B1] transition-colors tracking-tighter leading-tight">
         {title}
       </h3>
-      <p className="text-gray-500 leading-relaxed mb-10 font-medium text-sm md:text-base">
+      <p className="text-gray-700 leading-relaxed mb-10 font-medium text-sm md:text-base">
         {desc}
       </p>
-      <div className="mt-auto flex items-center gap-3 text-xs font-black text-gray-300 group-hover:text-[#2196D3] transition-all uppercase tracking-[0.2em] cursor-pointer">
+      <div className="mt-auto flex items-center gap-3 text-xs font-black text-gray-500 group-hover:text-[#2196D3] transition-all uppercase tracking-[0.2em] cursor-pointer">
         <T path="housing.types.more">Подробнее</T> <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
       </div>
     </div>

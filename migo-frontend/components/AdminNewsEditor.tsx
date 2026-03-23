@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { ArrowLeft, Save, AlertCircle, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 import 'react-quill-new/dist/quill.snow.css';
@@ -317,7 +318,13 @@ export default function AdminNewsEditor({ slug: initialSlug }: AdminNewsEditorPr
                 <div className="relative group">
                    {coverPreview ? (
                       <div className="relative aspect-video rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
-                         <img src={coverPreview} alt="Preview" className="w-full h-full object-cover" />
+                         <Image
+                           src={coverPreview.startsWith('http') ? coverPreview : (coverPreview.startsWith('blob') ? coverPreview : `${process.env.NEXT_PUBLIC_API_URL}${coverPreview}`)}
+                           alt="Preview"
+                           fill
+                           className="object-cover"
+                           unoptimized={coverPreview.startsWith('blob')}
+                         />
                          <button 
                            type="button"
                            onClick={() => { setCoverImage(null); setCoverPreview(null); }}
@@ -337,7 +344,7 @@ export default function AdminNewsEditor({ slug: initialSlug }: AdminNewsEditorPr
                            onChange={(e) => {
                              const file = e.target.files?.[0];
                              if (file) {
-                               const img = new Image();
+                               const img = new window.Image();
                                img.src = URL.createObjectURL(file);
                                img.onload = () => {
                                  const ratio = img.width / img.height;

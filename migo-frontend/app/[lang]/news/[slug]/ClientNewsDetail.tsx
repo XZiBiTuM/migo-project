@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import {
   ArrowLeft, Calendar, Share2, MessageCircle,
@@ -78,7 +79,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
             <span className="px-4 py-2 rounded-full bg-[#1E58B1] text-white text-[10px] font-black uppercase tracking-[0.2em]">
               <T path={`news.categories.${article.category}`}>{getCategoryLabel(article.category)}</T>
             </span>
-            <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-gray-700 text-xs font-bold uppercase tracking-widest">
               <Calendar size={14} className="text-[#B8D430]" />
               {dateStr}
             </div>
@@ -98,7 +99,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
               </div>
               <div>
                 <div className="font-black text-[#163A5C]"><T path="news_detail.author">Команда MIGO</T></div>
-                <div className="text-xs text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1">
+                <div className="text-xs text-gray-600 font-bold uppercase tracking-widest flex items-center gap-1">
                   <Clock size={12} /> 2 <T path="news_detail.reading_time"> мин чтения</T>
                 </div>
               </div>
@@ -115,7 +116,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
 
               <button
                 onClick={handleShare}
-                className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-[#2196D3] hover:text-white hover:border-[#2196D3] transition-all"
+                className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#2196D3] hover:text-white hover:border-[#2196D3] transition-all"
               >
                 <Share2 size={20} />
               </button>
@@ -128,10 +129,12 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
         <section className="px-5 mb-12">
           <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="relative aspect-[21/9] rounded-[48px] overflow-hidden shadow-2xl border border-white/50 bg-gray-50">
-              <img
+              <Image
                 src={article.cover_image.startsWith('http') ? article.cover_image : `${process.env.NEXT_PUBLIC_API_URL}${article.cover_image}`}
                 alt={article.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#163A5C]/40 to-transparent"></div>
             </div>
@@ -142,7 +145,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
       <section id="article-content" className="px-5 mb-24 scroll-mt-24">
         <div className="max-w-4xl mx-auto bg-white rounded-[48px] p-8 md:p-20 shadow-xl border border-gray-50">
           <article
-            className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none text-gray-600 break-words overflow-hidden text-pretty
+            className="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl max-w-none text-gray-700 break-words overflow-hidden text-pretty
               prose-headings:text-[#163A5C] prose-headings:font-black prose-headings:tracking-tight
               prose-p:leading-relaxed prose-p:font-medium
               prose-a:text-[#2196D3] prose-a:font-black prose-a:no-underline hover:prose-a:underline
@@ -160,7 +163,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
           />
 
           <div className="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="text-gray-400 font-medium"><T path="news_detail.share_text">Статья была полезной? Поделитесь ей:</T></div>
+            <div className="text-gray-600 font-medium"><T path="news_detail.share_text">Статья была полезной? Поделитесь ей:</T></div>
             <div className="flex gap-4">
               <button onClick={handleShare} className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#229ED9]/10 text-[#229ED9] font-black text-xs uppercase tracking-widest hover:bg-[#229ED9] hover:text-white transition-all">
                 <Send size={14} /> Telegram
@@ -192,7 +195,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
 
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight uppercase tracking-tight"><T path="news_detail.cta_title">Появились вопросы?</T></h2>
-            <p className="text-white/60 text-xl font-medium mb-12">
+            <p className="text-white/80 text-xl font-medium mb-12">
               <T path="news_detail.cta_subtitle">Мы всегда на связи. Наши юристы и эксперты готовы помочь вам разобраться в любых тонкостях миграционного учета или трудоустройства.</T>
             </p>
 
@@ -246,10 +249,11 @@ function RelatedNewsCard({ news }: { news: any }) {
     >
       <div className="relative h-48 overflow-hidden bg-gray-50">
         {news.cover_image ? (
-          <img
+          <Image
             src={news.cover_image.startsWith('http') ? news.cover_image : `${process.env.NEXT_PUBLIC_API_URL}${news.cover_image}`}
             alt={news.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#2196D3]/10 to-[#1E58B1]/10 flex items-center justify-center text-[#2196D3]/20">
@@ -258,7 +262,7 @@ function RelatedNewsCard({ news }: { news: any }) {
         )}
       </div>
       <div className="p-8">
-        <div className="flex items-center gap-2 text-gray-400 text-[10px] font-black uppercase tracking-widest mb-4">
+        <div className="flex items-center gap-2 text-gray-700 text-[10px] font-black uppercase tracking-widest mb-4">
           <Calendar size={12} className="text-[#B8D430]" />
           {dateStr}
         </div>

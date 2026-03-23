@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import { getCategoryLabel } from '@/utils/news';
 import { useLanguage, T } from '@/context/LanguageContext';
@@ -148,16 +149,16 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   <span className="text-transparent w-full inline-block bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="home.hero.title_2">в России</T></span>
                 </h1>
 
-                <p className="text-lg md:text-2xl text-gray-500/80 mb-12 max-w-2xl leading-relaxed font-medium">
+                <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-2xl leading-relaxed font-medium">
                   <T path="home.hero.subtitle">Помогаем гражданам СНГ с легальным трудоустройством, жильем и документами. Официально, надежно и всегда на связи.</T>
                 </p>
 
                 <div className="grid grid-cols-1 sm:flex gap-4 w-full sm:w-auto">
-                  <Link href={`/${langPath}/work`} className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-lg flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95">
+                  <Link href={`/${langPath}/work`} className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-lg flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:scale-105 active:scale-95">
                     <Briefcase className="w-6 h-6" /> <T path="home.hero.btn_work">Найти работу</T>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
                   </Link>
-                  <Link href={getBotUrl({ start: 'help' })} target="_blank" className="bg-white hover:bg-gray-50 text-[#1E58B1] py-5 px-10 rounded-[32px] font-black text-lg flex items-center justify-center gap-3 shadow-xl transition-all hover:-translate-y-1.5 border border-gray-100 active:scale-95">
+                  <Link href={getBotUrl({ start: 'help' })} target="_blank" className="bg-white hover:bg-gray-50 text-[#1E58B1] py-5 px-10 rounded-[32px] font-black text-lg flex items-center justify-center gap-3 shadow-xl transition-all hover:scale-105 border border-gray-100 active:scale-95">
                     <MessageCircle className="w-6 h-6" /> <T path="mobile_nav.telegram">Telegram Поддержка</T>
                   </Link>
                 </div>
@@ -165,10 +166,13 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
 
               <div className="relative group perspective-[2000px] lg:col-span-6 mt-0 lg:mt-8 md:mt-4">
                 <div className="relative z-10 animate-float">
-                  <img
+                  <Image
                     src="/images/hero.webp"
                     alt="MIGO Главное изображение"
+                    width={800}
+                    height={800}
                     className="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
+                    priority
                   />
 
                   <div className="hidden absolute top-10 -left-10 w-24 h-24 bg-white rounded-3xl shadow-2xl lg:flex items-center justify-center text-[#B8D430] animate-bounce-slow border border-gray-100/50 backdrop-blur-sm bg-white/80">
@@ -197,7 +201,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 <h2 className="text-2xl md:text-4xl font-black text-[#163A5C] mb-8 leading-tight">
                   <T path="home.about_section.title">Больше, чем просто</T> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#B8D430]"><T path="home.about_section.title_highlight">сервис</T></span>
                 </h2>
-                <div className="space-y-6 text-base text-gray-500 leading-relaxed max-w-lg">
+                <div className="space-y-6 text-base text-gray-700 leading-relaxed max-w-lg">
                   <p>
                     <strong>MIGO</strong> <T path="home.about_section.desc_1">— это экосистема поддержки иностранных граждан в России. Мы создали платформу, которая объединяет все необходимые услуги для комфортной жизни и легальной работы в одном месте.</T>
                   </p>
@@ -208,23 +212,25 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 <div className="mt-16 grid grid-cols-3 gap-6">
                   <div className="flex flex-col">
                     <span className="text-2xl md:text-3xl font-black text-[#B8D430]">24/7</span>
-                    <span className="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_support">Поддержка</T></span>
+                    <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_support">Поддержка</T></span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-2xl md:text-3xl font-black text-[#2196D3]">100%</span>
-                    <span className="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_legal">Легально</T></span>
+                    <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_legal">Легально</T></span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-2xl md:text-3xl font-black text-[#163A5C]"><T path="home.about_section.stat_click">1 клик</T></span>
-                    <span className="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_telegram">В Telegram</T></span>
+                    <span className="text-[10px] font-bold text-gray-500 mt-2 uppercase tracking-wider"><T path="home.about_section.stat_telegram">В Telegram</T></span>
                   </div>
                 </div>
               </div>
 
               <div className="relative h-full min-h-[450px] w-full rounded-[48px] overflow-hidden shadow-2xl group">
-                <img
+                <Image
                   src="/images/about.webp"
                   alt={t('home.about_section.alt_image', 'MIGO Ecosystem')}
+                  width={800}
+                  height={600}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E58B1]/40 to-transparent"></div>
@@ -307,7 +313,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
               <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-10 leading-[0.85] tracking-tighter">
                 <T path="home.path_section.title">Путь мигранта: <br className="hidden md:block" />как это бывает на самом деле</T>
               </h2>
-              <p className="text-gray-500/80 text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto mb-16 leading-relaxed font-medium">
+              <p className="text-gray-700/80 text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto mb-16 leading-relaxed font-medium">
                 <T path="home.path_section.subtitle">Каждый человек, который приезжает в Россию на заработки, проходит через один и тот же путь. И почти всегда этот путь — хаотичный, дорогой и опасный.</T>
               </p>
 
@@ -357,7 +363,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                           </div>
                           <div>
                             <h4 className="font-black text-[#163A5C] mb-3 text-2xl tracking-tight leading-tight group-hover/item:text-red-600 transition-colors"><T path={`home.path_section.without_migo.step${idx}_title`} /></h4>
-                            <p className="text-gray-500/80 leading-relaxed font-medium text-lg max-w-sm"><T path={`home.path_section.without_migo.step${idx}_desc`} /></p>
+                            <p className="text-gray-700/80 leading-relaxed font-medium text-lg max-w-sm"><T path={`home.path_section.without_migo.step${idx}_desc`} /></p>
                           </div>
                         </div>
                       ))}
@@ -377,7 +383,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   </div>
 
                   <div className="mt-14 rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 group-hover:scale-[1.02]">
-                    <img src="/images/path_without_migo.webp" alt="Путь без MIGO" className="w-full h-auto object-cover" />
+                    <Image src="/images/path_without_migo.webp" alt="Путь без MIGO" width={600} height={400} className="w-full h-auto object-cover" />
                   </div>
                 </div>
               </div>
@@ -414,7 +420,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                           </div>
                           <div>
                             <h4 className="font-black text-[#163A5C] mb-3 text-2xl tracking-tight leading-tight group-hover/item:text-[#2196D3] transition-colors"><T path={`home.path_section.with_migo.step${idx}_title`} /></h4>
-                            <p className="text-gray-500/80 leading-relaxed font-medium text-lg max-w-sm"><T path={`home.path_section.with_migo.step${idx}_desc`} /></p>
+                            <p className="text-gray-700/80 leading-relaxed font-medium text-lg max-w-sm"><T path={`home.path_section.with_migo.step${idx}_desc`} /></p>
                           </div>
                         </div>
                       ))}
@@ -435,7 +441,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   </div>
 
                   <div className="mt-14 rounded-[48px] overflow-hidden border border-[#B8D430]/30 shadow-[0_40px_80px_-20px_rgba(184,212,48,0.3)] transition-all duration-1000 hover:scale-[1.03] group-hover:rotate-1">
-                    <img src="/images/path_with_migo.webp" alt="Путь с MIGO" className="w-full h-auto object-cover" />
+                    <Image src="/images/path_with_migo.webp" alt="Путь с MIGO" width={600} height={400} className="w-full h-auto object-cover" />
                   </div>
                 </div>
               </div>
@@ -461,7 +467,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                       <T path="home.path_section.reliability.priority_title">Ваша безопасность — наш главный приоритет</T>
                     </h2>
 
-                    <p className="text-gray-500/80 text-lg md:text-xl mb-12 font-medium leading-relaxed max-w-xl">
+                    <p className="text-gray-700/80 text-lg md:text-xl mb-12 font-medium leading-relaxed max-w-xl">
                       <T path="home.path_section.reliability.subtitle">Мы убрали все риски, чтобы ваш путь был максимально комфортным и безопасным.</T>
                     </p>
 
@@ -578,15 +584,16 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                           </div>
 
                           <div className="flex items-center gap-4 mt-auto border-t border-white/10 pt-6">
-                            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 shadow-lg shrink-0">
-                              <img
+                            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 shadow-lg shrink-0 relative">
+                              <Image
                                 src={t_item.avatar}
                                 alt={t(`home.testimonials.t${t_item.id}_author`, t_item.author)}
-                                className="w-full h-full object-cover scale-125"
+                                fill
+                                className="object-cover scale-125"
                               />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h4 className="text-white font-black text-base truncate">{t(`home.testimonials.t${t_item.id}_author`, t_item.author)}</h4>
+                              <h3 className="text-white font-black text-base truncate">{t(`home.testimonials.t${t_item.id}_author`, t_item.author)}</h3>
                               <p className="text-white/50 text-xs font-bold uppercase tracking-widest mt-0.5 line-clamp-1 break-words">{t(`home.testimonials.t${t_item.id}_info`, t_item.info)}</p>
                             </div>
                           </div>
@@ -624,7 +631,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-6 tracking-tight">
                   <T path="home.legal_aid.title">Правовая помощь</T> <span className="text-[#2196D3]"><T path="home.legal_aid.title_highlight">каждому</T></span>
                 </h2>
-                <p className="text-gray-500 text-lg md:text-xl leading-relaxed mb-8">
+                <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
                   <T path="home.legal_aid.desc">Мы предоставляем бесплатные юридические консультации для граждан СНГ. Поможем разобраться с документами, патентами и защитим ваши права при трудоустройстве.</T>
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -734,10 +741,11 @@ function NewsCard({ tag, title, slug, image, date, delay, langPath }: any) {
     >
       <div className="relative aspect-[16/10] overflow-hidden rounded-[32px] mb-6">
         {imageUrl ? (
-          <img
+          <Image
             src={imageUrl}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#1E58B1]/5 to-[#2196D3]/5 flex items-center justify-center text-[#1E58B1]/20">
@@ -751,7 +759,7 @@ function NewsCard({ tag, title, slug, image, date, delay, langPath }: any) {
 
       <div className="px-6 pb-8 flex flex-col flex-1">
         <div className="flex justify-between items-center mb-6">
-          <span className="text-xs font-bold text-gray-400">{date}</span>
+          <span className="text-xs font-bold text-gray-500">{date}</span>
         </div>
         <h3
           className="font-black text-[#163A5C] text-xl md:text-2xl leading-tight group-hover:text-[#1E58B1] transition-colors mb-8 line-clamp-3 tracking-tight text-pretty"

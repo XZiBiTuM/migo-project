@@ -66,7 +66,9 @@ export function GlobalHeader() {
             {LANGUAGES.map((lang) => (
               <button key={lang.code} onClick={() => handleLangSelect(lang.code)} className="w-full py-3.5 px-5 bg-white border border-gray-200 rounded-xl text-base font-medium text-[#163A5C] hover:border-[#2196D3] hover:bg-[#2196D3]/5 active:bg-gray-50 flex items-center justify-between transition-all">
                 <span className="flex items-center gap-3">
-                  <img src={lang.flagUrl} alt={lang.code} width="20" height="15" className="w-5 h-auto rounded-sm" />
+                  <div className="relative w-5 h-[15px] rounded-sm overflow-hidden border border-gray-100">
+                    <Image src={lang.flagUrl} alt={lang.code} fill className="object-cover" />
+                  </div>
                   {lang.label}
                 </span>
                 <ChevronRight className="text-gray-300 w-4 h-4" />
@@ -85,7 +87,7 @@ export function GlobalHeader() {
             <Image src="/logo.webp" alt="MIGO" width={40} height={40} className="w-9 h-auto md:w-10 object-contain drop-shadow-sm" priority />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-500">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-700">
             <Link href={`/${l}/work`} className="hover:text-[#2196D3] transition-colors cursor-pointer"><T path="nav.work">Работа</T></Link>
             <Link href={`/${l}/housing`} className="hover:text-[#2196D3] transition-colors cursor-pointer"><T path="nav.housing">Жильё</T></Link>
             <Link href={`/${l}/services`} className="hover:text-[#2196D3] transition-colors cursor-pointer"><T path="nav.services">Услуги</T></Link>
@@ -100,7 +102,11 @@ export function GlobalHeader() {
               <span className="hidden sm:inline text-xs"><T path="lang_intro.lang_label">Язык:</T></span>
               {(() => {
                 const lang = LANGUAGES.find(l => l.code === selectedLang.toUpperCase());
-                return lang ? <img src={lang.flagUrl} alt={lang.code} width="16" height="12" className="w-4 h-auto rounded-sm" /> : selectedLang;
+                return lang ? (
+                  <div className="relative w-4 h-3 rounded-sm overflow-hidden border border-gray-100">
+                    <Image src={lang.flagUrl} alt={lang.code} fill className="object-cover" />
+                  </div>
+                ) : selectedLang;
               })()}
             </button>
             <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="bg-[#2196D3] hover:bg-[#1976B0] p-2 md:px-4 md:py-2 md:rounded-lg rounded-full text-white transition-colors flex items-center gap-2 text-sm font-semibold cursor-pointer">
@@ -132,15 +138,15 @@ export function GlobalFooter() {
           </div>
           <div>
             <h4 className="font-semibold text-sm mb-4 text-[#163A5C]"><T path="footer.docs_title">Документы</T></h4>
-            <ul className="space-y-2.5 text-sm text-gray-500 font-medium">
+            <ul className="space-y-2.5 text-sm text-gray-700 font-medium">
               <li><Link href={`/${lang}/privacy`} className="hover:text-[#2196D3] underline decoration-transparent hover:decoration-[#2196D3] transition-all cursor-pointer"><T path="footer.privacy">Политика конфиденциальности</T></Link></li>
               <li><Link href={`/${lang}/terms`} className="hover:text-[#2196D3] underline decoration-transparent hover:decoration-[#2196D3] transition-all cursor-pointer"><T path="footer.terms">Пользовательское соглашение</T></Link></li>
-              <li><Link href="/admin" className="text-gray-400 hover:text-[#2196D3] transition-colors cursor-pointer text-[10px] mt-2 block opacity-60"><T path="footer.admin">Админ-панель</T></Link></li>
+              <li><Link href="/admin" className="text-gray-500 hover:text-[#2196D3] transition-colors cursor-pointer text-[10px] mt-2 block opacity-60"><T path="footer.admin">Админ-панель</T></Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-sm mb-4 text-[#163A5C]"><T path="footer.contacts_title">Контакты</T></h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <ul className="space-y-2 text-sm text-gray-600">
               <li><T path="footer.company_name">ООО «ПРМ»</T></li>
               <li className="leading-snug"><T path="footer.address_msk">Москва, Армянский пер, д.9 стр. 1, Этаж 4, Офис 402-2</T></li>
               <li className="leading-snug"><T path="footer.address_kld">Калининград, пр-т Калинина 2, офис 4</T></li>
@@ -229,19 +235,19 @@ export function GlobalMobileNav() {
   return (
     <>
       <nav className="fixed bottom-0 w-full bg-white/95 backdrop-blur-sm border-t border-gray-100 flex justify-between px-2 pb-safe pt-2 z-50 shadow-sm md:hidden">
-        <Link href={`/${lang}/work`} onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center w-full py-2 gap-1 text-gray-400 hover:text-gray-600 transition-colors">
+        <Link href={`/${lang}/work`} onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center w-full py-4 gap-1 text-gray-600 hover:text-[#2196D3] transition-colors">
           <Briefcase className="w-5 h-5" />
           <span className="text-[10px] font-medium"><T path="mobile_nav.work">Работа</T></span>
         </Link>
-        <Link href={`/${lang}/services`} onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center w-full py-2 gap-1 text-gray-400 hover:text-gray-600 transition-colors">
+        <Link href={`/${lang}/services`} onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center w-full py-4 gap-1 text-gray-600 hover:text-[#2196D3] transition-colors">
           <FileText className="w-5 h-5" />
           <span className="text-[10px] font-medium"><T path="mobile_nav.services">Услуги</T></span>
         </Link>
-        <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="flex flex-col items-center justify-center w-full py-2 gap-1 text-[#2196D3] transition-colors cursor-pointer">
+        <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="flex flex-col items-center justify-center w-full py-4 gap-1 text-[#2196D3] transition-colors cursor-pointer active:scale-95">
           <MessageCircle className="w-5 h-5" />
           <span className="text-[10px] font-medium"><T path="mobile_nav.telegram">Telegram</T></span>
         </Link>
-        <button onClick={() => setIsMenuOpen(true)} className="flex flex-col items-center justify-center w-full py-2 gap-1 text-gray-400 hover:text-gray-600 transition-colors">
+        <button onClick={() => setIsMenuOpen(true)} className="flex flex-col items-center justify-center w-full py-4 gap-1 text-gray-600 hover:text-[#2196D3] transition-colors">
           <Menu className="w-5 h-5" />
           <span className="text-[10px] font-medium"><T path="mobile_nav.menu">Меню</T></span>
         </button>
