@@ -86,8 +86,8 @@ export default function ClientHousing() {
 
       <section className="py-12 max-w-4xl mx-auto px-5">
         <div className="bg-[#2196D3]/5 border border-[#2196D3]/15 rounded-[32px] p-8 md:p-12 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2196D3]/10 text-[#2196D3] font-black uppercase tracking-widest text-xs mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#2196D3] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2196D3]/10 text-[#1E58B1] font-black uppercase tracking-widest text-xs mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#1E58B1] animate-pulse"></span>
             <T path="housing.dev_notice.badge">В разработке</T>
           </div>
           <h3 className="text-2xl md:text-3xl font-black text-[#163A5C] mb-4"><T path="housing.dev_notice.title">Раздел «Жильё» скоро будет доступен</T></h3>

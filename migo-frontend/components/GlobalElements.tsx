@@ -12,9 +12,9 @@ import Image from 'next/image';
 
 const LANGUAGES = [
   { code: 'RU', flagUrl: 'https://flagcdn.com/w40/ru.png', label: 'Русский' },
-  { code: 'KZ', flagUrl: 'https://flagcdn.com/w40/kz.png', label: 'Қазақша' },
+  { code: 'KK', flagUrl: 'https://flagcdn.com/w40/kz.png', label: 'Қазақша' },
   { code: 'KG', flagUrl: 'https://flagcdn.com/w40/kg.png', label: 'Кыргызча' },
-  { code: 'TJ', flagUrl: 'https://flagcdn.com/w40/tj.png', label: 'Тоҷикӣ' },
+  { code: 'TG', flagUrl: 'https://flagcdn.com/w40/tj.png', label: 'Тоҷикӣ' },
   { code: 'UZ', flagUrl: 'https://flagcdn.com/w40/uz.png', label: 'Oʻzbekcha' },
 ] as const;
 
@@ -44,7 +44,7 @@ export function GlobalHeader() {
     const langCode = code.toLowerCase();
     
     // Если первый сегмент - существующая локаль, заменяем её
-    const locales = ['ru', 'kz', 'kg', 'uz', 'tj'];
+    const locales = ['ru', 'kk', 'kg', 'uz', 'tg'];
     if (segments.length > 1 && locales.includes(segments[1])) {
       segments[1] = langCode;
       window.location.href = segments.join('/');
@@ -75,7 +75,7 @@ export function GlobalHeader() {
               </button>
             ))}
           </div>
-          <button onClick={() => handleLangSelect('RU')} className="mt-7 text-[#2196D3] text-sm font-medium hover:text-[#1976B0] transition-colors">
+          <button onClick={() => handleLangSelect('RU')} className="mt-7 text-[#1E58B1] text-sm font-black hover:text-[#1976B0] transition-colors">
             <T path="lang_intro.continue_ru">Продолжить на русском</T>
           </button>
         </div>
@@ -120,7 +120,7 @@ export function GlobalHeader() {
                 ) : selectedLang;
               })()}
             </button>
-            <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="bg-[#2196D3] hover:bg-[#1976B0] p-2 md:px-4 md:py-2 md:rounded-lg rounded-full text-white transition-colors flex items-center gap-2 text-sm font-semibold cursor-pointer">
+            <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="bg-[#2196D3] hover:bg-[#1976B0] p-2 md:px-4 md:py-2 md:rounded-lg rounded-full text-white transition-colors flex items-center gap-2 text-sm font-semibold cursor-pointer" aria-label="Support in Telegram">
               <MessageCircle className="w-4 h-4" />
               <span className="hidden md:inline"><T path="nav.support">Поддержка</T></span>
             </Link>

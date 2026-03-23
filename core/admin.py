@@ -88,9 +88,9 @@ class ServiceItemAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
             'fields': ('title_kg', 'short_description_kg', 'full_description_kg', 'documents_required_kg', 'processing_time_kg', 'price_conditions_kg')
         }),
-        ('Қазақша (KZ)', {
+        ('Қазақша (KK)', {
             'classes': ('collapse',),
-            'fields': ('title_kz', 'short_description_kz', 'full_description_kz', 'documents_required_kz', 'processing_time_kz', 'price_conditions_kz')
+            'fields': ('title_kk', 'short_description_kk', 'full_description_kk', 'documents_required_kk', 'processing_time_kk', 'price_conditions_kk')
         }),
     )
 

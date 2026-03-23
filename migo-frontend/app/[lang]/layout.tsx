@@ -40,10 +40,10 @@ export const metadata: Metadata = {
 export async function generateStaticParams() {
   return [
     { lang: 'ru' },
-    { lang: 'kz' },
+    { lang: 'kk' },
     { lang: 'kg' },
     { lang: 'uz' },
-    { lang: 'tj' },
+    { lang: 'tg' },
   ];
 }
 
@@ -62,10 +62,10 @@ export default async function LanguageLayout({
       <head>
         <link rel="canonical" href={`https://migohelp.com/${currentLang}/`} />
         <link rel="alternate" hrefLang="ru" href="https://migohelp.com/ru/" />
-        <link rel="alternate" hrefLang="kz" href="https://migohelp.com/kz/" />
+        <link rel="alternate" hrefLang="kk" href="https://migohelp.com/kk/" />
         <link rel="alternate" hrefLang="kg" href="https://migohelp.com/kg/" />
         <link rel="alternate" hrefLang="uz" href="https://migohelp.com/uz/" />
-        <link rel="alternate" hrefLang="tj" href="https://migohelp.com/tj/" />
+        <link rel="alternate" hrefLang="tg" href="https://migohelp.com/tg/" />
         <link rel="alternate" hrefLang="x-default" href="https://migohelp.com/ru/" />
         
         <link rel="preconnect" href="https://fonts.googleapis.com" />

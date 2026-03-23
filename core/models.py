@@ -42,7 +42,7 @@ class News(models.Model):
         UZ = 'uz', _('O‘zbekcha')
         TG = 'tg', _('Тоҷикӣ')
         KG = 'kg', _('Кыргызча')
-        KZ = 'kz', _('Қазақша')
+        KK = 'kk', _('Қазақша')
 
     class Status(models.TextChoices):
         DRAFT = 'draft', _('Черновик')
@@ -141,7 +141,7 @@ class ServiceItem(models.Model):
     title_uz = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (UZ)'))
     title_tg = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (TG)'))
     title_kg = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (KG)'))
-    title_kz = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (KZ)'))
+    title_kk = models.CharField(max_length=255, blank=True, verbose_name=_('Название услуги (KK)'))
     
     slug = models.SlugField(max_length=255, unique=True, verbose_name=_('URL (ЧПУ)'))
     service_type = models.CharField(max_length=20, choices=ServiceType.choices, verbose_name=_('Тип услуги'))
@@ -150,31 +150,31 @@ class ServiceItem(models.Model):
     short_description_uz = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (UZ)'))
     short_description_tg = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (TG)'))
     short_description_kg = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (KG)'))
-    short_description_kz = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (KZ)'))
+    short_description_kk = models.CharField(max_length=255, blank=True, verbose_name=_('Краткое описание (KK)'))
     
     full_description = models.TextField(verbose_name=_('Кому это нужно и что это (RU)'))
     full_description_uz = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (UZ)'))
     full_description_tg = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (TG)'))
     full_description_kg = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (KG)'))
-    full_description_kz = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (KZ)'))
+    full_description_kk = models.TextField(blank=True, verbose_name=_('Кому это нужно и что это (KK)'))
     
     documents_required = models.TextField(blank=True, verbose_name=_('Какие документы нужны (RU)'))
     documents_required_uz = models.TextField(blank=True, verbose_name=_('Какие документы нужны (UZ)'))
     documents_required_tg = models.TextField(blank=True, verbose_name=_('Какие документы нужны (TG)'))
     documents_required_kg = models.TextField(blank=True, verbose_name=_('Какие документы нужны (KG)'))
-    documents_required_kz = models.TextField(blank=True, verbose_name=_('Какие документы нужны (KZ)'))
+    documents_required_kk = models.TextField(blank=True, verbose_name=_('Какие документы нужны (KK)'))
     
     processing_time = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (RU)'))
     processing_time_uz = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (UZ)'))
     processing_time_tg = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (TG)'))
     processing_time_kg = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (KG)'))
-    processing_time_kz = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (KZ)'))
+    processing_time_kk = models.CharField(max_length=100, blank=True, verbose_name=_('Сроки (KK)'))
     
     price_conditions = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (RU)'))
     price_conditions_uz = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (UZ)'))
     price_conditions_tg = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (TG)'))
     price_conditions_kg = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (KG)'))
-    price_conditions_kz = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (KZ)'))
+    price_conditions_kk = models.CharField(max_length=255, blank=True, verbose_name=_('Стоимость/Условия (KK)'))
     
     image = models.ImageField(upload_to='services/', blank=True, null=True, verbose_name=_('Изображение услуги'))
 

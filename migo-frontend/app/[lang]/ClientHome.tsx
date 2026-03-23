@@ -139,7 +139,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                 </div>
 
                 <div className="mb-6 overflow-hidden min-h-[32px]">
-                  <p className="text-[#2196D3] font-black text-sm md:text-xl uppercase tracking-wider md:tracking-[0.4em] mb-4 opacity-80 whitespace-nowrap md:whitespace-normal">
+                  <p className="text-[#1E58B1] font-black text-sm md:text-xl uppercase tracking-wider md:tracking-[0.4em] mb-4 opacity-90 whitespace-nowrap md:whitespace-normal">
                     <T path="home.hero.tagline">Надежно • Понятно • Полезно</T>
                   </p>
                 </div>
@@ -174,6 +174,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                     className="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                    {...({ fetchPriority: 'high' } as any)}
                   />
 
                   <div className="hidden absolute top-10 -left-10 w-24 h-24 bg-white rounded-3xl shadow-2xl lg:flex items-center justify-center text-[#B8D430] animate-bounce-slow border border-gray-100/50 backdrop-blur-sm bg-white/80">
@@ -195,12 +196,12 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
           <div className="max-w-7xl mx-auto px-5 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="pt-0">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2196D3]/10 text-[#2196D3] font-bold uppercase tracking-widest text-[10px] mb-6">
-                  <span className="w-2 h-2 rounded-full bg-[#2196D3] animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2196D3]/10 text-[#1E58B1] font-black uppercase tracking-widest text-[10px] mb-6">
+                  <span className="w-2 h-2 rounded-full bg-[#1E58B1] animate-pulse"></span>
                   <T path="home.about_section.badge">О проекте MIGO</T>
                 </div>
                 <h2 className="text-2xl md:text-4xl font-black text-[#163A5C] mb-8 leading-tight">
-                  <T path="home.about_section.title">Больше, чем просто</T> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#B8D430]"><T path="home.about_section.title_highlight">сервис</T></span>
+                  <T path="home.about_section.title">Больше, чем просто</T> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="home.about_section.title_highlight">сервис</T></span>
                 </h2>
                 <div className="space-y-6 text-base text-gray-700 leading-relaxed max-w-lg">
                   <p>
@@ -609,9 +610,9 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                     <button
                       key={idx}
                       onClick={() => setActiveTestimonial(idx)}
-                      className={`h-2 rounded-full transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${idx === activeTestimonial
+                      className={`h-5 rounded-full transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${idx === activeTestimonial
                         ? 'w-14 bg-[#B8D430] shadow-[0_0_15px_rgba(184,212,48,0.6)]'
-                        : 'w-2 bg-white/20 hover:bg-white/50'
+                        : 'w-5 bg-white/20 hover:bg-white/50'
                         }`}
                       aria-label={`Show testimonial ${idx + 1}`}
                     />

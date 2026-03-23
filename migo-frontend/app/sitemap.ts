@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const locales = ['ru', 'kz', 'kg', 'uz', 'tj'] as const;
+const locales = ['ru', 'kk', 'kg', 'uz', 'tg'] as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://migohelp.com';

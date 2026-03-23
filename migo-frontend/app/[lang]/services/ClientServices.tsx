@@ -47,19 +47,19 @@ interface Service {
   title_uz?: string;
   title_tg?: string;
   title_kg?: string;
-  title_kz?: string;
+  title_kk?: string;
   service_type: string;
   short_description: string;
   short_description_uz?: string;
   short_description_tg?: string;
   short_description_kg?: string;
-  short_description_kz?: string;
+  short_description_kk?: string;
   is_partner_service: boolean;
   price_conditions?: string;
   price_conditions_uz?: string;
   price_conditions_tg?: string;
   price_conditions_kg?: string;
-  price_conditions_kz?: string;
+  price_conditions_kk?: string;
   image?: string;
 }
 
