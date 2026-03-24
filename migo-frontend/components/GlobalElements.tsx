@@ -11,11 +11,11 @@ import {
 import Image from 'next/image';
 
 const LANGUAGES = [
-  { code: 'RU', flagUrl: 'https://flagcdn.com/w40/ru.png', label: 'Русский' },
-  { code: 'KK', flagUrl: 'https://flagcdn.com/w40/kz.png', label: 'Қазақша' },
-  { code: 'KG', flagUrl: 'https://flagcdn.com/w40/kg.png', label: 'Кыргызча' },
-  { code: 'TG', flagUrl: 'https://flagcdn.com/w40/tj.png', label: 'Тоҷикӣ' },
-  { code: 'UZ', flagUrl: 'https://flagcdn.com/w40/uz.png', label: 'Oʻzbekcha' },
+  { code: 'RU', flagUrl: '/flags/ru.png', label: 'Русский' },
+  { code: 'KK', flagUrl: '/flags/kz.png', label: 'Қазақша' },
+  { code: 'KG', flagUrl: '/flags/kg.png', label: 'Кыргызча' },
+  { code: 'TG', flagUrl: '/flags/tj.png', label: 'Тоҷикӣ' },
+  { code: 'UZ', flagUrl: '/flags/uz.png', label: 'Oʻzbekcha' },
 ] as const;
 
 export function GlobalHeader() {
