@@ -434,7 +434,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                   </div>
 
                   <div className="mt-20 bg-gradient-to-br from-[#1E58B1] to-[#2196D3] rounded-[48px] p-10 border border-white/20 shadow-2xl relative overflow-hidden group/success">
-                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-[url('/patterns/cubes.webp')] opacity-10 pointer-events-none"></div>
                     <div className="absolute top-0 right-0 p-8 opacity-10 translate-x-4 -translate-y-4 group-hover/success:translate-x-0 group-hover/success:translate-y-0 transition-transform duration-1000">
                       <CheckCircle2 size={140} />
                     </div>
@@ -689,7 +689,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
 
         <section className="py-20 max-w-7xl mx-auto px-5">
           <div className="bg-gradient-to-br from-[#1E58B1] via-[#1A4B75] to-[#2196D3] rounded-[64px] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div className="absolute inset-0 bg-[url('/patterns/cubes.webp')] opacity-10"></div>
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-6xl font-black text-white mb-8"><T path="home.cta.title">Готовы начать новую жизнь в России?</T></h2>
               <p className="text-white/90 text-xl md:text-2xl mb-12 leading-relaxed">
