@@ -24,12 +24,14 @@ services:
             - DATABASE_URL=postgres://migo_user:migo_password@db:5432/migo_db
             - SECRET_KEY=django-insecure-u8+gs=f*@ftn8nuer2hfua%b445@g8(ilih@yraz_y0m+93r7+
             - DEBUG=False
-            - ALLOWED_HOSTS=api.migohelp.com,migohelp.com,backend
+            - ALLOWED_HOSTS=api.migohelp.com,migohelp.com,backend,localhost,127.0.0.1
             - BOT_TOKEN=8681056695:AAE9DsSiCKAZEaIo-yjtQVu_dKMTUEZLa8I
         volumes:
             - ./media:/app/media
             - ./staticfiles:/app/staticfiles
         command: gunicorn --bind 0.0.0.0:8000 migo.wsgi:application
+        ports:
+            - "8000:8000"
 
     tg_bot:
         build:
