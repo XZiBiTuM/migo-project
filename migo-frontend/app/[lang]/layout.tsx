@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Manrope, Montserrat, Outfit } from "next/font/google";
+import { Manrope, Montserrat } from "next/font/google";
 import "../globals.css";
 import Script from 'next/script';
 import { GlobalHeader, GlobalFooter, GlobalMobileNav, GlobalCookieBanner, ConsultationButton } from '@/components/GlobalElements';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 const manrope = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-manrope", display: 'swap' });
-const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--font-montserrat", weight: ["400", "500", "600", "700", "800", "900"], display: 'swap' });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: ["700"], display: 'swap' });
+const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--font-montserrat", weight: ["400", "600", "900"], display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://migohelp.com'),
@@ -68,17 +67,16 @@ export default async function LanguageLayout({
         <link rel="alternate" hrefLang="tg" href="https://migohelp.com/tg/" />
         <link rel="alternate" hrefLang="x-default" href="https://migohelp.com/ru/" />
 
-        <link rel="preconnect" href="https://flagcdn.com" />
 
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
-              strategy="lazyOnload"
+              strategy="afterInteractive"
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
             />
             <Script
               id="gtag-init"
-              strategy="lazyOnload"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -94,7 +92,7 @@ export default async function LanguageLayout({
         {process.env.NEXT_PUBLIC_YM_ID && (
           <Script
             id="yandex-metrica"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -139,7 +137,7 @@ export default async function LanguageLayout({
           }}
         />
       </head>
-      <body className={`${manrope.variable} ${montserrat.variable} ${outfit.variable} bg-[#F0F7FC] text-[#163A5C] selection:bg-[#2196D3] selection:text-white`} suppressHydrationWarning style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
+      <body className={`${manrope.variable} ${montserrat.variable} bg-[#F0F7FC] text-[#163A5C] selection:bg-[#2196D3] selection:text-white`} suppressHydrationWarning style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
         <LanguageProvider initialLanguage={currentLang.toUpperCase() as any}>
           <GlobalHeader />
           <ConsultationButton />

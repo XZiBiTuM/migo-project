@@ -267,7 +267,6 @@ export function GlobalMobileNav() {
           <div className="flex justify-between items-center p-5 border-b border-gray-50">
             <div className="flex items-center gap-2">
               <Image src="/logo.webp" alt="MIGO" width={28} height={28} className="w-7 h-auto object-contain sm" />
-              <span className="text-lg font-bold text-[#163A5C]" style={{ fontFamily: 'var(--font-outfit), sans-serif', letterSpacing: '-0.03em' }}>MIGO</span>
             </div>
             <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-400 hover:bg-gray-50 rounded-full transition-colors" aria-label="Close menu">
               <X className="w-5 h-5" />
