@@ -18,17 +18,18 @@ export async function generateStaticParams() {
 export default async function WorkPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   let initialJobs = [];
-
+  const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+  
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/vacancies/`, {
+    const res = await fetch(`${apiBase}/api/vacancies/`, {
       next: { revalidate: 300 }
     });
-
+ 
     if (res.ok) {
       initialJobs = await res.json();
     }
   } catch (error) {
-    console.error("Ошибка загрузки вакансий:", error);
+    console.error("SSR Jobs Error:", error);
   }
 
   const jsonLd = initialJobs.map((job: any) => ({

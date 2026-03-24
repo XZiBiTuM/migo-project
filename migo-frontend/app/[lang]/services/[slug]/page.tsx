@@ -95,8 +95,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   let service = null;
 
+  const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+  
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services/${slug}/`, {
+    const res = await fetch(`${apiBase}/api/services/${slug}/`, {
       next: { revalidate: 3600 }
     });
 

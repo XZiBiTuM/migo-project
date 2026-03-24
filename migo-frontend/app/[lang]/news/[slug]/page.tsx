@@ -2,8 +2,9 @@ import { notFound } from 'next/navigation';
 import ClientNewsDetail from './ClientNewsDetail';
 
 export async function generateStaticParams() {
+  const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`);
+    const res = await fetch(`${apiBase}/api/news/`);
     if (!res.ok) return [];
     const news = await res.json();
 
@@ -22,8 +23,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/${slug}/`, {
+    const res = await fetch(`${apiBase}/api/news/${slug}/`, {
       next: { revalidate: 60 }
     });
     if (res.ok) {
@@ -46,16 +48,17 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
   const { slug } = await params;
   let article: any = null;
   let relatedNews: any[] = [];
-
+  const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+  
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/${slug}/`, {
+    const res = await fetch(`${apiBase}/api/news/${slug}/`, {
       next: { revalidate: 60 }
     });
     if (res.ok) {
       article = await res.json();
     }
 
-    const allRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`, {
+    const allRes = await fetch(`${apiBase}/api/news/`, {
       next: { revalidate: 3600 }
     });
     if (allRes.ok) {

@@ -54,6 +54,7 @@ services:
                 - NEXT_PUBLIC_API_URL=https://api.migohelp.com
         environment:
             - NEXT_PUBLIC_BOT_URL=https://t.me/migo_work
+            - INTERNAL_API_URL=http://backend:8000
 
     nginx:
         image: nginx:alpine

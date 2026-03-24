@@ -14,15 +14,13 @@ export default async function Home({ params }: { params: { lang: string } }) {
   let news: any[] = [];
   let services: any[] = [];
 
+  const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+  
   try {
-    const urls = [
-      `${process.env.NEXT_PUBLIC_API_URL}/api/news/`,
-      `${process.env.NEXT_PUBLIC_API_URL}/api/services/`
-    ];
-
-    const [newsRes, servicesRes] = await Promise.all(
-      urls.map(url => fetch(url, { next: { revalidate: 60 } }))
-    );
+    const [newsRes, servicesRes] = await Promise.all([
+      fetch(`${apiBase}/api/news/`, { next: { revalidate: 60 } }),
+      fetch(`${apiBase}/api/services/`, { next: { revalidate: 60 } })
+    ]);
 
     if (newsRes.ok) news = await newsRes.json();
     if (servicesRes.ok) services = await servicesRes.json();
