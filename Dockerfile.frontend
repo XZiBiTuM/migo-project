@@ -11,7 +11,7 @@ COPY migo-frontend/ ./
 # Public URL for the API in production (example, can be build arg)
 # But it's better to use environment variables during build if needed
 # Actually, NEXT_PUBLIC_API_URL is needed at build time for client-side fetches
-ARG NEXT_PUBLIC_API_URL=https://api.migo.ru
+ARG NEXT_PUBLIC_API_URL=https://migohelp.com
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 RUN npm run build
 
