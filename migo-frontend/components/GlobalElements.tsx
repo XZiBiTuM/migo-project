@@ -24,7 +24,6 @@ export function GlobalHeader() {
   const [showLangIntro, setShowLangIntro] = useState(false);
 
   useEffect(() => {
-    // Show intro only if no language is saved
     if (!localStorage.getItem('migo_lang')) {
       setShowLangIntro(true);
     }
@@ -201,7 +200,7 @@ export function ConsultationButton() {
   }, []);
 
   return (
-    <div className="fixed bottom-20 right-3 z-50 md:hidden">
+    <div className="fixed bottom-24 right-3 z-50 md:hidden">
       <div
         className={`transition-all duration-300 ease-in-out ${!isVisible ? 'translate-y-24 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'
           }`}

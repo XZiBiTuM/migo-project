@@ -22,6 +22,12 @@ export default function ClientServicesDetail({ service }: { service: any }) {
   const { language, t } = useLanguage();
   const lang = language.toLowerCase();
 
+  const getLocalized = (field: string) => {
+    const l = lang;
+    const localizedField = `${field}_${l === 'tj' ? 'tg' : l}`; // Map tj URL to tg DB field
+    return service[localizedField] || service[field];
+  };
+
   return (
     <main className="pt-28 md:pt-32 pb-20 min-h-screen bg-white">
 
@@ -36,10 +42,10 @@ export default function ClientServicesDetail({ service }: { service: any }) {
               {service.service_type === 'docs' ? <T path="services.categories.docs">Документы</T> : service.service_type === 'finance' ? <T path="services.categories.finance">Финансы</T> : <T path="services.categories.other">Сервис</T>}
             </span>
             <h1 className="text-3xl md:text-5xl font-black text-[#163A5C] leading-tight mb-6">
-              {service.title}
+              {getLocalized('title')}
             </h1>
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl">
-              {service.short_description}
+              {getLocalized('short_description')}
             </p>
           </div>
 
@@ -65,18 +71,18 @@ export default function ClientServicesDetail({ service }: { service: any }) {
               <h2 className="text-2xl font-bold text-[#163A5C] mb-6 flex items-center gap-3">
                 <ShieldCheck className="text-[#2196D3]" /> <T path="service_detail.desc_title">Описание услуги</T>
               </h2>
-              <div className="prose prose-lg text-gray-700">
-                {service.full_description}
+              <div className="prose prose-lg text-gray-700 whitespace-pre-wrap">
+                {getLocalized('full_description')}
               </div>
             </section>
 
-            {service.documents_required && (
+            {getLocalized('documents_required') && (
               <section className="bg-gray-50 rounded-3xl p-8 border border-gray-100">
                 <h2 className="text-2xl font-bold text-[#163A5C] mb-6 flex items-center gap-3">
                   <FileText className="text-[#2196D3]" /> <T path="service_detail.docs_title">Необходимые документы</T>
                 </h2>
                 <div className="space-y-4">
-                  {service.documents_required.split('\n').filter((line: string) => line.trim()).map((doc: string, idx: number) => (
+                  {getLocalized('documents_required').split('\n').filter((line: string) => line.trim()).map((doc: string, idx: number) => (
                     <div key={idx} className="flex gap-4 items-start">
                       <CheckCircle2 className="shrink-0 text-[#B8D430] mt-1" size={20} />
                       <span className="text-lg text-gray-700">{doc}</span>
@@ -102,7 +108,7 @@ export default function ClientServicesDetail({ service }: { service: any }) {
                 <Clock size={24} />
                 <span className="font-bold uppercase tracking-wider text-xs"><T path="service_detail.time_label">Сроки</T></span>
               </div>
-              <p className="text-xl font-bold text-[#163A5C]">{service.processing_time || <T path="service_detail.time_placeholder">Уточняйте в боте</T>}</p>
+              <p className="text-xl font-bold text-[#163A5C]">{getLocalized('processing_time') || <T path="service_detail.time_placeholder">Уточняйте в боте</T>}</p>
             </div>
 
             <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
@@ -110,13 +116,13 @@ export default function ClientServicesDetail({ service }: { service: any }) {
                 <CreditCard size={24} />
                 <span className="font-bold uppercase tracking-wider text-xs"><T path="service_detail.price_label">Стоимость</T></span>
               </div>
-              <p className="text-xl font-bold text-[#163A5C]">{service.price_conditions || 'Индивидуально'}</p>
+              <p className="text-xl font-bold text-[#163A5C]">{getLocalized('price_conditions') || 'Индивидуально'}</p>
             </div>
 
             {service.is_partner_service && (
               <div className="bg-orange-50 rounded-2xl p-6 border border-orange-100">
                 <p className="text-sm text-orange-800 font-medium">
-                  ⚠️ Услуга предоставляется нашими проверенными партнёрами. MIGO осуществляет сопровождение и контроль качества.
+                  ⚠️ <T path="service_detail.partner_disclaimer">Услуга предоставляется нашими проверенными партнёрами. MIGO осуществляет сопровождение и контроль качества.</T>
                 </p>
               </div>
             )}

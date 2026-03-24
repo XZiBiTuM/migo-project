@@ -6,7 +6,7 @@ import { GlobalHeader, GlobalFooter, GlobalMobileNav, GlobalCookieBanner, Consul
 import { LanguageProvider } from '@/context/LanguageContext';
 
 const manrope = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-manrope", display: 'swap' });
-const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--font-montserrat", weight: ["400", "500", "600", "700", "800"], display: 'swap' });
+const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--font-montserrat", weight: ["400", "500", "600", "700", "800", "900"], display: 'swap' });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: ["700"], display: 'swap' });
 
 export const metadata: Metadata = {

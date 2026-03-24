@@ -307,6 +307,11 @@
     }
   },
   "services": {
+    "categories": {
+      "docs": "Hujjatlar",
+      "finance": "Moliya",
+      "other": "Xizmat"
+    },
     "hero": {
       "badge": "Professional yordam",
       "title_1": "Bizning xizmatlar",
@@ -365,6 +370,19 @@
       "subtitle": "Telegramga yozing — Rossiyada ishlash va yashash bilan bog'liq deyarli har qanday masalani hal qilishda yordam beramiz.",
       "btn": "Menejerga yozish"
     }
+  },
+  "service_detail": {
+    "back_btn": "Barcha xizmatlarga",
+    "cta_btn": "Telegramda rasmiylashtirish",
+    "desc_title": "Xizmat tavsifi",
+    "docs_title": "Zarur hujjatlar",
+    "cta_questions_title": "Savollaringiz bormi?",
+    "cta_questions_desc": "Mutaxassislarimiz hujjatlar to'plamini to'plashda yordam beradi va barcha yuridik savollarga javob beradi.",
+    "cta_consult_btn": "Konsultantga yozish",
+    "time_label": "Muddatlar",
+    "time_placeholder": "Botda aniqlang",
+    "price_label": "Qiymati",
+    "partner_disclaimer": "Xizmat bizning tekshirilgan hamkorlarimiz tomonidan taqdim etiladi. MIGO hamrohlik va sifat nazoratini amalga oshiradi."
   },
   "about": {
     "hero": {
