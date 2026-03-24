@@ -33,7 +33,11 @@ import {
   Check,
   MessageSquare
 } from 'lucide-react';
-import ServiceModal from '@/components/ServiceModal';
+import dynamic from 'next/dynamic';
+
+const ServiceModal = dynamic(() => import('@/components/ServiceModal'), {
+  ssr: false,
+});
 
 const COLORS = {
   navy: '#1E58B1',

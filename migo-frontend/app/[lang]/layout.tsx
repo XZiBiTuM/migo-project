@@ -68,19 +68,17 @@ export default async function LanguageLayout({
         <link rel="alternate" hrefLang="tg" href="https://migohelp.com/tg/" />
         <link rel="alternate" hrefLang="x-default" href="https://migohelp.com/ru/" />
         
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://flagcdn.com" />
         
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
             />
             <Script
               id="gtag-init"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -96,7 +94,7 @@ export default async function LanguageLayout({
         {process.env.NEXT_PUBLIC_YM_ID && (
           <Script
             id="yandex-metrica"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `
                  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

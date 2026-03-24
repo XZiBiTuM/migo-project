@@ -1,0 +1,65 @@
+﻿тЦ▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+тЬУ Compiled successfully in 2.9s
+  Skipping validation of types
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/57) ...
+  Generating static pages using 15 workers (14/57) 
+  Generating static pages using 15 workers (28/57) 
+  Generating static pages using 15 workers (42/57) 
+тЬУ Generating static pages using 15 workers (57/57) in 557.9ms
+  Finalizing page optimization ...
+
+Route (app)
+тФМ тЧЛ /_not-found
+тФЬ ╞Т /[lang]
+тФЬ тЧП /[lang]/about
+тФВ тФЬ /ru/about
+тФВ тФЬ /kk/about
+тФВ тФЬ /kg/about
+тФВ тФФ [+2 more paths]
+тФЬ тЧП /[lang]/contacts
+тФВ тФЬ /ru/contacts
+тФВ тФЬ /kk/contacts
+тФВ тФЬ /kg/contacts
+тФВ тФФ [+2 more paths]
+тФЬ тЧП /[lang]/housing
+тФВ тФЬ /ru/housing
+тФВ тФЬ /kk/housing
+тФВ тФЬ /kg/housing
+тФВ тФФ [+2 more paths]
+тФЬ ╞Т /[lang]/news
+тФЬ ╞Т /[lang]/news/[slug]
+тФЬ тЧП /[lang]/privacy
+тФВ тФЬ /ru/privacy
+тФВ тФЬ /kk/privacy
+тФВ тФЬ /kg/privacy
+тФВ тФФ [+2 more paths]
+тФЬ ╞Т /[lang]/services
+тФЬ ╞Т /[lang]/services/[slug]
+тФЬ тЧП /[lang]/terms
+тФВ тФЬ /ru/terms
+тФВ тФЬ /kk/terms
+тФВ тФЬ /kg/terms
+тФВ тФФ [+2 more paths]
+тФЬ ╞Т /[lang]/work
+тФЬ тЧЛ /admin
+тФЬ тЧЛ /admin/info
+тФЬ тЧЛ /admin/leads
+тФЬ тЧЛ /admin/news
+тФЬ тЧЛ /admin/news/create
+тФЬ ╞Т /admin/news/edit/[slug]
+тФЬ тЧЛ /admin/overview
+тФЬ тЧЛ /admin/users
+тФЬ тЧЛ /robots.txt
+тФФ тЧЛ /sitemap.xml
+
+
+╞Т Proxy (Middleware)
+
+тЧЛ  (Static)   prerendered as static content
+тЧП  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Т  (Dynamic)  server-rendered on demand
+
