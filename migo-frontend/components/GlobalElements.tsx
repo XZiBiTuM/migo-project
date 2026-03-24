@@ -24,10 +24,6 @@ export function GlobalHeader() {
   const [showLangIntro, setShowLangIntro] = useState(false);
 
   useEffect(() => {
-    if (!localStorage.getItem('migo_lang')) {
-      setShowLangIntro(true);
-    }
-
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener('scroll', handleScroll);
@@ -72,8 +68,8 @@ export function GlobalHeader() {
               </button>
             ))}
           </div>
-          <button onClick={() => handleLangSelect('RU')} className="mt-7 text-[#1E58B1] text-sm font-black hover:text-[#1976B0] transition-colors">
-            <T path="lang_intro.continue_ru">Продолжить на русском</T>
+          <button onClick={() => setShowLangIntro(false)} className="mt-7 text-gray-500 text-sm font-medium hover:text-gray-700 transition-colors">
+            Закрыть
           </button>
         </div>
       )}

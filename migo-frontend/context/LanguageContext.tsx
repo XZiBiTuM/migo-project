@@ -2,22 +2,25 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-// Импортируем переводы сразу, так как они небольшие и это надежнее
 import ru from '@/locales/ru.json';
-import uz from '@/locales/uz.json';
-import tj from '@/locales/tj.json';
-import kg from '@/locales/kg.json';
-import kz from '@/locales/kz.json';
-
-const TRANSLATIONS_MAP: Record<string, any> = {
-  RU: ru,
-  UZ: uz,
-  TJ: tj,
-  KG: kg,
-  KZ: kz,
-};
 
 type Language = 'RU' | 'UZ' | 'TJ' | 'KG' | 'KZ';
+
+const getTranslations = async (lang: Language) => {
+  try {
+    switch (lang) {
+      case 'RU': return ru;
+      case 'UZ': return (await import('@/locales/uz.json')).default;
+      case 'TJ': return (await import('@/locales/tj.json')).default;
+      case 'KG': return (await import('@/locales/kg.json')).default;
+      case 'KZ': return (await import('@/locales/kz.json')).default;
+      default: return ru;
+    }
+  } catch (error) {
+    console.error('Failed to load translations for', lang, error);
+    return ru;
+  }
+};
 
 interface LanguageContextType {
   language: Language;
@@ -36,28 +39,35 @@ export function LanguageProvider({
   initialLanguage?: Language;
 }) {
   const [language, setLanguage] = useState<Language>(initialLanguage || 'RU');
-  const [translations, setTranslations] = useState<any>(TRANSLATIONS_MAP[initialLanguage || 'RU'] || ru);
+  // Initialize with Russian synchronously, other languages will load async
+  const [translations, setTranslations] = useState<any>(ru);
 
   useEffect(() => {
-    if (initialLanguage && TRANSLATIONS_MAP[initialLanguage]) {
-      setLanguage(initialLanguage);
-      setTranslations(TRANSLATIONS_MAP[initialLanguage]);
-      localStorage.setItem('migo_lang', initialLanguage);
-    } else {
-      const saved = localStorage.getItem('migo_lang') as Language;
-      if (saved && TRANSLATIONS_MAP[saved]) {
-        setLanguage(saved);
-        setTranslations(TRANSLATIONS_MAP[saved]);
+    const initLang = async () => {
+      let langToLoad = initialLanguage || 'RU';
+      
+      if (!initialLanguage) {
+        const saved = localStorage.getItem('migo_lang') as Language;
+        if (saved && ['RU', 'UZ', 'TJ', 'KG', 'KZ'].includes(saved)) {
+          langToLoad = saved;
+        }
       }
-    }
+
+      setLanguage(langToLoad);
+      const data = await getTranslations(langToLoad);
+      setTranslations(data);
+      if (langToLoad === initialLanguage) {
+        localStorage.setItem('migo_lang', langToLoad);
+      }
+    };
+    initLang();
   }, [initialLanguage]);
 
-  const handleSetLanguage = (lang: Language) => {
-    if (TRANSLATIONS_MAP[lang]) {
-      setLanguage(lang);
-      setTranslations(TRANSLATIONS_MAP[lang]);
-      localStorage.setItem('migo_lang', lang);
-    }
+  const handleSetLanguage = async (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem('migo_lang', lang);
+    const data = await getTranslations(lang);
+    setTranslations(data);
   };
 
   const t = useCallback((path: string, defaultValue?: string): string => {
