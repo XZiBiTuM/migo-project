@@ -24,14 +24,19 @@ export function GlobalHeader() {
   const [showLangIntro, setShowLangIntro] = useState(false);
 
   useEffect(() => {
+    // Show intro only if no language is saved
+    if (!localStorage.getItem('migo_lang')) {
+      setShowLangIntro(true);
+    }
+
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLangSelect = (code: any) => {
-    setSelectedLang(code);
+  const handleLangSelect = async (code: any) => {
+    await setSelectedLang(code);
     setShowLangIntro(false);
 
     const pathname = window.location.pathname;
@@ -52,7 +57,7 @@ export function GlobalHeader() {
   return (
     <>
       {showLangIntro && (
-        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white p-6 animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white p-6">
           <Image src="/logo.webp" alt="MIGO" width={144} height={144} className="w-28 h-auto md:w-36 mb-8 object-contain drop-shadow-sm" priority />
           <h2 className="text-2xl md:text-3xl font-bold text-[#163A5C] mb-6 tracking-tight"><T path="lang_intro.title">Выберите язык</T></h2>
           <div className="w-full max-w-sm space-y-2.5">
@@ -68,8 +73,8 @@ export function GlobalHeader() {
               </button>
             ))}
           </div>
-          <button onClick={() => setShowLangIntro(false)} className="mt-7 text-gray-500 text-sm font-medium hover:text-gray-700 transition-colors">
-            Закрыть
+          <button onClick={() => setShowLangIntro(false)} className="mt-7 text-gray-400 text-sm font-medium hover:text-gray-600 transition-colors">
+            Закрыть / Close
           </button>
         </div>
       )}

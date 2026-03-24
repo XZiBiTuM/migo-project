@@ -4,16 +4,16 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 
 import ru from '@/locales/ru.json';
 
-type Language = 'RU' | 'UZ' | 'TJ' | 'KG' | 'KZ';
+type Language = 'RU' | 'UZ' | 'TG' | 'KG' | 'KK';
 
 const getTranslations = async (lang: Language) => {
   try {
     switch (lang) {
       case 'RU': return ru;
       case 'UZ': return (await import('@/locales/uz.json')).default;
-      case 'TJ': return (await import('@/locales/tj.json')).default;
+      case 'TG': return (await import('@/locales/tj.json')).default;
       case 'KG': return (await import('@/locales/kg.json')).default;
-      case 'KZ': return (await import('@/locales/kz.json')).default;
+      case 'KK': return (await import('@/locales/kz.json')).default;
       default: return ru;
     }
   } catch (error) {
@@ -39,7 +39,7 @@ export function LanguageProvider({
   initialLanguage?: Language;
 }) {
   const [language, setLanguage] = useState<Language>(initialLanguage || 'RU');
-  // Initialize with Russian synchronously, other languages will load async
+  // Initialize with Russian synchronously as a fallback, but we will try to load preferred lang
   const [translations, setTranslations] = useState<any>(ru);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export function LanguageProvider({
       
       if (!initialLanguage) {
         const saved = localStorage.getItem('migo_lang') as Language;
-        if (saved && ['RU', 'UZ', 'TJ', 'KG', 'KZ'].includes(saved)) {
+        if (saved && ['RU', 'UZ', 'TG', 'KG', 'KK'].includes(saved)) {
           langToLoad = saved;
         }
       }
@@ -56,9 +56,7 @@ export function LanguageProvider({
       setLanguage(langToLoad);
       const data = await getTranslations(langToLoad);
       setTranslations(data);
-      if (langToLoad === initialLanguage) {
-        localStorage.setItem('migo_lang', langToLoad);
-      }
+      localStorage.setItem('migo_lang', langToLoad);
     };
     initLang();
   }, [initialLanguage]);
