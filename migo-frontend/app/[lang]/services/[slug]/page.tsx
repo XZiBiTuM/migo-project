@@ -1,6 +1,22 @@
 import { notFound } from 'next/navigation';
 import ClientServicesDetail from './ClientServicesDetail';
 
+export async function generateStaticParams() {
+  const locales = ['ru', 'kk', 'kg', 'uz', 'tg'];
+
+  const slugs = [
+    'passport', 'sim', 'biometrics', 'bank_card',
+    'dms', 'loans', 'transfers'
+  ];
+
+  return slugs.flatMap((slug) =>
+    locales.map((lang) => ({
+      lang,
+      slug,
+    }))
+  );
+}
+
 const FALLBACK_SERVICES: Record<string, any> = {
   'passport': {
     title: 'Перевод паспорта',
@@ -81,8 +97,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services/${slug}/`, {
-      cache: 'no-store'
+      next: { revalidate: 3600 }
     });
+
     if (res.ok) {
       service = await res.json();
     }
@@ -90,7 +107,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     console.error("Ошибка SSR загрузки услуги:", error);
   }
 
-  // Если бэкенд не вернул, пробуем найти в статическом списке (для демо)
   if (!service) {
     service = FALLBACK_SERVICES[slug];
   }

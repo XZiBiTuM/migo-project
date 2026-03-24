@@ -60,25 +60,6 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
-      <section className="relative min-h-[50vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#B8D430]/10 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#2196D3]/10 rounded-full blur-[100px]"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(248,250,252,1)_100%)]"></div>
-        </div>
-
-        <div className={`max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="mt-12 flex flex-col items-center text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
-              <T path="news.hero.title_1">Новости</T> <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#1E58B1]"><T path="news.hero.title_highlight">и полезные статьи</T></span>
-            </h1>
-            <p className="text-lg md:text-2xl text-gray-700 max-w-2xl leading-relaxed">
-              <T path="news.hero.subtitle">Узнавайте первыми об изменениях в законах, новых вакансиях и лайфхаках для жизни в России.</T>
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="py-12 max-w-7xl mx-auto px-5 relative z-20">
         <div className="flex flex-wrap justify-center gap-3">
@@ -137,15 +118,21 @@ export default function ClientNews({ initialNews }: ClientNewsProps) {
 
 function NewsCard({ news }: { news: NewsItem }) {
   const { t, language } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const dateObj = new Date(news.published_at || news.created_at);
-  const isValidDate = !isNaN(dateObj.getTime());
-  const dateStr = isValidDate
+
+  const dateStr = mounted && !isNaN(dateObj.getTime())
     ? dateObj.toLocaleDateString(language === 'RU' ? 'ru-RU' : 'uz-UZ', {
       day: 'numeric',
       month: 'long',
       year: 'numeric'
     })
-    : t('news.card.no_date', 'Дата не указана');
+    : 'Дата не указана';
 
   const categoryLabel = getCategoryLabel(news.category);
 

@@ -19,7 +19,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
       `${process.env.NEXT_PUBLIC_API_URL}/api/news/`,
       `${process.env.NEXT_PUBLIC_API_URL}/api/services/`
     ];
-    
+
     const [newsRes, servicesRes] = await Promise.all(
       urls.map(url => fetch(url, { next: { revalidate: 60 } }))
     );

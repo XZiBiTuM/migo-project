@@ -1,10 +1,31 @@
 import { notFound } from 'next/navigation';
 import ClientNewsDetail from './ClientNewsDetail';
 
+export async function generateStaticParams() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`);
+    if (!res.ok) return [];
+    const news = await res.json();
+
+    const locales = ['ru', 'kk', 'kg', 'uz', 'tg'];
+
+    return news.flatMap((article: any) =>
+      locales.map((lang) => ({
+        lang,
+        slug: article.slug,
+      }))
+    );
+  } catch (error) {
+    return [];
+  }
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/${slug}/`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/${slug}/`, {
+      next: { revalidate: 60 }
+    });
     if (res.ok) {
       const article = await res.json();
       return {
@@ -17,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         }
       };
     }
-  } catch (error) {}
+  } catch (error) { }
   return { title: 'Статья | MIGO' };
 }
 
@@ -27,21 +48,23 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
   let relatedNews: any[] = [];
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/${slug}/`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/${slug}/`, {
+      next: { revalidate: 60 }
+    });
     if (res.ok) {
       article = await res.json();
     }
 
-    const allRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`, { cache: 'no-store' });
+    const allRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`, {
+      next: { revalidate: 3600 }
+    });
     if (allRes.ok) {
       const allNews = await allRes.json();
       relatedNews = allNews.filter((n: any) => n.slug !== slug && n.id !== article?.id).slice(0, 3);
     }
-  } catch (error) {}
+  } catch (error) { }
 
-  if (!article) {
-    notFound();
-  }
+  if (!article) notFound();
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -59,10 +82,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       <ClientNewsDetail article={article} relatedNews={relatedNews} />
     </>
   );

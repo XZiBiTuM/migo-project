@@ -57,7 +57,7 @@ export function GlobalHeader() {
     <>
       {showLangIntro && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white p-6">
-          <Image src="/logo.webp" alt="MIGO" width={144} height={144} className="w-28 h-auto md:w-36 mb-8 object-contain drop-shadow-sm" priority />
+          <Image src="/logo.webp" alt="MIGO" width={144} height={144} className="w-28 h-auto md:w-36 mb-8 object-contain shadow-sm" priority />
           <h2 className="text-2xl md:text-3xl font-bold text-[#163A5C] mb-6 tracking-tight"><T path="lang_intro.title">Выберите язык</T></h2>
           <div className="w-full max-w-sm space-y-2.5">
             {LANGUAGES.map((lang) => (
@@ -86,7 +86,7 @@ export function GlobalHeader() {
               alt="MIGO"
               width={40}
               height={40}
-              className="w-10 h-10 object-contain drop-shadow-sm"
+              className="w-10 h-10 object-contain sm"
               priority
             />
           </Link>
@@ -266,7 +266,7 @@ export function GlobalMobileNav() {
         <div className="fixed inset-0 z-[100] bg-white flex flex-col md:hidden animate-in slide-in-from-bottom-5 duration-300">
           <div className="flex justify-between items-center p-5 border-b border-gray-50">
             <div className="flex items-center gap-2">
-              <Image src="/logo.webp" alt="MIGO" width={28} height={28} className="w-7 h-auto object-contain drop-shadow-sm" />
+              <Image src="/logo.webp" alt="MIGO" width={28} height={28} className="w-7 h-auto object-contain sm" />
               <span className="text-lg font-bold text-[#163A5C]" style={{ fontFamily: 'var(--font-outfit), sans-serif', letterSpacing: '-0.03em' }}>MIGO</span>
             </div>
             <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-400 hover:bg-gray-50 rounded-full transition-colors" aria-label="Close menu">

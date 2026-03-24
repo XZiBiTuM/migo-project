@@ -91,7 +91,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
                   alt="MIGO Работники-мигранты разных профессий"
                   width={800}
                   height={600}
-                  className="w-full h-auto drop-shadow-[0_45px_45px_rgba(0,0,0,0.15)] rounded-[64px]"
+                  className="w-full h-auto shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[64px]"
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
