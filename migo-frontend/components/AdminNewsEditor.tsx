@@ -22,7 +22,6 @@ export default function AdminNewsEditor({ slug: initialSlug }: AdminNewsEditorPr
   const [success, setSuccess] = useState('');
   const [isAuth, setIsAuth] = useState(false);
 
-  // Form State
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState(initialSlug || '');
   const [category, setCategory] = useState('important');
@@ -30,8 +29,7 @@ export default function AdminNewsEditor({ slug: initialSlug }: AdminNewsEditorPr
   const [lead, setLead] = useState('');
   const [content, setContent] = useState('');
   const [status, setStatus] = useState('published');
-  
-  // New Fields
+
   const [coverImage, setCoverImage] = useState<File | null>(null);
   const [coverPreview, setCoverPreview] = useState<string | null>(null);
   const [showQuestionBtn, setShowQuestionBtn] = useState(false);
@@ -121,7 +119,7 @@ export default function AdminNewsEditor({ slug: initialSlug }: AdminNewsEditorPr
     formData.append('published_at', new Date(publishedAt).toISOString());
     formData.append('meta_title', metaTitle);
     formData.append('meta_description', metaDescription);
-    
+
     if (coverImage) {
       formData.append('cover_image', coverImage);
     }
@@ -277,125 +275,125 @@ export default function AdminNewsEditor({ slug: initialSlug }: AdminNewsEditorPr
 
           {/* New Sections */}
           <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-gray-100">
-             <div>
-                <h3 className="text-lg font-bold text-[#163A5C] mb-4">Настройки отображения</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <input 
-                      type="checkbox" 
-                      id="q_btn" 
-                      checked={showQuestionBtn} 
-                      onChange={(e) => setShowQuestionBtn(e.target.checked)}
-                      className="w-5 h-5 accent-[#2196D3]"
-                    />
-                    <label htmlFor="q_btn" className="text-sm font-semibold text-[#163A5C] cursor-pointer">Кнопка "Задать вопрос в Telegram"</label>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <input 
-                      type="checkbox" 
-                      id="c_btn" 
-                      checked={showConsultBtn} 
-                      onChange={(e) => setShowConsultBtn(e.target.checked)}
-                      className="w-5 h-5 accent-[#2196D3]"
-                    />
-                    <label htmlFor="c_btn" className="text-sm font-semibold text-[#163A5C] cursor-pointer">Кнопка "Получить консультацию"</label>
-                  </div>
-                  
-                  <div className="pt-4">
-                    <label className="block text-sm font-bold text-[#163A5C] mb-2">Дата публикации</label>
-                    <input 
-                      type="datetime-local" 
-                      value={publishedAt}
-                      onChange={(e) => setPublishedAt(e.target.value)}
-                      className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:border-[#2196D3] outline-none"
-                    />
-                  </div>
+            <div>
+              <h3 className="text-lg font-bold text-[#163A5C] mb-4">Настройки отображения</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    id="q_btn"
+                    checked={showQuestionBtn}
+                    onChange={(e) => setShowQuestionBtn(e.target.checked)}
+                    className="w-5 h-5 accent-[#2196D3]"
+                  />
+                  <label htmlFor="q_btn" className="text-sm font-semibold text-[#163A5C] cursor-pointer">Кнопка "Задать вопрос в Telegram"</label>
                 </div>
-             </div>
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    id="c_btn"
+                    checked={showConsultBtn}
+                    onChange={(e) => setShowConsultBtn(e.target.checked)}
+                    className="w-5 h-5 accent-[#2196D3]"
+                  />
+                  <label htmlFor="c_btn" className="text-sm font-semibold text-[#163A5C] cursor-pointer">Кнопка "Получить консультацию"</label>
+                </div>
 
-             <div>
-                <h3 className="text-lg font-bold text-[#163A5C] mb-4">Обложка новости</h3>
-                <div className="relative group">
-                   {coverPreview ? (
-                      <div className="relative aspect-video rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
-                         <Image
-                           src={coverPreview.startsWith('http') ? coverPreview : (coverPreview.startsWith('blob') ? coverPreview : `${process.env.NEXT_PUBLIC_API_URL}${coverPreview}`)}
-                           alt="Preview"
-                           fill
-                           className="object-cover"
-                           unoptimized={coverPreview.startsWith('blob')}
-                         />
-                         <button 
-                           type="button"
-                           onClick={() => { setCoverImage(null); setCoverPreview(null); }}
-                           className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                         >
-                           <AlertCircle size={16} />
-                         </button>
-                      </div>
-                   ) : (
-                      <label className="flex flex-col items-center justify-center aspect-video rounded-2xl border-2 border-dashed border-gray-200 hover:border-[#2196D3] hover:bg-[#F0F7FC] transition-all cursor-pointer">
-                         <Save size={32} className="text-gray-300 mb-2" />
-                         <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Загрузить фото</span>
-                         <input 
-                           type="file" 
-                           accept="image/*" 
-                           className="hidden" 
-                           onChange={(e) => {
-                             const file = e.target.files?.[0];
-                             if (file) {
-                               const img = new window.Image();
-                               img.src = URL.createObjectURL(file);
-                               img.onload = () => {
-                                 const ratio = img.width / img.height;
-                                 const minRatio = 16 / 9;
-                                 const maxRatio = 21 / 9;
-                                 
-                                 if (ratio < minRatio - 0.05 || ratio > maxRatio + 0.05) {
-                                   setError(`Недопустимое соотношение сторон: ${ratio.toFixed(2)}. Пожалуйста, используйте изображение от 16:9 до 21:9.`);
-                                   setCoverImage(null);
-                                   setCoverPreview(null);
-                                   e.target.value = '';
-                                 } else {
-                                   setError('');
-                                   setCoverImage(file);
-                                   setCoverPreview(img.src);
-                                 }
-                               };
-                             }
-                           }}
-                         />
-                         <p className="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-wider">Формат: 16:9 — 21:9</p>
-                      </label>
-                   )}
+                <div className="pt-4">
+                  <label className="block text-sm font-bold text-[#163A5C] mb-2">Дата публикации</label>
+                  <input
+                    type="datetime-local"
+                    value={publishedAt}
+                    onChange={(e) => setPublishedAt(e.target.value)}
+                    className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:border-[#2196D3] outline-none"
+                  />
                 </div>
-             </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold text-[#163A5C] mb-4">Обложка новости</h3>
+              <div className="relative group">
+                {coverPreview ? (
+                  <div className="relative aspect-video rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
+                    <Image
+                      src={coverPreview.startsWith('http') ? coverPreview : (coverPreview.startsWith('blob') ? coverPreview : `${process.env.NEXT_PUBLIC_API_URL}${coverPreview}`)}
+                      alt="Preview"
+                      fill
+                      className="object-cover"
+                      unoptimized={coverPreview.startsWith('blob')}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => { setCoverImage(null); setCoverPreview(null); }}
+                      className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <AlertCircle size={16} />
+                    </button>
+                  </div>
+                ) : (
+                  <label className="flex flex-col items-center justify-center aspect-video rounded-2xl border-2 border-dashed border-gray-200 hover:border-[#2196D3] hover:bg-[#F0F7FC] transition-all cursor-pointer">
+                    <Save size={32} className="text-gray-300 mb-2" />
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Загрузить фото</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const img = new window.Image();
+                          img.src = URL.createObjectURL(file);
+                          img.onload = () => {
+                            const ratio = img.width / img.height;
+                            const minRatio = 16 / 9;
+                            const maxRatio = 21 / 9;
+
+                            if (ratio < minRatio - 0.05 || ratio > maxRatio + 0.05) {
+                              setError(`Недопустимое соотношение сторон: ${ratio.toFixed(2)}. Пожалуйста, используйте изображение от 16:9 до 21:9.`);
+                              setCoverImage(null);
+                              setCoverPreview(null);
+                              e.target.value = '';
+                            } else {
+                              setError('');
+                              setCoverImage(file);
+                              setCoverPreview(img.src);
+                            }
+                          };
+                        }
+                      }}
+                    />
+                    <p className="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-wider">Формат: 16:9 — 21:9</p>
+                  </label>
+                )}
+              </div>
+            </div>
           </div>
 
           <div className="md:col-span-2 pt-8 border-t border-gray-100">
-             <h3 className="text-lg font-bold text-[#163A5C] mb-4">SEO Оптимизация</h3>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold text-[#163A5C] mb-2">SEO Title</label>
-                  <input 
-                    type="text" 
-                    value={metaTitle}
-                    onChange={(e) => setMetaTitle(e.target.value)}
-                    placeholder="Заголовок для поисковиков..."
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#2196D3] outline-none font-medium"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-[#163A5C] mb-2">SEO Description</label>
-                  <textarea 
-                    value={metaDescription}
-                    onChange={(e) => setMetaDescription(e.target.value)}
-                    placeholder="Описание для поисковиков..."
-                    rows={1}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#2196D3] outline-none font-medium resize-none"
-                  />
-                </div>
-             </div>
+            <h3 className="text-lg font-bold text-[#163A5C] mb-4">SEO Оптимизация</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-bold text-[#163A5C] mb-2">SEO Title</label>
+                <input
+                  type="text"
+                  value={metaTitle}
+                  onChange={(e) => setMetaTitle(e.target.value)}
+                  placeholder="Заголовок для поисковиков..."
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#2196D3] outline-none font-medium"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-[#163A5C] mb-2">SEO Description</label>
+                <textarea
+                  value={metaDescription}
+                  onChange={(e) => setMetaDescription(e.target.value)}
+                  placeholder="Описание для поисковиков..."
+                  rows={1}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#2196D3] outline-none font-medium resize-none"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="md:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-6 border-t border-gray-100">

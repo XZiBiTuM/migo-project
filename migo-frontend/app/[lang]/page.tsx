@@ -6,8 +6,12 @@ export default async function Home({ params }: { params: { lang: string } }) {
 
   try {
     const [newsRes, servicesRes] = await Promise.all([
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`, { cache: 'no-store' }),
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services/`, { cache: 'no-store' })
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news/`, {
+        next: { revalidate: 60 }
+      }),
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services/`, {
+        next: { revalidate: 3600 }
+      })
     ]);
 
     if (newsRes.ok) news = await newsRes.json();

@@ -37,19 +37,16 @@ export function GlobalHeader() {
   const handleLangSelect = (code: any) => {
     setSelectedLang(code);
     setShowLangIntro(false);
-    
-    // Перенаправляем на ту же страницу, но с новой локалью
+
     const pathname = window.location.pathname;
     const segments = pathname.split('/');
     const langCode = code.toLowerCase();
-    
-    // Если первый сегмент - существующая локаль, заменяем её
+
     const locales = ['ru', 'kk', 'kg', 'uz', 'tg'];
     if (segments.length > 1 && locales.includes(segments[1])) {
       segments[1] = langCode;
       window.location.href = segments.join('/');
     } else {
-      // Иначе добавляем её
       window.location.href = `/${langCode}${pathname === '/' ? '' : pathname}`;
     }
   };
@@ -84,13 +81,13 @@ export function GlobalHeader() {
       <header className={`fixed top-0 w-full z-40 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="max-w-7xl mx-auto px-5 flex justify-between items-center">
           <Link href={`/${l}/`} className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group" aria-label="MIGO Home">
-            <Image 
-              src="/logo.webp" 
-              alt="MIGO" 
-              width={40} 
-              height={40} 
-              className="w-10 h-10 object-contain drop-shadow-sm" 
-              priority 
+            <Image
+              src="/logo.webp"
+              alt="MIGO"
+              width={40}
+              height={40}
+              className="w-10 h-10 object-contain drop-shadow-sm"
+              priority
             />
           </Link>
 
@@ -104,8 +101,8 @@ export function GlobalHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button 
-              onClick={() => setShowLangIntro(true)} 
+            <button
+              onClick={() => setShowLangIntro(true)}
               className="cursor-pointer flex items-center gap-1.5 text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 border border-gray-100 px-3 py-1.5 rounded-lg transition-colors"
               aria-label={selectedLang === 'RU' ? 'Выбрать язык' : 'Select language'}
             >

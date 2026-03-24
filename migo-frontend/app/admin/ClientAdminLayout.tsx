@@ -19,8 +19,6 @@ export default function ClientAdminLayout({ children }: { children: React.ReactN
     if (!token && !isLoginPage) {
       router.push('/admin');
     } else if (token) {
-      // Имитируем получение роли, если ее нет в localStorage
-      // В реальном проекте здесь будет запрос к /api/me или декодирование JWT
       setRole(storedRole || 'admin');
     }
     setLoading(false);
@@ -43,7 +41,7 @@ export default function ClientAdminLayout({ children }: { children: React.ReactN
       <AdminSidebar userRole={role || 'admin'} />
       <main className={`transition-all duration-300 min-h-screen pt-2 md:pt-4 px-4 pb-20 md:pl-80`}>
         <div className="max-w-7xl mx-auto pt-24 md:pt-10">
-           {children}
+          {children}
         </div>
       </main>
     </div>

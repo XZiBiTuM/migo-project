@@ -1,0 +1,139 @@
+
+
+--- largest-contentful-paint ---
+{
+  "id": "largest-contentful-paint",
+  "title": "Largest Contentful Paint",
+  "description": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)",
+  "score": 0.01,
+  "scoreDisplayMode": "numeric",
+  "numericValue": 8934.13,
+  "numericUnit": "millisecond",
+  "displayValue": "8.9 s",
+  "scoringOptions": {
+    "p10": 2500,
+    "median": 4000
+  }
+}
+
+--- lcp-breakdown-insight ---
+{
+  "id": "lcp-breakdown-insight",
+  "title": "LCP breakdown",
+  "description": "Each [subpart has specific improvement strategies](https://developer.chrome.com/docs/performance/insights/lcp-breakdown). Ideally, most of the LCP time should be spent on loading the resources, not within delays.",
+  "score": 1,
+  "scoreDisplayMode": "informative",
+  "metricSavings": {
+    "LCP": 0
+  },
+  "details": {
+    "type": "list",
+    "items": [
+      {
+        "type": "table",
+        "headings": [
+          {
+            "key": "label",
+            "valueType": "text",
+            "label": "Subpart"
+          },
+          {
+            "key": "duration",
+            "valueType": "ms",
+            "label": "Duration"
+          }
+        ],
+        "items": [
+          {
+            "subpart": "timeToFirstByte",
+            "label": "Time to first byte",
+            "duration": 221.6549999961853
+          },
+          {
+            "subpart": "resourceLoadDelay",
+            "label": "Resource load delay",
+            "duration": 13.691000003814697
+          },
+          {
+            "subpart": "resourceLoadDuration",
+            "label": "Resource load duration",
+            "duration": 249.462
+          },
+          {
+            "subpart": "elementRenderDelay",
+            "label": "Element render delay",
+            "duration": 1773.801
+          }
+        ]
+      },
+      {
+        "type": "node",
+        "lhId": "page-0-IMG",
+        "path": "1,HTML,1,BODY,4,DIV,0,DIV,0,MAIN,0,SECTION,1,DIV,0,DIV,1,DIV,0,DIV,0,IMG",
+        "selector": "div.grid > div.relative > div.relative > img.w-full",
+        "boundingRect": {
+          "top": 789,
+          "bottom": 1037,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 248
+        },
+        "snippet": "<img alt=\"MIGO Главное изображение\" fetchpriority=\"high\" width=\"800\" height=\"800\" decoding=\"async\" data-nimg=\"1\" class=\"w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]\" style=\"color:transparent\" sizes=\"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px\" srcset=\"/_next/image?url=%2Fimages%2Fhero.webp&amp;w=384&amp;q=75 384w, /_next/image?url=%…\" src=\"http://localhost:3000/_next/image?url=%2Fimages%2Fhero.webp&amp;w=750&amp;q=75\">",
+        "nodeLabel": "MIGO Главное изображение"
+      }
+    ]
+  },
+  "guidanceLevel": 3
+}
+
+--- lcp-discovery-insight ---
+{
+  "id": "lcp-discovery-insight",
+  "title": "LCP request discovery",
+  "description": "[Optimize LCP](https://developer.chrome.com/docs/performance/insights/lcp-discovery) by making the LCP image discoverable from the HTML immediately, and avoiding lazy-loading",
+  "score": 1,
+  "scoreDisplayMode": "numeric",
+  "metricSavings": {
+    "LCP": 0
+  },
+  "details": {
+    "type": "list",
+    "items": [
+      {
+        "type": "checklist",
+        "items": {
+          "priorityHinted": {
+            "label": "fetchpriority=high applied",
+            "value": true
+          },
+          "requestDiscoverable": {
+            "label": "Request is discoverable in initial document",
+            "value": true
+          },
+          "eagerlyLoaded": {
+            "label": "lazy load not applied",
+            "value": true
+          }
+        }
+      },
+      {
+        "type": "node",
+        "lhId": "page-0-IMG",
+        "path": "1,HTML,1,BODY,4,DIV,0,DIV,0,MAIN,0,SECTION,1,DIV,0,DIV,1,DIV,0,DIV,0,IMG",
+        "selector": "div.grid > div.relative > div.relative > img.w-full",
+        "boundingRect": {
+          "top": 789,
+          "bottom": 1037,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 248
+        },
+        "snippet": "<img alt=\"MIGO Главное изображение\" fetchpriority=\"high\" width=\"800\" height=\"800\" decoding=\"async\" data-nimg=\"1\" class=\"w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]\" style=\"color:transparent\" sizes=\"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px\" srcset=\"/_next/image?url=%2Fimages%2Fhero.webp&amp;w=384&amp;q=75 384w, /_next/image?url=%…\" src=\"http://localhost:3000/_next/image?url=%2Fimages%2Fhero.webp&amp;w=750&amp;q=75\">",
+        "nodeLabel": "MIGO Главное изображение"
+      }
+    ]
+  },
+  "guidanceLevel": 3
+}

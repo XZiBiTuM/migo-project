@@ -175,7 +175,7 @@ export default function ClientHome({ initialNews, initialServices }: { initialNe
                     alt="MIGO Главное изображение"
                     width={800}
                     height={800}
-                    className="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
+                    className="w-full h-auto shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                     {...({ fetchPriority: 'high' } as any)}

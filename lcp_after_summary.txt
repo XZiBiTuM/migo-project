@@ -1,0 +1,78 @@
+
+
+--- largest-contentful-paint ---
+{
+  "id": "largest-contentful-paint",
+  "title": "Largest Contentful Paint",
+  "description": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)",
+  "score": 0.01,
+  "scoreDisplayMode": "numeric",
+  "numericValue": 9053.700775000001,
+  "numericUnit": "millisecond",
+  "displayValue": "9.1 s",
+  "scoringOptions": {
+    "p10": 2500,
+    "median": 4000
+  }
+}
+
+--- lcp-breakdown-insight ---
+{
+  "id": "lcp-breakdown-insight",
+  "title": "LCP breakdown",
+  "description": "Each [subpart has specific improvement strategies](https://developer.chrome.com/docs/performance/insights/lcp-breakdown). Ideally, most of the LCP time should be spent on loading the resources, not within delays.",
+  "score": 1,
+  "scoreDisplayMode": "informative",
+  "metricSavings": {
+    "LCP": 0
+  },
+  "details": {
+    "type": "list",
+    "items": [
+      {
+        "type": "table",
+        "headings": [
+          {
+            "key": "label",
+            "valueType": "text",
+            "label": "Subpart"
+          },
+          {
+            "key": "duration",
+            "valueType": "ms",
+            "label": "Duration"
+          }
+        ],
+        "items": [
+          {
+            "subpart": "timeToFirstByte",
+            "label": "Time to first byte",
+            "duration": 193.6530000038147
+          },
+          {
+            "subpart": "elementRenderDelay",
+            "label": "Element render delay",
+            "duration": 1657.0089999961854
+          }
+        ]
+      },
+      {
+        "type": "node",
+        "lhId": "page-2-P",
+        "path": "1,HTML,1,BODY,4,DIV,0,DIV,0,MAIN,0,SECTION,1,DIV,0,DIV,0,DIV,3,P",
+        "selector": "div.max-w-7xl > div.grid > div.flex > p.text-lg",
+        "boundingRect": {
+          "top": 422,
+          "bottom": 539,
+          "left": 20,
+          "right": 392,
+          "width": 372,
+          "height": 117
+        },
+        "snippet": "<p class=\"text-lg md:text-2xl text-gray-700/80 mb-12 max-w-2xl leading-relaxed font-…\">",
+        "nodeLabel": "Помогаем гражданам СНГ с легальным трудоустройством, жильем и документами. Офиц…"
+      }
+    ]
+  },
+  "guidanceLevel": 3
+}

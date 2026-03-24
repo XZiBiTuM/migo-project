@@ -28,10 +28,10 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ 
+export function LanguageProvider({
   children,
-  initialLanguage 
-}: { 
+  initialLanguage
+}: {
   children: React.ReactNode;
   initialLanguage?: Language;
 }) {
@@ -39,13 +39,11 @@ export function LanguageProvider({
   const [translations, setTranslations] = useState<any>(TRANSLATIONS_MAP[initialLanguage || 'RU'] || ru);
 
   useEffect(() => {
-    // Если есть начальный язык из URL, устанавливаем его
     if (initialLanguage && TRANSLATIONS_MAP[initialLanguage]) {
       setLanguage(initialLanguage);
       setTranslations(TRANSLATIONS_MAP[initialLanguage]);
       localStorage.setItem('migo_lang', initialLanguage);
     } else {
-      // Иначе ищем в localStorage
       const saved = localStorage.getItem('migo_lang') as Language;
       if (saved && TRANSLATIONS_MAP[saved]) {
         setLanguage(saved);
@@ -65,7 +63,7 @@ export function LanguageProvider({
   const t = useCallback((path: string, defaultValue?: string): string => {
     const keys = path.split('.');
     let result: any = translations;
-    
+
     for (const key of keys) {
       if (result && typeof result === 'object' && key in result) {
         result = result[key];
@@ -73,15 +71,15 @@ export function LanguageProvider({
         return defaultValue || path;
       }
     }
-    
+
     return typeof result === 'string' ? result : (defaultValue || path);
   }, [translations]);
 
   return (
-    <LanguageContext.Provider value={{ 
-      language, 
-      setLanguage: handleSetLanguage, 
-      translations, 
+    <LanguageContext.Provider value={{
+      language,
+      setLanguage: handleSetLanguage,
+      translations,
       t
     }}>
       {children}
@@ -97,10 +95,6 @@ export function useLanguage() {
   return context;
 }
 
-/**
- * Оболочка для перевода текста.
- * Использование: <T path="home.hero.title">Fallback текст</T>
- */
 export function T({ path, children }: { path: string; children?: React.ReactNode }) {
   const { t } = useLanguage();
   const translated = t(path, children?.toString());

@@ -33,8 +33,7 @@ export default function AdminLogin() {
       if (res.ok) {
         const data = await res.json();
         localStorage.setItem('access_token', data.access);
-        // Используем роль, которую прислал бэкенд
-        localStorage.setItem('user_role', data.role || 'viewer'); 
+        localStorage.setItem('user_role', data.role || 'viewer');
         if (data.refresh) {
           localStorage.setItem('refresh_token', data.refresh);
         }
@@ -55,10 +54,10 @@ export default function AdminLogin() {
     <main className="min-h-screen pt-28 pb-20 flex flex-col items-center justify-center bg-[#F0F7FC] px-4">
       <div className="w-full max-w-md bg-white rounded-3xl p-8 border border-gray-100 shadow-xl">
         <div className="flex justify-center mb-8">
-            <Image src="/logo.webp" alt="MIGO" width={60} height={60} className="w-16 h-auto object-contain" />
+          <Image src="/logo.webp" alt="MIGO" width={60} height={60} className="w-16 h-auto object-contain" />
         </div>
         <h1 className="text-2xl font-bold text-center text-[#163A5C] mb-8">Панель администратора</h1>
-        
+
         {error && (
           <div className="bg-red-50 text-red-600 p-4 rounded-xl mb-6 flex items-center gap-3 text-sm font-medium">
             <AlertCircle size={18} /> {error}
@@ -68,8 +67,8 @@ export default function AdminLogin() {
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
             <label className="block text-sm font-bold text-gray-500 mb-2">Логин</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -79,8 +78,8 @@ export default function AdminLogin() {
           </div>
           <div>
             <label className="block text-sm font-bold text-gray-500 mb-2">Пароль</label>
-            <input 
-              type="password" 
+            <input
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -88,8 +87,8 @@ export default function AdminLogin() {
               placeholder="••••••••"
             />
           </div>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={loading}
             className="w-full bg-[#2196D3] hover:bg-[#1976B0] text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all mt-6 shadow-md disabled:opacity-70"
           >

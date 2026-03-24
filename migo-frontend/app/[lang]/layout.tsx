@@ -10,6 +10,7 @@ const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--fon
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", weight: ["700"], display: 'swap' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://migohelp.com'),
   title: "MIGO — Работа, жильё и документы в РФ",
   description: "Помогаем гражданам СНГ легально работать и жить в России. Поддержка в Telegram 24/7.",
   openGraph: {
@@ -36,7 +37,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Список доступных языков для генерации статических путей
 export async function generateStaticParams() {
   return [
     { lang: 'ru' },
@@ -67,9 +67,9 @@ export default async function LanguageLayout({
         <link rel="alternate" hrefLang="uz" href="https://migohelp.com/uz/" />
         <link rel="alternate" hrefLang="tg" href="https://migohelp.com/tg/" />
         <link rel="alternate" hrefLang="x-default" href="https://migohelp.com/ru/" />
-        
+
         <link rel="preconnect" href="https://flagcdn.com" />
-        
+
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
