@@ -57,7 +57,7 @@ export function GlobalHeader() {
     <>
       {showLangIntro && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white p-6">
-          <Image src="/logo.webp" alt="MIGO" width={144} height={144} className="w-28 h-auto md:w-36 mb-8 object-contain shadow-sm" priority />
+          <Image src="/logo.webp" alt="MIGO" width={144} height={144} className="w-28 h-auto md:w-36 mb-8 object-contain" priority />
           <h2 className="text-2xl md:text-3xl font-bold text-[#163A5C] mb-6 tracking-tight"><T path="lang_intro.title">Выберите язык</T></h2>
           <div className="w-full max-w-sm space-y-2.5">
             {LANGUAGES.map((lang) => (

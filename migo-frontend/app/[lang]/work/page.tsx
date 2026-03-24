@@ -5,18 +5,31 @@ export const metadata = {
   description: 'Найдите легальную и проверенную работу в России через Telegram за 2 минуты. Помощь с жильём и документами.',
 };
 
-export default async function WorkPage() {
+export async function generateStaticParams() {
+  return [
+    { lang: 'ru' },
+    { lang: 'kk' },
+    { lang: 'kg' },
+    { lang: 'uz' },
+    { lang: 'tg' },
+  ];
+}
+
+export default async function WorkPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   let initialJobs = [];
 
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/vacancies/`, {
-      cache: 'no-store'
+      next: { revalidate: 300 }
     });
 
     if (res.ok) {
       initialJobs = await res.json();
     }
-  } catch (error) {}
+  } catch (error) {
+    console.error("Ошибка загрузки вакансий:", error);
+  }
 
   const jsonLd = initialJobs.map((job: any) => ({
     "@context": "https://schema.org/",
