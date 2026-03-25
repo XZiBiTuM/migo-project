@@ -12,7 +12,6 @@
   --color-migo-gray: #E3EDF5;
   --color-migo-green: #27A154;
 
-  /* Instant System Font Stack with Progressive Enhancement */
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: var(--font-montserrat), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }

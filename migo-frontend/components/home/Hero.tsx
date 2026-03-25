@@ -60,6 +60,7 @@ export default function Hero({ lang }: { lang: string }) {
                 height={800}
                 className="w-full h-auto shadow-[0_35px_35px_rgba(0,0,0,0.15)] rounded-[64px]"
                 priority={true}
+                fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
               />
 
