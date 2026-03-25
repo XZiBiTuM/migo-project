@@ -12,13 +12,13 @@
   --color-migo-gray: #E3EDF5;
   --color-migo-green: #27A154;
 
-  --font-display: var(--font-montserrat), 'Montserrat', sans-serif;
-  --font-body: var(--font-manrope), 'Manrope', sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
   body {
-    font-family: var(--font-manrope), system-ui, sans-serif;
+    @apply font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
@@ -30,7 +30,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-montserrat), system-ui, sans-serif;
+    @apply font-display;
     line-height: 1.15;
     letter-spacing: -0.025em;
   }
@@ -46,9 +46,7 @@
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);
   }
-}
 
-@layer utilities {
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -56,9 +54,5 @@
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
-
-  .font-display {
-    font-family: var(--font-montserrat), system-ui, sans-serif;
   }
 }

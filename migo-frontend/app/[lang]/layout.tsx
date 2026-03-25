@@ -5,8 +5,19 @@ import Script from 'next/script';
 import { GlobalHeader, GlobalFooter, GlobalMobileNav, GlobalCookieBanner, ConsultationButton } from '@/components/GlobalElements';
 import { LanguageProvider } from '@/context/LanguageContext';
 
-const manrope = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-manrope", display: 'swap' });
-const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: "--font-montserrat", weight: ["400", "600", "900"], display: 'swap' });
+const manrope = Manrope({ 
+  subsets: ["latin", "cyrillic"], 
+  variable: "--font-manrope", 
+  display: 'swap',
+  weight: ['200', '300', '400', '500', '600', '700', '800'] 
+});
+
+const montserrat = Montserrat({ 
+  subsets: ["latin", "cyrillic"], 
+  variable: "--font-montserrat", 
+  display: 'swap',
+  weight: ["400", "500", "600", "700", "800", "900"] 
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://migohelp.com'),
@@ -57,7 +68,7 @@ export default async function LanguageLayout({
   const currentLang = lang || 'ru';
 
   return (
-    <html lang={currentLang} suppressHydrationWarning>
+    <html lang={currentLang} className={`${manrope.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
         <link rel="canonical" href={`https://migohelp.com/${currentLang}/`} />
         <link rel="alternate" hrefLang="ru" href="https://migohelp.com/ru/" />
@@ -137,7 +148,7 @@ export default async function LanguageLayout({
           }}
         />
       </head>
-      <body className={`${manrope.variable} ${montserrat.variable} bg-[#F0F7FC] text-[#163A5C] selection:bg-[#2196D3] selection:text-white`} suppressHydrationWarning>
+      <body className="font-sans bg-[#F0F7FC] text-[#163A5C] selection:bg-[#2196D3] selection:text-white" suppressHydrationWarning>
         <LanguageProvider initialLanguage={currentLang.toUpperCase() as any}>
           <GlobalHeader />
           <ConsultationButton />
