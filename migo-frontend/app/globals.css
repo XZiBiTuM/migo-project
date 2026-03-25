@@ -12,8 +12,9 @@
   --color-migo-gray: #E3EDF5;
   --color-migo-green: #27A154;
 
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  /* Instant System Font Stack with Progressive Enhancement */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {

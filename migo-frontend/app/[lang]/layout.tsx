@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
-import { Manrope, Montserrat } from "next/font/google";
 import "../globals.css";
 import Script from 'next/script';
 import { GlobalHeader, GlobalFooter, GlobalMobileNav, GlobalCookieBanner, ConsultationButton } from '@/components/GlobalElements';
 import { LanguageProvider } from '@/context/LanguageContext';
+import dynamic from 'next/dynamic';
 
-const manrope = Manrope({ 
-  subsets: ["latin", "cyrillic"], 
-  variable: "--font-manrope", 
-  display: 'swap',
-  weight: ['200', '300', '400', '500', '600', '700', '800'] 
-});
-
-const montserrat = Montserrat({ 
-  subsets: ["latin", "cyrillic"], 
-  variable: "--font-montserrat", 
-  display: 'swap',
-  weight: ["400", "500", "600", "700", "800", "900"] 
-});
+const ClientFontLoader = dynamic(() => import('@/components/ClientFontLoader'), { ssr: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://migohelp.com'),
@@ -68,7 +56,8 @@ export default async function LanguageLayout({
   const currentLang = lang || 'ru';
 
   return (
-    <html lang={currentLang} className={`${manrope.variable} ${montserrat.variable}`} suppressHydrationWarning>
+    <html lang={currentLang} suppressHydrationWarning>
+      <ClientFontLoader />
       <head>
         <link rel="canonical" href={`https://migohelp.com/${currentLang}/`} />
         <link rel="alternate" hrefLang="ru" href="https://migohelp.com/ru/" />
