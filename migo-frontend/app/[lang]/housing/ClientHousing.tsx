@@ -22,11 +22,6 @@ const COLORS = {
 
 export default function ClientHousing() {
   const { t } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
@@ -40,7 +35,7 @@ export default function ClientHousing() {
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left`}>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#2196D3] shadow-[0_0_10px_#2196D3]"></span>
                 <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="housing.hero.badge">Ваш новый дом в России</T></p>

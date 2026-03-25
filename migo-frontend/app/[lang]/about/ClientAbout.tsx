@@ -23,11 +23,6 @@ const COLORS = {
 
 export default function ClientAbout() {
   const { t } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
@@ -41,7 +36,7 @@ export default function ClientAbout() {
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`flex flex-col items-center lg:items-start text-center lg:text-left`}>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#B8D430] shadow-[0_0_10px_#B8D430]"></span>
                 <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="about.hero.badge">Мы строим будущее</T></p>
@@ -152,7 +147,7 @@ export default function ClientAbout() {
 
         <div className="max-w-7xl mx-auto px-5 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-            <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+            <div>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-sm border border-gray-100 mb-8">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1E58B1] animate-pulse"></span>
                 <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.2em]"><T path="about.project_info.title" /></p>
@@ -173,10 +168,10 @@ export default function ClientAbout() {
               </div>
             </div>
 
-            <div className={`relative transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+            <div className={`relative`}>
               <div className="relative z-10">
                 <Image
-                  src="/images/migo_about_friendly.webp"
+                  src="/images/migo_about_countries.webp"
                   alt={t('about.project_info.team_img_alt')}
                   width={800}
                   height={600}
@@ -340,7 +335,7 @@ export default function ClientAbout() {
             </div>
           </div>
 
-          <div className={`transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div>
             <div className="bg-white p-10 md:p-14 rounded-[48px] border border-gray-100 shadow-xl text-center max-w-4xl mx-auto">
               <div className="relative z-10 flex flex-col items-center">
                 <h3 className="text-[10px] md:text-xs font-black text-[#1E58B1] uppercase tracking-[0.4em] mb-6">
