@@ -81,7 +81,7 @@ export default function ClientAbout() {
       </section>
 
       <section className="py-24 max-w-7xl mx-auto px-5">
-        <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-20 text-center tracking-tight uppercase"><T path="about.reasons.title">Почему мы это делаем</T></h2>
+        <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-20 text-center tracking-tight uppercase"><T path="about.why.title">Почему мы это делаем</T></h2>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:h-[600px]">
           <div className="md:col-span-8 bg-white rounded-[48px] p-12 border border-gray-100 shadow-xl flex flex-col justify-between group overflow-hidden relative">
@@ -89,33 +89,33 @@ export default function ClientAbout() {
               <Zap size={120} className="text-gray-50 -mr-10 -mt-10" />
             </div>
             <div className="relative z-10">
-              <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.reasons.r1_title">Отсутствие достоверной информации</T></h3>
-              <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.reasons.r1_desc">Многие сталкиваются с обманом, потому что не знают своих прав или не имеют доступа к проверенным работодателям.</T></p>
+              <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.why.reason1_title">Отсутствие достоверной информации</T></h3>
+              <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.why.reason1_desc">Многие сталкиваются с обманом, потому что не знают своих прав или не имеют доступа к проверенным работодателям.</T></p>
             </div>
             <div className="mt-8 flex items-center gap-3 text-sm font-black text-[#B8D430]">
-              <span className="w-12 h-0.5 bg-[#B8D430]"></span> <T path="about.reasons.r1_label">ПРИЧИНА №1</T>
+              <span className="w-12 h-0.5 bg-[#B8D430]"></span> <T path="about.why.reason1_label">ПРИЧИНА №1</T>
             </div>
           </div>
 
           <div className="md:col-span-4 bg-[#1E58B1] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl transform hover:-rotate-1 transition-transform">
             <ShieldCheck size={48} className="mb-8" />
             <div>
-              <h3 className="text-2xl font-black mb-4"><T path="about.reasons.r2_title">Безопасность</T></h3>
-              <p className="text-white/95 font-medium"><T path="about.reasons.r2_desc">Мы проверяем каждого партнера, чтобы вы были уверены в завтрашнем дне.</T></p>
+              <h3 className="text-2xl font-black mb-4"><T path="about.why.safety_title">Безопасность</T></h3>
+              <p className="text-white/95 font-medium"><T path="about.why.safety_desc">Мы проверяем каждого партнера, чтобы вы были уверены в завтрашнем дне.</T></p>
             </div>
           </div>
 
           <div className="md:col-span-4 bg-[#1E58B1] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl">
             <MessageCircle size={48} className="mb-8 text-[#B8D430]" />
             <div>
-              <h3 className="text-2xl font-black mb-4"><T path="about.reasons.r3_title">Поддержка</T></h3>
-              <p className="text-white/90 font-medium"><T path="about.reasons.r3_desc">Наш бот и менеджеры — ваши верные помощники 24/7.</T></p>
+              <h3 className="text-2xl font-black mb-4"><T path="about.why.support_title">Поддержка</T></h3>
+              <p className="text-white/90 font-medium"><T path="about.why.support_desc">Наш бот и менеджеры — ваши верные помощники 24/7.</T></p>
             </div>
           </div>
 
           <div className="md:col-span-8 bg-white rounded-[48px] p-12 border border-gray-100 shadow-xl flex flex-col justify-center group">
-            <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.reasons.r4_title">Технологии для людей</T></h3>
-            <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.reasons.r4_desc">Мы используем Telegram, чтобы быть там, где вам удобно. Никаких сложных интерфейсов, только польза.</T></p>
+            <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.why.tech_title">Технологии для людей</T></h3>
+            <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.why.tech_desc">Мы используем Telegram, чтобы быть там, где вам удобно. Никаких сложных интерфейсов, только польза.</T></p>
           </div>
         </div>
       </section>
@@ -183,8 +183,8 @@ export default function ClientAbout() {
                       <Users size={24} />
                     </div>
                     <div>
-                      <p className="text-sm font-black text-[#163A5C] uppercase tracking-tighter">Команда MIGO</p>
-                      <p className="text-xs text-gray-500 font-bold">Всегда рядом с вами</p>
+                      <p className="text-sm font-black text-[#163A5C] uppercase tracking-tighter"><T path="about.project_info.migo_t" /></p>
+                      <p className="text-xs text-gray-500 font-bold"><T path="about.project_info.migo_t_desc" /></p>
                     </div>
                   </div>
                 </div>

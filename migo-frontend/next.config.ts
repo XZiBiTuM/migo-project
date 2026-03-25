@@ -25,6 +25,12 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
+        protocol: 'http',
+        hostname: 'backend',
+        port: '8000',
+        pathname: '/**',
+      },
+      {
         protocol: 'https',
         hostname: 'api.migohelp.com',
         pathname: '/**',

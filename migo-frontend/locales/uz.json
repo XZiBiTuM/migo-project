@@ -19,7 +19,7 @@
     "docs_title": "Hujjatlar",
     "privacy": "Maxfiylik siyosati",
     "terms": "Foydalanuvchi shartnomasi",
-    "admin": "Admin-panel",
+    "admin": "Admin paneli",
     "contacts_title": "Kontaktlar",
     "company_name": "MChJ «PRM»",
     "address_msk": "Moskva, Armyanskiy tor ko'ch., 9-uy, 1-bino, 4-qavat, 402-2 ofis",
@@ -81,18 +81,6 @@
       "more": "Batafsil",
       "tg_btn": "Telegramda batafsil bilish"
     },
-    "steps": {
-      "title": "MIGO bilan muvaffaqiyatga 4 qadam",
-      "subtitle": "Biz jarayonni iloji boricha oddiy va shaffof qildik, shunda siz eng muhim narsaga e'tibor qarata olasiz.",
-      "step1_title": "Ariza",
-      "step1_desc": "Telegramda 1 daqiqada so'rov qoldiring",
-      "step2_title": "Tanlash",
-      "step2_desc": "Mezonlaringizga eng yaxshi variantlarni findamiz",
-      "step3_title": "Rasmiylashtirish",
-      "step3_desc": "Barcha hujjatlar bilan rasmiy yordam beramiz",
-      "step4_title": "Boshlash",
-      "step4_desc": "Ishlash va tinch yashashni boshlang"
-    },
     "path_section": {
       "problem_badge": "Muammo",
       "title": "Migrant yo'li: aslidagi kabi",
@@ -100,6 +88,7 @@
       "problem_1": "Tushunarli ma'lumot yo'q",
       "problem_2": "Ishonchli odamlar yo'q",
       "problem_3": "Tizim yo'q — faqat «kimdandir so'rang»",
+      "problem_footer": "Natijada inson o'zi tushunmaydigan tizim bilan yolg'iz qoladi.",
       "without_migo": {
         "title": "MIGO'SIZ YO'L QANDAY KECHADI",
         "step1_title": "1. Kelish",
@@ -111,11 +100,13 @@
         "step4_title": "4. Turmush va aloqa",
         "step4_desc": "Bank va sim-kartani rasmiylashtirishdagi qiyinchiliklar, ortiqcha xizmatlarni yuklashadi, qanday to'g'ri qilish kerakligini tushunish yo'q",
         "step5_title": "5. Qo'shimcha xarajatlar",
-        "step5_desc": "Jarimalar uchun kutilmagan xarajatlar, qoidabuzarliklar tufayli qo‘shimcha sarf-xarajatlar, shuningdek daromad va vaqt yo‘qotish xavfi",
+        "step5_desc": "Jarimalar uchun kutilmagan xarajatlar, qoidabuzarliklar tufayli qo'shimcha sarf-xarajatlar, shuningdek daromad va vaqt yo'qotish xavfi",
         "step6_title": "6. Deportatsiya xavfi",
         "step6_desc": "Patent yoki ro'yxatdan o'tishdagi xatolar tufayli doimiy tekshiruvlardan qo'rqish, RFga kirish huquqini yo'qotish xavfi",
         "step_result_title": "Yakun",
-        "step_result_desc": "Yo'qotilgan pul, vaqt, doimiy stress va hujjatlarsiz hamda ishsiz qolish xavfi"
+        "step_result_desc": "Yo'qotilgan pul, vaqt, doimiy stress va hujjatlarsiz hamda ishsiz qolish xavfi",
+        "result": "Yo'qotilgan pul, vaqt, stress va xavf",
+        "chaos_and_risks": "Xaos va xavflar"
       },
       "with_migo": {
         "title": "MIGO BILAN BU QANDAY BO'LADI",
@@ -132,7 +123,8 @@
         "step5_desc": "Bank va sim-kartani ulash: tez, rasmiy, ortiqcha xizmatlarsiz",
         "step6_title": "6. Qo'llab-quvvatlash",
         "step6_desc": "Har doim har qanday savolga javob beradigan odam yoki bot bor. Siz yolg'iz qolmaysiz",
-        "result": "Tushunarli yo'l, xavfsizlik va natija"
+        "result": "Tushunarli yo'l, xavfsizlik va natija",
+        "full_control": "To'liq nazorat"
       },
       "reliability": {
         "title": "MIGO bilan siz ishonchli himoyadasiz",
@@ -386,12 +378,10 @@
   },
   "about": {
     "hero": {
-      "title_1": "Biz barcha uchun",
+      "badge": "Biz barcha uchun",
+      "title_1": "Biz qurayapmiz",
       "title_highlight": "xavfsiz yo'l",
-      "title_2": "qurayapmiz",
-      "mission_title": "Bizning missiya",
-      "mission_desc": "MIGO — MDH fuqarolari uchun Rossiyada hayot va ishni shaffof, xavfsiz va qulay qilish uchun yaratilgan ijtimoiy loyiha.",
-      "mission_extra": "Biz har bir inson halol munosabat, munosib ish haqi va sifatli uy-joyga loyiq deb ishonamiz. Savollaringizni «bitta oynada» hal qilish uchun texnologiya va inson yordamini birlashtiramiz."
+      "mission.p1": "MIGO — bu Rossiyada hayot va ishingizni shaffof va qulay qilish uchun yaratilgan qo'llab-quvvatlash ekotizimi."
     },
     "why": {
       "title": "Nega biz buni qilyapmiz",
@@ -426,6 +416,8 @@
     "project_info": {
       "title": "MIGO LOYIHASI HAQIDA",
       "subtitle": "Proekt MIGO — bu:",
+      "migo_t": "MIGO jamoasi",
+      "migo_t_desc": "Har doim sizning yoninizda",
       "intro": "Rossiyadagi va MDHdagi oflayn infratuzilmani, raqamli xizmatlarni va tekshirilgan hamkorlik tarmog'ini birlashtiruvchi migrantlarni qo'llab-quvvatlash tizimi.",
       "geography": {
         "title": "Geografik ishtirok",
@@ -463,7 +455,7 @@
       "values": {
         "title": "Jamoa va qadriyatlar",
         "subtitle": "MIGO — bu ko'p millatli jamoa, u:",
-        "v1": "barcha xalqlarning madaniyati, an'analari va urf-odatlarini hurmat qiladi",
+        "v1": "barcha xalqlarning madaniyati, an'analari va urf-odatlari hurmat qiladi",
         "v2": "tushunarli tilda gapiradi",
         "v3": "migrantlarning real muammolarini tushunadi",
         "v4": "har bir insonga e'tibor va hurmat bilan munosabatda bo'ladi"
@@ -481,6 +473,7 @@
   },
   "contacts": {
     "hero": {
+      "badge": "MIGO aloqa markazi",
       "title_1": "Biz doimo",
       "title_highlight": "siz bilan aloqadamiz",
       "subtitle": "Qulay aloqa usulini tanlang. Menejerlarimiz Telegram yoki telefon orqali har qanday savolga javob berishga tayyor."
@@ -621,7 +614,7 @@
     "s3_content": "Sayt va undagi ma'lumotlar tanishish uchun mo'ljallangan va ommaviy oferta hisoblanmaydi. Servis ma'muriyati davlat organlari tomonidan foydalanuvchiga nisbatan qabul qilingan qarorlar (masalan, patent berish yoki ro'yxatga olishni rad etish) uchun, agar ular servis harakatlariga bog'liq bo'lmasa, javobgar emas.",
     "s4_title": "4. Shartlarning o'zgarishi",
     "s4_content": "Ma'muriyat istalgan vaqtda ushбу shartnomaga o'zgartirishlar kiritish huquqini o'zida saqlab qoladi. O'zgartirishlar kiritilgandan keyin saytdan foydalanishni davom ettirish sizning yangi shartlarga rozi ekanligingizni anglatadi.",
-    "terms_link": "Maxfiylik siyosati",
+    "privacy_link": "Maxfiylik siyosati",
     "updated": "2026 yil tahriri"
   }
 }

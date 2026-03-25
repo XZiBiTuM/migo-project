@@ -79,7 +79,7 @@ function ServiceCard({ svc, t, language, setModalService }: any) {
           <Send size={20} /> <T path="services.docs_section.order_tg">Узнать в Telegram</T>
         </Link>
         <div className="flex gap-2 flex-col">
-          <Link href={`/services/${svc.slug}`} className="flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 py-4 px-4 rounded-[20px] font-bold text-sm border border-gray-100 transition-all hover:shadow-md">
+          <Link href={`/${lang}/services/${svc.slug}`} className="flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 py-4 px-4 rounded-[20px] font-bold text-sm border border-gray-100 transition-all hover:shadow-md">
             <T path="services.extra_section.more">Подробнее</T> <ArrowRight size={16} />
           </Link>
           <button onClick={() => setModalService({ title, icon, color, image: svc.image })} className="flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#1E58B1] py-4 px-4 rounded-[20px] font-bold text-sm border border-gray-100 transition-all hover:shadow-md">

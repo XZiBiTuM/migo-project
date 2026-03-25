@@ -37,7 +37,6 @@ export default function PathSection({ lang }: { lang: string }) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 mb-32 items-stretch">
-          {/* Путь БЕЗ MIGO */}
           <div className="relative group flex h-full">
             <div className="absolute -inset-4 bg-gradient-to-br from-red-50/50 to-transparent rounded-[72px] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
             <div className="relative w-full bg-[#FCFBFB] rounded-[64px] p-8 md:p-14 border border-gray-100 shadow-[30px_50px_100px_-40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-1000 hover:shadow-[40px_60px_120px_-30px_rgba(0,0,0,0.15)] flex flex-col items-stretch">
@@ -50,7 +49,7 @@ export default function PathSection({ lang }: { lang: string }) {
                     {t('home.path_section.without_migo.title')}
                   </h3>
                   <p className="text-red-400 font-bold text-xs uppercase tracking-[0.3em] mt-3 flex items-center gap-2">
-                    <AlertCircle size={14} className="animate-pulse" /> Хаос и риски
+                    <AlertCircle size={14} className="animate-pulse" /> {t('home.path_section.without_migo.chaos_and_risks')}
                   </p>
                 </div>
               </div>
@@ -90,7 +89,6 @@ export default function PathSection({ lang }: { lang: string }) {
             </div>
           </div>
 
-          {/* Путь С MIGO */}
           <div className="relative group flex h-full">
             <div className="absolute -inset-6 bg-gradient-to-br from-[#2196D3]/20 to-[#B8D430]/20 rounded-[80px] blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
             <div className="relative w-full bg-white rounded-[64px] p-8 md:p-14 border border-[#2196D3]/10 shadow-[40px_70px_120px_-40px_rgba(33,150,211,0.2)] overflow-hidden transition-all duration-1000 hover:shadow-[50px_80px_140px_-30px_rgba(33,150,211,0.25)] flex flex-col items-stretch">
@@ -103,7 +101,7 @@ export default function PathSection({ lang }: { lang: string }) {
                     {t('home.path_section.with_migo.title')}
                   </h3>
                   <p className="text-[#B8D430] font-black text-xs uppercase tracking-[0.3em] mt-3 flex items-center gap-2">
-                    <CheckCircle2 size={14} className="animate-bounce-slow" /> Полный контроль
+                    <CheckCircle2 size={14} className="animate-bounce-slow" /> {t('home.path_section.with_migo.full_control')}
                   </p>
                 </div>
               </div>

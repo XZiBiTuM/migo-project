@@ -245,7 +245,7 @@ export default function ClientWork({ initialJobs = [] }: { initialJobs?: Vacancy
           ].map(country => (
             <div key={country.code} className="px-8 py-4 bg-white border border-gray-100 rounded-3xl font-black text-lg text-[#163A5C] shadow-sm transform hover:scale-105 transition-all flex items-center gap-3">
               <div className="relative w-6 h-[18px] rounded-sm overflow-hidden border border-gray-100">
-                <Image src={`https://flagcdn.com/w40/${country.flag}.png`} alt={t(`work.countries.${country.code}`, country.name)} fill className="object-cover" />
+                <Image src={`/flags/${country.flag || country.code}.webp`} alt={t(`work.countries.${country.code}`, country.name)} fill className="object-cover" />
               </div>
               <T path={`work.countries.${country.code}`}>{country.name}</T>
             </div>
