@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import {
   ShieldCheck, MessageCircle, Zap, CheckCircle2,
-  ArrowRight, Briefcase, Home, FileText, XCircle, ChevronRight
+  ArrowRight, Briefcase, Home, FileText, XCircle, ChevronRight,
+  Globe, MapPin, Scale, Handshake, Users, Heart, Building2, Target
 } from 'lucide-react';
 import { T, useLanguage } from '@/context/LanguageContext';
 
@@ -101,7 +102,7 @@ export default function ClientAbout() {
             </div>
           </div>
 
-          <div className="md:col-span-4 bg-[#2196D3] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl transform hover:-rotate-1 transition-transform">
+          <div className="md:col-span-4 bg-[#1E58B1] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl transform hover:-rotate-1 transition-transform">
             <ShieldCheck size={48} className="mb-8" />
             <div>
               <h3 className="text-2xl font-black mb-4"><T path="about.reasons.r2_title">Безопасность</T></h3>
@@ -142,6 +143,215 @@ export default function ClientAbout() {
           <a href='https://xn--b1aew.xn--p1ai/' target='_blank' className="bg-[#C0C0C0] rounded-2xl p-6 border border-gray-300 shadow-sm hover:shadow-lg hover:scale-105 transition-all w-full flex items-center justify-center h-24">
             <Image src="/partners/mvd.webp" alt="Ассоциация ветеранов МВД г. Москва" width={140} height={60} className="object-contain h-full" sizes="140px" />
           </a>
+        </div>
+      </section>
+
+      <section className="py-24 bg-[#F1F5F9]/50 border-y border-gray-100 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#B8D430]/5 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#2196D3]/5 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
+
+        <div className="max-w-7xl mx-auto px-5 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+            <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-sm border border-gray-100 mb-8">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1E58B1] animate-pulse"></span>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.2em]"><T path="about.project_info.title" /></p>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#163A5C] mb-8 leading-[1.1] tracking-tighter">
+                <T path="about.project_info.subtitle" />
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-700/80 leading-relaxed font-bold border-l-4 border-[#B8D430] pl-8 py-2 mb-12">
+                <T path="about.project_info.intro" />
+              </p>
+              <div className="flex gap-4">
+                <Link href={getBotUrl({ start: 'help' })} target="_blank" className="bg-[#1E58B1] hover:bg-[#163A5C] text-white px-8 py-4 rounded-2xl font-black transition-all shadow-lg hover:shadow-[#1E58B1]/30 hover:-translate-y-1">
+                  <T path="about.project_info.cta.help" />
+                </Link>
+                <Link href={getBotUrl({ start: 'question' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] px-8 py-4 rounded-2xl font-black transition-all shadow-lg hover:shadow-[#B8D430]/30 hover:-translate-y-1">
+                  <T path="about.project_info.cta.telegram" />
+                </Link>
+              </div>
+            </div>
+
+            <div className={`relative transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+              <div className="relative z-10">
+                <Image
+                  src="/images/migo_about_friendly.webp"
+                  alt={t('about.project_info.team_img_alt')}
+                  width={800}
+                  height={600}
+                  className="rounded-[64px] shadow-2xl border-4 border-white object-cover aspect-[4/3]"
+                />
+                <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-[32px] shadow-2xl border border-gray-100 hidden md:block animate-float">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-[#B8D430] rounded-xl flex items-center justify-center text-[#163A5C]">
+                      <Users size={24} />
+                    </div>
+                    <div>
+                      <p className="text-sm font-black text-[#163A5C] uppercase tracking-tighter">Команда MIGO</p>
+                      <p className="text-xs text-gray-500 font-bold">Всегда рядом с вами</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#2196D3]/10 rounded-full blur-3xl -z-10"></div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-24">
+            <div className="bg-white p-12 rounded-[56px] border border-gray-100 shadow-xl relative group overflow-hidden">
+              <div className="absolute top-0 right-0 p-12 text-[#2196D3]/5 group-hover:scale-110 transition-transform">
+                <Globe size={180} />
+              </div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-[#2196D3]/10 rounded-[20px] flex items-center justify-center text-[#2196D3] mb-10">
+                  <Globe size={32} />
+                </div>
+                <h3 className="text-3xl font-black text-[#163A5C] mb-8 uppercase tracking-tight">
+                  <T path="about.project_info.geography.title" />
+                </h3>
+                <div className="space-y-6">
+                  <div>
+                    <p className="font-extrabold text-[#163A5C] flex items-start gap-4 text-lg">
+                      <MapPin size={24} className="mt-1 flex-shrink-0 text-[#2196D3]" />
+                      <T path="about.project_info.geography.russia_title" />
+                    </p>
+                    <p className="text-gray-600 pl-10 mt-2 font-medium leading-relaxed">
+                      <T path="about.project_info.geography.russia_desc" />
+                    </p>
+                  </div>
+
+                  <div className="pt-8 border-t border-gray-100">
+                    <p className="font-extrabold text-[#163A5C] mb-6 text-lg"><T path="about.project_info.geography.cis_title" /></p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {['kg', 'kz', 'tj', 'uz'].map((code) => (
+                        <div key={code} className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl hover:bg-[#B8D430]/10 transition-colors">
+                          <Image src={`/flags/${code}.webp`} alt={code} width={32} height={20} className="rounded shadow-sm" />
+                          <span className="font-black text-[#163A5C] text-sm"><T path={`about.project_info.geography.cities.${code}`} /></span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm italic text-gray-500 mt-6 pl-6 border-l-2 border-[#B8D430]">
+                    <T path="about.project_info.geography.footer" />
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#1E58B1] p-12 rounded-[56px] text-white shadow-xl relative group overflow-hidden">
+              <div className="absolute bottom-0 right-0 p-12 text-white/5 group-hover:scale-110 transition-transform">
+                <Scale size={200} />
+              </div>
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="w-16 h-16 bg-white/10 rounded-[20px] flex items-center justify-center text-[#B8D430] mb-10">
+                  <Scale size={32} />
+                </div>
+                <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">
+                  <T path="about.project_info.legal.title" />
+                </h3>
+                <p className="text-xl font-bold text-[#B8D430] mb-10 leading-snug">
+                  <T path="about.project_info.legal.subtitle" />
+                </p>
+                <ul className="space-y-4 mb-auto">
+                  {[1, 2, 3].map(i => (
+                    <li key={i} className="flex items-start gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                      <CheckCircle2 size={24} className="text-[#B8D430] flex-shrink-0 mt-0.5" />
+                      <span className="font-bold text-white/95 leading-relaxed"><T path={`about.project_info.legal.feature${i}`} /></span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-12 bg-white/10 p-6 rounded-[32px] text-center italic border border-white/5">
+                  <p className="font-black text-white"><T path="about.project_info.legal.footer" /></p>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-1 bg-white p-12 rounded-[56px] border border-gray-100 shadow-xl group">
+              <div className="w-16 h-16 bg-[#B8D430]/20 rounded-[20px] flex items-center justify-center text-[#163A5C] mb-10">
+                <Handshake size={32} />
+              </div>
+              <h3 className="text-3xl font-black text-[#163A5C] mb-8 uppercase tracking-tight">
+                <T path="about.project_info.ecosystem.title" />
+              </h3>
+              <p className="text-gray-700 mb-10 font-bold text-lg"><T path="about.project_info.ecosystem.subtitle" /></p>
+              <div className="space-y-6">
+                <div className="flex gap-6 items-center p-6 bg-gray-50 rounded-[32px] hover:-translate-y-1 transition-all">
+                  <div className="w-16 h-16 bg-[#1E58B1] text-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#1E58B1]/20">
+                    <Building2 size={32} />
+                  </div>
+                  <div>
+                    <p className="font-black text-[#163A5C] text-xl leading-tight"><T path="about.project_info.ecosystem.banks_title" /></p>
+                    <p className="text-gray-600 mt-1 font-bold text-sm"><T path="about.project_info.ecosystem.banks_desc" /></p>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-center p-6 bg-gray-50 rounded-[32px] hover:-translate-y-1 transition-all">
+                  <div className="w-16 h-16 bg-[#2196D3] text-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#2196D3]/20">
+                    <Briefcase size={32} />
+                  </div>
+                  <div>
+                    <p className="font-black text-[#163A5C] text-xl leading-tight"><T path="about.project_info.ecosystem.employers_title" /></p>
+                    <div className="flex gap-4 mt-2">
+                      <span className="bg-[#2196D3]/10 text-[#2196D3] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.employers_desc1" /></span>
+                      <span className="bg-[#B8D430]/20 text-[#163A5C] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.employers_desc2" /></span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-center p-6 bg-gray-50 rounded-[32px] hover:-translate-y-1 transition-all">
+                  <div className="w-16 h-16 bg-[#B8D430] text-[#163A5C] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#B8D430]/20">
+                    <Home size={32} />
+                  </div>
+                  <div>
+                    <p className="font-black text-[#163A5C] text-xl leading-tight"><T path="about.project_info.ecosystem.hostels_title" /></p>
+                    <div className="flex gap-4 mt-2">
+                      <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.hostels_desc1" /></span>
+                      <span className="bg-[#1E58B1]/10 text-[#1E58B1] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.hostels_desc2" /></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#1E58B1] p-12 rounded-[56px] text-white shadow-xl relative group overflow-hidden">
+              <div className="absolute top-0 left-0 p-12 text-white/5 group-hover:scale-110 transition-transform -rotate-12">
+                <Heart size={200} />
+              </div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/20 rounded-[20px] flex items-center justify-center text-[#B8D430] mb-10">
+                  <Heart size={32} />
+                </div>
+                <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">
+                  <T path="about.project_info.values.title" />
+                </h3>
+                <p className="text-xl font-bold mb-10 text-white/90 leading-snug">
+                  <T path="about.project_info.values.subtitle" />
+                </p>
+                <div className="grid grid-cols-1 gap-4">
+                  {[1, 2, 3, 4].map(i => (
+                    <div key={i} className="flex items-center gap-4 bg-white/10 p-5 rounded-[28px] border border-white/10 hover:bg-white/15 transition-colors">
+                      <div className="w-8 h-8 bg-[#B8D430] rounded-full flex items-center justify-center text-[#163A5C] flex-shrink-0">
+                        <CheckCircle2 size={18} />
+                      </div>
+                      <span className="font-black text-white/95 text-sm uppercase tracking-tight"><T path={`about.project_info.values.v${i}`} /></span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={`transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="bg-white p-10 md:p-14 rounded-[48px] border border-gray-100 shadow-xl text-center max-w-4xl mx-auto">
+              <div className="relative z-10 flex flex-col items-center">
+                <h3 className="text-[10px] md:text-xs font-black text-[#1E58B1] uppercase tracking-[0.4em] mb-6">
+                  <T path="about.project_info.idea.title" />
+                </h3>
+                <p className="text-xl md:text-2xl font-black text-[#163A5C] leading-relaxed">
+                  <T path="about.project_info.idea.desc" />
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

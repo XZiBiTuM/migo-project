@@ -422,6 +422,61 @@
       "title": "Keling, bu dunyoni birga yaxshiroq qilaylik",
       "subtitle": "Hamkorimiz bo'lishni yoki loyihani rivojlantirishda yordam berishni xohlaysizmi? Biz doimo takliflarga ochiqmiz.",
       "btn": "Biz bilan bog'lanish"
+    },
+    "project_info": {
+      "title": "MIGO LOYIHASI HAQIDA",
+      "subtitle": "Proekt MIGO — bu:",
+      "intro": "Rossiyadagi va MDHdagi oflayn infratuzilmani, raqamli xizmatlarni va tekshirilgan hamkorlik tarmog'ini birlashtiruvchi migrantlarni qo'llab-quvvatlash tizimi.",
+      "geography": {
+        "title": "Geografik ishtirok",
+        "russia_title": "Rossiya bo'ylab oflayn ofislar — Moskvadan Vladivostokkacha",
+        "russia_desc": "Siz mamlakatning asosiy shaharlaridagi MIGO jismoniy ofislaridan yordam, hujjatlarni rasmiylashtirish va konsultatsiya olishingiz mumkin.",
+        "cis_title": "MDH mamlakatlaridagi vakolatxonalar:",
+        "cities": {
+          "kg": "Bishkek, O'sh",
+          "kz": "Ostona, Olmati",
+          "tj": "Dushanbe",
+          "uz": "Toshkent"
+        },
+        "footer": "Bu Rossiyaga kelishdan oldin tayyorgarlikni boshlash va ish boshida xatolardan qochish imkonini beradi."
+      },
+      "legal": {
+        "title": "Yuridik yordam 24/7",
+        "subtitle": "Rossiya hududidagi MDH fuqarolariga tunu kun yordam",
+        "feature1": "12 dan ortiq yordam mutaxassisi",
+        "feature2": "Har qanday savollar bo'yicha javoblar: hujjatlar, migratsiya hisobi, ish",
+        "feature3": "Har bir bosqichda hamrohlik — kelgandan boshlab ishga joylashguncha",
+        "footer": "Siz yolg'iz qolmaysiz — sizda doimo tayanch nuqtasi bo'ladi."
+      },
+      "ecosystem": {
+        "title": "Hamkorlik ekotizimi",
+        "subtitle": "MIGO — bu shunchaki servis emas, bu ishonchli hamkorlarning shakllangan tizimi:",
+        "banks_title": "5 ta hamkor bank",
+        "banks_desc": "hisoblar va kartalarni tez va rasmiy rasmiylashtirish",
+        "employers_title": "300+ to'g'ridan-to'g'ri ish berүүchi",
+        "employers_desc1": "faqat tekshirilgan kompaniyalar",
+        "employers_desc2": "halol shartlar va barqaror to'lovlar",
+        "hostels_title": "Tekshirilgan xostellar va mehmonxonalar tarmog'i",
+        "hostels_desc1": "aldov xavfisiz xavfsiz yashash",
+        "hostels_desc2": "kelgandan so'ng darhol qulay joylashish"
+      },
+      "values": {
+        "title": "Jamoa va qadriyatlar",
+        "subtitle": "MIGO — bu ko'p millatli jamoa, u:",
+        "v1": "barcha xalqlarning madaniyati, an'analari va urf-odatlarini hurmat qiladi",
+        "v2": "tushunarli tilda gapiradi",
+        "v3": "migrantlarning real muammolarini tushunadi",
+        "v4": "har bir insonga e'tibor va hurmat bilan munosabatda bo'ladi"
+      },
+      "idea": {
+        "title": "Loyihaning asosiy g'oyasi",
+        "desc": "MIGO — bu har bir migrant uchun Rossiyadagi hayot va ishni tushunarli, xavfsiz va oldindan aytish mumkin bo'lgan yagona tizim."
+      },
+      "cta": {
+        "help": "Hozir yordam olish",
+        "telegram": "Telegramda savol berish"
+      },
+      "team_img_alt": "MIGO Har xil mamlakatlardan kelgan do'stona jamoa"
     }
   },
   "contacts": {
