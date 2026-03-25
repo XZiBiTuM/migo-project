@@ -1,9 +1,7 @@
 import React from 'react';
 import "../globals.css";
 import ClientAdminLayout from './ClientAdminLayout';
-import dynamic from 'next/dynamic';
-
-const ClientFontLoader = dynamic(() => import('@/components/ClientFontLoader'), { ssr: false });
+import FontWrapper from '@/components/FontWrapper';
 
 export const metadata = {
   title: 'MIGO | Admin Panel',
@@ -18,7 +16,7 @@ export default function AdminLayout({
 }) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <ClientFontLoader />
+      <FontWrapper />
       <body className="font-sans bg-[#F0F7FC] text-[#163A5C] min-h-screen">
         <ClientAdminLayout>
           {children}

@@ -3,9 +3,7 @@ import "../globals.css";
 import Script from 'next/script';
 import { GlobalHeader, GlobalFooter, GlobalMobileNav, GlobalCookieBanner, ConsultationButton } from '@/components/GlobalElements';
 import { LanguageProvider } from '@/context/LanguageContext';
-import dynamic from 'next/dynamic';
-
-const ClientFontLoader = dynamic(() => import('@/components/ClientFontLoader'), { ssr: false });
+import FontWrapper from '@/components/FontWrapper';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://migohelp.com'),
@@ -57,7 +55,7 @@ export default async function LanguageLayout({
 
   return (
     <html lang={currentLang} suppressHydrationWarning>
-      <ClientFontLoader />
+      <FontWrapper />
       <head>
         <link rel="canonical" href={`https://migohelp.com/${currentLang}/`} />
         <link rel="alternate" hrefLang="ru" href="https://migohelp.com/ru/" />
