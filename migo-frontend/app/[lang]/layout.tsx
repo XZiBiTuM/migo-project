@@ -137,7 +137,7 @@ export default async function LanguageLayout({
           }}
         />
       </head>
-      <body className={`${manrope.variable} ${montserrat.variable} bg-[#F0F7FC] text-[#163A5C] selection:bg-[#2196D3] selection:text-white`} suppressHydrationWarning style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
+      <body className={`${manrope.variable} ${montserrat.variable} bg-[#F0F7FC] text-[#163A5C] selection:bg-[#2196D3] selection:text-white`} suppressHydrationWarning>
         <LanguageProvider initialLanguage={currentLang.toUpperCase() as any}>
           <GlobalHeader />
           <ConsultationButton />
