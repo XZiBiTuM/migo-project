@@ -1,13 +1,11 @@
-"use client";
-
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Shield, ChevronRight } from 'lucide-react';
-import { T, useLanguage } from '@/context/LanguageContext';
+import { getT } from '@/utils/translations.server';
 
-export default function ClientPrivacy() {
-  const { language, t } = useLanguage();
-  const lang = language.toLowerCase();
+export default function ClientPrivacy({ lang }: { lang: string }) {
+  const t = getT(lang);
+  const currentLang = lang.toLowerCase();
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
@@ -18,11 +16,11 @@ export default function ClientPrivacy() {
         </div>
 
         <div className="max-w-4xl mx-auto relative z-10">
-          <Link href={`/${lang}/`} className="group flex items-center gap-3 text-[#163A5C] font-black uppercase tracking-widest text-xs hover:text-[#2196D3] transition-colors mb-12">
+          <Link href={`/${currentLang}/`} className="group flex items-center gap-3 text-[#163A5C] font-black uppercase tracking-widest text-xs hover:text-[#2196D3] transition-colors mb-12">
             <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#1E58B1] group-hover:text-white transition-all">
               <ArrowLeft size={18} />
             </div>
-            <T path="privacy.back_home">На главную</T>
+            {t('privacy.back_home', 'На главную')}
           </Link>
 
           <div className="flex items-center gap-4 mb-8">
@@ -30,13 +28,13 @@ export default function ClientPrivacy() {
               <Shield size={32} />
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-[#163A5C] tracking-tight">
-              <T path="privacy.title_1">Политика</T> <br />
-              <T path="privacy.title_2">конфиденциальности</T>
+              {t('privacy.title_1', 'Политика')} <br />
+              {t('privacy.title_2', 'конфиденциальности')}
             </h1>
           </div>
 
           <p className="text-gray-400 font-medium text-lg max-w-2xl leading-relaxed">
-            <T path="privacy.subtitle">Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сервиса MIGO (ООО «ПРМ»).</T>
+            {t('privacy.subtitle', 'Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сервиса MIGO (ООО «ПРМ»).')}
           </p>
         </div>
       </section>
@@ -46,37 +44,37 @@ export default function ClientPrivacy() {
           <div className="space-y-12 text-gray-600 leading-relaxed font-medium text-lg">
 
             <Section title={t('privacy.s1_title', '1. Сбор персональных данных')}>
-              <T path="privacy.s1_content">Мы собираем минимально необходимый объем данных для предоставления наших услуг. При оставлении заявки на сайте мы можем запрашивать:</T>
+              {t('privacy.s1_content', 'Мы собираем минимально необходимый объем данных для предоставления наших услуг. При оставлении заявки на сайте мы можем запрашивать:')}
               <ul className="mt-6 space-y-4">
-                <ListItem><T path="privacy.s1_list_1">Имя;</T></ListItem>
-                <ListItem><T path="privacy.s1_list_2">Номер телефона;</T></ListItem>
-                <ListItem><T path="privacy.s1_list_3">Никнейм в Telegram (при переходе в бот).</T></ListItem>
+                <ListItem>{t('privacy.s1_list_1', 'Имя;')}</ListItem>
+                <ListItem>{t('privacy.s1_list_2', 'Номер телефона;')}</ListItem>
+                <ListItem>{t('privacy.s1_list_3', 'Никнейм в Telegram (при переходе в бот).')}</ListItem>
               </ul>
             </Section>
 
             <Section title={t('privacy.s2_title', '2. Использование данных')}>
-              <T path="privacy.s2_content">Ваши персональные данные используются исключительно для:</T>
+              {t('privacy.s2_content', 'Ваши персональные данные используются исключительно для:')}
               <ul className="mt-6 space-y-4">
-                <ListItem><T path="privacy.s2_list_1">Связи с вами для оказания консультационных услуг;</T></ListItem>
-                <ListItem><T path="privacy.s2_list_2">Подбора подходящих вакансий, жилья или услуг;</T></ListItem>
-                <ListItem><T path="privacy.s2_list_3">Улучшения качества работы нашего сервиса.</T></ListItem>
+                <ListItem>{t('privacy.s2_list_1', 'Связи с вами для оказания консультационных услуг;')}</ListItem>
+                <ListItem>{t('privacy.s2_list_2', 'Подбора подходящих вакансий, жилья или услуг;')}</ListItem>
+                <ListItem>{t('privacy.s2_list_3', 'Улучшения качества работы нашего сервиса.')}</ListItem>
               </ul>
             </Section>
 
             <Section title={t('privacy.s3_title', '3. Защита и передача данных')}>
-              <T path="privacy.s3_content">Мы предпринимаем все необходимые технические меры для защиты ваших данных от несанкционированного доступа. Мы не передаем ваши контактные данные третьим лицам без вашего явного согласия, за исключением случаев, предусмотренных законодательством РФ, или когда это необходимо для оказания услуги.</T>
+              {t('privacy.s3_content', 'Мы предпринимаем все необходимые технические меры для защиты ваших данных от несанкционированного доступа. Мы не передаем ваши контактные данные третьим лицам без вашего явного согласия, за исключением случаев, предусмотренных законодательством РФ, или когда это необходимо для оказания услуги.')}
             </Section>
 
             <Section title={t('privacy.s4_title', '4. Контактная информация')}>
-              <T path="privacy.s4_content_1">Если у вас есть вопросы по поводу обработки ваших данных, вы можете связаться с нами по телефону </T> <span className="text-[#163A5C] font-black">+7 921 854 39 09</span> <T path="privacy.s4_content_2"> или написать в наш Telegram-бот.</T>
+              {t('privacy.s4_content_1', 'Если у вас есть вопросы по поводу обработки ваших данных, вы можете связаться с нами по телефону ')} <span className="text-[#163A5C] font-black">+7 921 854 39 09</span> {t('privacy.s4_content_2', ' или написать в наш Telegram-бот.')}
             </Section>
 
           </div>
 
           <div className="mt-20 pt-10 border-t border-gray-100 flex items-center justify-between">
-            <div className="text-sm font-black text-[#163A5C] uppercase tracking-widest opacity-40"><T path="privacy.updated">Обновлено в 2026 году</T></div>
-            <Link href={`/${lang}/terms`} className="flex items-center gap-2 text-[#2196D3] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform">
-              <T path="privacy.terms_link">Пользовательское соглашение</T> <ChevronRight size={16} />
+            <div className="text-sm font-black text-[#163A5C] uppercase tracking-widest opacity-40">{t('privacy.updated', 'Обновлено в 2026 году')}</div>
+            <Link href={`/${currentLang}/terms`} className="flex items-center gap-2 text-[#2196D3] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform">
+              {t('privacy.terms_link', 'Пользовательское соглашение')} <ChevronRight size={16} />
             </Link>
           </div>
         </div>

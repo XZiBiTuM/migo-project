@@ -1,7 +1,8 @@
 import ClientNews from './ClientNews';
 import NewsHero from './NewsHero';
 
-export default async function NewsPage() {
+export default async function NewsPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   let initialNews = [];
   const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
   
@@ -16,7 +17,7 @@ export default async function NewsPage() {
 
   return (
     <>
-      <NewsHero />
+      <NewsHero lang={lang} />
       <ClientNews initialNews={initialNews} />
     </>
   );

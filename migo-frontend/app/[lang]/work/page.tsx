@@ -62,7 +62,7 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <ClientWork initialJobs={initialJobs} />
+      <ClientWork initialJobs={initialJobs} lang={lang} />
     </>
   );
 }

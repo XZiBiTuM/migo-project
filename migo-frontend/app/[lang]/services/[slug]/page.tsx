@@ -91,8 +91,8 @@ const FALLBACK_SERVICES: Record<string, any> = {
   }
 };
 
-export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function ServicePage({ params }: { params: Promise<{ slug: string, lang: string }> }) {
+  const { slug, lang } = await params;
   let service = null;
 
   const apiBase = process.env.INTERNAL_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
@@ -117,5 +117,5 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     return notFound();
   }
 
-  return <ClientServicesDetail service={service} />;
+  return <ClientServicesDetail service={service} lang={lang} />;
 }

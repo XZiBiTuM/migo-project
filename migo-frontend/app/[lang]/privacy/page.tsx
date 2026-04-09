@@ -5,6 +5,7 @@ export const metadata = {
   description: 'Политика обработки персональных данных сервиса MIGO.',
 };
 
-export default function PrivacyPage() {
-  return <ClientPrivacy />;
+export default async function PrivacyPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  return <ClientPrivacy lang={lang} />;
 }

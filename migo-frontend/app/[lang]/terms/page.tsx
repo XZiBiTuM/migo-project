@@ -5,6 +5,7 @@ export const metadata = {
   description: 'Условия использования сервиса MIGO.',
 };
 
-export default function TermsPage() {
-  return <ClientTerms />;
+export default async function TermsPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  return <ClientTerms lang={lang} />;
 }

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Manrope, Montserrat } from "next/font/google";
 import "../globals.css";
 import Script from 'next/script';
-import { GlobalHeader, GlobalFooter, GlobalMobileNav, GlobalCookieBanner, ConsultationButton } from '@/components/GlobalElements';
+import { GlobalHeader, GlobalMobileNav, GlobalCookieBanner, ConsultationButton } from '@/components/GlobalElements';
+import { GlobalFooter } from '@/components/GlobalFooter';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 const manrope = Manrope({ 
@@ -82,12 +83,12 @@ export default async function LanguageLayout({
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
             />
             <Script
               id="gtag-init"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -103,7 +104,7 @@ export default async function LanguageLayout({
         {process.env.NEXT_PUBLIC_YM_ID && (
           <Script
             id="yandex-metrica"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `
                  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -156,7 +157,7 @@ export default async function LanguageLayout({
             <div className="flex-grow">
               {children}
             </div>
-            <GlobalFooter />
+            <GlobalFooter lang={currentLang} />
           </div>
           <GlobalMobileNav />
           <GlobalCookieBanner />

@@ -1,14 +1,12 @@
-"use client";
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import {
-  MessageCircle, MapPin, Globe, Phone, Mail,
+  MessageCircle, MapPin, Phone, Mail,
   Clock, ShieldCheck, ArrowUpRight, Send
 } from 'lucide-react';
-import { T, useLanguage } from '@/context/LanguageContext';
+import { getT } from '@/utils/translations.server';
 
 const COLORS = {
   navy: '#1E58B1',
@@ -20,8 +18,8 @@ const COLORS = {
   white: '#FFFFFF',
 };
 
-export default function ClientContacts() {
-  const { t, language } = useLanguage();
+export default function ClientContacts({ lang }: { lang: string }) {
+  const t = getT(lang);
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
@@ -38,16 +36,16 @@ export default function ClientContacts() {
             <div className={`flex flex-col items-center lg:items-start text-center lg:text-left`}>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1E58B1] shadow-[0_0_10px_#1E58B1]"></span>
-                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="contacts.hero.badge">Контакт-центр MIGO</T></p>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]">{t('contacts.hero.badge', 'Контакт-центр MIGO')}</p>
               </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
-                <T path="contacts.hero.title_1">Мы всегда</T><br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="contacts.hero.title_highlight">на связи с вами</T></span>
+                {t('contacts.hero.title_1', 'Мы всегда')}<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]">{t('contacts.hero.title_highlight', 'на связи с вами')}</span>
               </h1>
 
               <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-xl leading-relaxed font-medium">
-                <T path="contacts.hero.subtitle">Выберите удобный для вас способ связи. Наши менеджеры готовы ответить на любые вопросы в Telegram или по телефону.</T>
+                {t('contacts.hero.subtitle', 'Выберите удобный для вас способ связи. Наши менеджеры готовы ответить на любые вопросы в Telegram или по телефону.')}
               </p>
             </div>
 
@@ -72,28 +70,31 @@ export default function ClientContacts() {
       <section className="py-24 max-w-7xl mx-auto px-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ContactCard
-            title={<T path="contacts.cards.tg_title">Telegram</T>}
+            title={t('contacts.cards.tg_title', 'Telegram')}
             value="@migo_work"
             link={getBotUrl({ start: 'contacts' })}
             icon={<MessageCircle size={32} />}
             color="#229ED9"
-            desc={<T path="contacts.cards.tg_desc">Самый быстрый способ получить ответ от менеджера.</T>}
+            desc={t('contacts.cards.tg_desc', 'Самый быстрый способ получить ответ от менеджера.')}
+            connectText={t('contacts.cards.connect', 'Связаться')}
           />
           <ContactCard
-            title={<T path="contacts.cards.phone_title">Телефон</T>}
+            title={t('contacts.cards.phone_title', 'Телефон')}
             value="+7 921 854 39 09"
             link="tel:+79218543909"
             icon={<Phone size={32} />}
             color={COLORS.blue}
-            desc={<T path="contacts.cards.phone_desc">Звоните нам ежедневно с 9:00 до 20:00 по Москве.</T>}
+            desc={t('contacts.cards.phone_desc', 'Звоните нам ежедневно с 9:00 до 20:00 по Москве.')}
+            connectText={t('contacts.cards.connect', 'Связаться')}
           />
           <ContactCard
-            title={<T path="contacts.cards.email_title">Email</T>}
+            title={t('contacts.cards.email_title', 'Email')}
             value="support@migohelp.com"
             link="mailto:support@migohelp.com"
             icon={<Mail size={32} />}
             color={COLORS.navy}
-            desc={<T path="contacts.cards.email_desc">Для официальных запросов и предложений о партнерстве.</T>}
+            desc={t('contacts.cards.email_desc', 'Для официальных запросов и предложений о партнерстве.')}
+            connectText={t('contacts.cards.connect', 'Связаться')}
           />
         </div>
       </section>
@@ -102,15 +103,15 @@ export default function ClientContacts() {
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black text-[#163A5C] mb-12 uppercase tracking-tight"><T path="contacts.offices.title">Офисы предоставления услуг</T></h2>
+              <h2 className="text-3xl md:text-4xl font-black text-[#163A5C] mb-12 uppercase tracking-tight">{t('contacts.offices.title', 'Офисы предоставления услуг')}</h2>
               <div className="space-y-10">
                 <div className="flex gap-6 group">
                   <div className="w-14 h-14 rounded-2xl bg-[#F8FAFC] flex items-center justify-center shrink-0 text-[#2196D3] group-hover:bg-[#2196D3] group-hover:text-white transition-all duration-500 shadow-sm">
                     <MapPin size={28} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter"><T path="contacts.offices.office1">Метро Лесопарковая</T></h4>
-                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
+                    <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter">{t('contacts.offices.office1', 'Метро Лесопарковая')}</h4>
+                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> {t('contacts.offices.hours', 'Уточняйте время работы в Telegram')}</p>
                   </div>
                 </div>
                 <div className="flex gap-6 group">
@@ -118,8 +119,8 @@ export default function ClientContacts() {
                     <MapPin size={28} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter"><T path="contacts.offices.office2">Метро Саларьево</T></h4>
-                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
+                    <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter">{t('contacts.offices.office2', 'Метро Саларьево')}</h4>
+                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> {t('contacts.offices.hours', 'Уточняйте время работы в Telegram')}</p>
                   </div>
                 </div>
                 <div className="flex gap-6 group">
@@ -127,8 +128,8 @@ export default function ClientContacts() {
                     <MapPin size={28} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter"><T path="contacts.offices.office3">Метро Домодедовская</T></h4>
-                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> <T path="contacts.offices.hours">Уточняйте время работы в Telegram</T></p>
+                    <h4 className="text-xl font-black text-[#163A5C] mb-2 uppercase tracking-tighter">{t('contacts.offices.office3', 'Метро Домодедовская')}</h4>
+                    <p className="text-gray-700 text-sm flex items-center gap-2"><Clock size={14} /> {t('contacts.offices.hours', 'Уточняйте время работы в Telegram')}</p>
                   </div>
                 </div>
               </div>
@@ -136,12 +137,12 @@ export default function ClientContacts() {
 
             <div className="bg-[#F8FAFC] p-10 md:p-16 rounded-[48px] border border-gray-100 shadow-sm">
               <h2 className="text-2xl font-black text-[#163A5C] mb-8 uppercase tracking-widest flex items-center gap-3">
-                <ShieldCheck className="text-[#B8D430]" /> <T path="contacts.legal.title">Юридическая информация</T>
+                <ShieldCheck className="text-[#B8D430]" /> {t('contacts.legal.title', 'Юридическая информация')}
               </h2>
               <div className="space-y-6 text-gray-700 font-medium leading-relaxed">
-                <p><span className="text-[#163A5C] font-black uppercase text-xs tracking-widest block mb-1"><T path="contacts.legal.name_label">Наименование</T></span> ООО «ПРМ»</p>
-                <p><span className="text-[#163A5C] font-black uppercase text-xs tracking-widest block mb-1"><T path="contacts.legal.address_label">Фактический адрес</T></span> <T path="contacts.legal.address_value">г. Москва, Армянский пер., 9 стр. 1, оф. 204</T></p>
-                <p><span className="text-[#163A5C] font-black uppercase text-xs tracking-widest block mb-1"><T path="contacts.legal.phone_label">Телефон</T></span> <a href="tel:+79218543909" className="text-[#2196D3] hover:underline">+7 921 854 39 09</a></p>
+                <p><span className="text-[#163A5C] font-black uppercase text-xs tracking-widest block mb-1">{t('contacts.legal.name_label', 'Наименование')}</span> ООО «ПРМ»</p>
+                <p><span className="text-[#163A5C] font-black uppercase text-xs tracking-widest block mb-1">{t('contacts.legal.address_label', 'Фактический адрес')}</span> {t('contacts.legal.address_value', 'г. Москва, Армянский пер., 9 стр. 1, оф. 204')}</p>
+                <p><span className="text-[#163A5C] font-black uppercase text-xs tracking-widest block mb-1">{t('contacts.legal.phone_label', 'Телефон')}</span> <a href="tel:+79218543909" className="text-[#2196D3] hover:underline">+7 921 854 39 09</a></p>
               </div>
             </div>
           </div>
@@ -154,7 +155,7 @@ export default function ClientContacts() {
             <MapPin size={48} className="text-gray-300" />
           </div>
           <iframe
-            src={`https://yandex.ru/map-widget/v1/?ll=37.589140,55.658250&z=10&pt=37.637046,55.760100,pm2rdm1~37.576944,55.582222,pm2blm2~37.425514,55.621453,pm2blm3~37.717906,55.611681,pm2blm4&lang=${(language || 'RU') === 'RU' ? 'ru_RU' : 'en_US'}`}
+            src={`https://yandex.ru/map-widget/v1/?ll=37.589140,55.658250&z=10&pt=37.637046,55.760100,pm2rdm1~37.576944,55.582222,pm2blm2~37.425514,55.621453,pm2blm3~37.717906,55.611681,pm2blm4&lang=${(lang.toUpperCase() || 'RU') === 'RU' ? 'ru_RU' : 'en_US'}`}
             width="100%"
             height="500"
             frameBorder="0"
@@ -167,8 +168,8 @@ export default function ClientContacts() {
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#B8D430]/10 rounded-full blur-[100px]"></div>
         <div className="max-w-7xl mx-auto px-10 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="text-white max-w-xl">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight uppercase tracking-tight"><T path="contacts.social.title">Подписывайтесь на нас</T></h2>
-            <p className="text-white/90 text-lg font-medium"><T path="contacts.social.subtitle">Следите за новостями проекта, новыми вакансиями и полезными советами в наших социальных сетях.</T></p>
+            <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight uppercase tracking-tight">{t('contacts.social.title', 'Подписывайтесь на нас')}</h2>
+            <p className="text-white/90 text-lg font-medium">{t('contacts.social.subtitle', 'Следите за новостями проекта, новыми вакансиями и полезными советами в наших социальных сетях.')}</p>
           </div>
           <div className="flex gap-10 flex-wrap justify-center">
             <SocialLink href="https://t.me/migo_work" platform="Telegram" color="#229ED9" />
@@ -179,7 +180,7 @@ export default function ClientContacts() {
   );
 }
 
-function ContactCard({ title, value, link, icon, color, desc }: { title: React.ReactNode, value: string, link: string, icon: React.ReactNode, color: string, desc: React.ReactNode }) {
+function ContactCard({ title, value, link, icon, color, desc, connectText }: { title: React.ReactNode, value: string, link: string, icon: React.ReactNode, color: string, desc: React.ReactNode, connectText: string }) {
   return (
     <a
       href={link}
@@ -198,7 +199,7 @@ function ContactCard({ title, value, link, icon, color, desc }: { title: React.R
         {desc}
       </p>
       <div className="flex items-center gap-3 text-xs font-black text-[#1E58B1] opacity-60 group-hover:opacity-100 transition-all uppercase tracking-[0.2em]">
-        <T path="contacts.cards.connect">Связаться</T> <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+        {connectText} <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
       </div>
     </a>
   );
@@ -216,7 +217,7 @@ function SocialLink({ href, platform, color }: any) {
         style={{ color: 'white' }}
       >
         <span className="group-hover:scale-110 transition-transform" style={{ color: 'inherit' }}>
-          {platform === 'Telegram' ? <Send size={32} /> : <Globe size={32} />}
+          {platform === 'Telegram' ? <Send size={32} /> : <div />}
         </span>
       </div>
       <span className="text-white font-black text-sm uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">{platform}</span>

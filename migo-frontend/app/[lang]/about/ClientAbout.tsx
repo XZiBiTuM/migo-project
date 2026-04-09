@@ -1,28 +1,17 @@
-"use client";
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import {
   ShieldCheck, MessageCircle, Zap, CheckCircle2,
-  ArrowRight, Briefcase, Home, FileText, XCircle, ChevronRight,
-  Globe, MapPin, Scale, Handshake, Users, Heart, Building2, Target
+  Briefcase, Home, FileText, ChevronRight,
+  Globe, MapPin, Scale, Handshake, Users, Heart, Building2
 } from 'lucide-react';
-import { T, useLanguage } from '@/context/LanguageContext';
+import { getT } from '@/utils/translations.server';
+import { FAQItem } from '@/components/about/FAQItem';
 
-const COLORS = {
-  navy: '#1E58B1',
-  textNavy: '#163A5C',
-  blue: '#2196D3',
-  accent: '#B8D430',
-  green: '#27A15E',
-  bg: '#F8FAFC',
-  white: '#FFFFFF',
-};
-
-export default function ClientAbout() {
-  const { t } = useLanguage();
+export default function ClientAbout({ lang }: { lang: string }) {
+  const t = getT(lang);
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
@@ -39,16 +28,16 @@ export default function ClientAbout() {
             <div className={`flex flex-col items-center lg:items-start text-center lg:text-left`}>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#B8D430] shadow-[0_0_10px_#B8D430]"></span>
-                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]"><T path="about.hero.badge">Мы строим будущее</T></p>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]">{t('about.hero.badge', 'Мы строим будущее')}</p>
               </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
-                <T path="about.hero.title_1">Безопасный путь</T><br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]"><T path="about.hero.title_highlight">для каждого</T></span>
+                {t('about.hero.title_1', 'Безопасный путь')}<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]">{t('about.hero.title_highlight', 'для каждого')}</span>
               </h1>
 
               <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-xl leading-relaxed font-medium">
-                <T path="about.mission.p1">MIGO — это экосистема поддержки, созданная чтобы сделать жизнь и работу в России прозрачной и комфортной.</T>
+                {t('about.mission.p1', 'MIGO — это экосистема поддержки, созданная чтобы сделать жизнь и работу в России прозрачной и комфортной.')}
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
@@ -57,7 +46,7 @@ export default function ClientAbout() {
                   target="_blank"
                   className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95"
                 >
-                  <MessageCircle size={28} /> <T path="about.cta.btn">Узнать больше</T>
+                  <MessageCircle size={28} /> {t('about.cta.btn', 'Узнать больше')}
                 </Link>
               </div>
             </div>
@@ -81,7 +70,7 @@ export default function ClientAbout() {
       </section>
 
       <section className="py-24 max-w-7xl mx-auto px-5">
-        <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-20 text-center tracking-tight uppercase"><T path="about.why.title">Почему мы это делаем</T></h2>
+        <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-20 text-center tracking-tight uppercase">{t('about.why.title', 'Почему мы это делаем')}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:h-[600px]">
           <div className="md:col-span-8 bg-white rounded-[48px] p-12 border border-gray-100 shadow-xl flex flex-col justify-between group overflow-hidden relative">
@@ -89,39 +78,39 @@ export default function ClientAbout() {
               <Zap size={120} className="text-gray-50 -mr-10 -mt-10" />
             </div>
             <div className="relative z-10">
-              <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.why.reason1_title">Отсутствие достоверной информации</T></h3>
-              <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.why.reason1_desc">Многие сталкиваются с обманом, потому что не знают своих прав или не имеют доступа к проверенным работодателям.</T></p>
+              <h3 className="text-3xl font-black text-[#163A5C] mb-6">{t('about.why.reason1_title', 'Отсутствие достоверной информации')}</h3>
+              <p className="text-xl text-gray-700 max-w-xl leading-relaxed">{t('about.why.reason1_desc', 'Многие сталкиваются с обманом, потому что не знают своих прав или не имеют доступа к проверенным работодателям.')}</p>
             </div>
             <div className="mt-8 flex items-center gap-3 text-sm font-black text-[#B8D430]">
-              <span className="w-12 h-0.5 bg-[#B8D430]"></span> <T path="about.why.reason1_label">ПРИЧИНА №1</T>
+              <span className="w-12 h-0.5 bg-[#B8D430]"></span> {t('about.why.reason1_label', 'ПРИЧИНА №1')}
             </div>
           </div>
 
           <div className="md:col-span-4 bg-[#1E58B1] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl transform hover:-rotate-1 transition-transform">
             <ShieldCheck size={48} className="mb-8" />
             <div>
-              <h3 className="text-2xl font-black mb-4"><T path="about.why.safety_title">Безопасность</T></h3>
-              <p className="text-white/95 font-medium"><T path="about.why.safety_desc">Мы проверяем каждого партнера, чтобы вы были уверены в завтрашнем дне.</T></p>
+              <h3 className="text-2xl font-black mb-4">{t('about.why.safety_title', 'Безопасность')}</h3>
+              <p className="text-white/95 font-medium">{t('about.why.safety_desc', 'Мы проверяем каждого партнера, чтобы вы были уверены в завтрашнем дне.')}</p>
             </div>
           </div>
 
           <div className="md:col-span-4 bg-[#1E58B1] rounded-[48px] p-12 text-white flex flex-col justify-between shadow-xl">
             <MessageCircle size={48} className="mb-8 text-[#B8D430]" />
             <div>
-              <h3 className="text-2xl font-black mb-4"><T path="about.why.support_title">Поддержка</T></h3>
-              <p className="text-white/90 font-medium"><T path="about.why.support_desc">Наш бот и менеджеры — ваши верные помощники 24/7.</T></p>
+              <h3 className="text-2xl font-black mb-4">{t('about.why.support_title', 'Поддержка')}</h3>
+              <p className="text-white/90 font-medium">{t('about.why.support_desc', 'Наш бот и менеджеры — ваши верные помощники 24/7.')}</p>
             </div>
           </div>
 
           <div className="md:col-span-8 bg-white rounded-[48px] p-12 border border-gray-100 shadow-xl flex flex-col justify-center group">
-            <h3 className="text-3xl font-black text-[#163A5C] mb-6"><T path="about.why.tech_title">Технологии для людей</T></h3>
-            <p className="text-xl text-gray-700 max-w-xl leading-relaxed"><T path="about.why.tech_desc">Мы используем Telegram, чтобы быть там, где вам удобно. Никаких сложных интерфейсов, только польза.</T></p>
+            <h3 className="text-3xl font-black text-[#163A5C] mb-6">{t('about.why.tech_title', 'Технологии для людей')}</h3>
+            <p className="text-xl text-gray-700 max-w-xl leading-relaxed">{t('about.why.tech_desc', 'Мы используем Telegram, чтобы быть там, где вам удобно. Никаких сложных интерфейсов, только польза.')}</p>
           </div>
         </div>
       </section>
 
       <section className="py-24 max-w-7xl mx-auto px-5">
-        <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-20 text-center uppercase tracking-tight"><T path="about.partners.title">Наши партнёры</T></h2>
+        <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-20 text-center uppercase tracking-tight">{t('about.partners.title', 'Наши партнёры')}</h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center place-items-center">
           <a href='https://ragradus.ru/' target='_blank' className="bg-[#C0C0C0] rounded-2xl p-6 border border-gray-300 shadow-sm hover:shadow-lg hover:scale-105 transition-all w-full flex items-center justify-center h-24">
             <Image src="/partners/gradus_optimized.webp" alt="Градус" width={140} height={60} className="object-contain h-full" />
@@ -150,20 +139,20 @@ export default function ClientAbout() {
             <div>
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-sm border border-gray-100 mb-8">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1E58B1] animate-pulse"></span>
-                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.2em]"><T path="about.project_info.title" /></p>
+                <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.2em]">{t('about.project_info.title')}</p>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#163A5C] mb-8 leading-[1.1] tracking-tighter">
-                <T path="about.project_info.subtitle" />
+                {t('about.project_info.subtitle')}
               </h2>
               <p className="text-xl md:text-2xl text-gray-700/80 leading-relaxed font-bold border-l-4 border-[#B8D430] pl-8 py-2 mb-12">
-                <T path="about.project_info.intro" />
+                {t('about.project_info.intro')}
               </p>
               <div className="flex gap-4">
                 <Link href={getBotUrl({ start: 'help' })} target="_blank" className="bg-[#1E58B1] hover:bg-[#163A5C] text-white px-8 py-4 rounded-2xl font-black transition-all shadow-lg hover:shadow-[#1E58B1]/30 hover:-translate-y-1">
-                  <T path="about.project_info.cta.help" />
+                  {t('about.project_info.cta.help')}
                 </Link>
                 <Link href={getBotUrl({ start: 'question' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] px-8 py-4 rounded-2xl font-black transition-all shadow-lg hover:shadow-[#B8D430]/30 hover:-translate-y-1">
-                  <T path="about.project_info.cta.telegram" />
+                  {t('about.project_info.cta.telegram')}
                 </Link>
               </div>
             </div>
@@ -183,8 +172,8 @@ export default function ClientAbout() {
                       <Users size={24} />
                     </div>
                     <div>
-                      <p className="text-sm font-black text-[#163A5C] uppercase tracking-tighter"><T path="about.project_info.migo_t" /></p>
-                      <p className="text-xs text-gray-500 font-bold"><T path="about.project_info.migo_t_desc" /></p>
+                      <p className="text-sm font-black text-[#163A5C] uppercase tracking-tighter">{t('about.project_info.migo_t')}</p>
+                      <p className="text-xs text-gray-500 font-bold">{t('about.project_info.migo_t_desc')}</p>
                     </div>
                   </div>
                 </div>
@@ -203,32 +192,32 @@ export default function ClientAbout() {
                   <Globe size={32} />
                 </div>
                 <h3 className="text-3xl font-black text-[#163A5C] mb-8 uppercase tracking-tight">
-                  <T path="about.project_info.geography.title" />
+                  {t('about.project_info.geography.title')}
                 </h3>
                 <div className="space-y-6">
                   <div>
                     <p className="font-extrabold text-[#163A5C] flex items-start gap-4 text-lg">
                       <MapPin size={24} className="mt-1 flex-shrink-0 text-[#2196D3]" />
-                      <T path="about.project_info.geography.russia_title" />
+                      {t('about.project_info.geography.russia_title', 'Россия (Головные офисы)')}
                     </p>
                     <p className="text-gray-600 pl-10 mt-2 font-medium leading-relaxed">
-                      <T path="about.project_info.geography.russia_desc" />
+                      {t('about.project_info.geography.russia_desc', 'Представлены в Москве (центральный офис) и Калининграде.')}
                     </p>
                   </div>
 
                   <div className="pt-8 border-t border-gray-100">
-                    <p className="font-extrabold text-[#163A5C] mb-6 text-lg"><T path="about.project_info.geography.cis_title" /></p>
+                    <p className="font-extrabold text-[#163A5C] mb-6 text-lg">{t('about.project_info.geography.cis_title', 'Центральная Азия')}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {['kg', 'kz', 'tj', 'uz'].map((code) => (
                         <div key={code} className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl hover:bg-[#B8D430]/10 transition-colors">
                           <Image src={`/flags/${code}.webp`} alt={code} width={32} height={20} className="rounded shadow-sm" />
-                          <span className="font-black text-[#163A5C] text-sm"><T path={`about.project_info.geography.cities.${code}`} /></span>
+                          <span className="font-black text-[#163A5C] text-sm">{t(`about.project_info.geography.cities.${code}`)}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   <p className="text-sm italic text-gray-500 mt-6 pl-6 border-l-2 border-[#B8D430]">
-                    <T path="about.project_info.geography.footer" />
+                    {t('about.project_info.geography.footer', 'Мы постоянно расширяем географию нашего присутствия.')}
                   </p>
                 </div>
               </div>
@@ -243,21 +232,21 @@ export default function ClientAbout() {
                   <Scale size={32} />
                 </div>
                 <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">
-                  <T path="about.project_info.legal.title" />
+                  {t('about.project_info.legal.title', 'Юридическая чистота')}
                 </h3>
                 <p className="text-xl font-bold text-[#B8D430] mb-10 leading-snug">
-                  <T path="about.project_info.legal.subtitle" />
+                  {t('about.project_info.legal.subtitle', 'Работаем строго в рамках законодательства РФ.')}
                 </p>
                 <ul className="space-y-4 mb-auto">
                   {[1, 2, 3].map(i => (
                     <li key={i} className="flex items-start gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
                       <CheckCircle2 size={24} className="text-[#B8D430] flex-shrink-0 mt-0.5" />
-                      <span className="font-bold text-white/95 leading-relaxed"><T path={`about.project_info.legal.feature${i}`} /></span>
+                      <span className="font-bold text-white/95 leading-relaxed">{t(`about.project_info.legal.feature${i}`)}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="mt-12 bg-white/10 p-6 rounded-[32px] text-center italic border border-white/5">
-                  <p className="font-black text-white"><T path="about.project_info.legal.footer" /></p>
+                  <p className="font-black text-white">{t('about.project_info.legal.footer')}</p>
                 </div>
               </div>
             </div>
@@ -267,17 +256,17 @@ export default function ClientAbout() {
                 <Handshake size={32} />
               </div>
               <h3 className="text-3xl font-black text-[#163A5C] mb-8 uppercase tracking-tight">
-                <T path="about.project_info.ecosystem.title" />
+                {t('about.project_info.ecosystem.title', 'Экосистема MIGO')}
               </h3>
-              <p className="text-gray-700 mb-10 font-bold text-lg"><T path="about.project_info.ecosystem.subtitle" /></p>
+              <p className="text-gray-700 mb-10 font-bold text-lg">{t('about.project_info.ecosystem.subtitle')}</p>
               <div className="space-y-6">
                 <div className="flex gap-6 items-center p-6 bg-gray-50 rounded-[32px] hover:-translate-y-1 transition-all">
                   <div className="w-16 h-16 bg-[#1E58B1] text-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#1E58B1]/20">
                     <Building2 size={32} />
                   </div>
                   <div>
-                    <p className="font-black text-[#163A5C] text-xl leading-tight"><T path="about.project_info.ecosystem.banks_title" /></p>
-                    <p className="text-gray-600 mt-1 font-bold text-sm"><T path="about.project_info.ecosystem.banks_desc" /></p>
+                    <p className="font-black text-[#163A5C] text-xl leading-tight">{t('about.project_info.ecosystem.banks_title', 'Банки-партнёры')}</p>
+                    <p className="text-gray-600 mt-1 font-bold text-sm">{t('about.project_info.ecosystem.banks_desc')}</p>
                   </div>
                 </div>
                 <div className="flex gap-6 items-center p-6 bg-gray-50 rounded-[32px] hover:-translate-y-1 transition-all">
@@ -285,10 +274,10 @@ export default function ClientAbout() {
                     <Briefcase size={32} />
                   </div>
                   <div>
-                    <p className="font-black text-[#163A5C] text-xl leading-tight"><T path="about.project_info.ecosystem.employers_title" /></p>
+                    <p className="font-black text-[#163A5C] text-xl leading-tight">{t('about.project_info.ecosystem.employers_title', 'Прямые работодатели')}</p>
                     <div className="flex gap-4 mt-2">
-                      <span className="bg-[#2196D3]/10 text-[#2196D3] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.employers_desc1" /></span>
-                      <span className="bg-[#B8D430]/20 text-[#163A5C] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.employers_desc2" /></span>
+                      <span className="bg-[#2196D3]/10 text-[#2196D3] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center">{t('about.project_info.ecosystem.employers_desc1')}</span>
+                      <span className="bg-[#B8D430]/20 text-[#163A5C] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center">{t('about.project_info.ecosystem.employers_desc2')}</span>
                     </div>
                   </div>
                 </div>
@@ -297,10 +286,10 @@ export default function ClientAbout() {
                     <Home size={32} />
                   </div>
                   <div>
-                    <p className="font-black text-[#163A5C] text-xl leading-tight"><T path="about.project_info.ecosystem.hostels_title" /></p>
+                    <p className="font-black text-[#163A5C] text-xl leading-tight">{t('about.project_info.ecosystem.hostels_title', 'Хостелы и общежития')}</p>
                     <div className="flex gap-4 mt-2">
-                      <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.hostels_desc1" /></span>
-                      <span className="bg-[#1E58B1]/10 text-[#1E58B1] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center"><T path="about.project_info.ecosystem.hostels_desc2" /></span>
+                      <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center">{t('about.project_info.ecosystem.hostels_desc1')}</span>
+                      <span className="bg-[#1E58B1]/10 text-[#1E58B1] px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter text-center flex flex-col justify-center items-center">{t('about.project_info.ecosystem.hostels_desc2')}</span>
                     </div>
                   </div>
                 </div>
@@ -316,10 +305,10 @@ export default function ClientAbout() {
                   <Heart size={32} />
                 </div>
                 <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">
-                  <T path="about.project_info.values.title" />
+                  {t('about.project_info.values.title', 'Наши ценности')}
                 </h3>
                 <p className="text-xl font-bold mb-10 text-white/90 leading-snug">
-                  <T path="about.project_info.values.subtitle" />
+                  {t('about.project_info.values.subtitle')}
                 </p>
                 <div className="grid grid-cols-1 gap-4">
                   {[1, 2, 3, 4].map(i => (
@@ -327,7 +316,7 @@ export default function ClientAbout() {
                       <div className="w-8 h-8 bg-[#B8D430] rounded-full flex items-center justify-center text-[#163A5C] flex-shrink-0">
                         <CheckCircle2 size={18} />
                       </div>
-                      <span className="font-black text-white/95 text-sm uppercase tracking-tight"><T path={`about.project_info.values.v${i}`} /></span>
+                      <span className="font-black text-white/95 text-sm uppercase tracking-tight">{t(`about.project_info.values.v${i}`)}</span>
                     </div>
                   ))}
                 </div>
@@ -339,10 +328,10 @@ export default function ClientAbout() {
             <div className="bg-white p-10 md:p-14 rounded-[48px] border border-gray-100 shadow-xl text-center max-w-4xl mx-auto">
               <div className="relative z-10 flex flex-col items-center">
                 <h3 className="text-[10px] md:text-xs font-black text-[#1E58B1] uppercase tracking-[0.4em] mb-6">
-                  <T path="about.project_info.idea.title" />
+                  {t('about.project_info.idea.title')}
                 </h3>
                 <p className="text-xl md:text-2xl font-black text-[#163A5C] leading-relaxed">
-                  <T path="about.project_info.idea.desc" />
+                  {t('about.project_info.idea.desc')}
                 </p>
               </div>
             </div>
@@ -353,22 +342,22 @@ export default function ClientAbout() {
       <section className="py-24 bg-white border-y border-gray-100">
         <div className="max-w-4xl mx-auto px-5">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-6"><T path="about.faq.title">Частые вопросы</T></h2>
-            <p className="text-gray-700 text-lg"><T path="about.faq.subtitle">Всё, что вам нужно знать о работе с платформой MIGO.</T></p>
+            <h2 className="text-3xl md:text-5xl font-black text-[#163A5C] mb-6">{t('about.faq.title', 'Частые вопросы')}</h2>
+            <p className="text-gray-700 text-lg">{t('about.faq.subtitle', 'Всё, что вам нужно знать о работе с платформой MIGO.')}</p>
           </div>
 
           <div className="space-y-6">
             <FAQItem
-              question={<T path="about.faq.q1">Чем MIGO отличается от других сервисов?</T>}
-              answer={<T path="about.faq.a1">Мы работаем как единая точка входа. Вам не нужно искать отдельно работу, отдельно жилье и разбираться в документах. Мы помогаем со всеми этапами «под ключ».</T>}
+              question={t('about.faq.q1', 'Чем MIGO отличается от других сервисов?')}
+              answer={t('about.faq.a1', 'Мы работаем как единая точка входа. Вам не нужно искать отдельно работу, отдельно жилье и разбираться в документах. Мы помогаем со всеми этапами «под ключ».')}
             />
             <FAQItem
-              question={<T path="about.faq.q2">Ваши услуги бесплатны?</T>}
-              answer={<T path="about.faq.a2">Телеграм-бот, каталог вакансий и базовые консультации предоставляются бесплатно. Дополнительные услуги (например, перевод документов или помощь в оформлении) оплачиваются согласно открытым тарифам.</T>}
+              question={t('about.faq.q2', 'Ваши услуги бесплатны?')}
+              answer={t('about.faq.a2', 'Телеграм-бот, каталог вакансий и базовые консультации предоставляются бесплатно. Дополнительные услуги (например, перевод документов или помощь в оформлении) оплачиваются согласно открытым тарифам.')}
             />
             <FAQItem
-              question={<T path="about.faq.q3">Где вы находитесь?</T>}
-              answer={<T path="about.faq.a3">Наши основные офисы предоставления услуг расположены в Москве и Калининграде, но наша поддержка работает дистанционно по всей России.</T>}
+              question={t('about.faq.q3', 'Где вы находитесь?')}
+              answer={t('about.faq.a3', 'Наши основные офисы предоставления услуг расположены в Москве и Калининграде, но наша поддержка работает дистанционно по всей России.')}
             />
           </div>
         </div>
@@ -376,36 +365,15 @@ export default function ClientAbout() {
 
       <section className="py-24 max-w-7xl mx-auto px-5 text-center">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-10 leading-tight"><T path="about.cta.title">Давайте делать этот мир лучше вместе</T></h2>
-          <p className="text-xl text-gray-700 mb-12 font-medium"><T path="about.cta.subtitle">Хотите стать нашим партнером или помочь в развитии проекта? Мы всегда открыты к предложениям.</T></p>
+          <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-10 leading-tight">{t('about.cta.title', 'Давайте делать этот мир лучше вместе')}</h2>
+          <p className="text-xl text-gray-700 mb-12 font-medium">{t('about.cta.subtitle', 'Хотите стать нашим партнером или помочь в развитии проекта? Мы всегда открыты к предложениям.')}</p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href={getBotUrl({ start: 'about' })} target="_blank" className="bg-[#B8D430] hover:bg-[#A7C220] text-[#1E58B1] py-5 px-12 rounded-[24px] font-black text-xl shadow-2xl transition-all hover:scale-105">
-              <T path="about.cta.btn">Связаться с нами</T>
+              {t('about.cta.btn', 'Связаться с нами')}
             </Link>
           </div>
         </div>
       </section>
     </main>
-  );
-}
-
-function FAQItem({ question, answer }: { question: React.ReactNode, answer: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="bg-white border border-gray-100 rounded-[48px] overflow-hidden transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] shadow-sm">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left p-10 flex justify-between items-center group cursor-pointer"
-      >
-        <span className="text-2xl font-black text-[#163A5C] group-hover:text-[#1E58B1] transition-colors leading-tight">{question}</span>
-        <ChevronRight className={`text-[#1E58B1] transition-transform duration-500 ${isOpen ? 'rotate-90' : ''}`} size={32} />
-      </button>
-      <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="p-10 pt-0 text-gray-700 text-lg leading-relaxed font-medium border-t border-gray-50">
-          {answer}
-        </div>
-      </div>
-    </div>
   );
 }

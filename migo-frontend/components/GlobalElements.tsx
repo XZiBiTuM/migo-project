@@ -128,47 +128,7 @@ export function GlobalHeader() {
   );
 }
 
-export function GlobalFooter() {
-  const { language } = useLanguage();
-  const lang = language.toLowerCase();
 
-  return (
-    <footer className="bg-white pt-14 pb-28 sm:pb-14 border-t border-gray-100">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-          <div className="col-span-1 md:col-span-2">
-            <Link href={`/${lang}/`} aria-label="MIGO Home"><Image src="/logo.webp" alt="MIGO" width={40} height={40} className="w-10 h-10 mb-3 object-contain" /></Link>
-            <p className="text-gray-700 text-sm max-w-sm mb-5 leading-relaxed"><T path="footer.desc_1">Сервис помощи гражданам СНГ в России.</T><br /><T path="footer.desc_2">Легально, безопасно, с поддержкой.</T></p>
-            <div className="flex gap-3">
-              <Link href={getBotUrl({ source: 'site', medium: 'global' })} target="_blank" className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors" aria-label="Telegram"><Send size={15} color="#1E58B1" /></Link>
-              <Link href={`/${lang}/contacts`} className="w-9 h-9 bg-gray-50 border border-gray-100 rounded-full flex items-center justify-center hover:border-[#2196D3]/40 hover:bg-[#2196D3]/5 cursor-pointer transition-colors" aria-label="Contacts"><MapPin size={15} color="#1E58B1" /></Link>
-            </div>
-          </div>
-          <div>
-            <h4 className="font-semibold text-sm mb-4 text-[#163A5C]"><T path="footer.docs_title">Документы</T></h4>
-            <ul className="space-y-2.5 text-sm text-gray-700 font-medium">
-              <li><Link href={`/${lang}/privacy`} className="hover:text-[#2196D3] underline decoration-transparent hover:decoration-[#2196D3] transition-all cursor-pointer"><T path="footer.privacy">Политика конфиденциальности</T></Link></li>
-              <li><Link href={`/${lang}/terms`} className="hover:text-[#2196D3] underline decoration-transparent hover:decoration-[#2196D3] transition-all cursor-pointer"><T path="footer.terms">Пользовательское соглашение</T></Link></li>
-              <li><Link href="/admin" className="text-gray-500 hover:text-[#2196D3] transition-colors cursor-pointer text-[10px] mt-2 block opacity-60"><T path="footer.admin">Админ-панель</T></Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-sm mb-4 text-[#163A5C]"><T path="footer.contacts_title">Контакты</T></h4>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li><T path="footer.company_name">ООО «ПРМ»</T></li>
-              <li className="leading-snug"><T path="footer.address_msk">Москва, Армянский пер, д.9 стр. 1, Этаж 4, Офис 402-2</T></li>
-              <li className="leading-snug"><T path="footer.address_kld">Калининград, пр-т Калинина 2, офис 4</T></li>
-              <li><a href="tel:+79218543909" className="font-semibold text-base mt-1 inline-block text-[#163A5C] hover:text-[#2196D3] transition-colors">+7 921 854 39 09</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-gray-100 pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-300">
-          <p><T path="footer.copyright">© 2026 Экосистема MIGO. Все права защищены. | Разработал:</T> <a href='https://t.me/xzibitum' target='_blank' className='text-[#2196D3] hover:text-[#163A5C] transition-colors'>XZiBiTuM</a></p>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 export function ConsultationButton() {
   const [isScrolled, setIsScrolled] = useState(false);

@@ -1,6 +1,8 @@
-import { T } from '@/context/LanguageContext';
+import { getT } from '@/utils/translations.server';
 
-export default function NewsHero() {
+export default function NewsHero({ lang }: { lang: string }) {
+    const t = getT(lang);
+    
     return (
         <section className="relative min-h-[50vh] flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
             <div className="absolute inset-0 z-0">
@@ -12,11 +14,11 @@ export default function NewsHero() {
             <div className={`max-w-7xl mx-auto relative z-10 transition-all duration-1000 transform`}>
                 <div className="mt-12 flex flex-col items-center text-center">
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[1.05] mb-8 max-w-5xl tracking-tight">
-                        <T path="news.hero.title_1">Новости</T> <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#1E58B1]"><T path="news.hero.title_highlight">и полезные статьи</T></span>
+                        {t('news.hero.title_1', 'Новости')} <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2196D3] to-[#1E58B1]">{t('news.hero.title_highlight', 'и полезные статьи')}</span>
                     </h1>
                     <p className="text-lg md:text-2xl text-gray-700 max-w-2xl leading-relaxed">
-                        <T path="news.hero.subtitle">Узнавайте первыми об изменениях в законах, новых вакансиях и лайфхаках для жизни в России.</T>
+                        {t('news.hero.subtitle', 'Узнавайте первыми об изменениях в законах, новых вакансиях и лайфхаках для жизни в России.')}
                     </p>
                 </div>
             </div>

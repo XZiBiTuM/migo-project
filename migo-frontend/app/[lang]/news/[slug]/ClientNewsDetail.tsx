@@ -1,83 +1,43 @@
-"use client";
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getBotUrl } from '@/utils/bot';
 import {
-  ArrowLeft, Calendar, Share2, MessageCircle,
-  Briefcase, Edit3, Clock, ChevronRight, Send, ArrowRight, ChevronDown
+  ArrowLeft, Calendar, MessageCircle,
+  Briefcase, Clock, ChevronRight, ArrowRight, Edit3, Send
 } from 'lucide-react';
 import { getCategoryLabel } from '@/utils/news';
-import { T, useLanguage } from '@/context/LanguageContext';
+import { getT } from '@/utils/translations.server';
+import NewsDetailActions from '@/components/news/NewsDetailActions';
 
-const COLORS = {
-  navy: '#1E58B1',
-  textNavy: '#163A5C',
-  blue: '#2196D3',
-  accent: '#B8D430',
-  green: '#27A15E',
-  bg: '#F8FAFC',
-  white: '#FFFFFF',
-};
-
-export default function ClientNewsDetail({ article, relatedNews = [] }: { article: any, relatedNews?: any[] }) {
-  const { t, language } = useLanguage();
-  const lang = language.toLowerCase();
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-    if (typeof window !== 'undefined' && localStorage.getItem('access_token')) {
-      setIsAdmin(true);
-    }
-  }, []);
-
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: article.title,
-        url: window.location.href,
-      }).catch(console.error);
-    }
-  };
+export default function ClientNewsDetail({ article, relatedNews = [], lang }: { article: any, relatedNews?: any[], lang: string }) {
+  const t = getT(lang);
 
   const publishDate = new Date(article.published_at || article.created_at);
-  const dateStr = publishDate.toLocaleDateString(language === 'RU' ? 'ru-RU' : 'uz-UZ', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
+  const dateStr = !isNaN(publishDate.getTime()) 
+    ? publishDate.toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      })
+    : '';
 
   return (
     <main className="pb-24 min-h-screen">
       <section className="relative pt-32 pb-4 overflow-hidden px-5">
-        <div className="absolute inset-0 z-0">
-        </div>
-
-        <div className={`max-w-4xl mx-auto relative z-10 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-12">
             <Link href={`/${lang}/news`} className="group flex items-center gap-3 text-[#163A5C] font-black uppercase tracking-widest text-xs hover:text-[#2196D3] transition-colors">
               <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#1E58B1] group-hover:text-white transition-all">
                 <ArrowLeft size={18} />
               </div>
-              <T path="news_detail.back_btn">Вернуться назад</T>
+              {t('news_detail.back_btn', 'Вернуться назад')}
             </Link>
-
-            {isAdmin && (
-              <Link
-                href={`/admin/news/edit/${article.slug}`}
-                className="px-6 py-3 bg-white border border-[#2196D3] text-[#2196D3] rounded-2xl text-xs font-black uppercase tracking-widest flex items-center gap-2 hover:bg-[#2196D3] hover:text-white transition-all shadow-sm active:scale-95"
-              >
-                <Edit3 size={16} /> <T path="news_detail.edit_btn">Редактировать</T>
-              </Link>
-            )}
           </div>
 
           <div className="inline-flex items-center gap-4 mb-8">
             <span className="px-4 py-2 rounded-full bg-[#1E58B1] text-white text-[10px] font-black uppercase tracking-[0.2em]">
-              <T path={`news.categories.${article.category}`}>{getCategoryLabel(article.category)}</T>
+              {t(`news.categories.${article.category}`, getCategoryLabel(article.category))}
             </span>
             <div className="flex items-center gap-2 text-gray-700 text-xs font-bold uppercase tracking-widest">
               <Calendar size={14} className="text-[#B8D430]" />
@@ -87,7 +47,6 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
 
           <h1
             className="text-4xl md:text-6xl font-black text-[#163A5C] leading-[1.1] mb-4 tracking-tight text-pretty"
-            style={{ textWrap: 'balance' } as any}
           >
             {article.title.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').replace(/\s+(?=[,.:;!?])/g, '').replace(/,(\s)+/g, ', ').trim()}
           </h1>
@@ -98,36 +57,25 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
                 M
               </div>
               <div>
-                <div className="font-black text-[#163A5C]"><T path="news_detail.author">Команда MIGO</T></div>
+                <div className="font-black text-[#163A5C]">{t('news_detail.author', 'Команда MIGO')}</div>
                 <div className="text-xs text-gray-600 font-bold uppercase tracking-widest flex items-center gap-1">
-                  <Clock size={12} /> 2 <T path="news_detail.reading_time"> мин чтения</T>
+                  <Clock size={12} /> 2 {t('news_detail.reading_time', 'мин чтения')}
                 </div>
               </div>
             </div>
             
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => document.getElementById('article-content')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#F0F7FF] text-[#1E58B1] font-black text-xs uppercase tracking-widest hover:bg-[#1E58B1] hover:text-white transition-all shadow-sm active:scale-95"
-              >
-                <T path="news_detail.go_to_article">Перейти к статье</T>
-                <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
-              </button>
-
-              <button
-                onClick={handleShare}
-                className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#2196D3] hover:text-white hover:border-[#2196D3] transition-all"
-              >
-                <Share2 size={20} />
-              </button>
-            </div>
+            <NewsDetailActions 
+              articleTitle={article.title} 
+              articleUrl="" 
+              goBtnText={t('news_detail.go_to_article', 'Перейти к статье')} 
+            />
           </div>
         </div>
       </section>
 
       {article.cover_image && (
         <section className="px-5 mb-12">
-          <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className="max-w-4xl mx-auto">
             <div className="relative aspect-[21/9] rounded-[48px] overflow-hidden shadow-2xl border border-white/50 bg-gray-50">
               <Image
                 src={article.cover_image.startsWith('http') ? article.cover_image : `${process.env.NEXT_PUBLIC_API_URL}${article.cover_image}`}
@@ -163,11 +111,13 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
           />
 
           <div className="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="text-gray-600 font-medium"><T path="news_detail.share_text">Статья была полезной? Поделитесь ей:</T></div>
+            <div className="text-gray-600 font-medium">{t('news_detail.share_text', 'Статья была полезной? Поделитесь ей:')}</div>
             <div className="flex gap-4">
-              <button onClick={handleShare} className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#229ED9]/10 text-[#229ED9] font-black text-xs uppercase tracking-widest hover:bg-[#229ED9] hover:text-white transition-all">
-                <Send size={14} /> Telegram
-              </button>
+              <NewsDetailActions 
+                articleTitle={article.title} 
+                articleUrl="" 
+                goBtnText={t('news_detail.go_to_article', 'Перейти к статье')} 
+              />
             </div>
           </div>
         </div>
@@ -176,14 +126,14 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
       {relatedNews && relatedNews.length > 0 && (
         <section className="px-5 mb-24 max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <h2 className="text-3xl md:text-5xl font-black text-[#163A5C]"><T path="news_detail.related_title">Читайте также</T></h2>
+            <h2 className="text-3xl md:text-5xl font-black text-[#163A5C]">{t('news_detail.related_title', 'Читайте также')}</h2>
             <Link href={`/${lang}/news`} className="text-[#2196D3] font-black uppercase tracking-widest text-sm hover:underline flex items-center gap-2">
-              <T path="news_detail.all_articles">Все статьи</T> <ArrowRight size={18} />
+              {t('news_detail.all_articles', 'Все статьи')} <ArrowRight size={18} />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedNews.map((news) => (
-              <RelatedNewsCard key={news.id} news={news} />
+              <RelatedNewsCard key={news.id} news={news} lang={lang} />
             ))}
           </div>
         </section>
@@ -194,9 +144,9 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#B8D430]/5 rounded-full blur-[100px]"></div>
 
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight uppercase tracking-tight"><T path="news_detail.cta_title">Появились вопросы?</T></h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight uppercase tracking-tight">{t('news_detail.cta_title', 'Появились вопросы?')}</h2>
             <p className="text-white/80 text-xl font-medium mb-12">
-              <T path="news_detail.cta_subtitle">Мы всегда на связи. Наши юристы и эксперты готовы помочь вам разобраться в любых тонкостях миграционного учета или трудоустройства.</T>
+              {t('news_detail.cta_subtitle', 'Мы всегда на связи. Наши юристы и эксперты готовы помочь вам разобраться в любых тонкостях миграционного учета или трудоустройства.')}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -209,7 +159,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
                   <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-[#2196D3]">
                     <MessageCircle size={24} />
                   </div>
-                  <span className="text-left tracking-tight"><T path="news_detail.cta_law_btn">Спросить юриста</T></span>
+                  <span className="text-left tracking-tight">{t('news_detail.cta_law_btn', 'Спросить юриста')}</span>
                 </div>
                 <ChevronRight size={20} className="text-gray-300 group-hover:text-[#163A5C]" />
               </Link>
@@ -223,7 +173,7 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
                   <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
                     <Briefcase size={24} />
                   </div>
-                  <span className="text-left tracking-tight"><T path="news_detail.cta_work_btn">Найти работу</T></span>
+                  <span className="text-left tracking-tight">{t('news_detail.cta_work_btn', 'Найти работу')}</span>
                 </div>
                 <ChevronRight size={20} className="text-white/30 group-hover:text-white" />
               </Link>
@@ -235,16 +185,16 @@ export default function ClientNewsDetail({ article, relatedNews = [] }: { articl
   );
 }
 
-function RelatedNewsCard({ news }: { news: any }) {
-  const { t, language } = useLanguage();
+function RelatedNewsCard({ news, lang }: { news: any, lang: string }) {
+  const t = getT(lang);
   const dateObj = new Date(news.published_at || news.created_at);
   const dateStr = !isNaN(dateObj.getTime())
-    ? dateObj.toLocaleDateString(language === 'RU' ? 'ru-RU' : 'uz-UZ', { day: 'numeric', month: 'long', year: 'numeric' })
+    ? dateObj.toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })
     : t('news.card.no_date', 'Дата не указана');
 
   return (
     <Link
-      href={`/${language.toLowerCase()}/news/${news.slug}`}
+      href={`/${lang}/news/${news.slug}`}
       className="group bg-white rounded-[32px] overflow-hidden border border-gray-100 hover:border-[#2196D3] hover:shadow-xl transition-all duration-300 flex flex-col h-full"
     >
       <div className="relative h-48 overflow-hidden bg-gray-50">
@@ -268,12 +218,11 @@ function RelatedNewsCard({ news }: { news: any }) {
         </div>
         <h3
           className="text-xl font-black text-[#163A5C] group-hover:text-[#2196D3] transition-colors mb-4 line-clamp-3 leading-tight text-pretty"
-          style={{ textWrap: 'balance' } as any}
         >
           {news.title.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').replace(/\s+(?=[,.:;!?])/g, '').replace(/,(\s)+/g, ', ').trim()}
         </h3>
         <div className="mt-auto flex items-center text-sm font-black text-[#2196D3] uppercase tracking-widest gap-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-          <T path="news_detail.related_card.read">Читать</T> <ArrowRight size={16} />
+          {t('news_detail.related_card.read', 'Читать')} <ArrowRight size={16} />
         </div>
       </div>
     </Link>

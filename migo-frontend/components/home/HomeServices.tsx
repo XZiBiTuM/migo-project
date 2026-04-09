@@ -1,17 +1,10 @@
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import {
   Briefcase, Home, Wallet, Zap, MessageCircle, ChevronRight, FileText
 } from 'lucide-react';
-import dynamic from 'next/dynamic';
 import { getBotUrl } from '@/utils/bot';
-import { T } from '@/context/LanguageContext';
-
-const ServiceModal = dynamic(() => import('@/components/ServiceModal'), {
-  ssr: false,
-});
+import { getT } from '@/utils/translations.server';
 
 const getServiceIcon = (type: string) => {
   switch (type) {
@@ -23,6 +16,8 @@ const getServiceIcon = (type: string) => {
 };
 
 export default function HomeServices({ initialServices, lang }: { initialServices: any[], lang: string }) {
+  const t = getT(lang);
+  
   const getLocalizedTitle = (s: any) => {
     const l = lang.toLowerCase();
     if (l === 'uz' && s.title_uz) return s.title_uz;
@@ -39,10 +34,10 @@ export default function HomeServices({ initialServices, lang }: { initialService
 
       <div className="text-center mb-16">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1E58B1]/5 text-[#1E58B1] font-bold uppercase tracking-widest text-[10px] mb-6 border border-[#1E58B1]/10">
-          <Zap size={14} className="animate-pulse" /> <T path="home.services_section.title">Наши сервисы</T>
+          <Zap size={14} className="animate-pulse" /> {t('home.services_section.title', 'Наши сервисы')}
         </div>
         <h2 className="text-4xl md:text-6xl font-black text-[#163A5C] mb-6 tracking-tight">
-          <T path="home.services_section.subtitle">Всё, что нужно для жизни в России</T>
+          {t('home.services_section.subtitle', 'Всё, что нужно для жизни в России')}
         </h2>
       </div>
 
@@ -51,8 +46,8 @@ export default function HomeServices({ initialServices, lang }: { initialService
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4 mb-16">
           {[
-            { title: <T path="home.services_section.find_work">Найти работу</T>, icon: <Briefcase />, href: `/${lang}/work` },
-            { title: <T path="home.services_section.housing">Жильё</T>, icon: <Home />, href: `/${lang}/housing` },
+            { title: t('home.services_section.find_work', 'Найти работу'), icon: <Briefcase />, href: `/${lang}/work` },
+            { title: t('home.services_section.housing', 'Жильё'), icon: <Home />, href: `/${lang}/housing` },
             ...(initialServices || []).map(s => ({
               title: getLocalizedTitle(s),
               icon: getServiceIcon(s.service_type),
@@ -78,13 +73,13 @@ export default function HomeServices({ initialServices, lang }: { initialService
             target="_blank"
             className="w-full sm:w-auto px-10 py-5 rounded-[24px] bg-[#2196D3] text-white font-black text-lg flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(33,150,211,0.4)] hover:-translate-y-1 transition-all active:scale-95"
           >
-            <MessageCircle size={24} /> <T path="home.services_section.tg_btn">Узнать подробнее в Телеграм</T>
+            <MessageCircle size={24} /> {t('home.services_section.tg_btn', 'Узнать подробнее в Телеграм')}
           </Link>
           <Link
             href={`/${lang}/services`}
             className="w-full sm:w-auto px-10 py-5 rounded-[24px] bg-white border border-gray-200 text-[#163A5C] font-black text-lg flex items-center justify-center gap-2 hover:border-[#2196D3] hover:text-[#2196D3] transition-all shadow-sm"
           >
-            <T path="home.services_section.all_services">Все услуги</T> <ChevronRight size={20} />
+            {t('home.services_section.all_services', 'Все услуги')} <ChevronRight size={20} />
           </Link>
         </div>
       </div>

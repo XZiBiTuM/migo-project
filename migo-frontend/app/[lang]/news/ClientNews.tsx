@@ -48,11 +48,6 @@ interface ClientNewsProps {
 export default function ClientNews({ initialNews }: ClientNewsProps) {
   const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const filteredNews = selectedCategory === 'all'
     ? initialNews

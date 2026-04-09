@@ -5,6 +5,7 @@ export const metadata = {
   description: 'Помощь в подборе общежитий, квартир и хостелов для граждан СНГ. Быстро, безопасно, рядом с работой.',
 };
 
-export default function HousingPage() {
-  return <ClientHousing />;
+export default async function HousingPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  return <ClientHousing lang={lang} />;
 }

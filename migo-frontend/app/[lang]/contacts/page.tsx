@@ -6,6 +6,6 @@ export const metadata = {
 };
 
 export default async function ContactsPage({ params }: { params: Promise<{ lang: string }> }) {
-  await params;
-  return <ClientContacts />;
+  const { lang } = await params;
+  return <ClientContacts lang={lang} />;
 }

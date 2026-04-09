@@ -2,10 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MessageCircle } from 'lucide-react';
-import { T } from '@/context/LanguageContext';
+import { getT } from '@/utils/translations.server';
 import { getBotUrl } from '@/utils/bot';
 
-export default function ServicesHero() {
+export default function ServicesHero({ lang }: { lang: string }) {
+    const t = getT(lang);
+
     return (
         <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-32 pb-20 md:pt-0 md:pb-0">
             <div className="absolute inset-0 z-0 text-center">
@@ -21,19 +23,19 @@ export default function ServicesHero() {
                         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 shadow-sm mb-8 animate-bounce-slow">
                             <span className="w-2.5 h-2.5 rounded-full bg-[#B8D430] shadow-[0_0_10px_#B8D430]"></span>
                             <p className="text-xs md:text-sm font-black text-[#1E58B1] uppercase tracking-[0.25em]">
-                                <T path="services.hero.badge">Сервисы и Документы</T>
+                                {t('services.hero.badge', 'Сервисы и Документы')}
                             </p>
                         </div>
 
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#163A5C] leading-[0.95] mb-8 tracking-tighter">
-                            <T path="services.hero.title_1">Все услуги для жизни</T><br />
+                            {t('services.hero.title_1', 'Все услуги для жизни')}<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E58B1] to-[#2196D3]">
-                                <T path="services.hero.title_highlight">в одном касании</T>
+                                {t('services.hero.title_highlight', 'в одном касании')}
                             </span>
                         </h1>
 
                         <p className="text-lg md:text-2xl text-gray-700/80 mb-12 max-w-xl leading-relaxed font-medium">
-                            <T path="services.hero.subtitle">От перевода документов до получения патента. Официально, быстро и без очередей через Telegram-бот.</T>
+                            {t('services.hero.subtitle', 'От перевода документов до получения патента. Официально, быстро и без очередей через Telegram-бот.')}
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
@@ -42,7 +44,7 @@ export default function ServicesHero() {
                                 target="_blank"
                                 className="group bg-[#B8D430] hover:bg-[#A7C220] text-[#163A5C] py-5 px-10 rounded-[32px] font-black text-xl flex items-center justify-center gap-3 shadow-[0_15px_30px_-5px_rgba(184,212,48,0.5)] transition-all hover:-translate-y-1.5 active:scale-95"
                             >
-                                <MessageCircle className="w-7 h-7" /> <T path="services.hero.btn">Заказать в Telegram</T>
+                                <MessageCircle className="w-7 h-7" /> {t('services.hero.btn', 'Заказать в Telegram')}
                             </Link>
                         </div>
                     </div>

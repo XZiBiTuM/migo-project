@@ -1,13 +1,11 @@
-"use client";
-
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, FileText, ChevronRight } from 'lucide-react';
-import { T, useLanguage } from '@/context/LanguageContext';
+import { getT } from '@/utils/translations.server';
 
-export default function ClientTerms() {
-  const { language, t } = useLanguage();
-  const lang = language.toLowerCase();
+export default function ClientTerms({ lang }: { lang: string }) {
+  const t = getT(lang);
+  const currentLang = lang.toLowerCase();
 
   return (
     <main className="pb-24 bg-[#F8FAFC] selection:bg-[#B8D430]/30 min-h-screen">
@@ -18,11 +16,11 @@ export default function ClientTerms() {
         </div>
 
         <div className="max-w-4xl mx-auto relative z-10">
-          <Link href={`/${lang}/`} className="group flex items-center gap-3 text-[#163A5C] font-black uppercase tracking-widest text-xs hover:text-[#2196D3] transition-colors mb-12">
+          <Link href={`/${currentLang}/`} className="group flex items-center gap-3 text-[#163A5C] font-black uppercase tracking-widest text-xs hover:text-[#2196D3] transition-colors mb-12">
             <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#1E58B1] group-hover:text-white transition-all">
               <ArrowLeft size={18} />
             </div>
-            <T path="terms.back_home">На главную</T>
+            {t('terms.back_home', 'На главную')}
           </Link>
 
           <div className="flex items-center gap-4 mb-8">
@@ -30,12 +28,12 @@ export default function ClientTerms() {
               <FileText size={32} />
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-[#163A5C] tracking-tight">
-              <T path="terms.title">Пользовательское соглашение</T>
+              {t('terms.title', 'Пользовательское соглашение')}
             </h1>
           </div>
 
           <p className="text-gray-400 font-medium text-lg max-w-2xl leading-relaxed">
-            <T path="terms.subtitle">Настоящее Пользовательское соглашение регулирует отношения между пользователем и сервисом MIGO (ООО «ПРМ») по использованию сайта и связанных с ним Telegram-ботов.</T>
+            {t('terms.subtitle', 'Настоящее Пользовательское соглашение регулирует отношения между пользователем и сервисом MIGO (ООО «ПРМ») по использованию сайта и связанных с ним Telegram-ботов.')}
           </p>
         </div>
       </section>
@@ -45,30 +43,30 @@ export default function ClientTerms() {
           <div className="space-y-12 text-gray-600 leading-relaxed font-medium text-lg">
 
             <Section title={t('terms.s1_title', '1. Предмет соглашения')}>
-              <T path="terms.s1_content">MIGO оказывает информационные и консультационные услуги, связанные с адаптацией, поиском работы, жилья и оформлением документов на территории РФ. Сервис не является государственным органом. Окончательное оформление всех документов производится в соответствующих уполномоченных организациях (ММЦ, МВД, банки и т.д.).</T>
+              {t('terms.s1_content', 'MIGO оказывает информационные и консультационные услуги, связанные с адаптацией, поиском работы, жилья и оформлением документов на территории РФ. Сервис не является государственным органом. Окончательное оформление всех документов производится в соответствующих уполномоченных организациях (ММЦ, МВД, банки и т.д.).')}
             </Section>
 
             <Section title={t('terms.s2_title', '2. Обязанности сторон')}>
               <ul className="space-y-4">
-                <ListItem><T path="terms.s2_list_1">Пользователь обязуется предоставлять достоверную информацию о себе при составлении заявок.</T></ListItem>
-                <ListItem><T path="terms.s2_list_2">MIGO обязуется предоставлять актуальную информацию и прилагать максимальные усилия для качественного консультирования пользователя.</T></ListItem>
+                <ListItem>{t('terms.s2_list_1', 'Пользователь обязуется предоставлять достоверную информацию о себе при составлении заявок.')}</ListItem>
+                <ListItem>{t('terms.s2_list_2', 'MIGO обязуется предоставлять актуальную информацию и прилагать максимальные усилия для качественного консультирования пользователя.')}</ListItem>
               </ul>
             </Section>
 
             <Section title={t('terms.s3_title', '3. Ограничение ответственности')}>
-              <T path="terms.s3_content">Сайт и предоставленная на нем информация носят ознакомительный характер и не являются публичной офертой. Администрация сервиса не несет ответственности за решения, принятые государственными органами в отношении пользователя (например, отказ в выдаче патента или регистрации), если они не зависят от действий сервиса.</T>
+              {t('terms.s3_content', 'Сайт и предоставленная на нем информация носят ознакомительный характер и не являются публичной офертой. Администрация сервиса не несет ответственности за решения, принятые государственными органами в отношении пользователя (например, отказ в выдаче патента или регистрации), если они не зависят от действий сервиса.')}
             </Section>
 
             <Section title={t('terms.s4_title', '4. Изменения условий')}>
-              <T path="terms.s4_content">Администрация оставляет за собой право вносить изменения в настоящее соглашение в любое время. Продолжение использования сайта после внесения изменений означает ваше согласие с новыми условиями.</T>
+              {t('terms.s4_content', 'Администрация оставляет за собой право вносить изменения в настоящее соглашение в любое время. Продолжение использования сайта после внесения изменений означает ваше согласие с новыми условиями.')}
             </Section>
 
           </div>
 
           <div className="mt-20 pt-10 border-t border-gray-100 flex items-center justify-between">
-            <div className="text-sm font-black text-[#163A5C] uppercase tracking-widest opacity-40"><T path="terms.updated">Редакция от 2026 года</T></div>
-            <Link href={`/${lang}/privacy`} className="flex items-center gap-2 text-[#2196D3] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform">
-              <T path="terms.privacy_link">Политика конфиденциальности</T> <ChevronRight size={16} />
+            <div className="text-sm font-black text-[#163A5C] uppercase tracking-widest opacity-40">{t('terms.updated', 'Редакция от 2026 года')}</div>
+            <Link href={`/${currentLang}/privacy`} className="flex items-center gap-2 text-[#2196D3] font-black text-xs uppercase tracking-widest hover:translate-x-2 transition-transform">
+              {t('terms.privacy_link', 'Политика конфиденциальности')} <ChevronRight size={16} />
             </Link>
           </div>
         </div>
